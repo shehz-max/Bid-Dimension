@@ -53,6 +53,11 @@ export const Footer: React.FC = () => {
                   MEP Engineering
                 </Link>
               </li>
+              <li>
+                <Link href="/services/estimation" className="hover:text-bd-blue transition-colors">
+                  Estimation Services
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -60,6 +65,21 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 flex flex-col gap-3">
             <h4 className="font-mono text-xs uppercase tracking-widest text-bd-blue font-semibold">Company</h4>
             <ul className="flex flex-col gap-2 text-sm text-bd-text-muted">
+              <li>
+                <Link href="/projects" className="hover:text-bd-blue transition-colors">
+                  Projects Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-bd-blue transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-bd-blue transition-colors">
+                  Technical Journal
+                </Link>
+              </li>
               <li>
                 <Link href="/#process" className="hover:text-bd-blue transition-colors">
                   Our Process
@@ -101,10 +121,17 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Copyright & Back to Top */}
+        {/* Bottom Copyright & Legal Links */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-bd-text-muted">
-          <div>
-            © {new Date().getFullYear()} Bid Dimensions. All rights reserved. Professional Engineering Solutions.
+          <div className="flex flex-wrap items-center gap-4">
+            <span>© {new Date().getFullYear()} Bid Dimensions. All rights reserved.</span>
+            <Link href="/privacy" className="hover:text-bd-blue transition-colors">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-bd-blue transition-colors">
+              Terms of Service
+            </Link>
           </div>
           <button
             onClick={scrollToTop}
