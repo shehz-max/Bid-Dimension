@@ -63,7 +63,7 @@ const ESTIMATION_SHEETS = [
     sheetNumber: 'EST-1.0',
     title: 'Itemized Material Quantity Takeoff Summary',
     category: 'Material & Labor Quantification',
-    image: '/images/hero-steel.webp',
+    image: '/images/est-hero-spec.jpg',
     highlights: [
       'CSI MasterFormat trade-by-trade breakdown',
       'Structural steel tonnage & rebar linear feet',
@@ -76,7 +76,7 @@ const ESTIMATION_SHEETS = [
     sheetNumber: 'EST-2.0',
     title: 'Color-Coded PlanSwift Drawing Markups',
     category: 'Plan Check & Takeoff Verification',
-    image: '/images/hero-steel.webp',
+    image: '/images/est-takeoff-spec.jpg',
     highlights: [
       'Exact area, linear footage & count verification',
       'Structural beam & slab volume color maps',
@@ -167,7 +167,7 @@ export default function EstimationServicesPage() {
         headline="Construction Cost Estimation & Takeoff Services"
         subheadline="Accurate, PlanSwift & RSMeans-backed material quantity takeoffs, structural steel cost analysis, and bid estimates delivered in 24 hours."
         cta={{ text: 'Request an Estimate Quote', href: '/contact' }}
-        image="/images/hero-steel.webp"
+        image="/images/est-hero-spec.jpg"
         hudBadge={{ label: 'ACCURACY RATE', spec: '99.4% // 24H TURNAROUND' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
@@ -208,14 +208,14 @@ export default function EstimationServicesPage() {
               <FadeInUp delay={0.3}>
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
                   <img
-                    src="/images/hero-steel.webp"
-                    alt="Structural steel estimation and quantity takeoff CAD drawing"
+                    src="/images/est-takeoff-spec.jpg"
+                    alt="PlanSwift material quantity takeoff summary dashboard"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
                   />
                   <div className="p-3 bg-bd-navy text-white font-mono text-xs flex justify-between items-center mt-2">
-                    <span>PLANSWIFT MATERIAL TAKEOFF</span>
+                    <span>PLANSWIFT MATERIAL TAKEOFF DASHBOARD</span>
                     <span className="text-bd-blue">99.4% ACCURACY</span>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function EstimationServicesPage() {
         </div>
       </section>
 
-      {/* Drawing Specimen Viewer */}
+      {/* Cad Drawing Specimen Viewer */}
       <CadDrawingViewer title="Takeoff & Estimation Specimen Package" sheets={ESTIMATION_SHEETS} />
 
       {/* Scope Package Calculator */}

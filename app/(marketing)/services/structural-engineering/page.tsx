@@ -1,19 +1,18 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Hero } from '@/components/organisms/Hero';
-import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
 import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
 import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
 import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
-import { ShieldAlert, Users, Phone } from 'lucide-react';
+import { HardHat, ShieldAlert, CheckCircle2, Phone, ShieldCheck, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'PE Stamped Structural Engineering Services | Bid Dimensions',
+  title: 'Licensed Structural Engineering Services | PE Stamped Plans | Bid Dimensions',
   description:
-    'Licensed PE structural engineering, foundation design, framing calculations, & stamped permit drawings for commercial & residential builds. Call (747) 223-7815.',
+    'Licensed PE structural engineering services for commercial & residential construction. Permit-ready foundation plans, framing calculations, & lateral seismic design.',
   alternates: {
     canonical: 'https://biddimensions.us/services/structural-engineering',
   },
@@ -25,42 +24,26 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What is included in structural engineering services?',
+      name: 'When is a PE stamp required for structural engineering?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Our structural engineering services include load calculations, foundation design, framing plans, reinforced concrete/steel details, lateral wind and seismic analysis, and PE-stamped construction documentation.',
+        text: 'A Professional Engineer (PE) stamp is required by municipal building departments for commercial new builds, structural wall removals, additions, retaining walls over 4ft, and seismic retrofits to ensure structural safety.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you provide PE-stamped drawings?',
+      name: 'What is included in a structural permit drawing set?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes, all our structural engineering drawings and calculations are reviewed, signed, and stamped by licensed Professional Engineers (PE).',
+        text: 'A complete structural permit set includes foundation plans, framing layouts, column and beam schedules, connection details, lateral load calculations, and General Structural Notes (GSN).',
       },
     },
     {
       '@type': 'Question',
-      name: 'How long does structural engineering take?',
+      name: 'What building codes do your structural calculations comply with?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Turnaround time typically ranges between 24 to 48 hours for standard residential and commercial projects, depending on project complexity.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What software do you use for structural analysis?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'We utilize industry-leading software including AutoCAD, Revit, ETABS, SAFE, Tekla Structures, and PlanSwift.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you work directly with my architect or general contractor?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Absolutely. We collaborate directly with architects, general contractors, developers, and property owners to ensure seamless coordination and 100% code compliance.',
+        text: 'Our calculations comply with IBC 2024, ASCE 7-22 seismic/wind provisions, ACI 318 for concrete, AISC 360 for steel, and NDS for timber construction.',
       },
     },
   ],
@@ -70,99 +53,80 @@ const STRUCTURAL_SHEETS = [
   {
     id: 'sheet-s1',
     sheetNumber: 'S-1.0',
-    title: 'Foundation Plan & Footing Specs',
-    category: 'Geotechnical & Concrete',
-    image: '/images/foundation-before-after.webp',
+    title: 'Reinforced Foundation & Footing Plan',
+    category: 'Substructure Engineering',
+    image: '/images/found-compare-spec.jpg',
     highlights: [
-      'Continuous footing & pier pad details',
-      'Soil bearing capacity load verification',
-      'Rebar reinforcement placement schedule',
-      'PE seal & signature block included',
+      'Engineered concrete pier & grade beam layout',
+      'Continuous wall footing rebar schedules',
+      'Soil bearing capacity load transfer details',
+      'PE stamp & city plan check approval block',
     ],
   },
   {
     id: 'sheet-s2',
     sheetNumber: 'S-2.0',
-    title: 'Superstructure Framing & Steel Beam Specs',
-    category: 'Steel & Structural Timber',
-    image: '/images/structural-detail.webp',
+    title: 'Structural Steel Framing & Beam Schedules',
+    category: 'Superstructure Engineering',
+    image: '/images/struct-hero-spec.jpg',
     highlights: [
-      'A992 W-shape steel beam sizing',
-      'Moment connection & gusset plate details',
-      'Lateral seismic shear wall schedule',
-      'Floor & roof joist span callouts',
+      'ASTM A992 steel column & I-beam framing grid',
+      'Moment connection FEA stress calculation notes',
+      'Lateral seismic shear wall tie-down specs',
+      'Anchor bolt & base plate elevation details',
     ],
   },
 ];
 
-const SCOPE_OPTIONS = [
+const STRUCTURAL_SCOPES = [
   {
-    id: 'commercial',
-    label: 'Commercial Multi-Story',
-    subtitle: 'Steel framing, concrete decks & seismic moment frames',
+    id: 'commercial-struct',
+    label: 'Commercial Multi-Story Structural Scope',
+    subtitle: 'Complete PE calculations, steel framing & foundation design',
     deliverables: [
-      'PE Structural Design Calculations',
-      'Foundation & Deep Pier Details',
-      'A992 Structural Steel Beam Schedule',
-      'Composite Deck & Concrete Specs',
-      'Seismic Lateral Load Analysis',
-      'General Structural Notes (GSN)',
+      'S-1.0 Concrete Foundation & Pier Layout',
+      'S-2.0 Superstructure Steel Framing Set',
+      'S-3.0 Structural Connection Schedules',
+      'FEA Seismic & Wind Load Calculation Book',
+      '50-State PE Stamp & Digital Signature',
+      '100% City Plan Check Support Guarantee',
     ],
-    turnaround: '24–48 Hours',
-    stampType: 'PE Stamped & Signed',
+    turnaround: '48 Hours',
+    stampType: 'PE Sealed (50 States)',
   },
   {
-    id: 'residential',
-    label: 'Custom Home & ADU',
-    subtitle: 'Wood framing, retaining walls & foundation footings',
+    id: 'residential-struct',
+    label: 'Custom Home & ADU Framing Scope',
+    subtitle: 'Timber framing, foundation & load-bearing wall removals',
     deliverables: [
-      'Foundation Plan & Rebar Details',
-      'Timber Framing & Truss Specs',
-      'Load-Bearing Wall Removal Calcs',
-      'Hold-Down & Shear Wall Schedule',
-      'Soil Bearing Evaluation Sheet',
-      'Permit Plan Check Set',
+      'S-1.0 Slab & Stem Wall Foundation Plan',
+      'S-2.0 Timber Floor & Roof Framing Layout',
+      'S-3.0 Load-Bearing Wall Removal Headers',
+      'Retaining Wall & Hillside Calculations',
+      'PE Stamp & City Plan Check Approval Set',
+      'Fast 24-48 Hour Delivery',
     ],
     turnaround: '24–36 Hours',
-    stampType: 'PE Stamped & Signed',
+    stampType: 'PE Sealed (50 States)',
   },
   {
-    id: 'retrofit',
-    label: 'Renovation & Seismic Retrofit',
-    subtitle: 'Structural wall removal & foundation strengthening',
+    id: 'retrofit-struct',
+    label: 'Seismic & Structural Retrofit Scope',
+    subtitle: 'Soft-story strengthening & shear wall tie-downs',
     deliverables: [
-      'Structural Inspection Report',
-      'I-Beam Replacement Calculations',
-      'Retaining Wall Reinforcement Details',
-      'Existing Structure Verification',
-      'PE Certification Letter',
-      'City Permit Submission Set',
+      'S-1.0 Existing Condition Audit Layout',
+      'S-2.0 Steel Moment Frame Upgrade Details',
+      'S-3.0 Plywood Shear Wall Nail Schedules',
+      'City Mandatory Ordinance Compliance',
+      'PE Seal & Calculation Binder',
+      'Contractor Construction Details',
     ],
     turnaround: '24 Hours',
-    stampType: 'PE Certified',
+    stampType: 'PE Sealed (50 States)',
   },
 ];
 
 export default function StructuralEngineeringPage() {
-  const audiences = [
-    {
-      title: 'Architects',
-      desc: 'We provide structural systems that integrate seamlessly with architectural designs while maintaining functionality, efficiency, and code compliance.',
-    },
-    {
-      title: 'General Contractors',
-      desc: 'Our engineering documentation supports efficient construction, reduces field conflicts, and simplifies project coordination throughout every stage of the build.',
-    },
-    {
-      title: 'Developers',
-      desc: 'We help optimize structural systems to improve constructability, maximize material efficiency, and support project budgets without compromising safety or performance.',
-    },
-    {
-      title: 'Property Owners',
-      desc: 'Whether constructing a new building, renovating an existing structure, or evaluating structural modifications, we provide engineering solutions tailored to your requirements.',
-    },
-  ];
-
   return (
     <div className="flex flex-col">
       <script
@@ -173,11 +137,11 @@ export default function StructuralEngineeringPage() {
       {/* Hero */}
       <Hero
         variant="page"
-        headline="PE-Stamped Structural Engineering Services"
-        subheadline="Licensed structural calculations, foundation design, and framing plans engineered to resolve field conflicts long before construction starts."
-        cta={{ text: 'Request a Structural Quote', href: '/contact' }}
-        image="/images/structural-detail.webp"
-        hudBadge={{ label: 'LOAD CAPACITY', spec: 'FEA VERIFIED // PE SEAL' }}
+        headline="Licensed Structural Engineering Services"
+        subheadline="Full-service PE-stamped structural calculations, foundation engineering, framing design, and seismic analysis delivered in 24–48 hours."
+        cta={{ text: 'Request Structural Quote', href: '/contact' }}
+        image="/images/struct-hero-spec.jpg"
+        hudBadge={{ label: 'STRUCTURAL FEA', spec: 'AISC 360 // PE SEALED' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/#services' },
@@ -185,30 +149,30 @@ export default function StructuralEngineeringPage() {
         ]}
       />
 
-      {/* 2. The Cost of Getting It Wrong */}
+      {/* Overview Section */}
       <section className="py-20 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 flex flex-col items-start">
               <FadeInUp>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
-                  <ShieldAlert className="w-4 h-4 text-red-500" />
-                  RISK MITIGATION
+                  <HardHat className="w-4 h-4 text-bd-blue" />
+                  PE STAMPED INTEGRITY
                 </span>
               </FadeInUp>
               <FadeInUp delay={0.15}>
                 <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-bd-charcoal mb-6">
-                  The Cost of Getting It Wrong
+                  Engineered Structural Safety for Commercial & Residential Builds
                 </h2>
               </FadeInUp>
               <FadeInUp delay={0.3}>
                 <p className="font-body text-base text-bd-gray leading-relaxed mb-6">
-                  Most structural issues don't begin during construction — they begin during design. An overlooked load path, an undersized foundation, or an uncoordinated connection detail can lead to costly revisions, project delays, and unexpected challenges in the field.
+                  Structural integrity is the backbone of any successful construction project. At Bid Dimensions, our licensed Professional Engineers (PE) evaluate vertical dead/live loads, lateral seismic forces, and soil bearing dynamics to produce code-compliant engineering calculations.
                 </p>
               </FadeInUp>
               <FadeInUp delay={0.45}>
                 <p className="font-body text-base text-bd-navy font-semibold leading-relaxed">
-                  Our engineering process identifies and resolves these issues early, delivering coordinated, code-compliant designs that keep construction moving with confidence.
+                  We guarantee 100% city plan check approval on every structural drawing package we seal — backed by 24 to 48 hour standard turnarounds.
                 </p>
               </FadeInUp>
             </div>
@@ -217,14 +181,14 @@ export default function StructuralEngineeringPage() {
               <FadeInUp delay={0.3}>
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
                   <img
-                    src="/images/foundation-before-after.webp"
-                    alt="Split technical illustration comparing failing foundation sketch versus engineered structural foundation detail"
+                    src="/images/found-compare-spec.jpg"
+                    alt="Engineered concrete foundation CAD drawing"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
                   />
                   <div className="p-3 bg-bd-navy text-white font-mono text-xs flex justify-between items-center mt-2">
-                    <span>ENGINEERED FOUNDATION SPEC</span>
+                    <span>ENGINEERED FOUNDATION SPECIMEN</span>
                     <span className="text-bd-blue">PE STAMPED</span>
                   </div>
                 </div>
@@ -234,53 +198,13 @@ export default function StructuralEngineeringPage() {
         </div>
       </section>
 
-      {/* 3. Interactive Drawing Sheet Viewer */}
-      <CadDrawingViewer title="Structural Drawing Sheet Specimen Package" sheets={STRUCTURAL_SHEETS} />
+      {/* Cad Drawing Specimen Viewer */}
+      <CadDrawingViewer title="Structural Engineering Drawing Package" sheets={STRUCTURAL_SHEETS} />
 
-      {/* 4. Scope Package Calculator */}
-      <ScopePackageCalculator title="Structural Scope & Deliverables Calculator" options={SCOPE_OPTIONS} />
+      {/* Scope Package Calculator */}
+      <ScopePackageCalculator title="Structural Scope & Package Calculator" options={STRUCTURAL_SCOPES} />
 
-      {/* 5. Who We Work With */}
-      <section className="py-20 bg-bd-surface-light text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-center text-center mb-16">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                PARTNERSHIPS
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
-                Who We Work With
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {audiences.map((aud) => (
-              <div
-                key={aud.title}
-                className="bg-white p-6 border border-gray-200 shadow-sm flex flex-col justify-between"
-              >
-                <div>
-                  <Users className="w-8 h-8 text-bd-blue mb-4" />
-                  <h3 className="font-display font-bold text-xl text-bd-navy mb-2">
-                    {aud.title}
-                  </h3>
-                  <p className="font-body text-xs text-bd-gray leading-relaxed">
-                    {aud.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* 6. Our Engineering Process (Vertical Timeline) */}
-      <ProcessTimeline variant="vertical" />
-
-      {/* 7. FAQ Accordion */}
+      {/* FAQ Accordion */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col items-start mb-12">
@@ -309,18 +233,18 @@ export default function StructuralEngineeringPage() {
         </div>
       </section>
 
-      {/* 8. CTA Banner */}
+      {/* CTA Banner */}
       <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
-            Get Structural Engineering You Can Trust
+            Need PE-Stamped Structural Drawings?
           </h2>
           <p className="font-body text-base text-bd-text-muted mb-8">
-            Upload your plans today for a fast 24–48h PE-stamped quote.
+            Upload your plans today for a fast 24h PE-stamped engineering proposal.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button variant="primary" size="lg" href="/contact">
-              Upload Your Plans for a Free Quote
+              Upload Plans for Structural Quote
             </Button>
             <a
               href="tel:7472237815"

@@ -41,7 +41,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     location: 'Los Angeles, CA',
     turnaround: '48 Hours',
     peStamp: true,
-    image: '/images/hero-finished-commercial.webp',
+    image: '/images/proj-tower-spec.jpg',
     summary:
       'Complete PE-stamped structural framing, lateral seismic analysis, and deep foundation pier engineering for a 6-story commercial development.',
     highlights: [
@@ -66,7 +66,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     location: 'Austin, TX',
     turnaround: '36 Hours',
     peStamp: true,
-    image: '/images/hero-finished-residential.webp',
+    image: '/images/proj-residence-spec.jpg',
     summary:
       'Full architectural permit set, Revit 3D BIM coordination, and structural retaining wall calculations for a steep-grade luxury custom home.',
     highlights: [
@@ -91,7 +91,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     location: 'Miami, FL',
     turnaround: '72 Hours',
     peStamp: true,
-    image: '/images/mep-coordination.webp',
+    image: '/images/proj-logistics-spec.jpg',
     summary:
       'Coordinated HVAC ductwork, high-capacity electrical single-line diagrams, and fire sprinkler protection for a distribution hub.',
     highlights: [
@@ -116,7 +116,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     location: 'Phoenix, AZ',
     turnaround: '24 Hours',
     peStamp: true,
-    image: '/images/hero-steel.webp',
+    image: '/images/est-hero-spec.jpg',
     summary:
       'Detailed material quantity takeoff, structural steel estimation, and timber framing cost analysis for a multi-family developer.',
     highlights: [

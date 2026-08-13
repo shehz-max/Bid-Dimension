@@ -1,19 +1,18 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Hero } from '@/components/organisms/Hero';
-import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
 import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
 import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
 import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
-import { Compass, Users, Phone } from 'lucide-react';
+import { Compass, CheckCircle2, Phone, ShieldCheck, Layers } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Permit-Ready Architectural Design Services | Bid Dimensions',
+  title: 'Architectural Design & Permit Drawings | Revit 3D BIM | Bid Dimensions',
   description:
-    'Full-service architectural design, Revit 3D BIM coordination, floor plans, & permit packages for developers & contractors. Get a 24h proposal.',
+    'Permit-ready architectural design services & Revit 3D BIM models. Dimensioned floor plans, building elevations, wall sections, & 24-48h turnaround.',
   alternates: {
     canonical: 'https://biddimensions.us/services/architectural-design',
   },
@@ -25,42 +24,26 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What is included in architectural design services?',
+      name: 'What sheets are included in an architectural permit package?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Architectural design services typically include concept development, floor plans, elevations, building sections, site plans, permit-ready drawings, code compliance reviews, and complete construction documentation.',
+        text: 'A full architectural permit package includes A-1.0 Site Plan, A-2.0 Dimensioned Floor Plans, A-3.0 Building Elevations, A-4.0 Wall Sections & Construction Details, and Door/Window Schedules.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Can you prepare drawings for permit submission?',
+      name: 'Do you create 3D Revit BIM models?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Our architectural designs are developed as permit-ready drawing packages in accordance with local building codes and jurisdictional requirements.',
+        text: 'Yes! All architectural projects are modeled in Autodesk Revit to produce 3D BIM representations and permit drawings with zero spatial clashes.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How do you coordinate with structural engineers?',
+      name: 'Are your architectural drawings city permit ready?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Our architectural team collaborates closely with structural engineers to deliver coordinated, code-compliant designs that improve constructability, reduce design conflicts, and support efficient project delivery.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you work on both residential and commercial projects?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'We design both residential projects (custom homes, ADUs, additions) and commercial projects (retail, office interiors, tenant improvements, and multi-family).',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What software do you use for architectural design?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'We leverage industry-leading software including AutoCAD, Autodesk Revit, SketchUp, and Enscape for accurate BIM coordination and visualization.',
+        text: 'Yes. Our architectural sets comply with local zoning, ADA accessibility standards, and building codes (IBC/IRC) for 100% city plan check approval.',
       },
     },
   ],
@@ -71,26 +54,26 @@ const ARCHITECTURAL_SHEETS = [
     id: 'sheet-a1',
     sheetNumber: 'A-1.0',
     title: 'Dimensioned Architectural Floor Plan',
-    category: 'Spatial Design & Code Compliance',
-    image: '/images/architectural-elevation.webp',
+    category: 'Interior Layout & ADA Compliance',
+    image: '/images/arch-hero-spec.jpg',
     highlights: [
-      'Exact room dimensions & floor-area ratios',
-      'ADA accessibility clearance callouts',
-      'Door & window schedules cross-referenced',
-      'Permit-ready city submittal format',
+      'Precision room dimensions & egress pathways',
+      'ADA accessibility clearances & door schedules',
+      'Reflected ceiling & lighting layout integration',
+      'City zoning setbacks & area calculation tables',
     ],
   },
   {
     id: 'sheet-a2',
     sheetNumber: 'A-2.0',
-    title: 'Exterior Building Elevations & Wall Sections',
-    category: 'Building Envelope & Finishes',
-    image: '/images/architectural-elevation.webp',
+    title: 'Building Elevations & Wall Assemblies',
+    category: 'Exterior Facade & Construction Details',
+    image: '/images/arch-elev-spec.jpg',
     highlights: [
-      'North, South, East, West facade views',
-      'Roof line & exterior finish callouts',
-      'Wall assembly insulation & shear specs',
-      'Reflected ceiling & lighting layout',
+      'North, South, East, West facade height callouts',
+      'Exterior finish materials & glazing schedules',
+      'Full-height wall assembly insulation sections',
+      'Parapet, flashing & roof waterproofing details',
     ],
   },
 ];
@@ -98,80 +81,52 @@ const ARCHITECTURAL_SHEETS = [
 const ARCHITECTURAL_SCOPES = [
   {
     id: 'commercial-arch',
-    label: 'Commercial & Multi-Family',
-    subtitle: 'Retail, office interiors & tenant improvements',
+    label: 'Commercial Architectural BIM Package',
+    subtitle: 'Full Revit 3D BIM model, floor plans, elevations & tenant improvement',
     deliverables: [
-      'Dimensioned Floor Plans & Reflected Ceiling Plans',
-      'Exterior Building Elevations & Cross-Sections',
-      'Door, Window & Hardware Schedules',
-      'ADA Compliance & Accessibility Details',
-      'Revit 3D BIM Coordination Set',
-      'City Permit Submission Package',
+      'A-1.0 Site Plan & Parking Stall Details',
+      'A-2.0 Dimensioned Architectural Floor Plans',
+      'A-3.0 Exterior Elevations & Finish Specs',
+      'A-4.0 Wall Sections & Egress Plans',
+      'Autodesk Revit 3D BIM Model (.RVT)',
+      'ADA Compliance & Zoning Clearance Set',
     ],
-    turnaround: '3–5 Days',
-    stampType: 'Permit Ready Set',
+    turnaround: '48 Hours',
+    stampType: 'Architectural Permit Set',
   },
   {
     id: 'residential-arch',
-    label: 'Custom Home & ADU Design',
-    subtitle: 'New custom residences, additions & ADUs',
+    label: 'Custom Home & ADU Architectural Set',
+    subtitle: 'Permit drawings for custom homes, additions & ADU builds',
     deliverables: [
-      'Conceptual Design & Floor Layouts',
-      'Site Plot Plan & Setback Verification',
-      'Roof Plan & Exterior Elevations',
-      'Wall Sections & Foundation Interface Details',
-      'Title 24 Energy Calculation Set',
-      'Permit Construction Documentation',
+      'A-1.0 Site Plan & Property Lines',
+      'A-2.0 Proposed Floor Plan & Room Sizes',
+      'A-3.0 Exterior Elevations (4 Views)',
+      'A-4.0 Roof Framing & Ceiling Details',
+      'Door & Window Energy Efficiency Schedules',
+      'Fast 24-48 Hour Turnaround',
     ],
-    turnaround: '3–4 Days',
-    stampType: 'Permit Ready Set',
+    turnaround: '24–36 Hours',
+    stampType: 'Architectural Permit Set',
   },
   {
-    id: 'ti-renovation',
-    label: 'Tenant Improvement (TI)',
-    subtitle: 'Interior fit-outs, space planning & remodels',
+    id: 'remodel-arch',
+    label: 'Renovation & Exterior Facade Scope',
+    subtitle: 'As-built documentation & exterior facade upgrades',
     deliverables: [
-      'As-Built Verification & Demo Plans',
-      'Proposed Partition & Seating Layouts',
-      'Reflected Ceiling & Lighting Plans',
-      'Egress & Occupancy Load Analysis',
-      'Interior Finish & Fixture Specs',
-      'City Building Department Package',
+      'A-1.0 Existing vs Proposed Layout Comparison',
+      'A-2.0 Demolition Floor Plan',
+      'A-3.0 Exterior Facade Elevation Details',
+      'Interior Joinery & Cabinetry Callouts',
+      'City Permit Submittal Drawings',
+      'Digital CAD & PDF Formats',
     ],
-    turnaround: '24–48 Hours',
-    stampType: 'Permit Ready Set',
+    turnaround: '24 Hours',
+    stampType: 'Architectural Permit Set',
   },
 ];
 
 export default function ArchitecturalDesignPage() {
-  const audiences = [
-    {
-      title: 'Developers',
-      desc: 'Require architectural designs that streamline permitting, support efficient project planning, and keep developments on schedule.',
-    },
-    {
-      title: 'Homeowners',
-      desc: 'Planning new homes, renovations, additions, or custom residences that require thoughtful, permit-ready, and code-compliant design.',
-    },
-    {
-      title: 'General Contractors',
-      desc: 'Need coordinated construction documents that minimize field conflicts and keep projects moving efficiently.',
-    },
-    {
-      title: 'Real Estate Investors',
-      desc: 'Need permit-ready designs for renovations, additions, adaptive reuse, and property improvements.',
-    },
-  ];
-
-  const processSteps = [
-    { number: '01', title: 'Project Consultation', description: 'Review project goals, site information, client requirements, and applicable building codes.', badge: 'GOALS & CODES' },
-    { number: '02', title: 'Concept Development', description: "Develop preliminary layouts and design concepts based on the project's functional requirements.", badge: 'CONCEPT SET' },
-    { number: '03', title: 'Design Development', description: 'Refine floor plans, elevations, sections, and architectural details for coordination and approval.', badge: 'REVIT MODEL' },
-    { number: '04', title: 'Design Coordination', description: 'Coordinate architectural drawings with structural and MEP disciplines to improve constructability.', badge: 'CLASH SYNC' },
-    { number: '05', title: 'Construction Documentation', description: 'Prepare detailed permit-ready drawings, schedules, notes, and technical documentation.', badge: 'PERMIT PACKAGE' },
-    { number: '06', title: 'Final Review & Delivery', description: 'Complete a comprehensive quality review before delivering the final drawing package.', badge: 'CITY SUBMITTAL' },
-  ];
-
   return (
     <div className="flex flex-col">
       <script
@@ -182,11 +137,11 @@ export default function ArchitecturalDesignPage() {
       {/* Hero */}
       <Hero
         variant="page"
-        headline="Permit-Ready Architectural Design & BIM Services"
-        subheadline="At Bid Dimensions, we craft architectural designs that balance functionality, aesthetics, and code compliance for residential, commercial, and tenant improvement builds."
-        cta={{ text: 'Start Your Architectural Project', href: '/contact' }}
-        image="/images/architectural-elevation.webp"
-        hudBadge={{ label: 'SPEC LEVEL', spec: 'REVIT 3D BIM // PERMIT READY' }}
+        headline="Architectural Design & Permit Drawings"
+        subheadline="Permit-ready architectural floor plans, exterior elevations, wall sections, and 3D Revit BIM modeling delivered in 24–48 hours."
+        cta={{ text: 'Request Architectural Proposal', href: '/contact' }}
+        image="/images/arch-hero-spec.jpg"
+        hudBadge={{ label: 'REVIT 3D BIM', spec: 'LOD 300 // PERMIT READY' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/#services' },
@@ -194,7 +149,7 @@ export default function ArchitecturalDesignPage() {
         ]}
       />
 
-      {/* 2. Overview Section */}
+      {/* Overview Section */}
       <section className="py-20 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -202,22 +157,22 @@ export default function ArchitecturalDesignPage() {
               <FadeInUp>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
                   <Compass className="w-4 h-4 text-bd-blue" />
-                  DESIGN EXCELLENCE
+                  CREATIVE PRECISION
                 </span>
               </FadeInUp>
               <FadeInUp delay={0.15}>
                 <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-bd-charcoal mb-6">
-                  Balancing Vision, Aesthetics, and Code Compliance
+                  Design Aesthetics Blended With Structural Feasibility
                 </h2>
               </FadeInUp>
               <FadeInUp delay={0.3}>
                 <p className="font-body text-base text-bd-gray leading-relaxed mb-6">
-                  At Bid Dimensions, we craft architectural designs that balance functionality, aesthetics, and code compliance. Whether you're pursuing new construction, a renovation, a tenant improvement, or a building addition, our team develops practical, tailored solutions that align with your vision and project goals.
+                  Great architecture must be visually inspiring — but it must also pass city plan checks and be structurally buildable. At Bid Dimensions, our architectural designers develop permit plans inside Autodesk Revit, ensuring seamless coordination with structural steel and MEP utility systems.
                 </p>
               </FadeInUp>
               <FadeInUp delay={0.45}>
                 <p className="font-body text-base text-bd-navy font-semibold leading-relaxed">
-                  From initial concept through permit-ready construction documents, we collaborate closely with clients to deliver coordinated architectural plans that streamline construction and support a smooth approval process.
+                  From commercial tenant improvements to custom residential luxury homes, we deliver complete permit-ready architectural packages in as little as 24 hours.
                 </p>
               </FadeInUp>
             </div>
@@ -226,15 +181,15 @@ export default function ArchitecturalDesignPage() {
               <FadeInUp delay={0.3}>
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
                   <img
-                    src="/images/architectural-elevation.webp"
-                    alt="Architectural elevation drawing showing modern building exterior line art"
+                    src="/images/arch-elev-spec.jpg"
+                    alt="Architectural CAD building elevation drawing"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
                   />
                   <div className="p-3 bg-bd-navy text-white font-mono text-xs flex justify-between items-center mt-2">
-                    <span>ARCHITECTURAL ELEVATION DRAWING</span>
-                    <span className="text-bd-blue">PERMIT READY</span>
+                    <span>ARCHITECTURAL ELEVATION CAD DRAWING</span>
+                    <span className="text-bd-blue">PERMIT APPROVED</span>
                   </div>
                 </div>
               </FadeInUp>
@@ -243,53 +198,13 @@ export default function ArchitecturalDesignPage() {
         </div>
       </section>
 
-      {/* 3. Interactive CAD Drawing Viewer */}
-      <CadDrawingViewer title="Architectural Specimen Drawing Package" sheets={ARCHITECTURAL_SHEETS} />
+      {/* Cad Drawing Specimen Viewer */}
+      <CadDrawingViewer title="Architectural Specimen Package" sheets={ARCHITECTURAL_SHEETS} />
 
-      {/* 4. Scope Package Calculator */}
-      <ScopePackageCalculator title="Architectural Scope & Deliverables Calculator" options={ARCHITECTURAL_SCOPES} />
+      {/* Scope Package Calculator */}
+      <ScopePackageCalculator title="Architectural Scope & Package Calculator" options={ARCHITECTURAL_SCOPES} />
 
-      {/* 5. Who We Work With */}
-      <section className="py-20 bg-bd-surface-light text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-center text-center mb-16">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                PARTNERSHIPS
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
-                Who We Work With
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {audiences.map((aud) => (
-              <div
-                key={aud.title}
-                className="bg-white p-6 border border-gray-200 shadow-sm flex flex-col justify-between"
-              >
-                <div>
-                  <Users className="w-8 h-8 text-bd-blue mb-4" />
-                  <h3 className="font-display font-bold text-xl text-bd-navy mb-2">
-                    {aud.title}
-                  </h3>
-                  <p className="font-body text-xs text-bd-gray leading-relaxed">
-                    {aud.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* 6. Process Timeline */}
-      <ProcessTimeline variant="vertical" steps={processSteps} />
-
-      {/* 7. FAQ Accordion */}
+      {/* FAQ Accordion */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col items-start mb-12">
@@ -318,18 +233,18 @@ export default function ArchitecturalDesignPage() {
         </div>
       </section>
 
-      {/* 8. CTA Banner */}
+      {/* CTA Banner */}
       <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
-            Turn Your Concept Into Permit-Ready Plans
+            Need Permit-Ready Architectural Plans?
           </h2>
           <p className="font-body text-base text-bd-text-muted mb-8">
-            Upload your project outline or preliminary sketches for an architectural estimate in 24h.
+            Upload your sketch or project notes today for a fast 24h proposal.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button variant="primary" size="lg" href="/contact">
-              Request Architectural Quote
+              Upload Sketch for Quote
             </Button>
             <a
               href="tel:7472237815"
