@@ -1,0 +1,234 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Menu, X, ChevronDown, Phone, HardHat, Compass, Cpu } from 'lucide-react';
+
+interface NavigationProps {
+  transparent?: boolean;
+}
+
+export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isTransparent = transparent && !scrolled && !mobileMenuOpen;
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        isTransparent ? 'bg-transparent' : 'bg-bd-navy-deep/95 backdrop-blur-md border-b border-bd-blue/20'
+      }`}
+    >
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+        {/* Official Transparent Logo */}
+        <Link href="/" className="flex items-center gap-3 group">
+          <img
+            src="/images/logo-dark-bg.png"
+            alt="Bid Dimensions Engineering Logo"
+            className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-bd-blue transition-colors">
+            BID DIMENSIONS
+          </span>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          {/* Services Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
+            <button className="flex items-center gap-1 text-bd-text-light hover:text-bd-blue py-2 transition-colors">
+              Services <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-bd-blue' : ''}`} />
+            </button>
+
+            {dropdownOpen && (
+              <div className="absolute top-full left-0 w-80 bg-bd-navy-deep/95 backdrop-blur-lg p-3 shadow-2xl border border-bd-blue/30 flex flex-col gap-1 z-50 rounded-none">
+                <Link
+                  href="/services/structural-engineering"
+                  className="group flex items-start gap-3 p-3 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                >
+                  <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all">
+                    <HardHat className="w-4 h-4" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display font-bold text-sm text-white group-hover:text-bd-blue transition-colors">
+                      Structural Engineering
+                    </span>
+                    <span className="font-body text-[11px] text-bd-text-muted">
+                      PE calculations, framing & foundations
+                    </span>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/services/architectural-design"
+                  className="group flex items-start gap-3 p-3 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                >
+                  <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all">
+                    <Compass className="w-4 h-4" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display font-bold text-sm text-white group-hover:text-bd-blue transition-colors">
+                      Architectural Design
+                    </span>
+                    <span className="font-body text-[11px] text-bd-text-muted">
+                      Permit floor plans & Revit 3D BIM
+                    </span>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/services/mep-engineering"
+                  className="group flex items-start gap-3 p-3 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                >
+                  <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all">
+                    <Cpu className="w-4 h-4" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display font-bold text-sm text-white group-hover:text-bd-blue transition-colors">
+                      MEP Engineering
+                    </span>
+                    <span className="font-body text-[11px] text-bd-text-muted">
+                      HVAC, electrical, plumbing & Title 24
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <Link href="/#process" className="text-bd-text-light hover:text-bd-blue transition-colors">
+            Process
+          </Link>
+          <Link href="/contact" className="text-bd-text-light hover:text-bd-blue transition-colors">
+            Contact
+          </Link>
+        </nav>
+
+        {/* Desktop CTA & Phone */}
+        <div className="hidden md:flex items-center gap-6">
+          <a
+            href="tel:7472237815"
+            className="flex items-center gap-2 text-sm font-mono text-bd-text-muted hover:text-bd-blue transition-colors group"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bd-blue opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-bd-blue"></span>
+            </span>
+            <Phone className="w-4 h-4 text-bd-blue group-hover:scale-110 transition-transform" />
+            <span>(747) 223-7815</span>
+          </a>
+          <Link
+            href="/contact"
+            className="px-5 py-2.5 bg-bd-navy hover:bg-bd-blue text-white font-display font-semibold text-sm transition-all shadow-glow-blue border border-bd-blue/40 hover:scale-105"
+          >
+            Get a Quote
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 text-bd-text-light hover:text-bd-blue"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+      </div>
+
+      {/* Mobile Fullscreen Overlay */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-20 bg-bd-navy-deep blueprint-grid z-40 p-8 flex flex-col justify-between overflow-y-auto">
+          <div className="flex flex-col gap-6">
+            <div className="text-bd-blue font-mono text-xs uppercase tracking-widest border-b border-bd-border-dark pb-2">
+              Navigation
+            </div>
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-2xl font-display font-bold text-white hover:text-bd-blue"
+            >
+              Home
+            </Link>
+            <div className="flex flex-col gap-3 pl-4 border-l border-bd-border-dark">
+              <span className="text-xs font-mono text-bd-text-muted uppercase">Services</span>
+              <Link
+                href="/services/structural-engineering"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+              >
+                <HardHat className="w-4 h-4 text-bd-blue" />
+                <span>Structural Engineering</span>
+              </Link>
+              <Link
+                href="/services/architectural-design"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+              >
+                <Compass className="w-4 h-4 text-bd-blue" />
+                <span>Architectural Design</span>
+              </Link>
+              <Link
+                href="/services/mep-engineering"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-lg text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+              >
+                <Cpu className="w-4 h-4 text-bd-blue" />
+                <span>MEP Engineering</span>
+              </Link>
+            </div>
+            <Link
+              href="/#process"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-2xl font-display font-bold text-white hover:text-bd-blue"
+            >
+              Process
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-2xl font-display font-bold text-white hover:text-bd-blue"
+            >
+              Contact
+            </Link>
+          </div>
+
+          <div className="pt-8 border-t border-bd-border-dark flex flex-col gap-4">
+            <a
+              href="tel:7472237815"
+              className="flex items-center gap-3 text-lg font-mono text-bd-blue"
+            >
+              <Phone className="w-5 h-5" />
+              (747) 223-7815
+            </a>
+            <Link
+              href="/contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-4 bg-bd-blue text-center text-white font-bold text-base shadow-glow-blue"
+            >
+              Get a Free Quote
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
+  );
+};
