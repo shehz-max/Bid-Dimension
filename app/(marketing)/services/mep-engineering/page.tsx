@@ -5,7 +5,9 @@ import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
-import { Cpu, CheckCircle2, Phone, Layers, ShieldCheck } from 'lucide-react';
+import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
+import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
+import { Cpu, Phone, ShieldCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Licensed MEP Engineering & Title 24 | Bid Dimensions',
@@ -63,22 +65,84 @@ const faqSchema = {
   ],
 };
 
-export default function MepEngineeringPage() {
-  const deliverables = [
-    'HVAC Plans & Equipment Layouts',
-    'Air Distribution & Ductwork Plans',
-    'Electrical Power & Lighting Plans',
-    'Single-Line Diagrams (SLD)',
-    'Panel Schedules & Load Calculations',
-    'Plumbing Plans & Piping Layouts',
-    'Water Supply & Drainage Systems',
-    'Fire Protection Coordination Details',
-    'Mechanical, Electrical & Plumbing Details',
-    'Equipment Schedules',
-    'MEP Coordination Drawings',
-    'Energy Compliance Documentation (Title 24)',
-  ];
+const MEP_SHEETS = [
+  {
+    id: 'sheet-m1',
+    sheetNumber: 'M-1.0',
+    title: 'HVAC Ductwork & Equipment Layout',
+    category: 'Mechanical Engineering',
+    image: '/images/mep-coordination.webp',
+    highlights: [
+      'CFM airflow distribution & TRACE 700 calcs',
+      'Rooftop unit (RTU) & VAV box placement',
+      'Acoustic sound attenuator duct specs',
+      'Title 24 mechanical compliance forms',
+    ],
+  },
+  {
+    id: 'sheet-e1',
+    sheetNumber: 'E-1.0',
+    title: 'Electrical Single-Line Diagram & Panel Schedule',
+    category: 'Electrical Engineering',
+    image: '/images/mep-coordination.webp',
+    highlights: [
+      'Main service panel SLD & breaker sizing',
+      'Photometric lighting foot-candle layouts',
+      'Short circuit & fault current evaluation',
+      'Utility service entrance coordination',
+    ],
+  },
+];
 
+const MEP_SCOPES = [
+  {
+    id: 'full-mep',
+    label: 'Full MEP Package (M + E + P)',
+    subtitle: 'Coordinated HVAC, Electrical & Plumbing drawings',
+    deliverables: [
+      'HVAC Ductwork & Equipment Layouts',
+      'Electrical Single-Line Diagram (SLD)',
+      'Panel Schedules & Short Circuit Calcs',
+      'Plumbing Supply, DWV & Gas Risers',
+      'Title 24 Energy Compliance Package',
+      '3D Revit MEP Clash Detection Model',
+    ],
+    turnaround: '48–72 Hours',
+    stampType: 'PE Stamped MEP Set',
+  },
+  {
+    id: 'title24-only',
+    label: 'Title 24 & Energy Compliance',
+    subtitle: 'California Energy Code compliance documentation',
+    deliverables: [
+      'Building Envelope Compliance (ENV)',
+      'Mechanical Energy Compliance (MECH)',
+      'Indoor & Outdoor Lighting Compliance (LTG)',
+      'Solar & Energy Storage Readiness',
+      'Certified Energy Inspector Seal',
+      'City Permit Submittal Set',
+    ],
+    turnaround: '24–36 Hours',
+    stampType: 'Certified Title 24',
+  },
+  {
+    id: 'hvac-electric',
+    label: 'HVAC & Electrical Only',
+    subtitle: 'Commercial tenant improvements & mechanical swaps',
+    deliverables: [
+      'HVAC Air Distribution & Duct Sizing',
+      'Thermal Heating & Cooling Load Reports',
+      'Electrical Lighting & Receptacle Layouts',
+      'Dedicated Equipment Power Circuits',
+      'Fire Protection Coordination Details',
+      'Permit Drawing Package',
+    ],
+    turnaround: '24–48 Hours',
+    stampType: 'PE Stamped Package',
+  },
+];
+
+export default function MepEngineeringPage() {
   const technologies = [
     { name: 'Autodesk Revit MEP', role: '3D BIM Multi-System Clash Detection' },
     { name: 'AutoCAD MEP', role: '2D Drafting & System Schematics' },
@@ -94,12 +158,14 @@ export default function MepEngineeringPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero (60vh) */}
+      {/* Hero */}
       <Hero
         variant="page"
         headline="Coordinated MEP Engineering & Energy Compliance"
         subheadline="At Bid Dimensions, we provide licensed MEP engineering services that deliver efficient, coordinated, and code-compliant mechanical, electrical, and plumbing designs."
         cta={{ text: 'Request MEP Engineering Quote', href: '/contact' }}
+        image="/images/mep-coordination.webp"
+        hudBadge={{ label: 'CLASH STATUS', spec: 'ZERO FIELD INTERFERENCE' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/#services' },
@@ -107,11 +173,10 @@ export default function MepEngineeringPage() {
         ]}
       />
 
-      {/* 2. Overview Section (2-column) */}
+      {/* 2. Overview Section */}
       <section className="py-20 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <FadeInUp>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
@@ -136,7 +201,6 @@ export default function MepEngineeringPage() {
               </FadeInUp>
             </div>
 
-            {/* Right Visual */}
             <div className="lg:col-span-6">
               <FadeInUp delay={0.3}>
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
@@ -158,7 +222,13 @@ export default function MepEngineeringPage() {
         </div>
       </section>
 
-      {/* 3. Design Technology Section */}
+      {/* 3. Interactive CAD Drawing Viewer */}
+      <CadDrawingViewer title="MEP Technical Specimen Package" sheets={MEP_SHEETS} />
+
+      {/* 4. Scope Package Calculator */}
+      <ScopePackageCalculator title="MEP Scope & Deliverables Calculator" options={MEP_SCOPES} />
+
+      {/* 5. Design Technology Section */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
@@ -195,38 +265,7 @@ export default function MepEngineeringPage() {
         </div>
       </section>
 
-      {/* 4. Project Deliverables */}
-      <section className="py-20 bg-white text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-start mb-12">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
-                <Layers className="w-4 h-4 text-bd-blue" />
-                SYSTEM DELIVERABLES
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
-                Project Deliverables
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {deliverables.map((item) => (
-              <div
-                key={item}
-                className="p-4 bg-bd-surface-light border border-gray-200 font-body text-sm font-semibold text-bd-navy flex items-center gap-3"
-              >
-                <CheckCircle2 className="w-5 h-5 text-bd-blue shrink-0" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* 5. FAQ Accordion */}
+      {/* 6. FAQ Accordion */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col items-start mb-12">
@@ -255,7 +294,7 @@ export default function MepEngineeringPage() {
         </div>
       </section>
 
-      {/* 6. CTA Banner */}
+      {/* 7. CTA Banner */}
       <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">

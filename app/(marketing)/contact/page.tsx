@@ -4,12 +4,12 @@ import { Hero } from '@/components/organisms/Hero';
 import { QuoteForm } from '@/components/organisms/QuoteForm';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
-import { Phone, Mail, Clock, ShieldCheck, FileCheck, Send, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, Clock, ShieldCheck, FileCheck, Send, CheckCircle2, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Get a Free Quote | Upload Your Plans',
+  title: 'Request a Free PE Engineering Proposal | Bid Dimensions',
   description:
-    'Upload your architectural or structural plans and receive a detailed engineering estimate within 24-48 hours. Structural, architectural, and MEP services.',
+    'Upload your CAD/PDF plans for a free 24-hour PE engineering proposal. Licensed in all 50 states for commercial & residential projects.',
   alternates: {
     canonical: 'https://biddimensions.us/contact',
   },
@@ -39,11 +39,12 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col">
-      {/* 1. Hero (50vh) */}
+      {/* 1. Hero */}
       <Hero
         variant="page"
-        headline="Get Your Free Quote"
+        headline="Request a Free PE Engineering Proposal"
         subheadline="Upload your project plans and receive a detailed, fixed-fee engineering proposal within 24 to 48 hours."
+        hudBadge={{ label: 'PROPOSAL RESPONSE', spec: 'GUARANTEED IN 24 HOURS' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Contact', href: '/contact' },
@@ -64,7 +65,7 @@ export default function ContactPage() {
               </FadeInUp>
 
               <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-3xl sm:text-4px text-white leading-tight">
+                <h2 className="font-display font-bold text-3xl sm:text-48px text-white leading-tight">
                   Direct Line to Engineering Leadership
                 </h2>
               </FadeInUp>
@@ -181,18 +182,26 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* 4. Service Area / Location */}
-      <section className="py-16 bg-white text-bd-charcoal border-t border-gray-200 text-center">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
-            NATIONWIDE COVERAGE
-          </span>
-          <h3 className="font-display font-bold text-2xl text-bd-navy mb-4">
-            Engineering Solutions Across All 50 States
+      {/* 4. Interactive Nationwide License Coverage Console */}
+      <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-white text-center">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-bd-blue/10 border border-bd-blue/30 font-mono text-xs text-bd-blue uppercase mb-4">
+            <MapPin className="w-4 h-4" />
+            <span>50-STATE PE LICENSE NETWORK</span>
+          </div>
+          <h3 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
+            Licensed Professional Engineers Across All 50 States
           </h3>
-          <p className="font-body text-sm text-bd-gray leading-relaxed">
-            Our multi-state PE network prepares permit drawings compliant with IBC, CBC, IRC, ASCE 7, and local city amendments nationwide.
+          <p className="font-body text-base text-bd-text-muted leading-relaxed mb-8 max-w-2xl mx-auto">
+            Our multi-state PE engineering network prepares permit drawings fully compliant with IBC, CBC, IRC, ASCE 7, Title 24, and local city amendments nationwide.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-xs text-bd-blue">
+            {['CALIFORNIA', 'TEXAS', 'FLORIDA', 'NEW YORK', 'ILLINOIS', 'GEORGIA', 'WASHINGTON', '+ 43 MORE STATES'].map((state) => (
+              <span key={state} className="px-3 py-1.5 bg-bd-navy border border-bd-blue/30">
+                ✓ {state}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </div>

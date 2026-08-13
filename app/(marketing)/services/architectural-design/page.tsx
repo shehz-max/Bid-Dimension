@@ -6,7 +6,9 @@ import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
-import { Compass, Users, CheckCircle2, Phone, Layers } from 'lucide-react';
+import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
+import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
+import { Compass, Users, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Permit-Ready Architectural Design Services | Bid Dimensions',
@@ -64,22 +66,84 @@ const faqSchema = {
   ],
 };
 
-export default function ArchitecturalDesignPage() {
-  const deliverables = [
-    'Floor Plans',
-    'Site Plans',
-    'Roof Plans',
-    'Exterior Elevations',
-    'Building Sections',
-    'Wall Sections',
-    'Door & Window Schedules',
-    'Finish Schedules',
-    'Reflected Ceiling Plans (RCP)',
-    'Architectural Details',
-    'Permit Sets',
-    'Construction Documents',
-  ];
+const ARCHITECTURAL_SHEETS = [
+  {
+    id: 'sheet-a1',
+    sheetNumber: 'A-1.0',
+    title: 'Dimensioned Architectural Floor Plan',
+    category: 'Spatial Design & Code Compliance',
+    image: '/images/architectural-elevation.webp',
+    highlights: [
+      'Exact room dimensions & floor-area ratios',
+      'ADA accessibility clearance callouts',
+      'Door & window schedules cross-referenced',
+      'Permit-ready city submittal format',
+    ],
+  },
+  {
+    id: 'sheet-a2',
+    sheetNumber: 'A-2.0',
+    title: 'Exterior Building Elevations & Wall Sections',
+    category: 'Building Envelope & Finishes',
+    image: '/images/architectural-elevation.webp',
+    highlights: [
+      'North, South, East, West facade views',
+      'Roof line & exterior finish callouts',
+      'Wall assembly insulation & shear specs',
+      'Reflected ceiling & lighting layout',
+    ],
+  },
+];
 
+const ARCHITECTURAL_SCOPES = [
+  {
+    id: 'commercial-arch',
+    label: 'Commercial & Multi-Family',
+    subtitle: 'Retail, office interiors & tenant improvements',
+    deliverables: [
+      'Dimensioned Floor Plans & Reflected Ceiling Plans',
+      'Exterior Building Elevations & Cross-Sections',
+      'Door, Window & Hardware Schedules',
+      'ADA Compliance & Accessibility Details',
+      'Revit 3D BIM Coordination Set',
+      'City Permit Submission Package',
+    ],
+    turnaround: '3–5 Days',
+    stampType: 'Permit Ready Set',
+  },
+  {
+    id: 'residential-arch',
+    label: 'Custom Home & ADU Design',
+    subtitle: 'New custom residences, additions & ADUs',
+    deliverables: [
+      'Conceptual Design & Floor Layouts',
+      'Site Plot Plan & Setback Verification',
+      'Roof Plan & Exterior Elevations',
+      'Wall Sections & Foundation Interface Details',
+      'Title 24 Energy Calculation Set',
+      'Permit Construction Documentation',
+    ],
+    turnaround: '3–4 Days',
+    stampType: 'Permit Ready Set',
+  },
+  {
+    id: 'ti-renovation',
+    label: 'Tenant Improvement (TI)',
+    subtitle: 'Interior fit-outs, space planning & remodels',
+    deliverables: [
+      'As-Built Verification & Demo Plans',
+      'Proposed Partition & Seating Layouts',
+      'Reflected Ceiling & Lighting Plans',
+      'Egress & Occupancy Load Analysis',
+      'Interior Finish & Fixture Specs',
+      'City Building Department Package',
+    ],
+    turnaround: '24–48 Hours',
+    stampType: 'Permit Ready Set',
+  },
+];
+
+export default function ArchitecturalDesignPage() {
   const audiences = [
     {
       title: 'Developers',
@@ -115,12 +179,14 @@ export default function ArchitecturalDesignPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero (60vh) */}
+      {/* Hero */}
       <Hero
         variant="page"
         headline="Permit-Ready Architectural Design & BIM Services"
         subheadline="At Bid Dimensions, we craft architectural designs that balance functionality, aesthetics, and code compliance for residential, commercial, and tenant improvement builds."
         cta={{ text: 'Start Your Architectural Project', href: '/contact' }}
+        image="/images/architectural-elevation.webp"
+        hudBadge={{ label: 'SPEC LEVEL', spec: 'REVIT 3D BIM // PERMIT READY' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/#services' },
@@ -128,11 +194,10 @@ export default function ArchitecturalDesignPage() {
         ]}
       />
 
-      {/* 2. Overview Section (2-column) */}
+      {/* 2. Overview Section */}
       <section className="py-20 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <FadeInUp>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
@@ -157,7 +222,6 @@ export default function ArchitecturalDesignPage() {
               </FadeInUp>
             </div>
 
-            {/* Right Visual */}
             <div className="lg:col-span-6">
               <FadeInUp delay={0.3}>
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
@@ -179,7 +243,13 @@ export default function ArchitecturalDesignPage() {
         </div>
       </section>
 
-      {/* 3. Who We Work With */}
+      {/* 3. Interactive CAD Drawing Viewer */}
+      <CadDrawingViewer title="Architectural Specimen Drawing Package" sheets={ARCHITECTURAL_SHEETS} />
+
+      {/* 4. Scope Package Calculator */}
+      <ScopePackageCalculator title="Architectural Scope & Deliverables Calculator" options={ARCHITECTURAL_SCOPES} />
+
+      {/* 5. Who We Work With */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
@@ -216,41 +286,10 @@ export default function ArchitecturalDesignPage() {
         </div>
       </section>
 
-      {/* 4. Process Timeline */}
+      {/* 6. Process Timeline */}
       <ProcessTimeline variant="vertical" steps={processSteps} />
 
-      {/* 5. Project Deliverables */}
-      <section className="py-20 bg-white text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-start mb-12">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
-                <Layers className="w-4 h-4 text-bd-blue" />
-                DRAWING SET
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
-                Project Deliverables
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {deliverables.map((item) => (
-              <div
-                key={item}
-                className="p-4 bg-bd-surface-light border border-gray-200 font-body text-sm font-semibold text-bd-navy flex items-center gap-3"
-              >
-                <CheckCircle2 className="w-5 h-5 text-bd-blue shrink-0" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* 6. FAQ Accordion */}
+      {/* 7. FAQ Accordion */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col items-start mb-12">
@@ -279,7 +318,7 @@ export default function ArchitecturalDesignPage() {
         </div>
       </section>
 
-      {/* 7. CTA Banner */}
+      {/* 8. CTA Banner */}
       <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">

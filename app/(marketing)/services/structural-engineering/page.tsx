@@ -6,7 +6,9 @@ import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
-import { ShieldAlert, Users, Layers, CheckCircle2, Phone } from 'lucide-react';
+import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
+import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
+import { ShieldAlert, Users, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'PE Stamped Structural Engineering Services | Bid Dimensions',
@@ -64,20 +66,84 @@ const faqSchema = {
   ],
 };
 
-export default function StructuralEngineeringPage() {
-  const deliverables = [
-    'Structural Design Calculations',
-    'Foundation Plans & Concrete Footing Details',
-    'Floor & Roof Framing Plans',
-    'Reinforced Concrete Details',
-    'Structural Steel Connection Details',
-    'Timber Framing & Truss Details',
-    'Beam & Column Schedules',
-    'Structural Sections & Details',
-    'General Structural Notes & Specifications',
-    'Engineering Reports & FEA Analysis',
-  ];
+const STRUCTURAL_SHEETS = [
+  {
+    id: 'sheet-s1',
+    sheetNumber: 'S-1.0',
+    title: 'Foundation Plan & Footing Specs',
+    category: 'Geotechnical & Concrete',
+    image: '/images/foundation-before-after.webp',
+    highlights: [
+      'Continuous footing & pier pad details',
+      'Soil bearing capacity load verification',
+      'Rebar reinforcement placement schedule',
+      'PE seal & signature block included',
+    ],
+  },
+  {
+    id: 'sheet-s2',
+    sheetNumber: 'S-2.0',
+    title: 'Superstructure Framing & Steel Beam Specs',
+    category: 'Steel & Structural Timber',
+    image: '/images/structural-detail.webp',
+    highlights: [
+      'A992 W-shape steel beam sizing',
+      'Moment connection & gusset plate details',
+      'Lateral seismic shear wall schedule',
+      'Floor & roof joist span callouts',
+    ],
+  },
+];
 
+const SCOPE_OPTIONS = [
+  {
+    id: 'commercial',
+    label: 'Commercial Multi-Story',
+    subtitle: 'Steel framing, concrete decks & seismic moment frames',
+    deliverables: [
+      'PE Structural Design Calculations',
+      'Foundation & Deep Pier Details',
+      'A992 Structural Steel Beam Schedule',
+      'Composite Deck & Concrete Specs',
+      'Seismic Lateral Load Analysis',
+      'General Structural Notes (GSN)',
+    ],
+    turnaround: '24–48 Hours',
+    stampType: 'PE Stamped & Signed',
+  },
+  {
+    id: 'residential',
+    label: 'Custom Home & ADU',
+    subtitle: 'Wood framing, retaining walls & foundation footings',
+    deliverables: [
+      'Foundation Plan & Rebar Details',
+      'Timber Framing & Truss Specs',
+      'Load-Bearing Wall Removal Calcs',
+      'Hold-Down & Shear Wall Schedule',
+      'Soil Bearing Evaluation Sheet',
+      'Permit Plan Check Set',
+    ],
+    turnaround: '24–36 Hours',
+    stampType: 'PE Stamped & Signed',
+  },
+  {
+    id: 'retrofit',
+    label: 'Renovation & Seismic Retrofit',
+    subtitle: 'Structural wall removal & foundation strengthening',
+    deliverables: [
+      'Structural Inspection Report',
+      'I-Beam Replacement Calculations',
+      'Retaining Wall Reinforcement Details',
+      'Existing Structure Verification',
+      'PE Certification Letter',
+      'City Permit Submission Set',
+    ],
+    turnaround: '24 Hours',
+    stampType: 'PE Certified',
+  },
+];
+
+export default function StructuralEngineeringPage() {
   const audiences = [
     {
       title: 'Architects',
@@ -104,12 +170,14 @@ export default function StructuralEngineeringPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero (60vh) */}
+      {/* Hero */}
       <Hero
         variant="page"
         headline="PE-Stamped Structural Engineering Services"
         subheadline="Licensed structural calculations, foundation design, and framing plans engineered to resolve field conflicts long before construction starts."
         cta={{ text: 'Request a Structural Quote', href: '/contact' }}
+        image="/images/structural-detail.webp"
+        hudBadge={{ label: 'LOAD CAPACITY', spec: 'FEA VERIFIED // PE SEAL' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/#services' },
@@ -117,11 +185,10 @@ export default function StructuralEngineeringPage() {
         ]}
       />
 
-      {/* 2. The Cost of Getting It Wrong (2-column) */}
+      {/* 2. The Cost of Getting It Wrong */}
       <section className="py-20 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
             <div className="lg:col-span-6 flex flex-col items-start">
               <FadeInUp>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
@@ -146,7 +213,6 @@ export default function StructuralEngineeringPage() {
               </FadeInUp>
             </div>
 
-            {/* Right Visual */}
             <div className="lg:col-span-6">
               <FadeInUp delay={0.3}>
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
@@ -168,7 +234,13 @@ export default function StructuralEngineeringPage() {
         </div>
       </section>
 
-      {/* 3. Who We Work With */}
+      {/* 3. Interactive Drawing Sheet Viewer */}
+      <CadDrawingViewer title="Structural Drawing Sheet Specimen Package" sheets={STRUCTURAL_SHEETS} />
+
+      {/* 4. Scope Package Calculator */}
+      <ScopePackageCalculator title="Structural Scope & Deliverables Calculator" options={SCOPE_OPTIONS} />
+
+      {/* 5. Who We Work With */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
@@ -205,41 +277,10 @@ export default function StructuralEngineeringPage() {
         </div>
       </section>
 
-      {/* 4. Our Engineering Process (Vertical Timeline) */}
+      {/* 6. Our Engineering Process (Vertical Timeline) */}
       <ProcessTimeline variant="vertical" />
 
-      {/* 5. Project Deliverables */}
-      <section className="py-20 bg-white text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-start mb-12">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
-                <Layers className="w-4 h-4 text-bd-blue" />
-                PACKAGE SCOPE
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
-                Project Deliverables
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {deliverables.map((item) => (
-              <div
-                key={item}
-                className="p-4 bg-bd-surface-light border border-gray-200 font-body text-sm font-semibold text-bd-navy flex items-center gap-3"
-              >
-                <CheckCircle2 className="w-5 h-5 text-bd-blue shrink-0" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* 6. FAQ Accordion */}
+      {/* 7. FAQ Accordion */}
       <section className="py-20 bg-bd-surface-light text-bd-charcoal">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col items-start mb-12">
@@ -268,7 +309,7 @@ export default function StructuralEngineeringPage() {
         </div>
       </section>
 
-      {/* 7. CTA Banner */}
+      {/* 8. CTA Banner */}
       <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
           <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
