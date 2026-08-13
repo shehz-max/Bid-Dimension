@@ -60,7 +60,6 @@ export const QuoteForm: React.FC = () => {
   const selectedService = watch('serviceType');
   const selectedProjectType = watch('projectType');
   const selectedContact = watch('preferredContact');
-  const selectedTimeline = watch('timeline');
 
   const handleNextStep = async () => {
     let isValid = false;
@@ -70,7 +69,7 @@ export const QuoteForm: React.FC = () => {
     } else if (step === 2) {
       isValid = await trigger(['location']);
     } else if (step === 3) {
-      isValid = true; // Files are optional but recommended
+      isValid = true;
     }
 
     if (isValid) {
@@ -115,17 +114,17 @@ export const QuoteForm: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <div className="glass-dark p-8 sm:p-12 text-center flex flex-col items-center justify-center border border-bd-blue/30 shadow-glow-blue">
-        <div className="w-16 h-16 bg-bd-blue/20 text-bd-blue rounded-full flex items-center justify-center mb-6">
-          <CheckCircle2 className="w-10 h-10" />
+      <div className="glass-dark p-6 sm:p-12 text-center flex flex-col items-center justify-center border border-bd-blue/30 shadow-glow-blue">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-bd-blue/20 text-bd-blue rounded-full flex items-center justify-center mb-5 sm:mb-6">
+          <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
         </div>
-        <h3 className="font-display font-bold text-3xl text-white mb-3">
+        <h3 className="font-display font-bold text-2xl sm:text-3xl text-white mb-3">
           Quote Request Received!
         </h3>
-        <p className="font-body text-base text-bd-text-muted max-w-md mb-8">
+        <p className="font-body text-sm sm:text-base text-bd-text-muted max-w-md mb-6 sm:mb-8">
           Thank you for choosing Bid Dimensions. Our engineering team is reviewing your plans and will respond with a detailed proposal within 24–48 hours.
         </p>
-        <div className="font-mono text-sm text-bd-blue border border-bd-blue/20 bg-bd-blue/10 px-4 py-2">
+        <div className="font-mono text-xs sm:text-sm text-bd-blue border border-bd-blue/20 bg-bd-blue/10 px-4 py-2">
           Urgent project? Call us directly: (747) 223-7815
         </div>
       </div>
@@ -135,18 +134,17 @@ export const QuoteForm: React.FC = () => {
   const stepsList = ['Service', 'Details', 'Upload Plans', 'Contact Info'];
 
   return (
-    <div className="glass-dark p-6 sm:p-10 border border-bd-blue/20 shadow-2xl relative">
+    <div className="glass-dark p-5 sm:p-10 border border-bd-blue/20 shadow-2xl relative">
       {/* Progress Bar Header */}
-      <div className="mb-8 border-b border-bd-border-dark pb-6">
-        <div className="flex items-center justify-between mb-4">
-          <span className="font-mono text-xs text-bd-blue uppercase tracking-widest">
+      <div className="mb-6 sm:mb-8 border-b border-bd-border-dark pb-5 sm:pb-6">
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-mono text-[11px] sm:text-xs text-bd-blue uppercase tracking-widest">
             Step {step} of 4 — {stepsList[step - 1]}
           </span>
-          <span className="font-mono text-xs text-bd-text-muted">
-            {Math.round((step / 4) * 100)}% Completed
+          <span className="font-mono text-[11px] sm:text-xs text-bd-text-muted">
+            {Math.round((step / 4) * 100)}%
           </span>
         </div>
-        {/* Progress track */}
         <div className="w-full h-1.5 bg-white/10 relative overflow-hidden">
           <motion.div
             className="h-full bg-bd-blue shadow-glow-blue"
@@ -167,13 +165,13 @@ export const QuoteForm: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.25 }}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-5 sm:gap-6"
             >
               <div>
                 <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-3">
                   1. Select Primary Engineering Service *
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                   {[
                     'Structural Engineering',
                     'Architectural Design',
@@ -185,14 +183,14 @@ export const QuoteForm: React.FC = () => {
                       key={service}
                       type="button"
                       onClick={() => setValue('serviceType', service)}
-                      className={`p-4 text-left font-display font-medium text-sm border transition-all flex items-center justify-between ${
+                      className={`p-3.5 sm:p-4 text-left font-display font-medium text-xs sm:text-sm border transition-all flex items-center justify-between ${
                         selectedService === service
                           ? 'border-bd-blue bg-bd-blue/20 text-white shadow-glow-blue'
                           : 'border-bd-blue/20 bg-white/5 text-bd-text-muted hover:border-bd-blue/50 hover:text-white'
                       }`}
                     >
                       <span>{service}</span>
-                      {selectedService === service && <Check className="w-4 h-4 text-bd-blue" />}
+                      {selectedService === service && <Check className="w-4 h-4 text-bd-blue shrink-0" />}
                     </button>
                   ))}
                 </div>
@@ -202,13 +200,13 @@ export const QuoteForm: React.FC = () => {
                 <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-3">
                   2. Select Project Type *
                 </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
                   {['New Construction', 'Renovation', 'Addition', 'Other'].map((type) => (
                     <button
                       key={type}
                       type="button"
                       onClick={() => setValue('projectType', type)}
-                      className={`p-3 text-center font-body text-xs border transition-all ${
+                      className={`p-2.5 sm:p-3 text-center font-body text-xs border transition-all ${
                         selectedProjectType === type
                           ? 'border-bd-blue bg-bd-blue/20 text-white font-semibold'
                           : 'border-bd-blue/20 bg-white/5 text-bd-text-muted hover:text-white'
@@ -230,7 +228,7 @@ export const QuoteForm: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.25 }}
-              className="flex flex-col gap-5"
+              className="flex flex-col gap-4 sm:gap-5"
             >
               <Input
                 label="Project Location (City, State or Address)"
@@ -291,7 +289,7 @@ export const QuoteForm: React.FC = () => {
               transition={{ duration: 0.25 }}
               className="flex flex-col gap-4"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <Input
                   label="Full Name"
                   placeholder="John Doe"
@@ -311,7 +309,7 @@ export const QuoteForm: React.FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <Input
                   label="Phone Number"
                   type="tel"
@@ -329,7 +327,7 @@ export const QuoteForm: React.FC = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
                 <div>
                   <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-2">
                     Preferred Contact Method
@@ -378,12 +376,12 @@ export const QuoteForm: React.FC = () => {
         </AnimatePresence>
 
         {/* Form Navigation Controls */}
-        <div className="flex items-center justify-between pt-8 mt-8 border-t border-bd-border-dark">
+        <div className="flex items-center justify-between pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-bd-border-dark">
           {step > 1 ? (
             <button
               type="button"
               onClick={handlePrevStep}
-              className="flex items-center gap-2 font-mono text-xs uppercase text-bd-text-muted hover:text-white transition-colors"
+              className="flex items-center gap-2 font-mono text-xs uppercase text-bd-text-muted hover:text-white transition-colors py-2 px-3"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Previous</span>
