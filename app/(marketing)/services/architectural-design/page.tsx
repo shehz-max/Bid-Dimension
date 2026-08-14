@@ -4,18 +4,56 @@ import { Hero } from '@/components/organisms/Hero';
 import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { StaggerContainer } from '@/components/animation/StaggerContainer';
 import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
 import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
-import { Compass, CheckCircle2, Phone, ShieldCheck, Layers } from 'lucide-react';
+import { Compass, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Architectural Design & Permit Drawings | Revit 3D BIM | Bid Dimensions',
   description:
     'Permit-ready architectural design services & Revit 3D BIM models. Dimensioned floor plans, building elevations, wall sections, & 24-48h turnaround.',
+  keywords: [
+    'architectural design services',
+    'Revit 3D BIM modeling',
+    'permit ready floor plans',
+    'building elevations',
+    'wall sections',
+    'ADA compliance drawings',
+  ],
   alternates: {
     canonical: 'https://biddimensions.us/services/architectural-design',
   },
+  openGraph: {
+    title: 'Architectural Design & Permit Drawings | Revit 3D BIM',
+    description:
+      'Permit-ready architectural floor plans, elevations, wall sections, and 3D Revit BIM modeling. 24-48h turnaround.',
+    url: 'https://biddimensions.us/services/architectural-design',
+    images: [{ url: '/images/arch-hero-spec.jpg', width: 1200, height: 630 }],
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://biddimensions.us' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://biddimensions.us/#services' },
+    { '@type': 'ListItem', position: 3, name: 'Architectural Design', item: 'https://biddimensions.us/services/architectural-design' },
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Architectural Design Services',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Bid Dimensions',
+    url: 'https://biddimensions.us',
+  },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  description:
+    'Permit-ready architectural floor plans, exterior elevations, wall sections, ADA compliance drawings, and Revit 3D BIM modeling.',
 };
 
 const faqSchema = {
@@ -131,6 +169,14 @@ export default function ArchitecturalDesignPage() {
     <div className="flex flex-col">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
@@ -182,7 +228,7 @@ export default function ArchitecturalDesignPage() {
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
                   <img
                     src="/images/arch-elev-spec.jpg"
-                    alt="Architectural CAD building elevation drawing"
+                    alt="High-definition 2D CAD architectural exterior building elevation drawing with material schedule"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"

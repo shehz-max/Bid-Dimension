@@ -4,18 +4,56 @@ import { Hero } from '@/components/organisms/Hero';
 import { FAQItem } from '@/components/molecules/FAQItem';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { StaggerContainer } from '@/components/animation/StaggerContainer';
 import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
 import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
-import { HardHat, ShieldAlert, CheckCircle2, Phone, ShieldCheck, Layers } from 'lucide-react';
+import { HardHat, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Licensed Structural Engineering Services | PE Stamped Plans | Bid Dimensions',
   description:
     'Licensed PE structural engineering services for commercial & residential construction. Permit-ready foundation plans, framing calculations, & lateral seismic design.',
+  keywords: [
+    'structural engineering services',
+    'PE stamped structural plans',
+    'licensed structural engineer',
+    'foundation engineering',
+    'framing plans',
+    'seismic load calculations',
+  ],
   alternates: {
     canonical: 'https://biddimensions.us/services/structural-engineering',
   },
+  openGraph: {
+    title: 'Licensed Structural Engineering Services | PE Stamped Plans',
+    description:
+      'Licensed PE structural engineering services for commercial & residential construction. 24-48h turnaround, 50-state coverage.',
+    url: 'https://biddimensions.us/services/structural-engineering',
+    images: [{ url: '/images/struct-hero-spec.jpg', width: 1200, height: 630 }],
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://biddimensions.us' },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://biddimensions.us/#services' },
+    { '@type': 'ListItem', position: 3, name: 'Structural Engineering', item: 'https://biddimensions.us/services/structural-engineering' },
+  ],
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Structural Engineering Services',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Bid Dimensions',
+    url: 'https://biddimensions.us',
+  },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  description:
+    'Full-service PE-stamped structural calculations, foundation design, steel framing, lateral seismic analysis, and city permit submittal sets.',
 };
 
 const faqSchema = {
@@ -131,6 +169,14 @@ export default function StructuralEngineeringPage() {
     <div className="flex flex-col">
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
@@ -182,7 +228,7 @@ export default function StructuralEngineeringPage() {
                 <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
                   <img
                     src="/images/found-compare-spec.jpg"
-                    alt="Engineered concrete foundation CAD drawing"
+                    alt="Engineered concrete foundation CAD drawing showing deep pile rebar schedule and soil bearing load lines"
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
