@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FileText, Eye, CheckCircle2, Maximize2 } from 'lucide-react';
+import { FileText, Eye, CheckCircle2, Maximize2, ShieldCheck } from 'lucide-react';
 
 export interface DrawingSheet {
   id: string;
@@ -23,7 +23,13 @@ export const CadDrawingViewer: React.FC<CadDrawingViewerProps> = ({
   sheets,
 }) => {
   const [activeSheetId, setActiveSheetId] = useState(sheets[0]?.id || '');
+  const [imgErrorMap, setImgErrorMap] = useState<Record<string, boolean>>({});
+
   const activeSheet = sheets.find((s) => s.id === activeSheetId) || sheets[0];
+
+  const handleImageError = (sheetId: string) => {
+    setImgErrorMap((prev) => ({ ...prev, [sheetId]: true }));
+  };
 
   return (
     <section className="py-16 sm:py-20 bg-bd-navy-deep blueprint-grid border-y border-bd-border-dark text-white relative overflow-hidden">
@@ -88,11 +94,28 @@ export const CadDrawingViewer: React.FC<CadDrawingViewerProps> = ({
                 transition={{ duration: 0.35, ease: 'easeOut' }}
                 className="w-full h-full flex items-center justify-center p-2"
               >
-                <img
-                  src={activeSheet.image}
-                  alt={`${activeSheet.title} technical drawing specimen`}
-                  className="max-h-[320px] sm:max-h-[420px] w-full object-contain filter contrast-105 brightness-105"
-                />
+                {imgErrorMap[activeSheet.id] ? (
+                  /* QA Fix 3: Graceful CAD Blueprint Fallback Graphic */
+                  <div className="w-full h-[280px] sm:h-[360px] bg-bd-navy-deep blueprint-grid border border-bd-blue/30 p-6 flex flex-col items-center justify-center text-center">
+                    <ShieldCheck className="w-12 h-12 text-bd-blue mb-3 animate-pulse" />
+                    <span className="font-mono text-xs font-bold text-bd-blue uppercase tracking-widest mb-1">
+                      DRAWING SHEET {activeSheet.sheetNumber}
+                    </span>
+                    <span className="font-display font-bold text-lg text-white mb-2">
+                      {activeSheet.title}
+                    </span>
+                    <span className="font-mono text-[10px] text-bd-text-muted">
+                      100% City Permit Approved Drawing Set • PE Seal Verified
+                    </span>
+                  </div>
+                ) : (
+                  <img
+                    src={activeSheet.image}
+                    alt={`${activeSheet.title} technical drawing specimen`}
+                    onError={() => handleImageError(activeSheet.id)}
+                    className="max-h-[320px] sm:max-h-[420px] w-full object-contain filter contrast-105 brightness-105"
+                  />
+                )}
               </motion.div>
             </AnimatePresence>
           </div>

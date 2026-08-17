@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X, ChevronDown, Phone, HardHat, Compass, Cpu, Calculator, FolderGit2, BookOpen, Info } from 'lucide-react';
 
@@ -12,6 +12,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,41 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close dropdown on click outside or Escape key press
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setDropdownOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  // Body scroll lock on mobile menu open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [mobileMenuOpen]);
 
   const isTransparent = transparent && !scrolled && !mobileMenuOpen;
 
@@ -51,18 +87,26 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
         <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
           {/* Services Dropdown */}
           <div
+            ref={dropdownRef}
             className="relative"
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <button className="flex items-center gap-1 text-bd-text-light hover:text-bd-blue py-2 transition-colors">
+            <button
+              onClick={() => setDropdownOpen((prev) => !prev)}
+              aria-expanded={dropdownOpen}
+              aria-haspopup="true"
+              aria-label="Toggle engineering services menu"
+              className="flex items-center gap-1 text-bd-text-light hover:text-bd-blue py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
+            >
               Services <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-bd-blue' : ''}`} />
             </button>
 
             {dropdownOpen && (
-              <div className="absolute top-full left-0 w-80 bg-bd-navy-deep/95 backdrop-blur-lg p-3 shadow-2xl border border-bd-blue/30 flex flex-col gap-1 z-50 rounded-none">
+              <div className="absolute top-full left-0 w-80 bg-bd-navy-deep/95 backdrop-blur-lg p-3 shadow-2xl border border-bd-blue/30 flex flex-col gap-1 z-50 rounded-none animate-in fade-in slide-in-from-top-2 duration-200">
                 <Link
                   href="/services/structural-engineering"
+                  onClick={() => setDropdownOpen(false)}
                   className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
@@ -80,6 +124,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
 
                 <Link
                   href="/services/architectural-design"
+                  onClick={() => setDropdownOpen(false)}
                   className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
@@ -97,6 +142,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
 
                 <Link
                   href="/services/mep-engineering"
+                  onClick={() => setDropdownOpen(false)}
                   className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
@@ -114,6 +160,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
 
                 <Link
                   href="/services/estimation"
+                  onClick={() => setDropdownOpen(false)}
                   className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
@@ -173,8 +220,9 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-bd-text-light hover:text-bd-blue"
-          aria-label="Toggle menu"
+          className="md:hidden p-2 text-bd-text-light hover:text-bd-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>

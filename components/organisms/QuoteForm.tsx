@@ -39,6 +39,7 @@ export const QuoteForm: React.FC = () => {
     setValue,
     watch,
     trigger,
+    reset,
     formState: { errors },
   } = useForm<QuoteFormData>({
     resolver: zodResolver(formSchema),
@@ -104,6 +105,9 @@ export const QuoteForm: React.FC = () => {
         throw new Error('Failed to submit quote request.');
       }
 
+      // QA Fix 2: Clear file state and form fields upon success
+      setUploadedFiles([]);
+      reset();
       setIsSubmitted(true);
     } catch (err: any) {
       setSubmitError(err.message || 'Something went wrong. Please try calling us at (747) 223-7815.');
@@ -124,9 +128,18 @@ export const QuoteForm: React.FC = () => {
         <p className="font-body text-sm sm:text-base text-bd-text-muted max-w-md mb-6 sm:mb-8">
           Thank you for choosing Bid Dimensions. Our engineering team is reviewing your plans and will respond with a detailed proposal within 24–48 hours.
         </p>
-        <div className="font-mono text-xs sm:text-sm text-bd-blue border border-bd-blue/20 bg-bd-blue/10 px-4 py-2">
+        <div className="font-mono text-xs sm:text-sm text-bd-blue border border-bd-blue/20 bg-bd-blue/10 px-4 py-2 mb-6">
           Urgent project? Call us directly: (747) 223-7815
         </div>
+        <button
+          onClick={() => {
+            setIsSubmitted(false);
+            setStep(1);
+          }}
+          className="font-mono text-xs text-bd-text-muted hover:text-white uppercase tracking-wider underline"
+        >
+          Submit another request
+        </button>
       </div>
     );
   }
