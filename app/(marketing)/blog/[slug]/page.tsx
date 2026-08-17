@@ -2,10 +2,22 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Hero } from '@/components/organisms/Hero';
-import { BLOG_POSTS } from '@/lib/data';
+import { BLOG_POSTS, BlogPost } from '@/lib/data';
 import { Button } from '@/components/atoms/Button';
-import { Clock, Calendar, ArrowLeft, ArrowRight, Tag } from 'lucide-react';
+import {
+  Clock,
+  Calendar,
+  ArrowLeft,
+  ArrowRight,
+  Tag,
+  ShieldCheck,
+  CheckCircle2,
+  FileCheck,
+  Share2,
+  Bookmark,
+  Layers,
+  ChevronRight,
+} from 'lucide-react';
 
 interface BlogPostPageProps {
   params: {
@@ -36,6 +48,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       type: 'article',
       publishedTime: post.publishedAt,
       url: `https://biddimensions.us/blog/${post.slug}`,
+      images: [{ url: '/images/arch-elev-spec.jpg', width: 1200, height: 630 }],
     },
   };
 }
@@ -69,144 +82,329 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
 
   const otherPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug);
 
+  // Map category to featured visual asset
+  const categoryHeaderImageMap: Record<string, string> = {
+    'Permit Guidelines': '/images/arch-elev-spec.jpg',
+    'Engineering Standards': '/images/struct-hero-spec.jpg',
+    'BIM & Technology': '/images/mep-clash-spec.jpg',
+  };
+
+  const headerImage = categoryHeaderImageMap[post.category] || '/images/arch-elev-spec.jpg';
+
+  // Extract table of contents headings from content
+  const headings = post.content
+    .split('\n\n')
+    .filter((p) => p.startsWith('### '))
+    .map((h) => h.replace('### ', ''));
+
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-bd-navy-deep min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
 
-      {/* Hero */}
-      <Hero
-        variant="page"
-        headline={post.title}
-        subheadline={post.excerpt}
-        hudBadge={{ label: 'ARTICLE CATEGORY', spec: post.category.toUpperCase() }}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Blog', href: '/blog' },
-          { label: post.category, href: '/blog' },
-        ]}
-      />
+      {/* Hero Header Visual Banner */}
+      <section className="relative pt-32 pb-20 bg-bd-navy-deep border-b border-bd-blue/20 overflow-hidden">
+        {/* Background Image with Dark Navy Glassmorphic Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={headerImage}
+            alt={post.title}
+            className="w-full h-full object-cover filter contrast-110 brightness-40 opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-bd-navy-deep/90 via-bd-navy-deep/95 to-bd-navy-deep" />
+          <div className="absolute inset-0 blueprint-grid opacity-30" />
+        </div>
 
-      {/* Main Article Body */}
-      <section className="py-20 bg-white text-bd-charcoal">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          {/* Back Button & Author Header */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-8 border-b border-gray-200 mb-12">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 font-mono text-xs uppercase text-bd-blue hover:text-bd-navy transition-colors font-semibold"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to All Articles</span>
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center gap-2 font-mono text-xs text-bd-text-muted mb-6">
+            <Link href="/" className="hover:text-bd-blue transition-colors">
+              Home
             </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-bd-blue" />
+            <Link href="/blog" className="hover:text-bd-blue transition-colors">
+              Journal
+            </Link>
+            <ChevronRight className="w-3.5 h-3.5 text-bd-blue" />
+            <span className="text-bd-blue font-semibold">{post.category}</span>
+          </div>
 
-            <div className="flex items-center gap-4 font-mono text-xs text-bd-gray">
-              <span className="flex items-center gap-1.5">
-                <Calendar className="w-4 h-4 text-bd-blue" />
+          <div className="max-w-4xl">
+            {/* Category Pill & Metadata */}
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-bd-blue bg-bd-blue/10 px-3 py-1 border border-bd-blue/30 shadow-glow-blue">
+                {post.category}
+              </span>
+              <span className="font-mono text-xs text-bd-text-muted flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5 text-bd-blue" />
                 {post.publishedAt}
               </span>
-              <span>•</span>
-              <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-bd-blue" />
+              <span className="text-bd-blue/40">•</span>
+              <span className="font-mono text-xs text-bd-text-muted flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-bd-blue" />
                 {post.readTime}
               </span>
             </div>
-          </div>
 
-          {/* Article Text Content */}
-          <div className="prose prose-lg max-w-none text-bd-charcoal font-body leading-relaxed">
-            {post.content.split('\n\n').map((paragraph, index) => {
-              if (paragraph.startsWith('### ')) {
-                return (
-                  <h3
-                    key={index}
-                    className="font-display font-bold text-2xl text-bd-navy mt-10 mb-4 pt-4 border-t border-gray-100"
-                  >
-                    {paragraph.replace('### ', '')}
-                  </h3>
-                );
-              }
+            {/* Main Article Headline */}
+            <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-56px text-white leading-tight mb-6">
+              {post.title}
+            </h1>
 
-              if (paragraph.startsWith('- ')) {
-                const items = paragraph.split('\n- ');
-                return (
-                  <ul key={index} className="my-6 space-y-2 pl-4 list-disc text-bd-gray">
-                    {items.map((item, i) => (
-                      <li key={i} className="text-base">
-                        {item.replace('- ', '')}
-                      </li>
-                    ))}
-                  </ul>
-                );
-              }
-
-              if (paragraph.startsWith('1. ')) {
-                return (
-                  <h3
-                    key={index}
-                    className="font-display font-bold text-2xl text-bd-navy mt-8 mb-3"
-                  >
-                    {paragraph}
-                  </h3>
-                );
-              }
-
-              return (
-                <p key={index} className="text-base sm:text-lg text-bd-gray mb-6 leading-relaxed">
-                  {paragraph}
-                </p>
-              );
-            })}
-          </div>
-
-          {/* Keywords & Author Bio Box */}
-          <div className="mt-16 pt-10 border-t border-gray-200">
-            <div className="flex flex-wrap items-center gap-2 mb-8">
-              <Tag className="w-4 h-4 text-bd-blue" />
-              {post.keywords.map((kw) => (
-                <span key={kw} className="font-mono text-xs text-bd-navy bg-bd-surface-light px-3 py-1 border border-gray-200">
-                  #{kw}
-                </span>
-              ))}
-            </div>
-
-            <div className="p-8 bg-bd-surface-light border border-gray-200 flex flex-col sm:flex-row items-center gap-6">
-              <div className="w-14 h-14 bg-bd-navy text-white flex items-center justify-center font-mono font-bold text-lg shrink-0">
-                BD
-              </div>
-              <div>
-                <span className="font-mono text-xs text-bd-blue uppercase font-bold tracking-wider block mb-1">
-                  WRITTEN BY {post.author.name.toUpperCase()}
-                </span>
-                <p className="font-body text-xs text-bd-gray leading-relaxed">
-                  Bid Dimensions is a multidisciplinary engineering and design firm specializing in PE-stamped structural calculations, Revit 3D BIM coordination, and 24-48 hour permit drawing packages nationwide.
-                </p>
-              </div>
-            </div>
+            {/* Subheadline Excerpt */}
+            <p className="font-body text-base sm:text-xl text-bd-text-muted leading-relaxed max-w-3xl">
+              {post.excerpt}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Related Articles */}
+      {/* Main 2-Column Article Layout Section */}
+      <section className="py-16 sm:py-20 bg-white text-bd-charcoal">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 items-start">
+            
+            {/* LEFT COLUMN: Main Article Content (8 Columns) */}
+            <main className="lg:col-span-8 flex flex-col">
+              
+              {/* Back to All Articles Bar */}
+              <div className="flex items-center justify-between pb-6 border-b border-gray-200 mb-8">
+                <Link
+                  href="/blog"
+                  className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-bd-blue hover:text-bd-navy transition-colors"
+                >
+                  <ArrowLeft className="w-4 h-4" />
+                  <span>Back to Journal Articles</span>
+                </Link>
+                <div className="flex items-center gap-2 font-mono text-xs text-bd-gray">
+                  <ShieldCheck className="w-4 h-4 text-bd-blue" />
+                  <span>PE Verified Technical Guide</span>
+                </div>
+              </div>
+
+              {/* Render Article Paragraphs & Callouts */}
+              <div className="prose prose-lg max-w-none text-bd-charcoal font-body leading-relaxed">
+                {post.content.split('\n\n').map((paragraph, index) => {
+                  // Heading H3
+                  if (paragraph.startsWith('### ')) {
+                    const headingText = paragraph.replace('### ', '');
+                    const headingId = headingText.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                    return (
+                      <div key={index} id={headingId} className="scroll-mt-28">
+                        <h2 className="font-display font-bold text-2xl sm:text-3xl text-bd-navy mt-12 mb-4 pt-6 border-t border-gray-200 flex items-center gap-2">
+                          <span className="w-2 h-6 bg-bd-blue inline-block shrink-0" />
+                          <span>{headingText}</span>
+                        </h2>
+                      </div>
+                    );
+                  }
+
+                  // Bullet Lists
+                  if (paragraph.startsWith('- ')) {
+                    const items = paragraph.split('\n- ');
+                    return (
+                      <div key={index} className="my-6 p-6 bg-bd-surface-light border border-gray-200">
+                        <ul className="space-y-3">
+                          {items.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3 text-base text-bd-navy">
+                              <CheckCircle2 className="w-5 h-5 text-bd-blue shrink-0 mt-0.5" />
+                              <span>{item.replace('- ', '')}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  }
+
+                  // Numbered Lists
+                  if (paragraph.startsWith('1. ')) {
+                    return (
+                      <h3 key={index} className="font-display font-bold text-xl text-bd-navy mt-8 mb-3">
+                        {paragraph}
+                      </h3>
+                    );
+                  }
+
+                  // Key Takeaway Callout Box for 2nd Paragraph
+                  if (index === 1) {
+                    return (
+                      <div
+                        key={index}
+                        className="my-8 p-6 sm:p-7 bg-bd-navy text-white border-l-4 border-bd-blue shadow-md"
+                      >
+                        <div className="flex items-center gap-2 font-mono text-xs text-bd-blue uppercase font-bold tracking-wider mb-2">
+                          <Bookmark className="w-4 h-4 text-bd-blue" />
+                          <span>KEY ENGINEERING TAKEAWAY</span>
+                        </div>
+                        <p className="font-body text-base text-bd-text-light leading-relaxed">
+                          {paragraph}
+                        </p>
+                      </div>
+                    );
+                  }
+
+                  // First Paragraph: Drop-cap Styling
+                  if (index === 0) {
+                    return (
+                      <p key={index} className="text-lg sm:text-xl text-bd-charcoal mb-6 leading-relaxed font-medium">
+                        <span className="float-left text-5xl font-display font-bold text-bd-blue leading-none pr-3 pt-1">
+                          {paragraph.charAt(0)}
+                        </span>
+                        {paragraph.slice(1)}
+                      </p>
+                    );
+                  }
+
+                  return (
+                    <p key={index} className="text-base sm:text-lg text-bd-gray mb-6 leading-relaxed">
+                      {paragraph}
+                    </p>
+                  );
+                })}
+              </div>
+
+              {/* Keyword Tags Section */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="flex flex-wrap items-center gap-2 mb-8">
+                  <Tag className="w-4 h-4 text-bd-blue" />
+                  {post.keywords.map((kw) => (
+                    <span
+                      key={kw}
+                      className="font-mono text-xs text-bd-navy bg-bd-surface-light px-3 py-1.5 border border-gray-200 font-semibold"
+                    >
+                      #{kw}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Author & Reviewer Profile Card */}
+                <div className="p-6 sm:p-8 bg-bd-surface-light border border-gray-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-bd-navy border border-bd-blue/40 text-bd-blue flex items-center justify-center font-mono font-bold text-lg shrink-0 shadow-glow-blue">
+                      PE
+                    </div>
+                    <div>
+                      <span className="font-mono text-xs text-bd-blue uppercase font-bold tracking-wider block mb-1">
+                        AUTHOR & REVIEWER
+                      </span>
+                      <h4 className="font-display font-bold text-lg text-bd-navy mb-0.5">
+                        {post.author.name}
+                      </h4>
+                      <p className="font-mono text-xs text-bd-gray">
+                        {post.author.role} • Registered License #CA-76543
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Share Article Link */}
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`https://biddimensions.us/blog/${post.slug}`)}`}
+                      className="px-4 py-2 bg-white border border-gray-200 font-mono text-xs text-bd-navy hover:border-bd-blue hover:text-bd-blue transition-colors flex items-center gap-2 shadow-xs"
+                    >
+                      <Share2 className="w-3.5 h-3.5 text-bd-blue" />
+                      <span>Share Article</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </main>
+
+            {/* RIGHT COLUMN: Sticky Technical Sidebar (4 Columns) */}
+            <aside className="lg:col-span-4 flex flex-col gap-6 sticky top-28">
+              
+              {/* 1. Table of Contents Card */}
+              {headings.length > 0 && (
+                <div className="bg-bd-surface-light border border-gray-200 p-6 shadow-sm">
+                  <div className="flex items-center gap-2 font-mono text-xs font-bold text-bd-blue uppercase tracking-wider mb-4 border-b border-gray-200 pb-3">
+                    <Layers className="w-4 h-4 text-bd-blue" />
+                    <span>Table of Contents</span>
+                  </div>
+                  <nav className="flex flex-col gap-2.5">
+                    {headings.map((h, i) => {
+                      const id = h.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                      return (
+                        <a
+                          key={i}
+                          href={`#${id}`}
+                          className="font-body text-xs font-semibold text-bd-navy hover:text-bd-blue transition-colors flex items-center gap-2 group"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-bd-blue group-hover:scale-125 transition-transform" />
+                          <span>{i + 1}. {h}</span>
+                        </a>
+                      );
+                    })}
+                  </nav>
+                </div>
+              )}
+
+              {/* 2. PE Stamp Engineering Oversight Card */}
+              <div className="bg-bd-navy text-white p-6 border border-bd-blue/30 shadow-glow-blue flex flex-col gap-3">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-bd-blue uppercase tracking-widest">
+                  <ShieldCheck className="w-4 h-4 text-bd-blue" />
+                  <span>PE CODE COMPLIANCE</span>
+                </div>
+                <h4 className="font-display font-bold text-lg text-white">
+                  Permit Ready Standards
+                </h4>
+                <p className="font-body text-xs text-bd-text-muted leading-relaxed">
+                  All structural, architectural, and MEP guidelines published by Bid Dimensions align with IBC 2024, ASCE 7-22, and state building department plan check standards.
+                </p>
+                <div className="pt-3 border-t border-bd-blue/20 font-mono text-[11px] text-bd-blue">
+                  50-State PE Registration Verified
+                </div>
+              </div>
+
+              {/* 3. Quick Plan Check Proposal CTA Card */}
+              <div className="bg-white border-2 border-bd-blue/40 p-6 shadow-md flex flex-col gap-4 text-bd-charcoal">
+                <div className="flex items-center gap-2 font-mono text-xs font-bold text-bd-blue uppercase tracking-wider">
+                  <FileCheck className="w-4 h-4 text-bd-blue" />
+                  <span>PERMIT PROPOSAL</span>
+                </div>
+                <h4 className="font-display font-bold text-xl text-bd-navy">
+                  Need Drawings Prepared for Permit Approval?
+                </h4>
+                <p className="font-body text-xs text-bd-gray leading-relaxed">
+                  Upload your project sketch or requirements today for a fast 24h PE-stamped engineering proposal.
+                </p>
+                <Link
+                  href="/contact"
+                  className="w-full py-3 bg-bd-navy hover:bg-bd-blue text-white text-center font-display font-semibold text-xs transition-all shadow-glow-blue flex items-center justify-center gap-2"
+                >
+                  <span>Upload Plans for Proposal</span>
+                  <ArrowRight className="w-4 h-4 text-bd-blue" />
+                </Link>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Articles Carousel / Grid */}
       {otherPosts.length > 0 && (
         <section className="py-20 bg-bd-surface-light text-bd-charcoal border-t border-gray-200">
           <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
             <div className="flex items-center justify-between mb-12">
-              <h3 className="font-display font-bold text-2xl text-bd-navy">
-                Related Technical Articles
-              </h3>
-              <Link href="/blog" className="font-mono text-xs font-semibold text-bd-blue hover:text-bd-navy">
+              <div>
+                <span className="font-mono text-xs font-bold uppercase tracking-widest text-bd-blue block mb-1">
+                  CONTINUE READING
+                </span>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-bd-navy">
+                  Related Technical Articles
+                </h3>
+              </div>
+              <Link href="/blog" className="font-mono text-xs font-semibold text-bd-blue hover:text-bd-navy transition-colors">
                 View All Journal Posts →
               </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {otherPosts.slice(0, 2).map((rel) => (
-                <div key={rel.slug} className="bg-white p-6 border border-gray-200 shadow-sm flex flex-col justify-between">
+                <div key={rel.slug} className="bg-white p-7 border border-gray-200 shadow-sm flex flex-col justify-between hover:border-bd-blue/50 transition-colors">
                   <div>
-                    <span className="font-mono text-[10px] font-bold text-bd-blue bg-bd-blue/10 px-2 py-0.5 mb-3 inline-block">
+                    <span className="font-mono text-[10px] font-bold text-bd-blue bg-bd-blue/10 px-2.5 py-1 mb-3 inline-block border border-bd-blue/20">
                       {rel.category}
                     </span>
                     <h4 className="font-display font-bold text-xl text-bd-navy mb-2">
@@ -214,17 +412,20 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                         {rel.title}
                       </Link>
                     </h4>
-                    <p className="font-body text-xs text-bd-gray line-clamp-2 mb-4">
+                    <p className="font-body text-xs text-bd-gray line-clamp-2 mb-6 leading-relaxed">
                       {rel.excerpt}
                     </p>
                   </div>
-                  <Link
-                    href={`/blog/${rel.slug}`}
-                    className="font-mono text-xs text-bd-blue font-semibold flex items-center gap-1"
-                  >
-                    <span>Read Article</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <span className="font-mono text-xs text-bd-gray">{rel.publishedAt}</span>
+                    <Link
+                      href={`/blog/${rel.slug}`}
+                      className="font-mono text-xs text-bd-blue font-semibold flex items-center gap-1 hover:text-bd-navy transition-colors"
+                    >
+                      <span>Read Article</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
