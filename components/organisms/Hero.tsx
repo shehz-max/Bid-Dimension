@@ -33,18 +33,19 @@ export const Hero: React.FC<HeroProps> = ({
   if (variant === 'homepage') {
     return (
       <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden">
-        {/* PrimeCost Style Architectural CAD Floor Plan Watermark Background Overlay */}
+        {/* Authentic Structural Engineering CAD Beam Grid Schematic Watermark Overlay */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <img
-            src="/images/primecost-cad-bg.jpg"
-            alt="Architectural CAD drawing blueprint background overlay"
-            className="w-full h-full object-cover opacity-08 filter invert contrast-125 mix-blend-screen"
+            src="/images/abstract-cad-grid-bg.jpg"
+            alt="Structural engineering CAD grid blueprint background overlay"
+            className="w-full h-full object-cover opacity-06 filter invert contrast-125 mix-blend-screen"
           />
+          {/* Subtle Radial Gradient Mask: Balanced Opacity for Pristine Legibility & Authentic CAD Feel */}
           <div
             className="absolute inset-0 z-0"
             style={{
               background:
-                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,0.95) 0%, rgba(11,27,46,0.8) 55%, rgba(11,27,46,0.4) 100%)',
+                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,0.95) 0%, rgba(11,27,46,0.78) 55%, rgba(11,27,46,0.35) 100%)',
             }}
           />
         </div>
@@ -108,10 +109,10 @@ export const Hero: React.FC<HeroProps> = ({
   // Service & Subpage Hero variant (55-60vh)
   return (
     <section className="relative pt-36 pb-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark overflow-hidden text-white">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-08 filter invert contrast-125 mix-blend-screen">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-06 filter invert contrast-125 mix-blend-screen">
         <img
-          src="/images/primecost-cad-bg.jpg"
-          alt="Architectural CAD floor plan background overlay"
+          src="/images/abstract-cad-grid-bg.jpg"
+          alt="Structural engineering CAD grid background overlay"
           className="w-full h-full object-cover"
         />
       </div>
