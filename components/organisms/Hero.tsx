@@ -32,26 +32,38 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   if (variant === 'homepage') {
     return (
-      <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden">
-        {/* Authentic Structural Engineering CAD Beam Grid Schematic Watermark Overlay */}
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <img
-            src="/images/abstract-cad-grid-bg.jpg"
-            alt="Structural engineering CAD grid blueprint background overlay"
-            className="w-full h-full object-cover opacity-06 filter invert contrast-125 mix-blend-screen"
-          />
-          {/* Subtle Radial Gradient Mask: Balanced Opacity for Pristine Legibility & Authentic CAD Feel */}
+      <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden text-white">
+        {/* Asymmetric Background Layer: Left 60% is 100% Pristine Solid Navy; Far Right Edge has Faint SVG Grid */}
+        <div className="absolute inset-x-0 top-28 bottom-0 pointer-events-none z-0">
           <div
             className="absolute inset-0 z-0"
             style={{
               background:
-                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,0.95) 0%, rgba(11,27,46,0.78) 55%, rgba(11,27,46,0.35) 100%)',
+                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,1) 0%, rgba(11,27,46,0.95) 55%, rgba(11,27,46,0.6) 100%)',
             }}
           />
+
+          {/* Faint Subtle SVG CAD Grid Lines on Far Right Edge Only */}
+          <svg className="w-full h-full absolute inset-0 opacity-[0.14]" fill="none">
+            <path d="M 700 80 L 1200 80" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="4 2" />
+            <text x="950" y="73" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="middle">
+              ELEVATION MARK: EL +36.00m
+            </text>
+
+            <path d="M 1180 120 L 1180 500" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="6 3" />
+            <text x="1170" y="310" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="end" transform="rotate(-90, 1170, 310)">
+              GRID-C // STRUCTURAL HEIGHT
+            </text>
+
+            <text x="70%" y="94%" fill="#4A8AB8" fontSize="11" fontFamily="JetBrains Mono" opacity="0.8">
+              CAD REF: BD-DWG-2026-US // SCALE 1:100 // PE APPROVED
+            </text>
+          </svg>
         </div>
 
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Zone 1: Left Content (60% Width - Sits on Pristine Solid Deep Navy Canvas) */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp delay={0.1}>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
@@ -89,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             </div>
 
-            {/* Seamless 3D Building Holographic Animation */}
+            {/* Zone 2: Right 3D BIM Stage (40% Width - Seamless 3D Animation, No Cards, No Blobs) */}
             <div className="lg:col-span-5 relative flex items-center justify-center w-full">
               <FadeInUp delay={0.4} className="w-full">
                 <HeroBuilding />
@@ -99,7 +111,7 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bd-text-muted z-10">
-          <span className="font-mono text-[11px] uppercase tracking-widest">Scroll</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest font-semibold">Scroll</span>
           <ArrowDown className="w-4 h-4 animate-scroll-bounce text-bd-blue" />
         </div>
       </section>
@@ -109,14 +121,6 @@ export const Hero: React.FC<HeroProps> = ({
   // Service & Subpage Hero variant (55-60vh)
   return (
     <section className="relative pt-36 pb-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark overflow-hidden text-white">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-06 filter invert contrast-125 mix-blend-screen">
-        <img
-          src="/images/abstract-cad-grid-bg.jpg"
-          alt="Structural engineering CAD grid background overlay"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col items-start">

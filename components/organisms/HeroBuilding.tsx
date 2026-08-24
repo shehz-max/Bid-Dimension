@@ -99,7 +99,7 @@ export const HeroBuilding: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 8, scale: 0.95 }}
           transition={{ duration: 0.4 }}
-          className="absolute top-2 right-2 z-30 bg-bd-navy/85 border border-bd-blue/30 backdrop-blur-md px-3 py-2 flex flex-col gap-0.5 text-right pointer-events-none shadow-glow-blue"
+          className="absolute top-2 right-2 z-30 bg-bd-navy/85 border border-bd-blue/30 backdrop-blur-md px-3.5 py-2 flex flex-col gap-0.5 text-right pointer-events-none shadow-glow-blue"
         >
           <div className="flex items-center justify-end gap-1.5 font-mono text-[10px] font-bold text-bd-blue tracking-widest uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-ping" />
