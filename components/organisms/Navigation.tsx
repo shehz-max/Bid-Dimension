@@ -76,9 +76,9 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
           <img
             src="/images/logo-dark-bg.png"
             alt="Bid Dimensions Engineering Logo"
-            className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_8px_rgba(74,138,184,0.3)]"
           />
-          <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-bd-blue transition-colors">
+          <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-bd-blue transition-colors">
             BID DIMENSIONS
           </span>
         </Link>
