@@ -78,16 +78,20 @@ export const HeroBuilding: React.FC = () => {
   const currentHud = HUD_LABELS[phase] || HUD_LABELS[0];
 
   return (
-    <div className="relative w-full max-w-[540px] aspect-square mx-auto select-none flex items-center justify-center">
-      {/* Problem 3 Fix: Dark radial blob removed completely! Clean ambient lighting glow */}
-      <div
-        className="absolute inset-0 pointer-events-none rounded-full opacity-30"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(74, 138, 184, 0.12) 0%, transparent 70%)',
-        }}
+    <div
+      className="relative w-full max-w-[540px] aspect-square mx-auto select-none flex items-center justify-center"
+      style={{ perspective: '1200px' }}
+    >
+      {/* Laser Blueprint Scanline Overlay */}
+      <motion.div
+        key={`scanline-${phase}`}
+        className="absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#4A8AB8] to-transparent z-30 pointer-events-none shadow-[0_0_15px_#4A8AB8]"
+        initial={{ top: '100%', opacity: 0 }}
+        animate={{ top: '0%', opacity: [0, 1, 1, 0] }}
+        transition={{ duration: 1.4, ease: 'easeInOut' }}
       />
 
-      {/* Clean Light HUD Badge Container */}
+      {/* Floating Holographic Top-Right HUD Badge */}
       <AnimatePresence mode="wait">
         <motion.div
           key={`hud-${phase}`}
@@ -95,13 +99,13 @@ export const HeroBuilding: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 8, scale: 0.95 }}
           transition={{ duration: 0.4 }}
-          className="absolute top-2 right-2 z-30 bg-bd-navy text-white border border-bd-blue/40 px-3.5 py-2 flex flex-col gap-0.5 text-right pointer-events-none shadow-xl"
+          className="absolute top-2 right-2 z-30 bg-bd-navy/85 border border-bd-blue/30 backdrop-blur-md px-3 py-2 flex flex-col gap-0.5 text-right pointer-events-none shadow-glow-blue"
         >
           <div className="flex items-center justify-end gap-1.5 font-mono text-[10px] font-bold text-bd-blue tracking-widest uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-ping" />
             <span>{currentHud.tag}</span>
           </div>
-          <span className="font-mono text-[9px] text-bd-text-muted opacity-90">
+          <span className="font-mono text-[9px] text-bd-text-muted opacity-80">
             {currentHud.detail}
           </span>
         </motion.div>
@@ -112,7 +116,6 @@ export const HeroBuilding: React.FC = () => {
         className="relative w-full h-full flex items-center justify-center"
         style={{
           transformStyle: 'preserve-3d',
-          perspective: '1200px',
           animation:
             'heroRotate 25s linear infinite, heroFloat 6s ease-in-out infinite',
         }}
@@ -141,7 +144,13 @@ export const HeroBuilding: React.FC = () => {
                 <img
                   src="/images/hero-wireframe.webp"
                   alt="3D Blueprint CAD Wireframe"
-                  className="w-full h-full object-contain filter contrast-110 drop-shadow-[0_20px_35px_rgba(11,27,46,0.18)]"
+                  className="w-full h-full object-contain mix-blend-screen drop-shadow-2xl"
+                  style={{
+                    maskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                    WebkitMaskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                  }}
                 />
               </motion.div>
             )}
@@ -159,7 +168,13 @@ export const HeroBuilding: React.FC = () => {
                 <img
                   src="/images/hero-foundation.webp"
                   alt="Concrete Foundation & Substructure"
-                  className="w-full h-full object-contain filter contrast-110 drop-shadow-[0_20px_35px_rgba(11,27,46,0.18)]"
+                  className="w-full h-full object-contain mix-blend-screen drop-shadow-2xl"
+                  style={{
+                    maskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                    WebkitMaskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                  }}
                 />
               </motion.div>
             )}
@@ -177,7 +192,13 @@ export const HeroBuilding: React.FC = () => {
                 <img
                   src="/images/hero-steel.webp"
                   alt="Structural Steel Framing"
-                  className="w-full h-full object-contain filter contrast-110 drop-shadow-[0_20px_35px_rgba(11,27,46,0.18)]"
+                  className="w-full h-full object-contain mix-blend-screen drop-shadow-2xl"
+                  style={{
+                    maskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                    WebkitMaskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                  }}
                 />
               </motion.div>
             )}
@@ -195,12 +216,18 @@ export const HeroBuilding: React.FC = () => {
                 <img
                   src="/images/hero-mep.webp"
                   alt="MEP Engineering Systems"
-                  className="w-full h-full object-contain filter contrast-110 drop-shadow-[0_20px_35px_rgba(11,27,46,0.18)]"
+                  className="w-full h-full object-contain mix-blend-screen drop-shadow-2xl"
+                  style={{
+                    maskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                    WebkitMaskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                  }}
                 />
               </motion.div>
             )}
 
-            {/* STAGE 4: Completed Building 3D Render */}
+            {/* STAGE 4: Completed Building 3D Render (Alternates Commercial & Residential) */}
             {phase === 4 && (
               <motion.div
                 key={isCommercial ? 'stage-4-commercial' : 'stage-4-residential'}
@@ -217,7 +244,13 @@ export const HeroBuilding: React.FC = () => {
                       : '/images/hero-finished-residential.webp'
                   }
                   alt={isCommercial ? 'Commercial Engineering Project' : 'Residential Engineering Project'}
-                  className="w-full h-full object-contain filter contrast-110 drop-shadow-[0_20px_35px_rgba(11,27,46,0.18)]"
+                  className="w-full h-full object-contain mix-blend-screen drop-shadow-2xl"
+                  style={{
+                    maskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                    WebkitMaskImage:
+                      'radial-gradient(circle at 50% 50%, black 55%, transparent 88%)',
+                  }}
                 />
 
                 {/* Alternating Project Type Badge */}
@@ -225,7 +258,7 @@ export const HeroBuilding: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.4 }}
-                  className="absolute bottom-2 left-2 px-3 py-1.5 bg-bd-navy/95 text-bd-blue border border-bd-blue/40 shadow-xl flex items-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-widest pointer-events-none"
+                  className="absolute bottom-4 left-4 px-3 py-1.5 bg-bd-navy/90 border border-bd-blue/40 shadow-glow-blue flex items-center gap-2 text-[11px] font-mono font-semibold text-bd-blue uppercase tracking-widest pointer-events-none"
                 >
                   <span className="w-2 h-2 rounded-full bg-bd-blue animate-pulse" />
                   <span>{isCommercial ? 'Commercial Project' : 'Residential Project'}</span>
