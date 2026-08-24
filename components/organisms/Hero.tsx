@@ -33,40 +33,20 @@ export const Hero: React.FC<HeroProps> = ({
   if (variant === 'homepage') {
     return (
       <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden">
-        {/* Subtle Minimalist CAD Vector Blueprint Grid Linework Overlay */}
-        <div className="absolute inset-x-0 top-28 bottom-0 pointer-events-none z-0 opacity-100">
+        {/* PrimeCost Style Architectural CAD Floor Plan Watermark Background Overlay */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <img
+            src="/images/primecost-cad-bg.jpg"
+            alt="Architectural CAD drawing blueprint background overlay"
+            className="w-full h-full object-cover opacity-08 filter invert contrast-125 mix-blend-screen"
+          />
           <div
             className="absolute inset-0 z-0"
             style={{
               background:
-                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,0.98) 0%, rgba(11,27,46,0.85) 50%, rgba(11,27,46,0.4) 100%)',
+                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,0.95) 0%, rgba(11,27,46,0.8) 55%, rgba(11,27,46,0.4) 100%)',
             }}
           />
-
-          <svg className="w-full h-full absolute inset-0 opacity-[0.16]" fill="none">
-            <path d="M 40 40 L 60 40 M 50 30 L 50 50" stroke="#4A8AB8" strokeWidth="1.5" />
-            <path d="M 40 300 L 60 300 M 50 290 L 50 310" stroke="#4A8AB8" strokeWidth="1.5" />
-            <path d="M 1200 40 L 1220 40 M 1210 30 L 1210 50" stroke="#4A8AB8" strokeWidth="1.5" />
-
-            <path d="M 100 45 L 450 45" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="4 2" />
-            <text x="245" y="38" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="middle">
-              DIM: 24,000mm // AXIS A-1
-            </text>
-
-            <path d="M 700 80 L 1150 80" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="4 2" />
-            <text x="925" y="73" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="middle">
-              ELEVATION MARK: EL +36.00m
-            </text>
-
-            <path d="M 1180 120 L 1180 500" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="6 3" />
-            <text x="1170" y="310" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="end" transform="rotate(-90, 1170, 310)">
-              GRID-C // STRUCTURAL HEIGHT
-            </text>
-
-            <text x="50" y="94%" fill="#4A8AB8" fontSize="11" fontFamily="JetBrains Mono" opacity="0.8">
-              CAD REF: BD-DWG-2026-US // SCALE 1:100 // PE APPROVED
-            </text>
-          </svg>
         </div>
 
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
@@ -128,6 +108,14 @@ export const Hero: React.FC<HeroProps> = ({
   // Service & Subpage Hero variant (55-60vh)
   return (
     <section className="relative pt-36 pb-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark overflow-hidden text-white">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-08 filter invert contrast-125 mix-blend-screen">
+        <img
+          src="/images/primecost-cad-bg.jpg"
+          alt="Architectural CAD floor plan background overlay"
+          className="w-full h-full object-cover"
+        />
+      </div>
+
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col items-start">
