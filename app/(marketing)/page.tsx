@@ -31,7 +31,7 @@ const TOOLS_SUITE = [
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* 1. Hero Section (100vh) */}
+      {/* 1. Off-White Hero Section with PrimeCost CAD Blueprint Overlay & Dark 3D Viewport */}
       <Hero
         variant="homepage"
         label="END-TO-END ENGINEERING & DESIGN"
@@ -39,16 +39,9 @@ export default function HomePage() {
         subheadline="Licensed structural engineering, multidisciplinary design, and permit-ready documentation for projects that stand the test of time."
         cta={{ text: 'Get a Free Quote', href: '/contact' }}
         secondaryCta={{ text: 'Our Process', href: '#process' }}
-        image="/images/hero-isometric.webp"
       />
 
-      {/* 2. Services Preview (3-Column Grid + Scope Tags & Blueprint Grid Hover) */}
-      <ServicesGrid />
-
-      {/* 3. Process Timeline (Horizontal 6 Steps + CAD Pipeline Line & Deliverable Badges) */}
-      <ProcessTimeline variant="horizontal" />
-
-      {/* 4. High-Tech Glass Key Stats Bar (Dark Navy Console) */}
+      {/* 2. High-Contrast Key Stats Console (Deep Navy Section for instant dark contrast!) */}
       <section className="py-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark text-white relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="bg-bd-navy/80 border border-bd-blue/30 backdrop-blur-md p-8 md:p-12 shadow-glow-blue">
@@ -85,7 +78,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Software & Certifications (White bg + Interactive Capability Badges) */}
+      {/* 3. Services Preview (3-Column Grid on Crisp Bright White Background) */}
+      <ServicesGrid />
+
+      {/* 4. Process Timeline (Horizontal 6 Steps in Technical Dark Navy Blueprint) */}
+      <ProcessTimeline variant="horizontal" />
+
+      {/* 5. Software & Certifications (Crisp White Background) */}
       <section className="py-24 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
@@ -139,7 +138,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Testimonials (Client Reviews) */}
+      {/* 6. Testimonials (Client Reviews on Off-White Surface) */}
       <section className="py-24 sm:py-32 bg-bd-surface-light text-bd-charcoal border-t border-gray-200">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
@@ -178,7 +177,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Enhanced Final CTA Banner with Interactive Plan Upload Teaser & Quick Action Cards */}
+      {/* 7. Final CTA Banner (Technical Deep Navy Finish) */}
       <section className="py-24 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark relative overflow-hidden text-white">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

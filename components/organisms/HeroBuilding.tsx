@@ -78,10 +78,16 @@ export const HeroBuilding: React.FC = () => {
   const currentHud = HUD_LABELS[phase] || HUD_LABELS[0];
 
   return (
-    <div
-      className="relative w-full max-w-[540px] aspect-square mx-auto select-none flex items-center justify-center"
-      style={{ perspective: '1200px' }}
-    >
+    <div className="relative w-full max-w-[540px] aspect-square mx-auto select-none bg-bd-navy-deep/95 border border-bd-blue/40 shadow-2xl p-2 sm:p-4 blueprint-grid">
+      {/* Viewport Frame Header Bar */}
+      <div className="absolute top-2 left-3 right-3 flex items-center justify-between z-30 pointer-events-none pb-2 border-b border-bd-blue/20">
+        <div className="flex items-center gap-2 font-mono text-[9px] sm:text-[10px] text-bd-blue uppercase tracking-widest">
+          <span className="w-2 h-2 rounded-full bg-bd-blue animate-pulse" />
+          <span>REVIT 3D VIEWPORT // LOD 300</span>
+        </div>
+        <span className="font-mono text-[9px] text-bd-text-muted">SCALE 1:100</span>
+      </div>
+
       {/* Laser Blueprint Scanline Overlay */}
       <motion.div
         key={`scanline-${phase}`}
@@ -99,7 +105,7 @@ export const HeroBuilding: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 8, scale: 0.95 }}
           transition={{ duration: 0.4 }}
-          className="absolute top-2 right-2 z-30 bg-bd-navy/85 border border-bd-blue/30 backdrop-blur-md px-3 py-2 flex flex-col gap-0.5 text-right pointer-events-none shadow-glow-blue"
+          className="absolute top-10 right-3 z-30 bg-bd-navy/90 border border-bd-blue/40 backdrop-blur-md px-3 py-1.5 flex flex-col gap-0.5 text-right pointer-events-none shadow-glow-blue"
         >
           <div className="flex items-center justify-end gap-1.5 font-mono text-[10px] font-bold text-bd-blue tracking-widest uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-ping" />
@@ -113,9 +119,10 @@ export const HeroBuilding: React.FC = () => {
 
       {/* Infinite 3D Rotation + Floating Ambient Wrapper */}
       <div
-        className="relative w-full h-full flex items-center justify-center"
+        className="relative w-full h-full flex items-center justify-center pt-6"
         style={{
           transformStyle: 'preserve-3d',
+          perspective: '1200px',
           animation:
             'heroRotate 25s linear infinite, heroFloat 6s ease-in-out infinite',
         }}
@@ -266,25 +273,6 @@ export const HeroBuilding: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
-
-          {/* Blueprint Ghost Overlay — OUTSIDE AnimatePresence (Visible only in Stage 4) */}
-          {phase === 4 && (
-            <motion.div
-              key="ghost-overlay"
-              className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.08 }}
-              transition={{ duration: 1.5, delay: 0.3 }}
-            >
-              <svg viewBox="0 0 400 400" className="w-full h-full" fill="none">
-                <path
-                  d="M50,300 L200,350 L350,300 L350,110 L200,50 L50,110 Z M200,350 L200,50 M50,110 L200,160 L350,110 M70,220 L200,270 L330,220 M70,165 L200,215 L330,165 M100,280 L100,135 M300,280 L300,135"
-                  stroke="#4A8AB8"
-                  strokeWidth="1.2"
-                />
-              </svg>
-            </motion.div>
-          )}
         </div>
       </div>
     </div>
