@@ -33,18 +33,25 @@ export const Hero: React.FC<HeroProps> = ({
   if (variant === 'homepage') {
     return (
       <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-[#F4F7FA] overflow-hidden border-b border-gray-200">
-        {/* Authentic PrimeCost Architectural CAD Floor Plan Watermark Background Overlay */}
+        {/* Subtle CAD Floorplan Watermark (Masked on Left Side so Content sits on Pristine Solid Off-White Canvas) */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <img
             src="/images/primecost-cad-bg.jpg"
-            alt="Architectural CAD floor plan background watermark overlay"
-            className="w-full h-full object-cover mix-blend-multiply opacity-12 filter contrast-125"
+            alt="Architectural CAD floor plan background watermark"
+            className="w-full h-full object-cover mix-blend-multiply opacity-05 filter contrast-125"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F4F7FA]/90 via-[#F4F7FA]/75 to-transparent" />
+          {/* Gradient Mask: Guarantees 100% solid pristine off-white behind headline & text content */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'linear-gradient(to right, #F4F7FA 0%, #F4F7FA 55%, rgba(244, 247, 250, 0.4) 80%, transparent 100%)',
+            }}
+          />
         </div>
 
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left Content Column (Sits on Pristine Solid Canvas) */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp delay={0.1}>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
@@ -85,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             </div>
 
-            {/* Seamless 3D Building Animation (Directly Indulged in Hero Space, Card Box Removed) */}
+            {/* Seamless 3D Building Animation (Card Box Removed) */}
             <div className="lg:col-span-5 relative flex items-center justify-center w-full">
               <FadeInUp delay={0.4} className="w-full">
                 <HeroBuilding />
@@ -95,22 +102,27 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bd-gray z-10">
-          <span className="font-mono text-[11px] uppercase tracking-widest">Scroll</span>
+          <span className="font-mono text-[11px] uppercase tracking-widest font-semibold">Scroll</span>
           <ArrowDown className="w-4 h-4 animate-scroll-bounce text-bd-blue" />
         </div>
       </section>
     );
   }
 
-  // Service & Subpage Hero variant (55-60vh) with off-white background and primecost CAD watermark
+  // Service & Subpage Hero variant
   return (
     <section className="relative pt-36 pb-20 bg-[#F4F7FA] border-b border-gray-200 overflow-hidden">
-      {/* Subpage CAD Blueprint Background Overlay */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-12 mix-blend-multiply">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-05 mix-blend-multiply">
         <img
           src="/images/primecost-cad-bg.jpg"
-          alt="Architectural CAD floor plan background overlay"
+          alt="Architectural CAD floor plan background watermark"
           className="w-full h-full object-cover filter contrast-125"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, #F4F7FA 0%, #F4F7FA 55%, transparent 100%)',
+          }}
         />
       </div>
 
@@ -162,7 +174,6 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-5 hidden lg:flex flex-col items-end">
             <FadeInUp delay={0.4}>
               <div className="relative group p-6 bg-bd-navy text-white border border-bd-blue/40 shadow-2xl w-full max-w-md">
-                {/* Laser scanline effect */}
                 <div className="absolute top-0 inset-x-0 h-[2px] bg-bd-blue shadow-[0_0_10px_#4A8AB8] animate-laser-scan pointer-events-none" />
 
                 <div className="flex items-center justify-between border-b border-bd-blue/20 pb-3 mb-4">
