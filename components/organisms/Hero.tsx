@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { HeroBuilding } from './HeroBuilding';
-import { ChevronRight, ArrowDown, ShieldCheck, FileCheck } from 'lucide-react';
+import { ChevronRight, ArrowDown, ShieldCheck } from 'lucide-react';
 
 export interface HeroProps {
   variant: 'homepage' | 'page';
@@ -25,7 +25,7 @@ export const Hero: React.FC<HeroProps> = ({
   headline,
   subheadline,
   cta = { text: 'Get a Free Quote', href: '/contact' },
-  secondaryCta = { text: 'View Our Work', href: '/#process' },
+  secondaryCta = { text: 'Our Process', href: '#process' },
   image,
   breadcrumb,
   hudBadge,
@@ -33,14 +33,14 @@ export const Hero: React.FC<HeroProps> = ({
   if (variant === 'homepage') {
     return (
       <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-[#F4F7FA] overflow-hidden border-b border-gray-200">
-        {/* PrimeCost Style CAD Drafting Sheet Blueprint Background Overlay */}
+        {/* Authentic PrimeCost Architectural CAD Floor Plan Watermark Background Overlay */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <img
-            src="/images/hero-light-cad-bg.jpg"
-            alt="Engineering CAD drawing blueprint background overlay"
-            className="w-full h-full object-cover mix-blend-multiply opacity-15 filter contrast-125"
+            src="/images/primecost-cad-bg.jpg"
+            alt="Architectural CAD floor plan background watermark overlay"
+            className="w-full h-full object-cover mix-blend-multiply opacity-12 filter contrast-125"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#F4F7FA]/95 via-[#F4F7FA]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F4F7FA]/90 via-[#F4F7FA]/75 to-transparent" />
         </div>
 
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
@@ -85,6 +85,7 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             </div>
 
+            {/* Seamless 3D Building Animation (Directly Indulged in Hero Space, Card Box Removed) */}
             <div className="lg:col-span-5 relative flex items-center justify-center w-full">
               <FadeInUp delay={0.4} className="w-full">
                 <HeroBuilding />
@@ -101,14 +102,14 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Service & Subpage Hero variant (55-60vh) with off-white background and light CAD overlay
+  // Service & Subpage Hero variant (55-60vh) with off-white background and primecost CAD watermark
   return (
     <section className="relative pt-36 pb-20 bg-[#F4F7FA] border-b border-gray-200 overflow-hidden">
       {/* Subpage CAD Blueprint Background Overlay */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-15 mix-blend-multiply">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-12 mix-blend-multiply">
         <img
-          src="/images/hero-light-cad-bg.jpg"
-          alt="Engineering CAD drawing background overlay"
+          src="/images/primecost-cad-bg.jpg"
+          alt="Architectural CAD floor plan background overlay"
           className="w-full h-full object-cover filter contrast-125"
         />
       </div>

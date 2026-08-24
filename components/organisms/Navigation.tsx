@@ -67,7 +67,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isTransparent ? 'bg-transparent' : 'bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm'
+        isTransparent ? 'bg-transparent' : 'bg-bd-navy-deep/95 backdrop-blur-md border-b border-bd-blue/20 shadow-xl'
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
@@ -76,15 +76,15 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
           <img
             src="/images/logo-dark-bg.png"
             alt="Bid Dimensions Engineering Logo"
-            className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-[0_0_8px_rgba(74,138,184,0.3)]"
           />
-          <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-bd-navy group-hover:text-bd-blue transition-colors">
+          <span className="font-display font-bold text-xl sm:text-2xl tracking-tight text-white group-hover:text-bd-blue transition-colors">
             BID DIMENSIONS
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-semibold">
+        <nav className="hidden md:flex items-center gap-7 text-sm font-medium">
           {/* Services Dropdown */}
           <div
             ref={dropdownRef}
@@ -97,7 +97,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               aria-expanded={dropdownOpen}
               aria-haspopup="true"
               aria-label="Toggle engineering services menu"
-              className="flex items-center gap-1 text-bd-navy hover:text-bd-blue py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
+              className="flex items-center gap-1 text-bd-text-light hover:text-bd-blue py-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
             >
               Services <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-bd-blue' : ''}`} />
             </button>
@@ -179,19 +179,19 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             )}
           </div>
 
-          <Link href="/projects" className="text-bd-navy hover:text-bd-blue transition-colors">
+          <Link href="/projects" className="text-bd-text-light hover:text-bd-blue transition-colors">
             Projects
           </Link>
-          <Link href="/about" className="text-bd-navy hover:text-bd-blue transition-colors">
+          <Link href="/about" className="text-bd-text-light hover:text-bd-blue transition-colors">
             About Us
           </Link>
-          <Link href="/blog" className="text-bd-navy hover:text-bd-blue transition-colors">
+          <Link href="/blog" className="text-bd-text-light hover:text-bd-blue transition-colors">
             Journal
           </Link>
-          <Link href="/#process" className="text-bd-navy hover:text-bd-blue transition-colors">
+          <Link href="/#process" className="text-bd-text-light hover:text-bd-blue transition-colors">
             Process
           </Link>
-          <Link href="/contact" className="text-bd-navy hover:text-bd-blue transition-colors">
+          <Link href="/contact" className="text-bd-text-light hover:text-bd-blue transition-colors">
             Contact
           </Link>
         </nav>
@@ -200,7 +200,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
         <div className="hidden md:flex items-center gap-6">
           <a
             href="tel:7472237815"
-            className="flex items-center gap-2 text-sm font-mono font-semibold text-bd-navy hover:text-bd-blue transition-colors group"
+            className="flex items-center gap-2 text-sm font-mono text-bd-text-muted hover:text-bd-blue transition-colors group"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bd-blue opacity-75"></span>
@@ -220,7 +220,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
         {/* Mobile Hamburger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-bd-navy hover:text-bd-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
+          className="md:hidden p-2 text-bd-text-light hover:text-bd-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
         >
