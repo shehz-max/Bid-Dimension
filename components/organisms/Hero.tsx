@@ -33,37 +33,38 @@ export const Hero: React.FC<HeroProps> = ({
   if (variant === 'homepage') {
     return (
       <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden text-white">
-        {/* Asymmetric Background Layer: Left 60% is 100% Pristine Solid Navy; Far Right Edge has Faint SVG Grid */}
-        <div className="absolute inset-x-0 top-28 bottom-0 pointer-events-none z-0">
+        {/* LAYER 1: Background CAD Architectural Linework Watermark */}
+        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+          <img
+            src="/images/primecost-cad-bg.jpg"
+            alt="Architectural CAD drawing blueprint background overlay"
+            className="w-full h-full object-cover opacity-06 filter invert contrast-125 mix-blend-screen"
+          />
+
+          {/* LAYER 2: 3-Layer Anti-Clash Dual Masking System */}
+          {/* Left Text Zone Mask: Guarantees 0 text collisions */}
           <div
             className="absolute inset-0 z-0"
             style={{
               background:
-                'radial-gradient(ellipse at 25% 50%, rgba(11,27,46,1) 0%, rgba(11,27,46,0.95) 55%, rgba(11,27,46,0.6) 100%)',
+                'linear-gradient(to right, rgba(11,27,46,0.98) 0%, rgba(11,27,46,0.92) 50%, rgba(11,27,46,0.4) 100%)',
             }}
           />
 
-          {/* Faint Subtle SVG CAD Grid Lines on Far Right Edge Only */}
-          <svg className="w-full h-full absolute inset-0 opacity-[0.14]" fill="none">
-            <path d="M 700 80 L 1200 80" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="4 2" />
-            <text x="950" y="73" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="middle">
-              ELEVATION MARK: EL +36.00m
-            </text>
-
-            <path d="M 1180 120 L 1180 500" stroke="#4A8AB8" strokeWidth="1" strokeDasharray="6 3" />
-            <text x="1170" y="310" fill="#4A8AB8" fontSize="10" fontFamily="JetBrains Mono" textAnchor="end" transform="rotate(-90, 1170, 310)">
-              GRID-C // STRUCTURAL HEIGHT
-            </text>
-
-            <text x="70%" y="94%" fill="#4A8AB8" fontSize="11" fontFamily="JetBrains Mono" opacity="0.8">
-              CAD REF: BD-DWG-2026-US // SCALE 1:100 // PE APPROVED
-            </text>
-          </svg>
+          {/* Right 3D Building Focal Mask: Fades out background CAD lines directly behind 3D model */}
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              background:
+                'radial-gradient(circle at 75% 50%, rgba(11,27,46,0.95) 0%, rgba(11,27,46,0.6) 65%, transparent 100%)',
+            }}
+          />
         </div>
 
+        {/* LAYER 3: Foreground Content & 3D Stage */}
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Zone 1: Left Content (60% Width - Sits on Pristine Solid Deep Navy Canvas) */}
+            {/* Left Content Column (High-Contrast Navy Space) */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp delay={0.1}>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
@@ -101,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             </div>
 
-            {/* Zone 2: Right 3D BIM Stage (40% Width - Seamless 3D Animation, No Cards, No Blobs) */}
+            {/* Right 3D Building Stage (Floats Seamlessly on Focal Dark Stage) */}
             <div className="lg:col-span-5 relative flex items-center justify-center w-full">
               <FadeInUp delay={0.4} className="w-full">
                 <HeroBuilding />
@@ -121,6 +122,20 @@ export const Hero: React.FC<HeroProps> = ({
   // Service & Subpage Hero variant (55-60vh)
   return (
     <section className="relative pt-36 pb-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark overflow-hidden text-white">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-06 filter invert contrast-125 mix-blend-screen">
+        <img
+          src="/images/primecost-cad-bg.jpg"
+          alt="Architectural CAD floor plan background overlay"
+          className="w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(11,27,46,0.95) 0%, rgba(11,27,46,0.7) 100%)',
+          }}
+        />
+      </div>
+
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 flex flex-col items-start">
