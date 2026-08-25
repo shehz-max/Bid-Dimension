@@ -10,7 +10,7 @@ import { ChevronRight, ArrowDown, ShieldCheck } from 'lucide-react';
 export interface HeroProps {
   variant: 'homepage' | 'page';
   label?: string;
-  headline: string;
+  headline?: string;
   subheadline?: string;
   cta?: { text: string; href: string };
   secondaryCta?: { text: string; href: string };
@@ -21,9 +21,9 @@ export interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({
   variant,
-  label = 'END-TO-END ENGINEERING & DESIGN',
-  headline,
-  subheadline,
+  label = 'END-TO-END ENGINEERING, DESIGN & CONSTRUCTION SOLUTIONS',
+  headline = 'End-to-End Engineering, Design & Construction Solutions',
+  subheadline = 'Bid Dimensions is a full-service engineering and design firm delivering licensed structural engineering, multidisciplinary building design, permit-ready construction documentation, and technical support for residential, commercial, and industrial projects.',
   cta = { text: 'Get a Free Quote', href: '/contact' },
   secondaryCta = { text: 'Our Process', href: '#process' },
   image,
@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({
   if (variant === 'homepage') {
     return (
       <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden text-white">
-        {/* MANDATORY CLIENT REQUIREMENT: Vibrant & Visible Architectural CAD Drawing Watermark Background */}
+        {/* MANDATORY CLIENT REQUIREMENT: Visible Architectural CAD Drawing Watermark Background */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <img
             src="/images/primecost-cad-bg.jpg"
@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({
             className="w-full h-full object-cover opacity-15 filter invert contrast-125 mix-blend-screen"
           />
 
-          {/* Smooth Linear Gradient Mask: Keeps headline text 100% clean & readable while allowing CAD linework to shine through */}
+          {/* Smooth Linear Gradient Mask: Keeps text 100% clean & readable while allowing CAD linework to shine through */}
           <div
             className="absolute inset-0 z-0"
             style={{
@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({
         {/* FOREGROUND CONTENT & 3D STAGE */}
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Zone 1: Left Content (High-Contrast Navy Space with 100% Legibility) */}
+            {/* Zone 1: Left Content (Exact Text Copy from Web.docx) */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp delay={0.1}>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
@@ -63,14 +63,14 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
 
               <FadeInUp delay={0.25}>
-                <h1 className="font-display font-bold text-4xl sm:text-6xl lg:text-72px leading-[1.05] tracking-tight text-bd-text-light mb-6">
+                <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-60px leading-[1.08] tracking-tight text-bd-text-light mb-6">
                   {headline}
                 </h1>
               </FadeInUp>
 
               {subheadline && (
                 <FadeInUp delay={0.4}>
-                  <p className="font-body text-lg sm:text-xl text-bd-text-muted max-w-[520px] leading-relaxed mb-8">
+                  <p className="font-body text-base sm:text-lg text-bd-text-muted max-w-[540px] leading-relaxed mb-8">
                     {subheadline}
                   </p>
                 </FadeInUp>
@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             </div>
 
-            {/* Zone 2: Right 3D BIM Stage (Seamless 3D Animation, 0 Square Boxes, 0 Blobs) */}
+            {/* Zone 2: Right 3D BIM Stage (Seamless 3D Animation) */}
             <div className="lg:col-span-5 relative flex items-center justify-center w-full">
               <FadeInUp delay={0.4} className="w-full">
                 <HeroBuilding />

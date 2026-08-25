@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown, Phone, HardHat, Compass, Cpu, Calculator, FolderGit2, BookOpen, Info } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, HardHat, Compass, Cpu, Layers, Sparkles, Calculator, FolderGit2, BookOpen, Info } from 'lucide-react';
 
 interface NavigationProps {
   transparent?: boolean;
@@ -103,11 +103,11 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             </button>
 
             {dropdownOpen && (
-              <div className="absolute top-full left-0 w-80 bg-bd-navy-deep/95 backdrop-blur-lg p-3 shadow-2xl border border-bd-blue/30 flex flex-col gap-1 z-50 rounded-none animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute top-full left-0 w-84 bg-bd-navy-deep/95 backdrop-blur-lg p-3 shadow-2xl border border-bd-blue/30 flex flex-col gap-1 z-50 rounded-none animate-in fade-in slide-in-from-top-2 duration-200">
                 <Link
                   href="/services/structural-engineering"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                  className="group flex items-start gap-3 p-2 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
                     <HardHat className="w-4 h-4" />
@@ -125,7 +125,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/architectural-design"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                  className="group flex items-start gap-3 p-2 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
                     <Compass className="w-4 h-4" />
@@ -143,7 +143,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/mep-engineering"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                  className="group flex items-start gap-3 p-2 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
                     <Cpu className="w-4 h-4" />
@@ -159,16 +159,52 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 </Link>
 
                 <Link
+                  href="/services/bim-cad-services"
+                  onClick={() => setDropdownOpen(false)}
+                  className="group flex items-start gap-3 p-2 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                >
+                  <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display font-bold text-xs text-white group-hover:text-bd-blue transition-colors">
+                      BIM & CAD Services
+                    </span>
+                    <span className="font-body text-[11px] text-bd-text-muted">
+                      Revit modeling & clash detection
+                    </span>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/services/rendering-services"
+                  onClick={() => setDropdownOpen(false)}
+                  className="group flex items-start gap-3 p-2 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                >
+                  <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-display font-bold text-xs text-white group-hover:text-bd-blue transition-colors">
+                      3D Rendering Services
+                    </span>
+                    <span className="font-body text-[11px] text-bd-text-muted">
+                      Realistic 3D interior & exterior visuals
+                    </span>
+                  </div>
+                </Link>
+
+                <Link
                   href="/services/estimation"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2.5 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
+                  className="group flex items-start gap-3 p-2 hover:bg-bd-navy transition-colors border border-transparent hover:border-bd-blue/30"
                 >
                   <div className="p-2 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all shrink-0">
                     <Calculator className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-display font-bold text-xs text-white group-hover:text-bd-blue transition-colors">
-                      Estimation Services
+                      Estimation & Takeoffs
                     </span>
                     <span className="font-body text-[11px] text-bd-text-muted">
                       PlanSwift quantity takeoffs & bid calcs
@@ -231,23 +267,23 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
       {/* Mobile Fullscreen Overlay */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-20 bg-bd-navy-deep blueprint-grid z-40 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto text-white">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             <div className="text-bd-blue font-mono text-xs uppercase tracking-widest border-b border-bd-border-dark pb-2">
               Navigation
             </div>
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xl font-display font-bold text-white hover:text-bd-blue"
+              className="text-lg font-display font-bold text-white hover:text-bd-blue"
             >
               Home
             </Link>
-            <div className="flex flex-col gap-2.5 pl-4 border-l border-bd-border-dark">
+            <div className="flex flex-col gap-2 pl-4 border-l border-bd-border-dark">
               <span className="text-[11px] font-mono text-bd-text-muted uppercase">Services</span>
               <Link
                 href="/services/structural-engineering"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-text-light hover:text-bd-blue flex items-center gap-2"
               >
                 <HardHat className="w-4 h-4 text-bd-blue" />
                 <span>Structural Engineering</span>
@@ -255,7 +291,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/architectural-design"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-text-light hover:text-bd-blue flex items-center gap-2"
               >
                 <Compass className="w-4 h-4 text-bd-blue" />
                 <span>Architectural Design</span>
@@ -263,24 +299,40 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/mep-engineering"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-text-light hover:text-bd-blue flex items-center gap-2"
               >
                 <Cpu className="w-4 h-4 text-bd-blue" />
                 <span>MEP Engineering</span>
               </Link>
               <Link
+                href="/services/bim-cad-services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+              >
+                <Layers className="w-4 h-4 text-bd-blue" />
+                <span>BIM & CAD Services</span>
+              </Link>
+              <Link
+                href="/services/rendering-services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+              >
+                <Sparkles className="w-4 h-4 text-bd-blue" />
+                <span>3D Rendering Services</span>
+              </Link>
+              <Link
                 href="/services/estimation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base text-bd-text-light hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-text-light hover:text-bd-blue flex items-center gap-2"
               >
                 <Calculator className="w-4 h-4 text-bd-blue" />
-                <span>Estimation Services</span>
+                <span>Estimation & Takeoffs</span>
               </Link>
             </div>
             <Link
               href="/projects"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xl font-display font-bold text-white hover:text-bd-blue flex items-center gap-2"
+              className="text-lg font-display font-bold text-white hover:text-bd-blue flex items-center gap-2"
             >
               <FolderGit2 className="w-5 h-5 text-bd-blue" />
               <span>Projects Portfolio</span>
@@ -288,7 +340,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xl font-display font-bold text-white hover:text-bd-blue flex items-center gap-2"
+              className="text-lg font-display font-bold text-white hover:text-bd-blue flex items-center gap-2"
             >
               <Info className="w-5 h-5 text-bd-blue" />
               <span>About Us</span>
@@ -296,7 +348,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xl font-display font-bold text-white hover:text-bd-blue flex items-center gap-2"
+              className="text-lg font-display font-bold text-white hover:text-bd-blue flex items-center gap-2"
             >
               <BookOpen className="w-5 h-5 text-bd-blue" />
               <span>Journal & Articles</span>
@@ -304,7 +356,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-xl font-display font-bold text-white hover:text-bd-blue"
+              className="text-lg font-display font-bold text-white hover:text-bd-blue"
             >
               Contact
             </Link>
