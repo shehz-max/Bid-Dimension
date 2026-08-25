@@ -9,6 +9,7 @@ export interface ProcessStepProps {
   description: string;
   badge?: string;
   variant?: 'horizontal' | 'vertical';
+  theme?: 'light' | 'dark';
   isLast?: boolean;
   className?: string;
 }
@@ -19,23 +20,34 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({
   description,
   badge,
   variant = 'horizontal',
+  theme = 'light',
   isLast = false,
   className = '',
 }) => {
+  const isLight = theme === 'light';
+
   if (variant === 'horizontal') {
     return (
       <div
-        className={`group relative bg-bd-navy/50 border border-bd-blue/20 hover:border-bd-blue/70 p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-glow-blue rounded-none ${className}`}
+        className={`group relative p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 rounded-none ${
+          isLight
+            ? 'bg-white border border-gray-200 hover:border-bd-blue hover:shadow-md'
+            : 'bg-bd-navy/50 border border-bd-blue/20 hover:border-bd-blue/70 hover:shadow-glow-blue'
+        } ${className}`}
       >
         <div>
-          {/* Top Row: Large Elegant Step Number & Badge */}
+          {/* Top Row: Step Number & Badge */}
           <div className="flex items-center justify-between mb-6">
             <span className="font-mono font-bold text-3xl text-bd-blue tracking-tight opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all">
               {number}
             </span>
 
             {badge && (
-              <span className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-bd-blue/90 bg-bd-blue/10 px-2.5 py-1 border border-bd-blue/30">
+              <span className={`inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1 ${
+                isLight
+                  ? 'text-bd-navy bg-bd-blue/10 border border-bd-blue/30'
+                  : 'text-bd-blue/90 bg-bd-blue/10 border border-bd-blue/30'
+              }`}>
                 <Check className="w-3 h-3 text-bd-blue" />
                 <span>{badge}</span>
               </span>
@@ -43,12 +55,16 @@ export const ProcessStep: React.FC<ProcessStepProps> = ({
           </div>
 
           {/* Title */}
-          <h4 className="font-display font-bold text-xl text-white mb-3 group-hover:text-bd-blue transition-colors">
+          <h4 className={`font-display font-bold text-xl mb-3 group-hover:text-bd-blue transition-colors ${
+            isLight ? 'text-bd-navy' : 'text-white'
+          }`}>
             {title}
           </h4>
 
           {/* Description */}
-          <p className="font-body text-sm text-bd-text-muted leading-relaxed">
+          <p className={`font-body text-sm leading-relaxed ${
+            isLight ? 'text-bd-gray' : 'text-bd-text-muted'
+          }`}>
             {description}
           </p>
         </div>

@@ -9,6 +9,7 @@ export interface StatCounterProps {
   sublabel?: string;
   duration?: number;
   className?: string;
+  variant?: 'light' | 'dark';
 }
 
 export const StatCounter: React.FC<StatCounterProps> = ({
@@ -18,6 +19,7 @@ export const StatCounter: React.FC<StatCounterProps> = ({
   sublabel,
   duration = 2000,
   className = '',
+  variant = 'light',
 }) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -56,17 +58,25 @@ export const StatCounter: React.FC<StatCounterProps> = ({
     return () => observer.disconnect();
   }, [value, duration, hasAnimated]);
 
+  const isLight = variant === 'light';
+
   return (
     <div ref={ref} className={`flex flex-col items-center text-center group ${className}`}>
-      <div className="font-mono font-bold text-5xl md:text-64px text-white tracking-tight tabular-nums mb-2 transition-colors duration-300 group-hover:text-bd-blue">
+      <div className={`font-mono font-bold text-5xl md:text-64px tracking-tight tabular-nums mb-2 transition-colors duration-300 ${
+        isLight ? 'text-bd-navy group-hover:text-bd-blue' : 'text-white group-hover:text-bd-blue'
+      }`}>
         {count}
-        <span className="text-bd-blue shadow-glow-blue">{suffix}</span>
+        <span className="text-bd-blue">{suffix}</span>
       </div>
-      <div className="font-mono text-xs md:text-sm font-semibold uppercase tracking-widest text-bd-blue/90 mb-1">
+      <div className={`font-mono text-xs md:text-sm font-semibold uppercase tracking-widest mb-1 ${
+        isLight ? 'text-bd-navy' : 'text-bd-blue/90'
+      }`}>
         {label}
       </div>
       {sublabel && (
-        <div className="font-mono text-[10px] text-bd-text-muted opacity-70">
+        <div className={`font-mono text-[10px] ${
+          isLight ? 'text-bd-gray' : 'text-bd-text-muted opacity-70'
+        }`}>
           {sublabel}
         </div>
       )}

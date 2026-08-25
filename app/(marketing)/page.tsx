@@ -31,7 +31,7 @@ const TOOLS_SUITE = [
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* 1. Off-White Hero Section with PrimeCost CAD Blueprint Overlay & Dark 3D Viewport */}
+      {/* 1. Dark Navy Hero Section (High-Tech 3D Model + 15% CAD Drawing Watermark) */}
       <Hero
         variant="homepage"
         label="END-TO-END ENGINEERING & DESIGN"
@@ -41,22 +41,24 @@ export default function HomePage() {
         secondaryCta={{ text: 'Our Process', href: '#process' }}
       />
 
-      {/* 2. High-Contrast Key Stats Console (Deep Navy Section for instant dark contrast!) */}
-      <section className="py-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark text-white relative">
+      {/* 2. Key Stats Console (Logo-Harmonized Ice Blueprint Tint #EBF3FA) */}
+      <section className="py-20 bg-[#EBF3FA] border-y border-[#4A8AB8]/30 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="bg-bd-navy/80 border border-bd-blue/30 backdrop-blur-md p-8 md:p-12 shadow-glow-blue">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-bd-blue/20">
+          <div className="bg-white border border-[#4A8AB8]/30 p-8 md:p-12 shadow-sm">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
               <StatCounter
                 value={25}
                 suffix="+"
                 label="Years Experience"
                 sublabel="Licensed Structural Engineers"
+                variant="light"
               />
               <StatCounter
                 value={500}
                 suffix="+"
                 label="Projects Delivered"
                 sublabel="Commercial & Residential"
+                variant="light"
                 className="pt-6 lg:pt-0"
               />
               <StatCounter
@@ -64,6 +66,7 @@ export default function HomePage() {
                 suffix="h"
                 label="Average Turnaround"
                 sublabel="24h Initial Review Option"
+                variant="light"
                 className="pt-6 lg:pt-0"
               />
               <StatCounter
@@ -71,6 +74,7 @@ export default function HomePage() {
                 suffix="%"
                 label="Client Satisfaction"
                 sublabel="100% City Permit Approval"
+                variant="light"
                 className="pt-6 lg:pt-0"
               />
             </div>
@@ -81,10 +85,10 @@ export default function HomePage() {
       {/* 3. Services Preview (3-Column Grid on Crisp Bright White Background) */}
       <ServicesGrid />
 
-      {/* 4. Process Timeline (Horizontal 6 Steps in Technical Dark Navy Blueprint) */}
+      {/* 4. Process Timeline (Ice Blueprint Light Theme #EBF3FA + Crisp White Cards) */}
       <ProcessTimeline variant="horizontal" />
 
-      {/* 5. Software & Certifications (Crisp White Background) */}
+      {/* 5. Software & Certifications (Crisp Bright White Background) */}
       <section className="py-24 bg-white text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
@@ -94,7 +98,7 @@ export default function HomePage() {
               </span>
             </FadeInUp>
             <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
+              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy">
                 Built on Industry-Standard Tools
               </h2>
             </FadeInUp>
@@ -105,7 +109,7 @@ export default function HomePage() {
             {TOOLS_SUITE.map((tool) => (
               <div
                 key={tool.name}
-                className="group p-6 bg-bd-surface-light border border-gray-200 hover:border-bd-blue/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="group p-6 bg-[#F8FAFC] border border-gray-200 hover:border-bd-blue hover:shadow-md transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-mono font-bold text-lg text-bd-navy group-hover:text-bd-blue transition-colors">
@@ -138,8 +142,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. Testimonials (Client Reviews on Off-White Surface) */}
-      <section className="py-24 sm:py-32 bg-bd-surface-light text-bd-charcoal border-t border-gray-200">
+      {/* 6. Testimonials (Client Reviews on Off-White Slate Surface #F8FAFC) */}
+      <section className="py-24 sm:py-32 bg-[#F8FAFC] text-bd-charcoal border-t border-gray-200">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
             <FadeInUp>
@@ -148,7 +152,7 @@ export default function HomePage() {
               </span>
             </FadeInUp>
             <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
+              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy">
                 Trusted by Contractors, Architects & Developers
               </h2>
             </FadeInUp>
@@ -177,8 +181,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. Final CTA Banner (Technical Deep Navy Finish) */}
-      <section className="py-24 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark relative overflow-hidden text-white">
+      {/* 7. Final CTA Banner (Ice Blueprint Light Theme #EBF3FA) */}
+      <section className="py-24 bg-[#EBF3FA] border-t border-[#4A8AB8]/30 relative overflow-hidden text-bd-navy">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Info Column */}
@@ -190,13 +194,13 @@ export default function HomePage() {
               </FadeInUp>
 
               <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-4xl sm:text-56px leading-tight mb-6">
+                <h2 className="font-display font-bold text-4xl sm:text-56px leading-tight mb-6 text-bd-navy">
                   Ready to Start Your Engineering Project?
                 </h2>
               </FadeInUp>
 
               <FadeInUp delay={0.3}>
-                <p className="font-body text-lg text-bd-text-muted leading-relaxed mb-8">
+                <p className="font-body text-lg text-bd-gray leading-relaxed mb-8">
                   Get a comprehensive, PE-stamped engineering proposal within 24 hours. Upload your architectural drawings or CAD files for instant evaluation.
                 </p>
               </FadeInUp>
@@ -208,7 +212,7 @@ export default function HomePage() {
                   </Button>
                   <a
                     href="tel:7472237815"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-bd-blue/40 text-white font-display font-semibold text-sm hover:bg-bd-blue/10 hover:border-bd-blue transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-bd-navy text-bd-navy font-display font-semibold text-sm hover:bg-bd-navy hover:text-white transition-all shadow-xs"
                   >
                     <Phone className="w-4 h-4 text-bd-blue" />
                     <span>(747) 223-7815</span>
@@ -220,30 +224,30 @@ export default function HomePage() {
             {/* Right Interactive Plan Upload Teaser Card */}
             <div className="lg:col-span-6">
               <FadeInUp delay={0.3}>
-                <div className="bg-bd-navy/90 border border-bd-blue/40 p-8 shadow-glow-blue flex flex-col gap-6">
+                <div className="bg-white border border-gray-300 p-8 shadow-md flex flex-col gap-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 bg-bd-blue/10 border border-bd-blue/30 flex items-center justify-center text-bd-blue">
                         <Upload className="w-5 h-5" />
                       </div>
                       <div className="flex flex-col">
-                        <span className="font-display font-bold text-lg text-white">
+                        <span className="font-display font-bold text-lg text-bd-navy">
                           Upload Plans for 24h Review
                         </span>
-                        <span className="font-mono text-xs text-bd-text-muted">
+                        <span className="font-mono text-xs text-bd-gray">
                           Accepts PDF, DWG, RVT & Images
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="font-body text-sm text-bd-text-muted leading-relaxed">
+                  <p className="font-body text-sm text-bd-gray leading-relaxed">
                     Have architectural drafts, floor plans, or site surveys? Submit your files through our secure quote form for immediate PE review.
                   </p>
 
                   <Link
                     href="/contact"
-                    className="group flex items-center justify-between p-4 bg-bd-navy-deep border border-bd-blue/30 hover:border-bd-blue hover:bg-bd-navy transition-all text-bd-blue font-mono text-xs uppercase tracking-wider font-semibold"
+                    className="group flex items-center justify-between p-4 bg-[#F8FAFC] border border-gray-300 hover:border-bd-blue hover:bg-bd-navy hover:text-white transition-all text-bd-navy font-mono text-xs uppercase tracking-wider font-semibold"
                   >
                     <span>Launch Quote Wizard & Drop Files</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

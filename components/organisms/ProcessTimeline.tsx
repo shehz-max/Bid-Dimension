@@ -55,7 +55,7 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
 }) => {
   if (variant === 'horizontal') {
     return (
-      <section id="process" className="py-24 sm:py-32 bg-bd-navy-deep blueprint-grid border-y border-bd-border-dark relative overflow-hidden">
+      <section id="process" className="py-24 sm:py-32 bg-[#EBF3FA] border-y border-[#4A8AB8]/30 relative overflow-hidden text-bd-charcoal">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           {/* Section Header */}
           <div className="flex flex-col items-center text-center mb-16">
@@ -65,12 +65,12 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
               </span>
             </FadeInUp>
             <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-white max-w-2xl mb-4">
+              <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-bd-navy max-w-2xl mb-4">
                 From Concept to Permit in Six Steps
               </h2>
             </FadeInUp>
             <FadeInUp delay={0.25}>
-              <p className="font-body text-base sm:text-lg text-bd-text-muted max-w-xl leading-relaxed">
+              <p className="font-body text-base sm:text-lg text-bd-gray max-w-xl leading-relaxed">
                 A streamlined engineering workflow designed for speed, structural safety, and 100% city permit approval.
               </p>
             </FadeInUp>
@@ -86,6 +86,7 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = ({
                 description={step.description}
                 badge={step.badge}
                 variant="horizontal"
+                theme="light"
                 isLast={idx === steps.length - 1}
               />
             ))}
