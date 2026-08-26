@@ -41,7 +41,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     location: 'Los Angeles, CA',
     turnaround: '48 Hours',
     peStamp: true,
-    image: '/images/proj-tower-spec.jpg',
+    image: '/images/project-commercial.jpg',
     summary:
       'Complete PE-stamped structural framing, lateral seismic analysis, and deep foundation pier engineering for a 6-story commercial development.',
     highlights: [
@@ -66,7 +66,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     location: 'Austin, TX',
     turnaround: '36 Hours',
     peStamp: true,
-    image: '/images/proj-residence-spec.jpg',
+    image: '/images/project-residential.jpg',
     summary:
       'Full architectural permit set, Revit 3D BIM coordination, and structural retaining wall calculations for a steep-grade luxury custom home.',
     highlights: [

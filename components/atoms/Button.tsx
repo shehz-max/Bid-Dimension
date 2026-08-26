@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 export interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline-light';
@@ -26,32 +25,32 @@ export const Button: React.FC<ButtonProps> = ({
   disabled = false,
 }) => {
   const sizeClasses = {
-    sm: 'px-4 py-2 text-sm min-h-[44px]',
-    md: 'px-6 py-3 text-base min-h-[48px]',
-    lg: 'px-8 py-4 text-lg min-h-[56px]',
+    sm: 'px-4 py-2 text-xs min-h-[38px] rounded-lg',
+    md: 'px-5 py-2.5 text-sm min-h-[44px] rounded-lg',
+    lg: 'px-7 py-3.5 text-base min-h-[50px] rounded-lg',
   };
 
   const baseClasses =
-    'relative inline-flex items-center justify-center font-display font-semibold tracking-wide transition-all duration-300 rounded-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue focus-visible:ring-offset-2 disabled:opacity-40 disabled:pointer-events-none disabled:cursor-not-allowed select-none';
+    'relative inline-flex items-center justify-center font-display font-semibold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none group';
 
   let variantClasses = '';
 
   switch (variant) {
     case 'primary':
       variantClasses =
-        'bg-bd-navy text-white hover:bg-bd-blue hover:-translate-y-[3px] hover:shadow-glow-blue active:translate-y-0 border border-bd-blue/30';
+        'bg-bd-navy text-white hover:bg-bd-blue shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 border border-bd-navy hover:border-bd-blue';
       break;
     case 'secondary':
       variantClasses =
-        'bg-transparent text-bd-navy border border-bd-navy hover:text-white overflow-hidden group';
+        'bg-white text-bd-navy border border-gray-300 hover:border-bd-blue hover:bg-[#EBF3FA] hover:text-bd-blue shadow-2xs hover:-translate-y-0.5 active:translate-y-0';
       break;
     case 'ghost':
       variantClasses =
-        'bg-transparent text-bd-blue hover:text-bd-sky p-0 min-h-0 group';
+        'bg-transparent text-bd-navy hover:text-bd-blue p-0 min-h-0';
       break;
     case 'outline-light':
       variantClasses =
-        'bg-transparent text-bd-text-light border border-bd-text-light/30 hover:border-bd-text-light hover:shadow-glow-white hover:-translate-y-[2px] active:translate-y-0';
+        'bg-white/90 backdrop-blur-sm text-bd-navy border border-gray-300 hover:border-bd-blue hover:text-bd-blue hover:bg-white shadow-2xs hover:-translate-y-0.5 active:translate-y-0';
       break;
   }
 

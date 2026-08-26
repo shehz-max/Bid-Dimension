@@ -118,25 +118,25 @@ export const QuoteForm: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <div className="glass-dark p-6 sm:p-12 text-center flex flex-col items-center justify-center border border-bd-blue/30 shadow-glow-blue">
-        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-bd-blue/20 text-bd-blue rounded-full flex items-center justify-center mb-5 sm:mb-6">
+      <div className="bg-white p-6 sm:p-12 text-center flex flex-col items-center justify-center border border-gray-200 shadow-xl rounded-2xl">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#EBF3FA] text-bd-blue rounded-full flex items-center justify-center mb-5 sm:mb-6 border border-[#4A8AB8]/30">
           <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
         </div>
-        <h3 className="font-display font-bold text-2xl sm:text-3xl text-white mb-3">
+        <h3 className="font-display font-bold text-2xl sm:text-3xl text-bd-navy mb-3">
           Quote Request Received!
         </h3>
-        <p className="font-body text-sm sm:text-base text-bd-text-muted max-w-md mb-6 sm:mb-8">
-          Thank you for choosing Bid Dimensions. Our engineering team is reviewing your plans and will respond with a detailed proposal within 24–48 hours.
+        <p className="font-body text-sm sm:text-base text-bd-gray max-w-md mb-6 sm:mb-8 leading-relaxed">
+          Thank you for choosing Bid Dimensions. Our licensed engineering team is reviewing your plans and will respond with a detailed proposal within 24–48 hours.
         </p>
-        <div className="font-mono text-xs sm:text-sm text-bd-blue border border-bd-blue/20 bg-bd-blue/10 px-4 py-2 mb-6">
-          Urgent project? Call us directly: (747) 223-7815
+        <div className="font-mono text-xs sm:text-sm text-bd-navy border border-[#4A8AB8]/30 bg-[#EBF3FA] px-5 py-3 rounded-xl mb-6 font-semibold">
+          Urgent project? Call us directly: <a href="tel:7472237815" className="text-bd-blue underline hover:text-bd-navy">(747) 223-7815</a>
         </div>
         <button
           onClick={() => {
             setIsSubmitted(false);
             setStep(1);
           }}
-          className="font-mono text-xs text-bd-text-muted hover:text-white uppercase tracking-wider underline"
+          className="font-mono text-xs text-bd-gray hover:text-bd-navy uppercase tracking-wider underline font-semibold transition-colors"
         >
           Submit another request
         </button>
@@ -147,20 +147,20 @@ export const QuoteForm: React.FC = () => {
   const stepsList = ['Service', 'Details', 'Upload Plans', 'Contact Info'];
 
   return (
-    <div className="glass-dark p-5 sm:p-10 border border-bd-blue/20 shadow-2xl relative">
+    <div className="bg-white p-6 sm:p-10 border border-gray-200 shadow-xl rounded-2xl relative">
       {/* Progress Bar Header */}
-      <div className="mb-6 sm:mb-8 border-b border-bd-border-dark pb-5 sm:pb-6">
+      <div className="mb-6 sm:mb-8 border-b border-gray-200 pb-5 sm:pb-6">
         <div className="flex items-center justify-between mb-3">
-          <span className="font-mono text-[11px] sm:text-xs text-bd-blue uppercase tracking-widest">
+          <span className="font-mono text-[11px] sm:text-xs text-bd-blue uppercase tracking-widest font-semibold">
             Step {step} of 4 — {stepsList[step - 1]}
           </span>
-          <span className="font-mono text-[11px] sm:text-xs text-bd-text-muted">
+          <span className="font-mono text-[11px] sm:text-xs text-bd-gray font-semibold">
             {Math.round((step / 4) * 100)}%
           </span>
         </div>
-        <div className="w-full h-1.5 bg-white/10 relative overflow-hidden">
+        <div className="w-full h-2 bg-[#EBF3FA] rounded-full relative overflow-hidden">
           <motion.div
-            className="h-full bg-bd-blue shadow-glow-blue"
+            className="h-full bg-bd-blue rounded-full"
             initial={{ width: '25%' }}
             animate={{ width: `${(step / 4) * 100}%` }}
             transition={{ duration: 0.3 }}
@@ -181,7 +181,7 @@ export const QuoteForm: React.FC = () => {
               className="flex flex-col gap-5 sm:gap-6"
             >
               <div>
-                <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-3">
+                <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-navy block mb-3">
                   1. Select Primary Engineering Service *
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
@@ -196,10 +196,10 @@ export const QuoteForm: React.FC = () => {
                       key={service}
                       type="button"
                       onClick={() => setValue('serviceType', service)}
-                      className={`p-3.5 sm:p-4 text-left font-display font-medium text-xs sm:text-sm border transition-all flex items-center justify-between ${
+                      className={`p-3.5 sm:p-4 text-left font-display font-medium text-xs sm:text-sm border rounded-xl transition-all flex items-center justify-between ${
                         selectedService === service
-                          ? 'border-bd-blue bg-bd-blue/20 text-white shadow-glow-blue'
-                          : 'border-bd-blue/20 bg-white/5 text-bd-text-muted hover:border-bd-blue/50 hover:text-white'
+                          ? 'border-bd-blue bg-[#EBF3FA] text-bd-navy font-bold shadow-xs'
+                          : 'border-gray-200 bg-[#F8FAFC] text-bd-charcoal hover:border-bd-blue/50 hover:bg-white'
                       }`}
                     >
                       <span>{service}</span>
@@ -210,7 +210,7 @@ export const QuoteForm: React.FC = () => {
               </div>
 
               <div>
-                <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-3">
+                <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-navy block mb-3">
                   2. Select Project Type *
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
@@ -219,10 +219,10 @@ export const QuoteForm: React.FC = () => {
                       key={type}
                       type="button"
                       onClick={() => setValue('projectType', type)}
-                      className={`p-2.5 sm:p-3 text-center font-body text-xs border transition-all ${
+                      className={`p-2.5 sm:p-3 text-center font-body text-xs border rounded-lg transition-all ${
                         selectedProjectType === type
-                          ? 'border-bd-blue bg-bd-blue/20 text-white font-semibold'
-                          : 'border-bd-blue/20 bg-white/5 text-bd-text-muted hover:text-white'
+                          ? 'border-bd-navy bg-bd-navy text-white font-semibold shadow-xs'
+                          : 'border-gray-200 bg-[#F8FAFC] text-bd-gray hover:text-bd-navy hover:border-gray-300'
                       }`}
                     >
                       {type}
@@ -247,7 +247,7 @@ export const QuoteForm: React.FC = () => {
                 label="Project Location (City, State or Address)"
                 placeholder="e.g. Los Angeles, CA"
                 required
-                variant="dark"
+                variant="light"
                 error={errors.location?.message}
                 {...register('location')}
               />
@@ -256,7 +256,7 @@ export const QuoteForm: React.FC = () => {
                 label="Approximate Square Footage (Optional)"
                 type="number"
                 placeholder="e.g. 3500"
-                variant="dark"
+                variant="light"
                 {...register('squareFootage')}
               />
 
@@ -264,7 +264,7 @@ export const QuoteForm: React.FC = () => {
                 label="Brief Project Scope / Notes (Optional)"
                 type="textarea"
                 placeholder="Tell us about your project requirements..."
-                variant="dark"
+                variant="light"
                 {...register('description')}
               />
             </motion.div>
@@ -307,7 +307,7 @@ export const QuoteForm: React.FC = () => {
                   label="Full Name"
                   placeholder="John Doe"
                   required
-                  variant="dark"
+                  variant="light"
                   error={errors.fullName?.message}
                   {...register('fullName')}
                 />
@@ -316,7 +316,7 @@ export const QuoteForm: React.FC = () => {
                   type="email"
                   placeholder="john@example.com"
                   required
-                  variant="dark"
+                  variant="light"
                   error={errors.email?.message}
                   {...register('email')}
                 />
@@ -328,21 +328,21 @@ export const QuoteForm: React.FC = () => {
                   type="tel"
                   placeholder="(555) 000-0000"
                   required
-                  variant="dark"
+                  variant="light"
                   error={errors.phone?.message}
                   {...register('phone')}
                 />
                 <Input
                   label="Company / Organization (Optional)"
                   placeholder="ABC Construction"
-                  variant="dark"
+                  variant="light"
                   {...register('company')}
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-1">
                 <div>
-                  <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-2">
+                  <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-navy block mb-2">
                     Preferred Contact Method
                   </label>
                   <div className="flex gap-2">
@@ -351,10 +351,10 @@ export const QuoteForm: React.FC = () => {
                         key={method}
                         type="button"
                         onClick={() => setValue('preferredContact', method as 'email' | 'phone')}
-                        className={`flex-1 py-2 text-center text-xs font-mono uppercase border transition-all ${
+                        className={`flex-1 py-2.5 text-center text-xs font-mono uppercase border rounded-lg transition-all ${
                           selectedContact === method
-                            ? 'border-bd-blue bg-bd-blue/20 text-white font-bold'
-                            : 'border-bd-blue/20 bg-white/5 text-bd-text-muted'
+                            ? 'border-bd-navy bg-bd-navy text-white font-bold shadow-xs'
+                            : 'border-gray-200 bg-[#F8FAFC] text-bd-gray hover:text-bd-navy hover:border-gray-300'
                         }`}
                       >
                         {method}
@@ -364,23 +364,23 @@ export const QuoteForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-blue block mb-2">
+                  <label className="font-mono text-xs font-semibold uppercase tracking-wider text-bd-navy block mb-2">
                     Project Timeline
                   </label>
                   <select
                     {...register('timeline')}
-                    className="w-full bg-white/5 border border-bd-blue/20 text-bd-text-light text-xs font-mono py-2 px-3 focus:outline-none focus:border-bd-blue"
+                    className="w-full bg-[#F8FAFC] border border-gray-300 text-bd-navy text-xs font-mono py-2.5 px-3 rounded-lg focus:outline-none focus:border-bd-blue focus:ring-2 focus:ring-bd-blue/20"
                   >
-                    <option value="ASAP" className="bg-bd-navy-deep text-white">ASAP</option>
-                    <option value="1-2 weeks" className="bg-bd-navy-deep text-white">1–2 Weeks</option>
-                    <option value="1 month" className="bg-bd-navy-deep text-white">1 Month</option>
-                    <option value="Flexible" className="bg-bd-navy-deep text-white">Flexible</option>
+                    <option value="ASAP">ASAP</option>
+                    <option value="1-2 weeks">1–2 Weeks</option>
+                    <option value="1 month">1 Month</option>
+                    <option value="Flexible">Flexible</option>
                   </select>
                 </div>
               </div>
 
               {submitError && (
-                <div className="text-red-400 text-xs font-mono p-3 bg-red-500/10 border border-red-500/30">
+                <div className="text-red-600 text-xs font-mono p-3 bg-red-50 border border-red-200 rounded-lg">
                   {submitError}
                 </div>
               )}
@@ -389,12 +389,12 @@ export const QuoteForm: React.FC = () => {
         </AnimatePresence>
 
         {/* Form Navigation Controls */}
-        <div className="flex items-center justify-between pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-bd-border-dark">
+        <div className="flex items-center justify-between pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-gray-200">
           {step > 1 ? (
             <button
               type="button"
               onClick={handlePrevStep}
-              className="flex items-center gap-2 font-mono text-xs uppercase text-bd-text-muted hover:text-white transition-colors py-2 px-3"
+              className="flex items-center gap-2 font-mono text-xs uppercase text-bd-gray hover:text-bd-navy font-semibold transition-colors py-2 px-3"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Previous</span>

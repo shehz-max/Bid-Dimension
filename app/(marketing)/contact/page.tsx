@@ -52,44 +52,44 @@ export default function ContactPage() {
       />
 
       {/* 2. Contact Info + Multi-Step Form (Two-column) */}
-      <section className="py-20 bg-bd-navy-deep blueprint-grid relative">
+      <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 relative text-bd-navy">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            {/* Left Column: Contact Info */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
+            {/* Left Column: Contact Info & Photo */}
+            <div className="lg:col-span-5 flex flex-col gap-6">
               <FadeInUp>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-bd-blue/10 border border-bd-blue/30 font-mono text-xs text-bd-blue uppercase">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF3FA] border border-[#4A8AB8]/30 font-mono text-xs font-semibold text-bd-blue uppercase rounded-md">
                   <ShieldCheck className="w-4 h-4" />
                   <span>24–48 HOUR TURNAROUND GUARANTEE</span>
                 </div>
               </FadeInUp>
 
               <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-3xl sm:text-48px text-white leading-tight">
+                <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy leading-tight">
                   Direct Line to Engineering Leadership
                 </h2>
               </FadeInUp>
 
               <FadeInUp delay={0.3}>
-                <p className="font-body text-base text-bd-text-muted leading-relaxed">
-                  Have questions about structural feasibility, city plan check requirements, or project scope? Connect directly with our engineering team.
+                <p className="font-body text-base text-bd-gray leading-relaxed">
+                  Have questions about structural feasibility, city plan check requirements, or project scope? Connect directly with our licensed engineering team.
                 </p>
               </FadeInUp>
 
               {/* Direct Info Blocks */}
               <FadeInUp delay={0.45}>
-                <div className="flex flex-col gap-6 pt-4 border-t border-bd-border-dark">
+                <div className="flex flex-col gap-4 pt-2">
                   {/* Phone */}
                   <a
                     href="tel:7472237815"
-                    className="flex items-start gap-4 p-4 bg-white/5 border border-bd-blue/20 hover:border-bd-blue transition-colors group"
+                    className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl hover:border-bd-blue shadow-xs transition-all group"
                   >
-                    <div className="w-10 h-10 bg-bd-navy flex items-center justify-center text-bd-blue border border-bd-blue/30 shrink-0 group-hover:bg-bd-blue group-hover:text-white transition-colors">
+                    <div className="w-11 h-11 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-lg flex items-center justify-center text-bd-blue shrink-0 group-hover:bg-bd-navy group-hover:text-white transition-all">
                       <Phone className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="font-mono text-xs text-bd-text-muted block uppercase">Direct Call</span>
-                      <span className="font-display font-bold text-xl text-white group-hover:text-bd-blue transition-colors">
+                      <span className="font-mono text-[11px] text-bd-gray block uppercase font-semibold">Direct Line</span>
+                      <span className="font-display font-bold text-lg text-bd-navy group-hover:text-bd-blue transition-colors">
                         (747) 223-7815
                       </span>
                     </div>
@@ -98,30 +98,45 @@ export default function ContactPage() {
                   {/* Email */}
                   <a
                     href="mailto:info@biddimensions.us"
-                    className="flex items-start gap-4 p-4 bg-white/5 border border-bd-blue/20 hover:border-bd-blue transition-colors group"
+                    className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl hover:border-bd-blue shadow-xs transition-all group"
                   >
-                    <div className="w-10 h-10 bg-bd-navy flex items-center justify-center text-bd-blue border border-bd-blue/30 shrink-0 group-hover:bg-bd-blue group-hover:text-white transition-colors">
+                    <div className="w-11 h-11 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-lg flex items-center justify-center text-bd-blue shrink-0 group-hover:bg-bd-navy group-hover:text-white transition-all">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="font-mono text-xs text-bd-text-muted block uppercase">Email Proposals</span>
-                      <span className="font-display font-semibold text-base text-white group-hover:text-bd-blue transition-colors">
+                      <span className="font-mono text-[11px] text-bd-gray block uppercase font-semibold">Email Proposals</span>
+                      <span className="font-display font-semibold text-base text-bd-navy group-hover:text-bd-blue transition-colors">
                         info@biddimensions.us
                       </span>
                     </div>
                   </a>
 
                   {/* Hours */}
-                  <div className="flex items-start gap-4 p-4 bg-white/5 border border-bd-blue/20">
-                    <div className="w-10 h-10 bg-bd-navy flex items-center justify-center text-bd-blue border border-bd-blue/30 shrink-0">
+                  <div className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl shadow-xs">
+                    <div className="w-11 h-11 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-lg flex items-center justify-center text-bd-blue shrink-0">
                       <Clock className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="font-mono text-xs text-bd-text-muted block uppercase">Operating Hours</span>
-                      <span className="font-body text-sm text-bd-text-light">
+                      <span className="font-mono text-[11px] text-bd-gray block uppercase font-semibold">Operating Hours</span>
+                      <span className="font-body text-sm text-bd-charcoal">
                         Monday – Friday, 9:00am – 6:00pm PST
                       </span>
                     </div>
+                  </div>
+                </div>
+              </FadeInUp>
+
+              {/* Photo Card */}
+              <FadeInUp delay={0.6}>
+                <div className="rounded-xl overflow-hidden border border-gray-200 shadow-sm mt-2">
+                  <img
+                    src="/images/contact-engineers.jpg"
+                    alt="Licensed structural engineers reviewing blueprints"
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-3 bg-white border-t border-gray-100 flex items-center justify-between font-mono text-[11px] text-bd-navy">
+                    <span className="font-semibold">ENGINEERING CONSULTATION</span>
+                    <span className="text-bd-blue font-bold">50-STATE PE REGISTERED</span>
                   </div>
                 </div>
               </FadeInUp>
@@ -136,7 +151,7 @@ export default function ContactPage() {
       </section>
 
       {/* 3. What Happens Next (Reassurance) */}
-      <section className="py-24 bg-bd-surface-light text-bd-charcoal">
+      <section className="py-20 bg-white text-bd-charcoal border-b border-gray-200">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
             <FadeInUp>
@@ -145,7 +160,7 @@ export default function ContactPage() {
               </span>
             </FadeInUp>
             <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
+              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy">
                 What Happens Next
               </h2>
             </FadeInUp>
@@ -157,11 +172,11 @@ export default function ContactPage() {
               return (
                 <div
                   key={step.num}
-                  className="bg-white p-8 border border-gray-200 shadow-sm flex flex-col justify-between"
+                  className="bg-[#F8FAFC] p-8 border border-gray-200 rounded-xl shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 bg-bd-navy text-white flex items-center justify-center font-mono font-bold text-lg">
+                      <div className="w-12 h-12 bg-bd-navy text-white rounded-lg flex items-center justify-center font-mono font-bold text-lg">
                         <Icon className="w-6 h-6 text-bd-blue" />
                       </div>
                       <span className="font-mono font-bold text-2xl text-bd-blue/40">
@@ -183,21 +198,21 @@ export default function ContactPage() {
       </section>
 
       {/* 4. Interactive Nationwide License Coverage Console */}
-      <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-white text-center">
+      <section className="py-20 bg-[#EBF3FA] border-t border-[#4A8AB8]/20 text-bd-navy text-center">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-bd-blue/10 border border-bd-blue/30 font-mono text-xs text-bd-blue uppercase mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#4A8AB8]/30 rounded-md font-mono text-xs font-semibold text-bd-blue uppercase mb-4 shadow-xs">
             <MapPin className="w-4 h-4" />
             <span>50-STATE PE LICENSE NETWORK</span>
           </div>
-          <h3 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
+          <h3 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
             Licensed Professional Engineers Across All 50 States
           </h3>
-          <p className="font-body text-base text-bd-text-muted leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="font-body text-base text-bd-gray leading-relaxed mb-8 max-w-2xl mx-auto">
             Our multi-state PE engineering network prepares permit drawings fully compliant with IBC, CBC, IRC, ASCE 7, Title 24, and local city amendments nationwide.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-xs text-bd-blue">
+          <div className="flex flex-wrap items-center justify-center gap-3 font-mono text-xs text-bd-navy">
             {['CALIFORNIA', 'TEXAS', 'FLORIDA', 'NEW YORK', 'ILLINOIS', 'GEORGIA', 'WASHINGTON', '+ 43 MORE STATES'].map((state) => (
-              <span key={state} className="px-3 py-1.5 bg-bd-navy border border-bd-blue/30">
+              <span key={state} className="px-3.5 py-1.5 bg-white border border-gray-200 rounded-md shadow-xs font-semibold">
                 ✓ {state}
               </span>
             ))}

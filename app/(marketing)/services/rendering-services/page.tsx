@@ -1,135 +1,150 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Hero } from '@/components/organisms/Hero';
-import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
-import { Button } from '@/components/atoms/Button';
-import { FadeInUp } from '@/components/animation/FadeInUp';
-import { CheckCircle2, Sparkles, Image, Video, Phone } from 'lucide-react';
-import Link from 'next/link';
+import { ServiceDetailTemplate } from '@/components/templates/ServiceDetailTemplate';
+import { Building2, Home, HardHat, Briefcase } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '3D Rendering Services | Architectural Visualizations | Bid Dimensions',
+  title: '3D Architectural Rendering Services | Photorealistic Visuals | Bid Dimensions',
   description:
-    'High-quality architectural renderings that bring designs to life, helping clients, developers, and project teams visualize the finished space before construction begins.',
+    'Photorealistic 3D architectural rendering services. Exterior building renders, interior design visuals, 360 virtual tours, and cinematic animations.',
+  keywords: [
+    '3D architectural rendering',
+    'photorealistic exterior rendering',
+    'interior 3D rendering',
+    '3D floor plans',
+    'architectural visualization',
+    'virtual tour 360 rendering',
+  ],
+  alternates: {
+    canonical: 'https://biddimensions.us/services/rendering-services',
+  },
+  openGraph: {
+    title: '3D Architectural Rendering Services | Photorealistic Visuals',
+    description:
+      'Photorealistic 3D architectural rendering services. 24-48h turnaround, 50-state coverage.',
+    url: 'https://biddimensions.us/services/rendering-services',
+    images: [{ url: '/images/service-thumb-rendering.jpg', width: 1200, height: 630 }],
+  },
 };
 
-const SCOPES = [
-  'Exterior 3D Renderings',
-  'Interior 3D Renderings',
-  'Architectural Visualization',
-  '3D Walkthroughs & Animations',
-  'Aerial & Site Renderings',
-  '360° Panoramic Views',
-  'Marketing Renderings',
-  'Conceptual 3D Visualization',
-];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: '3D Architectural Rendering & Visualization',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Bid Dimensions',
+    url: 'https://biddimensions.us',
+  },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  description:
+    'Professional 3D architectural rendering, exterior building visualization, photorealistic interior renders, 3D floor plans, and animation walkthroughs.',
+};
 
-const SOFTWARE_LIST = [
-  'Lumion',
-  'Enscape',
-  'SketchUp',
-  '3ds Max',
-  'V-Ray',
-  'Adobe Photoshop',
-];
-
-export default function RenderingPage() {
+export default function RenderingServicesPage() {
   return (
-    <div className="flex flex-col">
-      {/* Subpage Hero */}
-      <Hero
-        variant="page"
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Services', href: '/#services' },
-          { label: '3D Rendering Services', href: '/services/rendering-services' },
-        ]}
-        headline="3D Rendering Services"
-        subheadline="High-quality architectural renderings that bring designs to life, helping clients, developers, and project teams visualize the finished space before construction begins."
-        cta={{ text: 'Request 3D Rendering Quote', href: '/contact' }}
-        hudBadge={{ label: 'VISUALS', spec: '4K ARCHITECTURAL RENDER' }}
-      />
-
-      {/* Service Overview & Target Audience */}
-      <section className="py-20 bg-white text-bd-navy">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <FadeInUp>
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                  SERVICE OVERVIEW
-                </span>
-              </FadeInUp>
-              <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-3xl sm:text-44px leading-tight mb-6 text-bd-navy">
-                  Photorealistic 3D Visualizations & Walkthroughs
-                </h2>
-              </FadeInUp>
-              <FadeInUp delay={0.3}>
-                <p className="font-body text-base sm:text-lg text-bd-gray leading-relaxed mb-6">
-                  We create realistic 3D visuals that communicate the design, materials, finishes, lighting, and overall appearance of a project before it is built. Our renderings help clients review design concepts, make informed decisions, present projects to stakeholders, and market properties with confidence.
-                </p>
-              </FadeInUp>
-
-              {/* Deliverables Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                {SCOPES.map((scope) => (
-                  <div key={scope} className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue shrink-0" />
-                    <span>{scope}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="bg-[#EBF3FA] border border-[#4A8AB8]/30 p-8 shadow-sm">
-                <h3 className="font-display font-bold text-xl text-bd-navy mb-4 border-b border-gray-200 pb-3">
-                  Rendering Software
-                </h3>
-                <div className="flex flex-col gap-3 mb-6">
-                  {SOFTWARE_LIST.map((sw) => (
-                    <div key={sw} className="flex items-center justify-between p-3 bg-white border border-gray-200 font-mono text-xs text-bd-navy font-semibold">
-                      <span>{sw}</span>
-                      <span className="text-bd-blue">PHOTOREALISTIC</span>
-                    </div>
-                  ))}
-                </div>
-                <Button variant="primary" size="md" href="/contact" className="w-full text-center">
-                  Get a Free Quote
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Methodology */}
-      <ProcessTimeline variant="horizontal" />
-
-      {/* CTA Section */}
-      <section className="py-20 bg-[#EBF3FA] border-t border-[#4A8AB8]/30 text-bd-navy">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center">
-          <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
-            Bring Your Architectural Designs to Life
-          </h2>
-          <p className="font-body text-base sm:text-lg text-bd-gray max-w-2xl mb-8">
-            Upload your floor plans, elevations, CAD files, or sketches for a photorealistic 3D rendering proposal.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button variant="primary" size="lg" href="/contact">
-              Upload Plans for 3D Render
-            </Button>
-            <a
-              href="tel:7472237815"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-bd-navy text-bd-navy font-display font-semibold text-sm hover:bg-bd-navy hover:text-white transition-all shadow-xs"
-            >
-              <Phone className="w-4 h-4 text-bd-blue" />
-              <span>(747) 223-7815</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+    <ServiceDetailTemplate
+      serviceSlug="rendering-services"
+      title="3D Rendering & Visualization"
+      heroSubtitle="Photorealistic 3D exterior building renders, interior design visualizations, 360-degree virtual tours, and site animations for developers and investors."
+      heroImage="/images/service-thumb-rendering.jpg"
+      overview={{
+        paragraph1:
+          'We craft photorealistic 3D architectural renderings, interior visual experiences, and cinematic walkthroughs that help developers, architects, and builders secure investment, city approvals, and pre-sales.',
+        paragraph2:
+          'Using advanced ray-tracing lighting engines, physically accurate materials, and detailed environmental staging, we turn CAD/Revit drawing sets into marketing-grade visual assets.',
+      }}
+      targetAudiences={[
+        {
+          iconName: 'building',
+          title: 'Real Estate Developers',
+          text: 'Need striking marketing imagery and virtual tours to pre-lease commercial spaces and sell residential units.',
+        },
+        {
+          iconName: 'home',
+          title: 'Architects & Interior Designers',
+          text: 'Require accurate lighting studies, material finish evaluations, and design presentation visuals for clients.',
+        },
+        {
+          iconName: 'hardhat',
+          title: 'General Contractors & Builders',
+          text: 'Looking to present clear visual design intent to homeowners and commercial clients before construction starts.',
+        },
+        {
+          iconName: 'briefcase',
+          title: 'Marketing & Sales Agencies',
+          text: 'Seeking ultra-high-resolution 4K/8K imagery for billboards, brochures, and digital campaigns.',
+        },
+      ]}
+      processSteps={[
+        {
+          number: 1,
+          title: '3D Model & Camera Setup',
+          text: 'Import CAD/Revit models and configure cinematic camera angles, focal lengths, and compositions.',
+        },
+        {
+          number: 2,
+          title: 'Material & Texture Application',
+          text: 'Apply physically accurate architectural materials including glass, concrete, wood grains, and metals.',
+        },
+        {
+          number: 3,
+          title: 'Lighting & Environmental Staging',
+          text: 'Configure realistic sunlight, interior fixture illumination, golden hour atmosphere, and surrounding landscape.',
+        },
+        {
+          number: 4,
+          title: 'Draft Preview Review',
+          text: 'Provide preliminary watermarked render proofs for client angle and material feedback.',
+        },
+        {
+          number: 5,
+          title: 'High-Resolution Final Render',
+          text: 'Render high-fidelity passes in 4K/8K with ray-traced reflections and Global Illumination (GI).',
+        },
+        {
+          number: 6,
+          title: 'Post-Processing & Delivery',
+          text: 'Perform color grading, lens flare adjustments, and deliver print-ready and web-ready image packages.',
+        },
+      ]}
+      deliverables={[
+        'Photorealistic Exterior 3D Renderings (4K)',
+        'Interior Design & Lighting Visualizations',
+        '360-Degree Interactive Virtual Tours',
+        'Architectural Video Walkthrough Animations',
+        'Site Plan & Landscape Staging Renders',
+        'Cutaway 3D Floor Plan Views',
+        'Material Option Comparison Renders',
+        'Marketing Package High-Res Image Sets',
+      ]}
+      softwareList={[
+        '3ds Max',
+        'V-Ray',
+        'Corona Renderer',
+        'Lumion 3D',
+        'Unreal Engine 5',
+        'Autodesk Revit',
+        'Adobe Photoshop',
+      ]}
+      faqs={[
+        {
+          question: 'What files do I need to supply to get a 3D rendering?',
+          answer:
+            'You can send us Revit models, 2D AutoCAD DWG drawings, PDF blueprints, or hand sketches along with any preferred material finishes and reference photos.',
+        },
+        {
+          question: 'How fast can you deliver final 3D renderings?',
+          answer:
+            'Standard static 4K renders are delivered within 48 to 72 hours. Rush 24-hour turnaround is available for immediate investor and permit presentations.',
+        },
+        {
+          question: 'Can you render both daytime and nighttime/twilight lighting scenarios?',
+          answer:
+            'Yes. We offer daytime sun, golden hour dusk/twilight, and dramatic nighttime architectural illumination options.',
+        },
+      ]}
+      jsonLdSchema={serviceSchema}
+    />
   );
 }

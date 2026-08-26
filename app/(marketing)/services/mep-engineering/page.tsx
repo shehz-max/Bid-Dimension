@@ -1,261 +1,151 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Hero } from '@/components/organisms/Hero';
-import { FAQItem } from '@/components/molecules/FAQItem';
-import { Button } from '@/components/atoms/Button';
-import { FadeInUp } from '@/components/animation/FadeInUp';
-import { StaggerContainer } from '@/components/animation/StaggerContainer';
-import { CadDrawingViewer } from '@/components/molecules/CadDrawingViewer';
-import { ScopePackageCalculator } from '@/components/molecules/ScopePackageCalculator';
-import { Cpu, CheckCircle2, Phone, ShieldCheck, Layers } from 'lucide-react';
+import { ServiceDetailTemplate } from '@/components/templates/ServiceDetailTemplate';
+import { HardHat, Building2, Home, Briefcase } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Licensed MEP Engineering Services | Title 24 & BIM | Bid Dimensions',
+  title: 'MEP Engineering Services | PE Stamped Mechanical, Electrical, Plumbing | Bid Dimensions',
   description:
-    'Licensed MEP engineering services for commercial & residential builds. Mechanical HVAC ductwork, electrical single-line diagrams, plumbing risers, & Title 24 compliance.',
+    'Licensed PE mechanical, electrical, and plumbing engineering services. Permit-ready HVAC duct design, electrical SLD, plumbing risers, and Title 24 energy calculations.',
+  keywords: [
+    'MEP engineering services',
+    'mechanical engineering HVAC',
+    'electrical single-line diagram',
+    'plumbing riser diagrams',
+    'Title 24 energy calculations',
+    'PE stamped MEP drawings',
+  ],
   alternates: {
     canonical: 'https://biddimensions.us/services/mep-engineering',
   },
+  openGraph: {
+    title: 'MEP Engineering Services | Mechanical, Electrical, Plumbing',
+    description:
+      'Licensed PE mechanical, electrical, and plumbing engineering services. 24-48h turnaround, 50-state coverage.',
+    url: 'https://biddimensions.us/services/mep-engineering',
+    images: [{ url: '/images/mep-hero-spec.jpg', width: 1200, height: 630 }],
+  },
 };
 
-const faqSchema = {
+const serviceSchema = {
   '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What does MEP engineering stand for?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'MEP stands for Mechanical (HVAC ductwork & air distribution), Electrical (power distribution & panel schedules), and Plumbing (domestic water, DWV waste, & gas piping) engineering.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Are Title 24 energy calculations included in MEP packages?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes! All MEP drawing packages include certified energy code compliance documentation (Title 24 for California / IECC for national jurisdictions).',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does 3D clash detection prevent job site delays?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'By modeling MEP utility trades inside Revit 3D BIM, we identify and resolve spatial collisions between ductwork, steel joists, and plumbing risers prior to construction.',
-      },
-    },
-  ],
+  '@type': 'Service',
+  serviceType: 'MEP Engineering Services',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Bid Dimensions',
+    url: 'https://biddimensions.us',
+  },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  description:
+    'Full-service mechanical, electrical, and plumbing (MEP) engineering, Title 24 energy calculations, HVAC design, electrical single-line diagrams, and PE stamped permit packages.',
 };
 
-const MEP_SHEETS = [
-  {
-    id: 'sheet-m1',
-    sheetNumber: 'M-1.0',
-    title: 'HVAC Ductwork & Air Distribution Layout',
-    category: 'Mechanical System Engineering',
-    image: '/images/mep-hero-spec.jpg',
-    highlights: [
-      'CFM airflow calculations & duct sizing schedules',
-      'Rooftop unit (RTU) curb & structural mounting details',
-      'Thermostat zone control & diffuser layout',
-      'Title 24 mechanical energy compliance sheets',
-    ],
-  },
-  {
-    id: 'sheet-e1',
-    sheetNumber: 'E-1.0',
-    title: 'Electrical Single-Line Diagram & Panel Schedules',
-    category: 'Electrical Power Engineering',
-    image: '/images/mep-clash-spec.jpg',
-    highlights: [
-      'Main service panel load calculations & feeder sizes',
-      'Single-Line Diagram (SLD) riser representation',
-      'Egress emergency lighting & GFCI outlet layout',
-      'Photovoltaic (Solar PV) grid-tie connection details',
-    ],
-  },
-];
-
-const MEP_SCOPES = [
-  {
-    id: 'commercial-mep',
-    label: 'Commercial Multi-Trade MEP Package',
-    subtitle: 'Mechanical HVAC, electrical SLD, plumbing & fire sprinkler specs',
-    deliverables: [
-      'M-1.0 HVAC Ductwork & Equipment Sizing',
-      'E-1.0 Electrical Power & Panel Schedules',
-      'P-1.0 Plumbing DWV & Water Riser Diagram',
-      'FP-1.0 Fire Sprinkler Head Layout',
-      'Title 24 / IECC Energy Code Binder',
-      '3D Revit MEP Clash Detection Model',
-    ],
-    turnaround: '48 Hours',
-    stampType: 'PE Sealed (MEP)',
-  },
-  {
-    id: 'residential-mep',
-    label: 'Custom Home & ADU MEP Scope',
-    subtitle: 'HVAC manual J/S/D calculations, electrical service & plumbing',
-    deliverables: [
-      'Mechanical Heat Loss & Duct Sizing',
-      '200A Electrical Main Panel Load Calc',
-      'Plumbing Gas & Water Supply Isometric',
-      'Title 24 Energy Compliance Set',
-      'PE Stamp & Permit Approval Set',
-      'Fast 24-48 Hour Turnaround',
-    ],
-    turnaround: '24–36 Hours',
-    stampType: 'PE Sealed (MEP)',
-  },
-  {
-    id: 'trade-mep',
-    label: 'Single Discipline Utility Scope',
-    subtitle: 'Focused HVAC replacement, solar PV or electrical upgrade',
-    deliverables: [
-      'Single Discipline CAD Drawing Sheet',
-      'Panel Load Calc or Duct CFM Schedule',
-      'PE Engineering Stamp & Signature',
-      'City Permit Submittal Set',
-      'Contractor Equipment Specs',
-      'Digital PDF Delivery',
-    ],
-    turnaround: '24 Hours',
-    stampType: 'PE Sealed (MEP)',
-  },
-];
-
-export default function MEPEngineeringPage() {
+export default function MepEngineeringPage() {
   return (
-    <div className="flex flex-col">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
-      {/* Hero */}
-      <Hero
-        variant="page"
-        headline="Licensed MEP Engineering Services"
-        subheadline="Full-service PE-stamped mechanical HVAC, electrical single-line diagrams, plumbing risers, and Title 24 energy calculations delivered in 24–48 hours."
-        cta={{ text: 'Request MEP Quote', href: '/contact' }}
-        image="/images/mep-hero-spec.jpg"
-        hudBadge={{ label: 'MEP REVIT BIM', spec: 'CLASH FREE // PE STAMPED' }}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Services', href: '/#services' },
-          { label: 'MEP Engineering', href: '/services/mep-engineering' },
-        ]}
-      />
-
-      {/* Overview Section */}
-      <section className="py-20 bg-white text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <FadeInUp>
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-bd-blue" />
-                  COORDINATED UTILITIES
-                </span>
-              </FadeInUp>
-              <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-bd-charcoal mb-6">
-                  Zero Field Interference Between HVAC, Electrical & Structure
-                </h2>
-              </FadeInUp>
-              <FadeInUp delay={0.3}>
-                <p className="font-body text-base text-bd-gray leading-relaxed mb-6">
-                  Building MEP systems account for over 35% of total construction costs. Uncoordinated ductwork or misplaced plumbing risers lead to job site delays and change orders.
-                </p>
-              </FadeInUp>
-              <FadeInUp delay={0.45}>
-                <p className="font-body text-base text-bd-navy font-semibold leading-relaxed">
-                  Our licensed MEP engineers run 3D Revit clash detection to ensure ductwork, electrical switchboards, and plumbing risers fit inside structural ceiling cavities before installation starts.
-                </p>
-              </FadeInUp>
-            </div>
-
-            <div className="lg:col-span-6">
-              <FadeInUp delay={0.3}>
-                <div className="border border-gray-200 bg-bd-surface-light p-3 shadow-md">
-                  <img
-                    src="/images/mep-clash-spec.jpg"
-                    alt="3D MEP Revit clash detection model"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="p-3 bg-bd-navy text-white font-mono text-xs flex justify-between items-center mt-2">
-                    <span>3D MEP CLASH DETECTION MODEL</span>
-                    <span className="text-bd-blue">PASSED // ZERO CLASH</span>
-                  </div>
-                </div>
-              </FadeInUp>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Cad Drawing Specimen Viewer */}
-      <CadDrawingViewer title="MEP Engineering Drawing Package" sheets={MEP_SHEETS} />
-
-      {/* Scope Package Calculator */}
-      <ScopePackageCalculator title="MEP Scope & Package Calculator" options={MEP_SCOPES} />
-
-      {/* FAQ Accordion */}
-      <section className="py-20 bg-bd-surface-light text-bd-charcoal">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <div className="flex flex-col items-start mb-12">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                QUESTIONS & ANSWERS
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal">
-                Frequently Asked Questions
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <div className="bg-white p-6 sm:p-8 border border-gray-200 shadow-sm">
-            {faqSchema.mainEntity.map((item, idx) => (
-              <FAQItem
-                key={item.name}
-                question={item.name}
-                answer={item.acceptedAnswer.text}
-                defaultOpen={idx === 0}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Banner */}
-      <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
-            Need PE-Stamped MEP Drawings?
-          </h2>
-          <p className="font-body text-base text-bd-text-muted mb-8">
-            Upload your plans today for a fast 24h PE-stamped engineering proposal.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button variant="primary" size="lg" href="/contact">
-              Upload Plans for MEP Quote
-            </Button>
-            <a
-              href="tel:7472237815"
-              className="flex items-center gap-2 font-mono text-sm text-bd-text-light hover:text-bd-blue transition-colors"
-            >
-              <Phone className="w-4 h-4 text-bd-blue" />
-              <span>Call (747) 223-7815</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+    <ServiceDetailTemplate
+      serviceSlug="mep-engineering"
+      title="MEP Engineering Services"
+      heroSubtitle="PE-stamped mechanical (HVAC), electrical, plumbing, and Title 24 energy calculations for commercial, industrial, and residential projects."
+      heroImage="/images/mep-hero-spec.jpg"
+      overview={{
+        paragraph1:
+          'We deliver PE-stamped mechanical, electrical, and plumbing (MEP) design packages engineered for efficiency, building code compliance, and ease of construction installation.',
+        paragraph2:
+          'From HVAC ductwork sizing and electrical single-line diagrams to plumbing isometric risers and Title 24/ASHRAE 90.1 energy compliance, our engineers resolve trade interferences before work begins on-site.',
+      }}
+      targetAudiences={[
+        {
+          iconName: 'hardhat',
+          title: 'Mechanical & Electrical Contractors',
+          text: 'Require coordinated single-line diagrams, panel schedules, and duct sizing ready for field installation.',
+        },
+        {
+          iconName: 'building',
+          title: 'Commercial Facility Managers',
+          text: 'Need power distribution upgrades, EV charging infrastructure, and HVAC replacement calculations.',
+        },
+        {
+          iconName: 'home',
+          title: 'Architects',
+          text: 'Seeking fully integrated MEP plans that respect ceiling heights, structural clearances, and architectural aesthetics.',
+        },
+        {
+          iconName: 'briefcase',
+          title: 'General Contractors',
+          text: 'Looking for 3D Revit MEP clash detection to eliminate expensive routing changes and field delays.',
+        },
+      ]}
+      processSteps={[
+        {
+          number: 1,
+          title: 'Load & Demand Intake',
+          text: 'Analyze architectural floor plans, equipment schedules, and building occupancy loads.',
+        },
+        {
+          number: 2,
+          title: 'HVAC & Ventilation Sizing',
+          text: 'Calculate heating/cooling loads (Manual J/S/D or ASHRAE) and configure duct distribution.',
+        },
+        {
+          number: 3,
+          title: 'Electrical Distribution Design',
+          text: 'Size main service panels, electrical single-line diagrams (SLD), and lighting controls.',
+        },
+        {
+          number: 4,
+          title: 'Plumbing & Gas Piping',
+          text: 'Design water supply fixture units (WSFU), DWV drain risers, and gas piping schematics.',
+        },
+        {
+          number: 5,
+          title: 'Energy Code Compliance',
+          text: 'Execute Title 24 (California), COMcheck, or REScheck energy calculations.',
+        },
+        {
+          number: 6,
+          title: 'PE Stamping & Signoff',
+          text: 'Deliver certified, PE-sealed MEP drawing sets ready for permit approval.',
+        },
+      ]}
+      deliverables={[
+        'HVAC Ductwork & Equipment Plans (M-1.0)',
+        'Electrical Power & Single-Line Diagrams (E-1.0)',
+        'Lighting Plans & Photometric Calculations',
+        'Plumbing Water & DWV Riser Diagrams (P-1.0)',
+        'Gas Piping Sizing Schematics',
+        'Title 24 & COMcheck Energy Compliance Books',
+        'Mechanical Heating/Cooling Load Reports',
+        'Fire Protection / Sprinkler Schematic Layouts',
+      ]}
+      softwareList={[
+        'AutoCAD MEP',
+        'Autodesk Revit MEP',
+        'Carrier HAP',
+        'Trane TRACE 3D',
+        'COMcheck',
+        'REScheck',
+        'EnergyPro',
+        'Navisworks',
+      ]}
+      faqs={[
+        {
+          question: 'Do you provide PE stamps for MEP drawings?',
+          answer:
+            'Yes. Our licensed Professional Engineers (PE) sign and seal mechanical, electrical, and plumbing drawings for city permit approval in all 50 states.',
+        },
+        {
+          question: 'Can you perform Title 24 and COMcheck energy compliance calculations?',
+          answer:
+            'Yes. We include complete building envelope, lighting, and mechanical Title 24 / COMcheck / REScheck compliance certificates with our MEP packages.',
+        },
+        {
+          question: 'How do you prevent MEP clashes with structural framing?',
+          answer:
+            'We build full 3D Revit models to coordinate ductwork, plumbing risers, and electrical conduits against structural beams and ceiling envelopes before drawings are issued.',
+        },
+      ]}
+      jsonLdSchema={serviceSchema}
+    />
   );
 }

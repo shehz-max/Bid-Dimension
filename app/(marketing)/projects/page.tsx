@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       />
 
       {/* Projects Grid Section */}
-      <section className="py-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark text-white relative">
+      <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           {/* Category Filter Bar */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
@@ -42,10 +42,10 @@ export default function ProjectsPage() {
                 <button
                   key={cat}
                   onClick={() => setFilter(cat as any)}
-                  className={`px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-300 border ${
+                  className={`px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-300 border rounded-lg ${
                     isActive
-                      ? 'bg-bd-blue text-bd-navy-deep border-bd-blue shadow-glow-blue scale-105'
-                      : 'bg-bd-navy/70 text-bd-text-light border-bd-blue/20 hover:border-bd-blue/60 hover:text-white'
+                      ? 'bg-bd-navy text-white border-bd-navy shadow-md scale-105'
+                      : 'bg-white text-bd-navy border-gray-200 hover:border-bd-blue hover:text-bd-blue shadow-xs'
                   }`}
                 >
                   {cat} {cat === 'All' ? `(${FEATURED_PROJECTS.length})` : ''}
@@ -67,61 +67,63 @@ export default function ProjectsPage() {
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="group bg-bd-navy/80 border border-bd-blue/30 hover:border-bd-blue backdrop-blur-md p-6 shadow-glow-blue flex flex-col justify-between transition-all duration-300 hover:-translate-y-1"
+                  className="group bg-white border border-gray-200 hover:border-bd-blue/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1"
                 >
                   <div>
-                    {/* Top Metadata */}
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-[10px] uppercase font-bold text-bd-blue bg-bd-blue/10 px-2.5 py-1 border border-bd-blue/30">
-                        {project.category.toUpperCase()} // {project.buildingType.toUpperCase()}
-                      </span>
-                      <div className="flex items-center gap-1 font-mono text-[10px] text-bd-blue font-semibold">
-                        <ShieldCheck className="w-3.5 h-3.5" />
-                        <span>{project.turnaround} TURNAROUND</span>
-                      </div>
-                    </div>
-
-                    {/* Image Preview */}
-                    <div className="relative overflow-hidden border border-bd-blue/20 mb-6 bg-black/40 min-h-[220px]">
+                    {/* Image Preview with Badges */}
+                    <div className="relative overflow-hidden bg-gray-100 min-h-[220px]">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-56 object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-64 object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute top-2 left-2 px-2.5 py-1 bg-bd-navy/90 border border-bd-blue/30 font-mono text-[10px] text-bd-text-muted">
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-md border border-gray-200 font-mono text-[10px] text-bd-navy font-semibold rounded-md shadow-xs">
                         LOCATION: {project.location.toUpperCase()}
                       </div>
-                      <div className="absolute bottom-2 right-2 px-2.5 py-1 bg-bd-navy/90 border border-bd-blue/30 font-mono text-[10px] text-bd-blue font-bold">
+                      <div className="absolute bottom-3 right-3 px-3 py-1 bg-white/95 backdrop-blur-md border border-gray-200 font-mono text-[10px] text-bd-blue font-bold rounded-md shadow-xs">
                         SQFT: {project.sqft}
                       </div>
                     </div>
 
-                    {/* Title & Summary */}
-                    <h3 className="font-display font-bold text-2xl text-white mb-2 group-hover:text-bd-blue transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="font-body text-xs text-bd-text-muted leading-relaxed mb-6">
-                      {project.summary}
-                    </p>
-
-                    {/* Highlights Checklist */}
-                    <div className="flex flex-col gap-2 mb-6 pt-4 border-t border-bd-blue/20">
-                      <span className="font-mono text-[10px] text-bd-blue font-bold uppercase tracking-wider">
-                        Engineering Accomplishments:
-                      </span>
-                      {project.highlights.map((h, i) => (
-                        <div key={i} className="flex items-center gap-2 font-body text-xs text-bd-text-light">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-bd-blue shrink-0" />
-                          <span>{h}</span>
+                    <div className="p-6 sm:p-7">
+                      {/* Top Metadata */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="font-mono text-[10px] uppercase font-bold text-bd-blue bg-[#EBF3FA] px-2.5 py-1 border border-[#4A8AB8]/30 rounded-md">
+                          {project.category.toUpperCase()} // {project.buildingType.toUpperCase()}
+                        </span>
+                        <div className="flex items-center gap-1 font-mono text-[10px] text-bd-navy font-semibold">
+                          <ShieldCheck className="w-3.5 h-3.5 text-bd-blue" />
+                          <span>{project.turnaround} TURNAROUND</span>
                         </div>
-                      ))}
+                      </div>
+
+                      {/* Title & Summary */}
+                      <h3 className="font-display font-bold text-2xl text-bd-navy mb-2 group-hover:text-bd-blue transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="font-body text-sm text-bd-gray leading-relaxed mb-6">
+                        {project.summary}
+                      </p>
+
+                      {/* Highlights Checklist */}
+                      <div className="flex flex-col gap-2 mb-6 pt-4 border-t border-gray-100">
+                        <span className="font-mono text-[10px] text-bd-blue font-bold uppercase tracking-wider">
+                          Engineering Accomplishments:
+                        </span>
+                        {project.highlights.map((h, i) => (
+                          <div key={i} className="flex items-center gap-2 font-body text-xs text-bd-charcoal">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-bd-blue shrink-0" />
+                            <span>{h}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
                   {/* Deliverables Sheet Tags */}
-                  <div className="pt-4 border-t border-bd-blue/20 flex flex-wrap gap-2">
+                  <div className="px-6 pb-6 pt-0 flex flex-wrap gap-2">
                     {project.deliverables.map((d, i) => (
-                      <span key={i} className="font-mono text-[9px] text-bd-text-muted bg-bd-navy-deep px-2 py-0.5 border border-bd-blue/20">
+                      <span key={i} className="font-mono text-[10px] text-bd-navy bg-[#F8FAFC] px-2.5 py-1 border border-gray-200 rounded-md font-medium">
                         {d}
                       </span>
                     ))}

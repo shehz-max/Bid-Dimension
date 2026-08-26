@@ -1,141 +1,149 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import { Hero } from '@/components/organisms/Hero';
-import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
-import { Button } from '@/components/atoms/Button';
-import { FadeInUp } from '@/components/animation/FadeInUp';
-import { CheckCircle2, ShieldCheck, Layers, FileCheck, Phone } from 'lucide-react';
-import Link from 'next/link';
+import { ServiceDetailTemplate } from '@/components/templates/ServiceDetailTemplate';
+import { HardHat, Building2, Home, Briefcase } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'BIM & CAD Services | Revit Modeling & Clash Detection | Bid Dimensions',
+  title: 'BIM & CAD Drafting Services | Revit 3D Clash Detection | Bid Dimensions',
   description:
-    'Accurate BIM & CAD solutions for contractors and developers, including Revit modeling, CAD drafting, shop drawings, and clash detection to resolve conflicts before construction.',
+    'Professional BIM & CAD services. Revit 3D modeling (LOD 200-400), Navisworks clash detection, shop drawings, and 2D CAD drafting.',
+  keywords: [
+    'BIM services',
+    'Revit 3D modeling',
+    'Navisworks clash detection',
+    'CAD drafting services',
+    'shop drawings',
+    'LOD 300 LOD 400 BIM',
+  ],
+  alternates: {
+    canonical: 'https://biddimensions.us/services/bim-cad-services',
+  },
+  openGraph: {
+    title: 'BIM & CAD Drafting Services | Revit 3D Clash Detection',
+    description:
+      'Professional BIM & CAD services. Revit 3D modeling, clash detection, shop drawings. 24-48h turnaround, 50-state coverage.',
+    url: 'https://biddimensions.us/services/bim-cad-services',
+    images: [{ url: '/images/primecost-cad-bg.jpg', width: 1200, height: 630 }],
+  },
 };
 
-const SCOPES = [
-  '2D AutoCAD Drawings',
-  '3D Revit Models',
-  'Architectural BIM Models',
-  'Structural BIM Models',
-  'MEP BIM Models',
-  'Construction Documentation',
-  'Shop Drawings',
-  'Coordination Drawings',
-  'Clash Detection Reports',
-  'Revit Families',
-  'As-Built Drawings & Models',
-  'Quantity & Model Data',
-];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'BIM & CAD Drafting Services',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'Bid Dimensions',
+    url: 'https://biddimensions.us',
+  },
+  areaServed: { '@type': 'Country', name: 'United States' },
+  description:
+    'Comprehensive Building Information Modeling (BIM) and CAD drafting, Revit LOD 200-400 modeling, Navisworks clash detection, and shop drawings.',
+};
 
-const SOFTWARE_LIST = [
-  'Autodesk Revit',
-  'AutoCAD',
-  'Navisworks Manage',
-  'BIM 360 / ACC',
-  'BIMcollab',
-];
-
-export default function BimCadPage() {
+export default function BimCadServicesPage() {
   return (
-    <div className="flex flex-col">
-      {/* Subpage Hero */}
-      <Hero
-        variant="page"
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Services', href: '/#services' },
-          { label: 'BIM & CAD Services', href: '/services/bim-cad-services' },
-        ]}
-        headline="BIM & CAD Services"
-        subheadline="Accurate BIM & CAD solutions for contractors and developers, including Revit modeling, CAD drafting, shop drawings, and clash detection to identify and resolve conflicts before construction."
-        cta={{ text: 'Request BIM Proposal', href: '/contact' }}
-        hudBadge={{ label: 'WORKFLOW', spec: 'LOD 300-400 BIM' }}
-      />
-
-      {/* Service Overview & Target Audience */}
-      <section className="py-20 bg-white text-bd-navy">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <FadeInUp>
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                  SERVICE OVERVIEW
-                </span>
-              </FadeInUp>
-              <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-3xl sm:text-44px leading-tight mb-6 text-bd-navy">
-                  Coordinated 3D BIM & Precision 2D CAD Drafting
-                </h2>
-              </FadeInUp>
-              <FadeInUp delay={0.3}>
-                <p className="font-body text-base sm:text-lg text-bd-gray leading-relaxed mb-6">
-                  Our BIM and CAD services turn design information into accurate, coordinated, and usable project documentation. We develop models and drawings that help identify design issues, improve communication between trades, and provide contractors with reliable information for construction.
-                </p>
-                <p className="font-body text-base text-bd-gray leading-relaxed mb-8">
-                  Whether you need a new BIM model, CAD drafting, shop drawings, coordination support, or as-built documentation, our team delivers solutions based on your project's scope and requirements.
-                </p>
-              </FadeInUp>
-
-              {/* Deliverables Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                {SCOPES.map((scope) => (
-                  <div key={scope} className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue shrink-0" />
-                    <span>{scope}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="bg-[#EBF3FA] border border-[#4A8AB8]/30 p-8 shadow-sm">
-                <h3 className="font-display font-bold text-xl text-bd-navy mb-4 border-b border-gray-200 pb-3">
-                  Software Suite
-                </h3>
-                <div className="flex flex-col gap-3 mb-6">
-                  {SOFTWARE_LIST.map((sw) => (
-                    <div key={sw} className="flex items-center justify-between p-3 bg-white border border-gray-200 font-mono text-xs text-bd-navy font-semibold">
-                      <span>{sw}</span>
-                      <span className="text-bd-blue">STANDARD</span>
-                    </div>
-                  ))}
-                </div>
-                <Button variant="primary" size="md" href="/contact" className="w-full text-center">
-                  Get a Free Quote
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Methodology */}
-      <ProcessTimeline variant="horizontal" />
-
-      {/* CTA Section */}
-      <section className="py-20 bg-[#EBF3FA] border-t border-[#4A8AB8]/30 text-bd-navy">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 text-center flex flex-col items-center">
-          <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
-            Need Coordinated BIM Models or Shop Drawings?
-          </h2>
-          <p className="font-body text-base sm:text-lg text-bd-gray max-w-2xl mb-8">
-            Upload your architectural, structural, or MEP drawings for an immediate proposal and 24-48h turnaround review.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button variant="primary" size="lg" href="/contact">
-              Upload Drawings for Quote
-            </Button>
-            <a
-              href="tel:7472237815"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-bd-navy text-bd-navy font-display font-semibold text-sm hover:bg-bd-navy hover:text-white transition-all shadow-xs"
-            >
-              <Phone className="w-4 h-4 text-bd-blue" />
-              <span>(747) 223-7815</span>
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+    <ServiceDetailTemplate
+      serviceSlug="bim-cad-services"
+      title="BIM & CAD Services"
+      heroSubtitle="Revit 3D BIM modeling, Navisworks clash detection, LOD 200–400 documentation, and precise 2D AutoCAD drafting for seamless trade coordination."
+      heroImage="/images/primecost-cad-bg.jpg"
+      overview={{
+        paragraph1:
+          'We provide comprehensive Building Information Modeling (BIM) and computer-aided drafting (CAD) services to coordinate architectural, structural, and MEP systems before construction.',
+        paragraph2:
+          'By creating intelligent LOD 200–400 3D models and running automated Navisworks clash detection, we eliminate trade interferences, generate precise shop drawings, and streamline field fabrication.',
+      }}
+      targetAudiences={[
+        {
+          iconName: 'hardhat',
+          title: 'Trade Contractors (Steel, MEP, Framing)',
+          text: 'Need fabrication-level shop drawings, spool drawings, and clash-resolved models.',
+        },
+        {
+          iconName: 'building',
+          title: 'General Contractors & BIM Managers',
+          text: 'Require federated Navisworks models and automated clash detection reports to manage job sites.',
+        },
+        {
+          iconName: 'home',
+          title: 'Architects & Engineers',
+          text: 'Seeking BIM conversion from 2D CAD/PDF drawings into parametric Revit families.',
+        },
+        {
+          iconName: 'briefcase',
+          title: 'Facility Owners',
+          text: 'Looking for As-Built BIM models (LOD 500) for ongoing digital facility operations and maintenance.',
+        },
+      ]}
+      processSteps={[
+        {
+          number: 1,
+          title: 'Model Setup & Standards',
+          text: 'Establish shared coordinates, project templates, BIM execution plan (BEP), and grid systems.',
+        },
+        {
+          number: 2,
+          title: 'Parametric 3D Modeling',
+          text: 'Build intelligent architectural, structural, and MEP Revit models (LOD 200 to 400).',
+        },
+        {
+          number: 3,
+          title: 'Federated Model Assembly',
+          text: 'Combine multidisciplinary models into Navisworks for comprehensive clash analysis.',
+        },
+        {
+          number: 4,
+          title: 'Clash Resolution Coordination',
+          text: 'Conduct clash review meetings with trades and adjust routing to achieve 0 soft/hard clashes.',
+        },
+        {
+          number: 5,
+          title: 'Shop & Spool Drawing Extraction',
+          text: 'Generate dimensioned 2D fabrication sheets, sleeve locations, and hanger schedules directly from the model.',
+        },
+        {
+          number: 6,
+          title: 'Final Model Handover',
+          text: 'Deliver coordinated Revit RVT, Navisworks NWD, IFC, and PDF drawing packages.',
+        },
+      ]}
+      deliverables={[
+        'Parametric Revit 3D Models (LOD 200-400)',
+        'Navisworks Federated Clash Detection Reports',
+        'Pre-Fabrication Shop Drawings',
+        'MEP Penetration & Sleeve Layouts',
+        '2D AutoCAD Drafting & Conversion Sets',
+        'As-Built Model Verification Sets (LOD 500)',
+        'IFC & OpenBIM Coordination Files',
+        'Material Quantity Schedules from BIM',
+      ]}
+      softwareList={[
+        'Autodesk Revit',
+        'Autodesk Navisworks',
+        'AutoCAD 2D/3D',
+        'Tekla Structures',
+        'Bluebeam Revu',
+        'Autodesk Construction Cloud (ACC)',
+      ]}
+      faqs={[
+        {
+          question: 'What Level of Development (LOD) can you model to?',
+          answer:
+            'We provide BIM models from LOD 200 (schematic massing) up to LOD 400 (fabrication & installation detailing) and LOD 500 (as-built facility management).',
+        },
+        {
+          question: 'Can you convert our existing 2D CAD files and PDF blueprints into Revit models?',
+          answer:
+            'Yes. We regularly convert legacy 2D DWG drawings, hand sketches, and PDF plan sets into fully parameterized 3D Revit models.',
+        },
+        {
+          question: 'How do you share and report clash detection results?',
+          answer:
+            'We provide detailed Navisworks clash matrix reports with pinpoint coordinates, screenshot callouts, trade responsibility assignments, and resolution recommendations.',
+        },
+      ]}
+      jsonLdSchema={serviceSchema}
+    />
   );
 }

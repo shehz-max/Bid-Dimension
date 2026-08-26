@@ -4,8 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { HeroBuilding } from './HeroBuilding';
-import { ChevronRight, ArrowDown, ShieldCheck } from 'lucide-react';
+import { ChevronRight, ArrowDown, ShieldCheck, CheckCircle2, FileCheck } from 'lucide-react';
 
 export interface HeroProps {
   variant: 'homepage' | 'page';
@@ -32,29 +31,28 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   if (variant === 'homepage') {
     return (
-      <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-bd-navy-deep blueprint-grid noise-overlay overflow-hidden text-white">
-        {/* MANDATORY CLIENT REQUIREMENT: Visible Architectural CAD Drawing Watermark Background */}
+      <section className="relative min-h-screen flex items-center pt-28 pb-16 bg-[#F8FAFC] overflow-hidden border-b border-gray-200 text-bd-navy">
+        {/* WARM OPEN ARCHITECTURAL BLUEPRINT DRAWING BOOK BACKGROUND */}
         <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           <img
-            src="/images/primecost-cad-bg.jpg"
-            alt="Architectural CAD drawing blueprint background overlay"
-            className="w-full h-full object-cover opacity-15 filter invert contrast-125 mix-blend-screen"
+            src="/images/hero-blueprint-paper-canvas.jpg"
+            alt="Warm architectural blueprint drawing book background"
+            className="w-full h-full object-cover object-right opacity-90 filter contrast-105"
           />
 
-          {/* Smooth Linear Gradient Mask: Keeps text 100% clean & readable while allowing CAD linework to shine through */}
+          {/* Soft Left Fade: Left 28% sits on pristine light canvas, right 72% displays warm drawing book */}
           <div
             className="absolute inset-0 z-0"
             style={{
               background:
-                'linear-gradient(to right, rgba(11,27,46,0.90) 0%, rgba(11,27,46,0.70) 50%, rgba(11,27,46,0.2) 100%)',
+                'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 28%, rgba(248, 250, 252, 0.6) 48%, transparent 72%)',
             }}
           />
         </div>
 
-        {/* FOREGROUND CONTENT & 3D STAGE */}
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Zone 1: Left Content (Exact Text Copy from Web.docx) */}
+            {/* Zone 1: Left Content (Exact Text Copy 100% from Web.docx) */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp delay={0.1}>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
@@ -63,14 +61,14 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
 
               <FadeInUp delay={0.25}>
-                <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-60px leading-[1.08] tracking-tight text-bd-text-light mb-6">
+                <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-60px leading-[1.08] tracking-tight text-bd-navy mb-6">
                   {headline}
                 </h1>
               </FadeInUp>
 
               {subheadline && (
                 <FadeInUp delay={0.4}>
-                  <p className="font-body text-base sm:text-lg text-bd-text-muted max-w-[540px] leading-relaxed mb-8">
+                  <p className="font-body text-base sm:text-lg text-bd-gray max-w-[540px] leading-relaxed mb-8">
                     {subheadline}
                   </p>
                 </FadeInUp>
@@ -83,25 +81,42 @@ export const Hero: React.FC<HeroProps> = ({
                   </Button>
 
                   {secondaryCta && (
-                    <Button variant="ghost" size="lg" href={secondaryCta.href}>
+                    <Link
+                      href={secondaryCta.href}
+                      className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-gray-300 font-display font-semibold text-sm text-bd-navy hover:border-bd-blue hover:text-bd-blue transition-all shadow-xs"
+                    >
                       <span>{secondaryCta.text}</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </Button>
+                      <ChevronRight className="w-4 h-4 text-bd-blue" />
+                    </Link>
                   )}
+                </div>
+              </FadeInUp>
+
+              {/* Trust Badge Row */}
+              <FadeInUp delay={0.7}>
+                <div className="flex flex-wrap items-center gap-6 mt-10 pt-6 border-t border-gray-200/80 text-xs font-mono font-semibold text-bd-navy">
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-bd-blue" />
+                    <span>PE STAMP LICENSED</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-bd-blue" />
+                    <span>100% PERMIT APPROVED</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <FileCheck className="w-4 h-4 text-bd-blue" />
+                    <span>24–48H TURNAROUND</span>
+                  </div>
                 </div>
               </FadeInUp>
             </div>
 
-            {/* Zone 2: Right 3D BIM Stage (Seamless 3D Animation) */}
-            <div className="lg:col-span-5 relative flex items-center justify-center w-full">
-              <FadeInUp delay={0.4} className="w-full">
-                <HeroBuilding />
-              </FadeInUp>
-            </div>
+            {/* Zone 2: Right Side (Clean Warm Drawing Book Bleeds Edge-to-Edge with 0 Overlay Badges) */}
+            <div className="lg:col-span-5 hidden lg:block" />
           </div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bd-text-muted z-10">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bd-gray z-10">
           <span className="font-mono text-[11px] uppercase tracking-widest font-semibold">Scroll</span>
           <ArrowDown className="w-4 h-4 animate-scroll-bounce text-bd-blue" />
         </div>
@@ -111,17 +126,17 @@ export const Hero: React.FC<HeroProps> = ({
 
   // Service & Subpage Hero variant (55-60vh)
   return (
-    <section className="relative pt-36 pb-20 bg-bd-navy-deep blueprint-grid border-b border-bd-border-dark overflow-hidden text-white">
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-15 filter invert contrast-125 mix-blend-screen">
+    <section className="relative pt-36 pb-20 bg-[#F8FAFC] border-b border-gray-200 overflow-hidden text-bd-navy">
+      <div className="absolute inset-0 pointer-events-none z-0 opacity-90">
         <img
-          src="/images/primecost-cad-bg.jpg"
-          alt="Architectural CAD floor plan background overlay"
-          className="w-full h-full object-cover"
+          src={image || '/images/hero-light-cad-bg.jpg'}
+          alt="Architectural technical CAD drafting background overlay"
+          className="w-full h-full object-cover object-right"
         />
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(to right, rgba(11,27,46,0.90) 0%, rgba(11,27,46,0.60) 100%)',
+            background: 'linear-gradient(to right, #F8FAFC 0%, rgba(248, 250, 252, 0.92) 32%, rgba(248, 250, 252, 0.45) 60%, transparent 100%)',
           }}
         />
       </div>
@@ -131,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="lg:col-span-7 flex flex-col items-start">
             {breadcrumb && (
               <FadeInUp delay={0.1}>
-                <nav className="flex items-center gap-2 font-mono text-xs text-bd-text-muted mb-6">
+                <nav className="flex items-center gap-2 font-mono text-xs text-bd-gray mb-6">
                   {breadcrumb.map((item, idx) => (
                     <React.Fragment key={item.href}>
                       {idx > 0 && <span>/</span>}
@@ -148,14 +163,14 @@ export const Hero: React.FC<HeroProps> = ({
             )}
 
             <FadeInUp delay={0.2}>
-              <h1 className="font-display font-bold text-4xl sm:text-56px leading-tight text-bd-text-light mb-4">
+              <h1 className="font-display font-bold text-4xl sm:text-56px leading-tight text-bd-navy mb-4">
                 {headline}
               </h1>
             </FadeInUp>
 
             {subheadline && (
               <FadeInUp delay={0.35}>
-                <p className="font-body text-lg sm:text-xl text-bd-text-muted leading-relaxed mb-8 max-w-2xl">
+                <p className="font-body text-lg sm:text-xl text-bd-gray leading-relaxed mb-8 max-w-2xl">
                   {subheadline}
                 </p>
               </FadeInUp>
@@ -170,50 +185,7 @@ export const Hero: React.FC<HeroProps> = ({
             )}
           </div>
 
-          {/* Right Floating CAD HUD Visual Card */}
-          <div className="lg:col-span-5 hidden lg:flex flex-col items-end">
-            <FadeInUp delay={0.4}>
-              <div className="relative group p-6 bg-bd-navy/90 border border-bd-blue/30 backdrop-blur-md shadow-glow-blue w-full max-w-md">
-                <div className="absolute top-0 inset-x-0 h-[2px] bg-bd-blue shadow-[0_0_10px_#4A8AB8] animate-laser-scan pointer-events-none" />
-
-                <div className="flex items-center justify-between border-b border-bd-blue/20 pb-3 mb-4">
-                  <div className="flex items-center gap-2 font-mono text-xs text-bd-blue font-bold">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span>PE LICENSED SCOPE</span>
-                  </div>
-                  <span className="font-mono text-[10px] text-bd-text-muted">LOD 300 BIM</span>
-                </div>
-
-                {image ? (
-                  <div className="relative overflow-hidden mb-4 border border-bd-blue/20">
-                    <img src={image} alt={headline} className="w-full h-44 object-cover filter contrast-105" />
-                  </div>
-                ) : (
-                  <div className="p-4 bg-bd-navy-deep border border-bd-blue/20 font-mono text-xs text-bd-text-muted flex flex-col gap-2 mb-4">
-                    <div className="flex items-center justify-between text-white font-semibold">
-                      <span>SPECIFICATION LEVEL:</span>
-                      <span className="text-bd-blue">100% PERMIT READY</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>TURNAROUND TIME:</span>
-                      <span className="text-bd-blue">24–48 HOURS</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span>CODE COMPLIANCE:</span>
-                      <span className="text-bd-blue">IBC / CBC / Title 24</span>
-                    </div>
-                  </div>
-                )}
-
-                {hudBadge && (
-                  <div className="flex items-center justify-between text-xs font-mono pt-2 border-t border-bd-blue/20">
-                    <span className="text-bd-text-muted">{hudBadge.label}:</span>
-                    <span className="text-bd-blue font-bold">{hudBadge.spec}</span>
-                  </div>
-                )}
-              </div>
-            </FadeInUp>
-          </div>
+          <div className="lg:col-span-5 hidden lg:block" />
         </div>
       </div>
     </section>

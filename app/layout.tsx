@@ -6,7 +6,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#0B1B2E',
+  themeColor: '#F8FAFC',
 };
 
 export const metadata: Metadata = {
@@ -125,7 +125,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className="bg-bd-navy-deep text-bd-text-light antialiased min-h-screen flex flex-col selection:bg-bd-blue selection:text-white">
+      <body className="bg-white text-bd-charcoal antialiased min-h-screen flex flex-col selection:bg-bd-blue selection:text-white">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-bd-blue focus:text-white focus:outline-none"

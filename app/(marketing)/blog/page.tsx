@@ -112,17 +112,19 @@ export default function BlogDirectoryPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-bd-navy-deep blueprint-grid border-t border-bd-border-dark text-center text-white">
+      <section className="py-20 bg-[#F8FAFC] border-t border-gray-200 text-center">
         <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <h2 className="font-display font-bold text-3xl sm:text-48px text-white mb-4">
-            Have a Specific Engineering Question?
-          </h2>
-          <p className="font-body text-base text-bd-text-muted mb-8">
-            Upload your plans today for a fast 24h PE-stamped engineering proposal.
-          </p>
-          <Button variant="primary" size="lg" href="/contact">
-            Request an Engineering Proposal
-          </Button>
+          <div className="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm rounded-2xl">
+            <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
+              Have a Specific Engineering Question?
+            </h2>
+            <p className="font-body text-base text-bd-gray mb-8">
+              Upload your plans today for a fast 24h PE-stamped engineering proposal.
+            </p>
+            <Button variant="primary" size="lg" href="/contact">
+              Request an Engineering Proposal
+            </Button>
+          </div>
         </div>
       </section>
     </div>

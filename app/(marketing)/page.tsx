@@ -3,257 +3,270 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/organisms/Hero';
 import { ServicesGrid } from '@/components/organisms/ServicesGrid';
 import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
-import { StatCounter } from '@/components/molecules/StatCounter';
-import { TestimonialCard } from '@/components/molecules/TestimonialCard';
+import { SoftwareSuite } from '@/components/organisms/SoftwareSuite';
+import { FAQSection } from '@/components/organisms/FAQSection';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { Phone, Mail, ShieldCheck, Award, CheckCircle, Upload, ArrowRight } from 'lucide-react';
+import { StaggerContainer } from '@/components/animation/StaggerContainer';
+import { Phone, Upload, ArrowRight, Building2, HardHat, Briefcase, Home, Award } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Engineering That Carries the Weight | Bid Dimensions',
+  title: 'End-to-End Engineering, Design & Construction Solutions | Bid Dimensions',
   description:
-    'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 24-48h turnaround. Get your free quote today.',
+    'Full-service engineering and design firm delivering licensed structural engineering, multidisciplinary building design, permit-ready construction documentation, and technical support.',
   alternates: {
     canonical: 'https://biddimensions.us/',
   },
 };
 
-const TOOLS_SUITE = [
-  { name: 'AutoCAD', desc: '2D Permit Sets & Construction Documentation' },
-  { name: 'Revit 3D', desc: 'BIM Coordination & Clash Detection' },
-  { name: 'Tekla Structures', desc: 'Steel Framing & Concrete Detailing' },
-  { name: 'ETABS', desc: 'Seismic & Structural Load Analysis' },
-  { name: 'SAFE', desc: 'Foundation Slab & Footing Design' },
-  { name: 'Trimble', desc: 'Field Surveying & Geotechnical Data' },
+// 4 Credential Cards directly below Hero (Extracted 100% from Client Picture 1)
+const HERO_CREDENTIAL_BAR = [
+  {
+    title: 'ISO 9001',
+    subtitle: 'Quality Management',
+  },
+  {
+    title: 'PE Licensed',
+    subtitle: 'Active in 50 States',
+  },
+  {
+    title: 'Bonded',
+    subtitle: '$10M Liability Bond',
+  },
+  {
+    title: 'Insured',
+    subtitle: 'Comprehensive Professional Liability',
+  },
+];
+
+const PARTNER_ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
+  building: Building2,
+  hardhat: HardHat,
+  briefcase: Briefcase,
+  home: Home,
+};
+
+const TARGET_PARTNERS = [
+  {
+    iconName: 'building',
+    title: 'Architects',
+    text: 'We provide structural systems that integrate seamlessly with architectural designs while maintaining functionality, efficiency, and code compliance.',
+  },
+  {
+    iconName: 'hardhat',
+    title: 'General Contractors',
+    text: 'Our engineering documentation supports efficient construction, reduces field conflicts, and simplifies project coordination throughout every stage of the build.',
+  },
+  {
+    iconName: 'briefcase',
+    title: 'Developers',
+    text: 'We help optimize structural systems to improve constructability, maximize material efficiency, and support project budgets without compromising safety or performance.',
+  },
+  {
+    iconName: 'home',
+    title: 'Property Owners',
+    text: "Whether constructing a new building, renovating an existing structure, or evaluating structural modifications, we provide engineering solutions tailored to your project's requirements.",
+  },
 ];
 
 export default function HomePage() {
   return (
     <div className="flex flex-col">
-      {/* 1. Dark Navy Hero Section (High-Tech 3D Model + 15% CAD Drawing Watermark) */}
+      {/* 1. Light Theme Hero Section (PrimeCost Style Paper Canvas + Web.docx Copy) */}
       <Hero
         variant="homepage"
-        label="END-TO-END ENGINEERING & DESIGN"
-        headline="Engineering That Carries the Weight"
-        subheadline="Licensed structural engineering, multidisciplinary design, and permit-ready documentation for projects that stand the test of time."
+        label="END-TO-END ENGINEERING, DESIGN & CONSTRUCTION SOLUTIONS"
+        headline="End-to-End Engineering, Design & Construction Solutions"
+        subheadline="Bid Dimensions is a full-service engineering and design firm delivering licensed structural engineering, multidisciplinary building design, permit-ready construction documentation, and technical support for residential, commercial, and industrial projects."
         cta={{ text: 'Get a Free Quote', href: '/contact' }}
         secondaryCta={{ text: 'Our Process', href: '#process' }}
       />
 
-      {/* 2. Key Stats Console (Logo-Harmonized Ice Blueprint Tint #EBF3FA) */}
-      <section className="py-20 bg-[#EBF3FA] border-y border-[#4A8AB8]/30 text-bd-navy relative">
+      {/* 2. Credentials Bar Directly Below Hero (Extracted 100% from Client Picture 1) */}
+      <section className="py-8 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="bg-white border border-[#4A8AB8]/30 p-8 md:p-12 shadow-sm">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
-              <StatCounter
-                value={25}
-                suffix="+"
-                label="Years Experience"
-                sublabel="Licensed Structural Engineers"
-                variant="light"
-              />
-              <StatCounter
-                value={500}
-                suffix="+"
-                label="Projects Delivered"
-                sublabel="Commercial & Residential"
-                variant="light"
-                className="pt-6 lg:pt-0"
-              />
-              <StatCounter
-                value={48}
-                suffix="h"
-                label="Average Turnaround"
-                sublabel="24h Initial Review Option"
-                variant="light"
-                className="pt-6 lg:pt-0"
-              />
-              <StatCounter
-                value={99}
-                suffix="%"
-                label="Client Satisfaction"
-                sublabel="100% City Permit Approval"
-                variant="light"
-                className="pt-6 lg:pt-0"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Services Preview (3-Column Grid on Crisp Bright White Background) */}
-      <ServicesGrid />
-
-      {/* 4. Process Timeline (Ice Blueprint Light Theme #EBF3FA + Crisp White Cards) */}
-      <ProcessTimeline variant="horizontal" />
-
-      {/* 5. Software & Certifications (Crisp Bright White Background) */}
-      <section className="py-24 bg-white text-bd-charcoal">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-center text-center mb-16">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                TRUSTED TECHNOLOGY
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy">
-                Built on Industry-Standard Tools
-              </h2>
-            </FadeInUp>
-          </div>
-
-          {/* Software Badges with Capabilities */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
-            {TOOLS_SUITE.map((tool) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {HERO_CREDENTIAL_BAR.map((cred) => (
               <div
-                key={tool.name}
-                className="group p-6 bg-[#F8FAFC] border border-gray-200 hover:border-bd-blue hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                key={cred.title}
+                className="bg-white border border-gray-200 p-5 rounded-lg flex items-center gap-4 shadow-xs hover:shadow-md transition-all"
               >
-                <div className="flex items-center justify-between mb-3">
-                  <span className="font-mono font-bold text-lg text-bd-navy group-hover:text-bd-blue transition-colors">
-                    {tool.name}
-                  </span>
-                  <span className="w-2 h-2 rounded-full bg-bd-blue/40 group-hover:bg-bd-blue group-hover:animate-ping transition-all" />
+                <div className="p-2.5 rounded-full bg-[#FAF3E0] border border-[#D4AF37]/30 text-[#B8860B] shrink-0">
+                  <Award className="w-5 h-5" />
                 </div>
-                <p className="font-body text-xs text-bd-gray leading-relaxed">
-                  {tool.desc}
-                </p>
+                <div className="flex flex-col">
+                  <span className="font-display font-bold text-base text-bd-navy">
+                    {cred.title}
+                  </span>
+                  <span className="font-body text-xs text-bd-gray">
+                    {cred.subtitle}
+                  </span>
+                </div>
               </div>
             ))}
           </div>
-
-          {/* Certifications Bar */}
-          <div className="flex flex-wrap items-center justify-center gap-8 border-t border-gray-100 pt-10">
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-              <ShieldCheck className="w-5 h-5 text-bd-blue" />
-              <span>PE STAMP LICENSED IN ALL 50 STATES</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-              <Award className="w-5 h-5 text-bd-blue" />
-              <span>AACE INTERNATIONAL MEMBER</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-              <CheckCircle className="w-5 h-5 text-bd-blue" />
-              <span>ASPE CERTIFIED ESTIMATORS</span>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* 6. Testimonials (Client Reviews on Off-White Slate Surface #F8FAFC) */}
-      <section className="py-24 sm:py-32 bg-[#F8FAFC] text-bd-charcoal border-t border-gray-200">
+      {/* 3. Services Section (Single-Screen Viewport 3x2 Grid with Ultra-Sharp Photography Thumbnails) */}
+      <ServicesGrid />
+
+      {/* 3.5. Who We Are / Our Story Section (From the Field to the Drawing Board - Extracted from Client Screenshot 2) */}
+      <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-center text-center mb-16">
-            <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                CLIENT WORDS
-              </span>
-            </FadeInUp>
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy">
-                Trusted by Contractors, Architects & Developers
-              </h2>
-            </FadeInUp>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="Bid Dimensions delivered PE-stamped foundation and framing calculations in under 36 hours. Their speed saved our framing schedule."
-              name="Marcus Vance"
-              role="Senior Project Manager"
-              company="Vance Commercial Builders"
-            />
-            <TestimonialCard
-              quote="Their architectural and MEP coordination eliminated 90% of field clashes before we poured concrete. Exceptional technical precision."
-              name="Elena Rostova"
-              role="Principal Architect"
-              company="Rostova Studio"
-            />
-            <TestimonialCard
-              quote="Fast turnaround, clear drafting, and immediate responsiveness during city permit reviews. The most reliable engineering firm we work with."
-              name="David Sterling"
-              role="Managing Director"
-              company="Sterling Properties"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Final CTA Banner (Ice Blueprint Light Theme #EBF3FA) */}
-      <section className="py-24 bg-[#EBF3FA] border-t border-[#4A8AB8]/30 relative overflow-hidden text-bd-navy">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Info Column */}
-            <div className="lg:col-span-6 flex flex-col items-start">
+            {/* Left Column: Story Prose */}
+            <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp>
                 <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                  READY TO BUILD?
+                  OUR STORY
                 </span>
               </FadeInUp>
 
               <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-4xl sm:text-56px leading-tight mb-6 text-bd-navy">
-                  Ready to Start Your Engineering Project?
+                <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-bd-navy mb-6">
+                  From the Field to the Drawing Board
                 </h2>
               </FadeInUp>
 
-              <FadeInUp delay={0.3}>
-                <p className="font-body text-lg text-bd-gray leading-relaxed mb-8">
-                  Get a comprehensive, PE-stamped engineering proposal within 24 hours. Upload your architectural drawings or CAD files for instant evaluation.
+              <FadeInUp delay={0.25}>
+                <p className="font-body text-base sm:text-lg text-bd-gray leading-relaxed mb-5">
+                  BidDimensions was founded in 2019 by a team of project managers, estimators, and drafters who spent years on construction sites watching preventable mistakes cost contractors millions.
+                </p>
+              </FadeInUp>
+
+              <FadeInUp delay={0.35}>
+                <p className="font-body text-base sm:text-lg text-bd-gray leading-relaxed mb-5">
+                  We saw permit sets rejected for missing details. We saw material orders come up short because takeoffs were done by eye. We saw bids lost because the drawings didn't match the scope.
                 </p>
               </FadeInUp>
 
               <FadeInUp delay={0.45}>
-                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                  <Button variant="primary" size="lg" href="/contact">
-                    Get Your Free Quote
-                  </Button>
-                  <a
-                    href="tel:7472237815"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-4 border border-bd-navy text-bd-navy font-display font-semibold text-sm hover:bg-bd-navy hover:text-white transition-all shadow-xs"
-                  >
-                    <Phone className="w-4 h-4 text-bd-blue" />
-                    <span>(747) 223-7815</span>
-                  </a>
-                </div>
+                <p className="font-body text-base sm:text-lg text-bd-navy font-semibold leading-relaxed border-l-3 border-bd-blue pl-4">
+                  So we built a company that treats every drawing like it's going to a job site — because it is. Every estimate like it's funding a payroll — because it is.
+                </p>
               </FadeInUp>
             </div>
 
-            {/* Right Interactive Plan Upload Teaser Card */}
-            <div className="lg:col-span-6">
+            {/* Right Column: Visual Card */}
+            <div className="lg:col-span-5">
               <FadeInUp delay={0.3}>
-                <div className="bg-white border border-gray-300 p-8 shadow-md flex flex-col gap-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-bd-blue/10 border border-bd-blue/30 flex items-center justify-center text-bd-blue">
-                        <Upload className="w-5 h-5" />
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="font-display font-bold text-lg text-bd-navy">
-                          Upload Plans for 24h Review
-                        </span>
-                        <span className="font-mono text-xs text-bd-gray">
-                          Accepts PDF, DWG, RVT & Images
-                        </span>
-                      </div>
-                    </div>
+                <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-md flex flex-col gap-4">
+                  <div className="rounded-xl overflow-hidden">
+                    <img
+                      src="/images/about-team-office.jpg"
+                      alt="Bid Dimensions engineering team reviewing structural drawings"
+                      className="w-full h-56 sm:h-64 object-cover"
+                    />
                   </div>
 
-                  <p className="font-body text-sm text-bd-gray leading-relaxed">
-                    Have architectural drafts, floor plans, or site surveys? Submit your files through our secure quote form for immediate PE review.
-                  </p>
-
-                  <Link
-                    href="/contact"
-                    className="group flex items-center justify-between p-4 bg-[#F8FAFC] border border-gray-300 hover:border-bd-blue hover:bg-bd-navy hover:text-white transition-all text-bd-navy font-mono text-xs uppercase tracking-wider font-semibold"
-                  >
-                    <span>Launch Quote Wizard & Drop Files</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
+                  <div className="grid grid-cols-3 gap-2 text-center pt-2">
+                    <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-navy block">2019</span>
+                      <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Founded</span>
+                    </div>
+                    <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-blue block">50</span>
+                      <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">States Active</span>
+                    </div>
+                    <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-navy block">24–48h</span>
+                      <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Turnaround</span>
+                    </div>
+                  </div>
                 </div>
               </FadeInUp>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Target Partners Section ("Engineering Solutions for Every Project Partner") */}
+      <section className="py-20 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 text-bd-navy">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="flex flex-col items-center text-center mb-12">
+            <FadeInUp>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                WHO WE WORK WITH
+              </span>
+            </FadeInUp>
+
+            <FadeInUp delay={0.15}>
+              <h2 className="font-display font-bold text-3xl sm:text-40px leading-tight text-bd-navy mb-3">
+                Engineering Solutions for Every Project Partner
+              </h2>
+            </FadeInUp>
+
+            <FadeInUp delay={0.25}>
+              <p className="font-body text-sm sm:text-base text-bd-gray max-w-xl leading-relaxed">
+                Customized engineering, design, and documentation support tailored to your project role.
+              </p>
+            </FadeInUp>
+          </div>
+
+          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {TARGET_PARTNERS.map((partner) => {
+              const Icon = (partner.iconName && PARTNER_ICON_MAP[partner.iconName]) || Building2;
+              return (
+                <div
+                  key={partner.title}
+                  className="bg-white border border-gray-200 p-6 rounded-lg flex flex-col items-start hover:border-bd-blue hover:shadow-md transition-all"
+                >
+                  <div className="p-3 bg-bd-blue/10 border border-bd-blue/30 text-bd-blue mb-4 rounded">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-bd-navy mb-2">
+                    {partner.title}
+                  </h3>
+                  <p className="font-body text-xs text-bd-gray leading-relaxed">
+                    {partner.text}
+                  </p>
+                </div>
+              );
+            })}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* 5. Process Section (5-Step Process Extracted 100% from Client Picture 2) */}
+      <ProcessTimeline variant="horizontal" />
+
+      {/* 6. Software & Engineering Technology Section */}
+      <SoftwareSuite />
+
+      {/* 7. Clean Interactive FAQ Section */}
+      <FAQSection />
+
+      {/* 8. Bottom CTA Banner ("Have a project? Let's build it right.") */}
+      <section className="py-16 bg-[#F8FAFC] border-t border-gray-200 text-bd-navy">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="bg-white border border-gray-300 p-8 sm:p-10 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="flex flex-col items-start max-w-xl">
+              <h2 className="font-display font-bold text-2xl sm:text-36px text-bd-navy mb-2">
+                Have a project? Let's build it right.
+              </h2>
+              <p className="font-body text-sm text-bd-gray leading-relaxed">
+                Upload your plans or reach out to our team to discuss your scope and get a fast, accurate proposal.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full md:w-auto">
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-bd-navy text-white font-display font-semibold text-sm hover:bg-bd-blue transition-colors shadow-sm rounded"
+              >
+                <Upload className="w-4 h-4 text-bd-blue" />
+                <span>Upload Plans</span>
+              </Link>
+
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-bd-blue text-bd-navy-deep font-display font-bold text-sm hover:opacity-90 transition-opacity shadow-sm rounded"
+              >
+                <span>Request a Quote</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

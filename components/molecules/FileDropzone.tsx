@@ -79,10 +79,10 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         onClick={() => fileInputRef.current?.click()}
-        className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
+        className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all duration-300 flex flex-col items-center justify-center ${
           isDragOver
-            ? 'border-bd-blue bg-bd-blue/10 scale-[1.01]'
-            : 'border-bd-blue/40 bg-white/5 hover:border-bd-blue hover:bg-white/10'
+            ? 'border-bd-blue bg-[#EBF3FA] scale-[1.01]'
+            : 'border-[#4A8AB8]/40 bg-[#EBF3FA]/50 hover:border-bd-blue hover:bg-[#EBF3FA]'
         }`}
       >
         <input
@@ -94,25 +94,25 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
           className="hidden"
         />
 
-        <div className="w-14 h-14 bg-bd-navy/80 rounded-full flex items-center justify-center text-bd-blue mb-4 border border-bd-blue/30 shadow-glow-blue">
+        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-bd-blue mb-4 border border-[#4A8AB8]/30 shadow-sm">
           <Upload className="w-6 h-6" />
         </div>
 
-        <h4 className="font-display font-semibold text-lg text-white mb-1">
+        <h4 className="font-display font-semibold text-lg text-bd-navy mb-1">
           Drag & drop your plans here
         </h4>
-        <p className="font-body text-sm text-bd-text-muted mb-3">
+        <p className="font-body text-sm text-bd-gray mb-3">
           or <span className="text-bd-blue underline font-semibold">click to browse</span>
         </p>
 
-        <span className="font-mono text-xs text-bd-text-muted/70">
+        <span className="font-mono text-xs text-bd-gray/80">
           Accepted formats: PDF, DWG, RVT, PNG, JPG (up to {maxSizeMB}MB)
         </span>
       </div>
 
       {/* Error state */}
       {errorMessage && (
-        <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-mono">
+        <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 text-red-600 text-xs font-mono rounded-lg">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{errorMessage}</span>
         </div>
@@ -121,19 +121,19 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
       {/* Selected files list */}
       {files.length > 0 && (
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-xs text-bd-blue uppercase tracking-wider">
+          <span className="font-mono text-xs text-bd-navy font-semibold uppercase tracking-wider">
             Uploaded Files ({files.length}):
           </span>
           <div className="flex flex-col gap-2">
             {files.map((file, idx) => (
               <div
                 key={`${file.name}-${idx}`}
-                className="flex items-center justify-between p-3 bg-white/5 border border-bd-blue/20 text-sm text-bd-text-light"
+                className="flex items-center justify-between p-3 bg-[#F8FAFC] border border-gray-200 rounded-lg text-sm text-bd-navy shadow-xs"
               >
                 <div className="flex items-center gap-3 truncate">
                   <FileText className="w-4 h-4 text-bd-blue shrink-0" />
-                  <span className="truncate font-body text-xs">{file.name}</span>
-                  <span className="font-mono text-[10px] text-bd-text-muted shrink-0">
+                  <span className="truncate font-body text-xs font-medium text-bd-navy">{file.name}</span>
+                  <span className="font-mono text-[10px] text-bd-gray shrink-0">
                     ({(file.size / (1024 * 1024)).toFixed(2)} MB)
                   </span>
                 </div>
@@ -144,7 +144,7 @@ export const FileDropzone: React.FC<FileDropzoneProps> = ({
                       e.stopPropagation();
                       onRemoveFile(idx);
                     }}
-                    className="p-1 text-bd-text-muted hover:text-red-400 transition-colors"
+                    className="p-1 text-bd-gray hover:text-red-500 transition-colors"
                   >
                     <X className="w-4 h-4" />
                   </button>

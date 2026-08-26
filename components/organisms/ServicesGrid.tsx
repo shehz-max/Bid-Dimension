@@ -12,6 +12,7 @@ export interface ServiceCardItem {
   shortDesc: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
+  image: string;
   badge: string;
   scopes: string[];
 }
@@ -20,54 +21,60 @@ export const ALL_SIX_SERVICES: ServiceCardItem[] = [
   {
     id: 'structural',
     title: 'Structural Engineering',
-    shortDesc: 'Structural analysis, foundation & framing design, and permit-ready engineering documentation.',
+    shortDesc: 'Professional structural engineering services providing analysis, foundation and framing design, and detailed permit-ready documentation.',
     href: '/services/structural-engineering',
     icon: HardHat,
+    image: '/images/service-thumb-structural.jpg',
     badge: 'PE LICENSED STAMP',
     scopes: ['Foundation Design', 'Framing Calculations', 'Seismic Analysis'],
   },
   {
     id: 'architectural',
     title: 'Architectural Design',
-    shortDesc: 'Concept development, floor plans, site plans, and detailed permit-ready construction drawings.',
+    shortDesc: 'Professional architectural design solutions from concept development and floor plans to detailed, permit-ready construction drawings.',
     href: '/services/architectural-design',
     icon: Compass,
+    image: '/images/service-thumb-architectural.jpg',
     badge: 'PERMIT READY SETS',
     scopes: ['Floor & Site Plans', 'Building Elevations', 'Revit 3D Modeling'],
   },
   {
     id: 'mep',
     title: 'MEP Engineering',
-    shortDesc: 'Mechanical, electrical, plumbing, HVAC layouts, single-line diagrams, and Title 24 compliance.',
+    shortDesc: 'Professional MEP engineering covering mechanical, electrical, and plumbing systems with coordinated, permit-ready designs.',
     href: '/services/mep-engineering',
     icon: Cpu,
+    image: '/images/service-thumb-mep.jpg',
     badge: 'IBC & TITLE 24',
     scopes: ['HVAC & Air Distribution', 'Electrical SLD & Load', 'Plumbing Risers'],
   },
   {
     id: 'bim-cad',
     title: 'BIM & CAD Services',
-    shortDesc: 'Revit 3D modeling, 2D CAD drafting, shop drawings, and clash detection to resolve conflicts.',
+    shortDesc: 'Accurate BIM & CAD solutions including Revit modeling, CAD drafting, shop drawings, and clash detection to resolve conflicts before construction.',
     href: '/services/bim-cad-services',
     icon: Layers,
+    image: '/images/service-thumb-bim.jpg',
     badge: 'CLASH DETECTION',
     scopes: ['Revit 3D Modeling', 'Shop Drawings', '2D CAD Drafting'],
   },
   {
     id: 'rendering',
     title: '3D Rendering Services',
-    shortDesc: 'Realistic 3D interior & exterior visuals, walkthrough animations, and marketing renderings.',
+    shortDesc: 'High-quality architectural renderings that bring designs to life, helping visualize the finished space before construction begins.',
     href: '/services/rendering-services',
     icon: Sparkles,
+    image: '/images/service-thumb-rendering.jpg',
     badge: 'REALISTIC 3D VISUALS',
     scopes: ['Interior & Exterior 3D', '3D Walkthroughs', 'Aerial Site Views'],
   },
   {
     id: 'estimation',
     title: 'Estimation & Takeoffs',
-    shortDesc: 'Quantity takeoffs and trade-specific construction estimates for accurate bidding & budgeting.',
+    shortDesc: 'Detailed quantity takeoffs and construction estimates for projects, providing organized material quantities and cost information.',
     href: '/services/estimation',
     icon: Calculator,
+    image: '/images/service-thumb-estimation.jpg',
     badge: 'ASPE & AACE METHOD',
     scopes: ['PlanSwift Takeoffs', 'Material Quantity Lists', 'CSI Division Breakdowns'],
   },
@@ -98,10 +105,10 @@ export const ServicesGrid: React.FC = () => {
           </FadeInUp>
         </div>
 
-        {/* Compact Single-Screen Viewport 3x2 Grid (All 6 Cards visible at once without scrolling!) */}
+        {/* Compact Single-Screen Viewport 3x2 Grid with Project Image Thumbnails */}
         <StaggerContainer
           staggerDelay={0.08}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
         >
           {ALL_SIX_SERVICES.map((service) => {
             const Icon = service.icon;
@@ -109,44 +116,54 @@ export const ServicesGrid: React.FC = () => {
               <div key={service.id}>
                 <Link
                   href={service.href}
-                  className="group relative bg-[#F8FAFC] border border-gray-200 p-5 sm:p-6 flex flex-col justify-between h-full transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-lg hover:-translate-y-1"
+                  className="group relative bg-[#F8FAFC] border border-gray-200 overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-xl hover:-translate-y-1"
                 >
                   <div>
-                    {/* Top Row: Icon + Badge + Arrow */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="p-2.5 bg-bd-blue/10 border border-bd-blue/20 text-bd-blue group-hover:bg-bd-blue group-hover:text-bd-navy transition-all duration-300 shrink-0">
-                        <Icon className="w-5 h-5" />
+                    {/* Top Image Thumbnail Container */}
+                    <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100 border-b border-gray-200">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                      {/* Icon Badge Overlay */}
+                      <div className="absolute top-3 left-3 p-2 bg-bd-navy/90 border border-bd-blue/40 text-bd-blue backdrop-blur-xs shadow-md">
+                        <Icon className="w-4 h-4" />
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <span className="font-mono text-[9px] font-bold text-bd-blue bg-bd-blue/10 border border-bd-blue/30 px-2 py-0.5 uppercase tracking-wider">
-                          {service.badge}
-                        </span>
-                        <ArrowUpRight className="w-4 h-4 text-bd-gray group-hover:text-bd-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                      </div>
+                      {/* Top Right Scope Tag */}
+                      <span className="absolute top-3 right-3 font-mono text-[9px] font-bold text-white bg-bd-navy/90 border border-bd-blue/40 px-2 py-0.5 uppercase tracking-wider backdrop-blur-xs">
+                        {service.badge}
+                      </span>
                     </div>
 
-                    {/* Title */}
-                    <h3 className="font-display font-bold text-lg sm:text-xl text-bd-navy mb-2 group-hover:text-bd-blue transition-colors">
-                      {service.title}
-                    </h3>
+                    {/* Card Body */}
+                    <div className="p-5 sm:p-6">
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-display font-bold text-lg sm:text-xl text-bd-navy group-hover:text-bd-blue transition-colors">
+                          {service.title}
+                        </h3>
+                        <ArrowUpRight className="w-4 h-4 text-bd-gray group-hover:text-bd-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" />
+                      </div>
 
-                    {/* Short Description */}
-                    <p className="font-body text-xs text-bd-gray leading-relaxed mb-4">
-                      {service.shortDesc}
-                    </p>
-                  </div>
+                      <p className="font-body text-xs text-bd-gray leading-relaxed mb-4">
+                        {service.shortDesc}
+                      </p>
 
-                  {/* Scope Tags */}
-                  <div className="pt-3 border-t border-gray-200/80 flex flex-wrap gap-1.5">
-                    {service.scopes.map((scope) => (
-                      <span
-                        key={scope}
-                        className="font-mono text-[9px] text-bd-navy/80 bg-white border border-gray-200 px-2 py-0.5"
-                      >
-                        {scope}
-                      </span>
-                    ))}
+                      {/* Scope Tags */}
+                      <div className="pt-3 border-t border-gray-200 flex flex-wrap gap-1.5">
+                        {service.scopes.map((scope) => (
+                          <span
+                            key={scope}
+                            className="font-mono text-[9px] text-bd-navy bg-white border border-gray-200 px-2 py-0.5 font-semibold"
+                          >
+                            {scope}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </Link>
               </div>
