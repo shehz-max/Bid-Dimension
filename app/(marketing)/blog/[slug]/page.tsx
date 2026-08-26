@@ -371,7 +371,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   Need Drawings Prepared for Permit Approval?
                 </h4>
                 <p className="font-body text-xs text-bd-gray leading-relaxed">
-                  Upload your project sketch or requirements today for a fast 24h PE-stamped engineering proposal.
+                  Upload your project sketch or requirements today for a fast 7-14 day PE-stamped engineering proposal.
                 </p>
                 <Link
                   href="/contact"
@@ -445,7 +445,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               Ready to Start Your Engineering Project?
             </h2>
             <p className="font-body text-base text-bd-gray mb-8">
-              Upload your plans today for a fast 24h PE-stamped engineering proposal.
+              Upload your plans today for a fast 7-14 day PE-stamped engineering proposal.
             </p>
             <Button variant="primary" size="lg" href="/contact">
               Request Your Free Quote

@@ -119,7 +119,7 @@ export default function BlogDirectoryPage() {
               Have a Specific Engineering Question?
             </h2>
             <p className="font-body text-base text-bd-gray mb-8">
-              Upload your plans today for a fast 24h PE-stamped engineering proposal.
+              Upload your plans today for a fast 7-14 day PE-stamped engineering proposal.
             </p>
             <Button variant="primary" size="lg" href="/contact">
               Request an Engineering Proposal

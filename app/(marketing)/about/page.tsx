@@ -36,8 +36,8 @@ const pillars = [
   },
   {
     iconName: 'cpu',
-    title: '24-48h Speed',
-    desc: 'Our streamlined CAD and Revit BIM workflows deliver permit-ready engineering packages in standard 24–48 hour turnarounds.',
+    title: '7-14 Day Turnaround',
+    desc: 'Our streamlined CAD and Revit BIM workflows deliver permit-ready engineering packages in standard 7–14 day turnarounds.',
   },
   {
     iconName: 'shield',
@@ -143,7 +143,7 @@ export default function AboutPage() {
               <FadeInUp delay={0.45}>
                 <div className="flex flex-wrap items-center gap-4 font-mono text-xs text-bd-navy font-semibold">
                   <span className="px-3.5 py-1.5 bg-white border border-gray-200 rounded-md shadow-xs">✓ IBC 2024 Compliant</span>
-                  <span className="px-3.5 py-1.5 bg-white border border-gray-200 rounded-md shadow-xs">✓ 24-48h Speed</span>
+                  <span className="px-3.5 py-1.5 bg-white border border-gray-200 rounded-md shadow-xs">✓ 7-14 Day Turnaround</span>
                   <span className="px-3.5 py-1.5 bg-white border border-gray-200 rounded-md shadow-xs">✓ Licensed PE Seals</span>
                 </div>
               </FadeInUp>
@@ -205,7 +205,7 @@ export default function AboutPage() {
               Partner With Licensed Engineers
             </h2>
             <p className="font-body text-base text-bd-gray mb-8">
-              Upload your plans today for a fast 24–48h PE-stamped quote.
+              Upload your plans today for a fast 7–14 day PE-stamped quote.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
               <Button variant="primary" size="lg" href="/contact">

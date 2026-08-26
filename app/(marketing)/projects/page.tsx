@@ -145,7 +145,7 @@ export default function ProjectsPage() {
             Have a Similar Building Project?
           </h2>
           <p className="font-body text-base text-bd-gray mb-8">
-            Upload your plans today for a fast 24h PE-stamped engineering proposal.
+            Upload your plans today for a fast 7-14 day PE-stamped engineering proposal.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button variant="primary" size="lg" href="/contact">

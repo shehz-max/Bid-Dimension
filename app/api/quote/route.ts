@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Quote request submitted successfully. Our engineering team will review your plans within 24-48 hours.',
+        message: 'Quote request submitted successfully. Our engineering team will review your plans within 7-14 days.',
       },
       { status: 200 }
     );

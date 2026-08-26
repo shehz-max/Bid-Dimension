@@ -171,7 +171,7 @@ export default function HomePage() {
                       <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">States Active</span>
                     </div>
                     <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-navy block">24–48h</span>
+                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-navy block">7–14 Days</span>
                       <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Turnaround</span>
                     </div>
                   </div>

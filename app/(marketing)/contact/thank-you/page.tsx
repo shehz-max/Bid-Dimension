@@ -7,7 +7,7 @@ import { CheckCircle2, Phone, Mail, FileCheck, ArrowRight, ShieldCheck } from 'l
 export const metadata: Metadata = {
   title: 'Thank You for Requesting a Quote | Bid Dimensions',
   description:
-    'Thank you for submitting your engineering proposal request. Our PE structural engineering team is reviewing your plans and will respond within 24-48 hours.',
+    'Thank you for submitting your engineering proposal request. Our PE structural engineering team is reviewing your plans and will respond within 7-14 days.',
   robots: {
     index: false,
     follow: false,
@@ -32,7 +32,7 @@ export default function ThankYouPage() {
         </h1>
 
         <p className="font-body text-lg text-bd-text-muted leading-relaxed mb-10 max-w-xl mx-auto">
-          We have received your project details and uploaded plans. Our licensed Professional Engineers (PE) are evaluating your scope and will send a fixed-fee proposal within <strong className="text-bd-blue">24 to 48 hours</strong>.
+          We have received your project details and uploaded plans. Our licensed Professional Engineers (PE) are evaluating your scope and will send a fixed-fee proposal within <strong className="text-bd-blue">7 to 14 days</strong>.
         </p>
 
         {/* 3-Step Reassurance Workflow */}

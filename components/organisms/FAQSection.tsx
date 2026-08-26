@@ -53,7 +53,7 @@ const FAQ_LIST: FAQItem[] = [
     category: 'TURNAROUND',
     question: 'What is your standard turnaround time for PE-stamped plans?',
     answer:
-      'Our standard engineering turnaround is 24 to 48 hours for initial reviews and standard residential or commercial calculation packages.',
+      'Our standard engineering turnaround is 7 to 14 days for complete residential and commercial calculation packages and PE-stamped permit drawing sets.',
   },
 ];
 
@@ -145,7 +145,7 @@ export const FAQSection: React.FC = () => {
                 Have a specific question about your project?
               </span>
               <span className="font-body text-xs text-bd-gray">
-                Our PE licensed engineering team is ready to evaluate your scope within 24 hours.
+                Our PE licensed engineering team is ready to evaluate your project scope and plans.
               </span>
             </div>
           </div>

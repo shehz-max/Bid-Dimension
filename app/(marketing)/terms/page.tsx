@@ -50,7 +50,7 @@ export default function TermsOfServicePage() {
               3. Turnaround Times & Proposals
             </h2>
             <p className="text-base text-bd-gray mb-6">
-              Estimated turnaround times (e.g. 24–48 hours) begin upon receipt of complete architectural drawings, structural criteria, and formal project authorization. Unforeseen city plan check comments or major client design changes may adjust delivery timelines.
+              Estimated turnaround times (e.g. 7–14 days) begin upon receipt of complete architectural drawings, structural criteria, and formal project authorization. Unforeseen city plan check comments or major client design changes may adjust delivery timelines.
             </p>
 
             <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-4">

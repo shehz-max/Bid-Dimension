@@ -76,7 +76,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             </span>
             <span className="text-white/30">•</span>
             <span className="text-bd-text-light">
-              24–48H PERMIT PACKAGE GUARANTEE
+              7–14 DAY PERMIT PACKAGE GUARANTEE
             </span>
           </div>
 

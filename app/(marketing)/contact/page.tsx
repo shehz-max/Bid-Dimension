@@ -9,7 +9,7 @@ import { Phone, Mail, Clock, ShieldCheck, FileCheck, Send, CheckCircle2, MapPin 
 export const metadata: Metadata = {
   title: 'Request a Free PE Engineering Proposal | Bid Dimensions',
   description:
-    'Upload your CAD/PDF plans for a free 24-hour PE engineering proposal. Licensed in all 50 states for commercial & residential projects.',
+    'Upload your CAD/PDF plans for a free PE engineering proposal. Licensed in all 50 states for commercial & residential projects.',
   alternates: {
     canonical: 'https://biddimensions.us/contact',
   },
@@ -27,7 +27,7 @@ export default function ContactPage() {
       num: '02',
       icon: FileCheck,
       title: '2. We Quote',
-      desc: 'We issue a comprehensive, fixed-price proposal detailing engineering deliverables, PE stamping, and turnaround timeline in 24–48 hours.',
+      desc: 'We issue a comprehensive, fixed-price proposal detailing engineering deliverables, PE stamping, and turnaround timeline in 7–14 days.',
     },
     {
       num: '03',
@@ -43,8 +43,8 @@ export default function ContactPage() {
       <Hero
         variant="page"
         headline="Request a Free PE Engineering Proposal"
-        subheadline="Upload your project plans and receive a detailed, fixed-fee engineering proposal within 24 to 48 hours."
-        hudBadge={{ label: 'PROPOSAL RESPONSE', spec: 'GUARANTEED IN 24 HOURS' }}
+        subheadline="Upload your project plans and receive a detailed, fixed-fee engineering proposal within 7 to 14 days."
+        hudBadge={{ label: 'PROPOSAL RESPONSE', spec: 'DELIVERED IN 7-14 DAYS' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Contact', href: '/contact' },
@@ -60,7 +60,7 @@ export default function ContactPage() {
               <FadeInUp>
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF3FA] border border-[#4A8AB8]/30 font-mono text-xs font-semibold text-bd-blue uppercase rounded-md">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>24–48 HOUR TURNAROUND GUARANTEE</span>
+                  <span>7–14 DAY TURNAROUND GUARANTEE</span>
                 </div>
               </FadeInUp>
 

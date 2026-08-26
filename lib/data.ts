@@ -39,7 +39,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     buildingType: 'Commercial',
     sqft: '42,000 sq ft',
     location: 'Los Angeles, CA',
-    turnaround: '48 Hours',
+    turnaround: '7 Days',
     peStamp: true,
     image: '/images/project-commercial.jpg',
     summary:
@@ -64,7 +64,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     buildingType: 'Residential',
     sqft: '5,800 sq ft',
     location: 'Austin, TX',
-    turnaround: '36 Hours',
+    turnaround: '10 Days',
     peStamp: true,
     image: '/images/project-residential.jpg',
     summary:
@@ -89,7 +89,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     buildingType: 'Industrial',
     sqft: '85,000 sq ft',
     location: 'Miami, FL',
-    turnaround: '72 Hours',
+    turnaround: '14 Days',
     peStamp: true,
     image: '/images/proj-logistics-spec.jpg',
     summary:
@@ -114,7 +114,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     buildingType: 'Multi-Family',
     sqft: '28,500 sq ft',
     location: 'Phoenix, AZ',
-    turnaround: '24 Hours',
+    turnaround: '7 Days',
     peStamp: true,
     image: '/images/est-hero-spec.jpg',
     summary:
@@ -122,7 +122,7 @@ export const FEATURED_PROJECTS: ProjectCaseStudy[] = [
     highlights: [
       'RSMeans & PlanSwift Automated Takeoff',
       '99.4% Accuracy Against Contractor Bids',
-      'Sub-24 Hour Turnaround',
+      '7-Day Fast Track Delivery',
     ],
     deliverables: [
       'Itemized Quantity Takeoff Summary (XLS)',

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '3D Architectural Rendering Services | Photorealistic Visuals',
     description:
-      'Photorealistic 3D architectural rendering services. 24-48h turnaround, 50-state coverage.',
+      'Photorealistic 3D architectural rendering services. 7-14 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/rendering-services',
     images: [{ url: '/images/service-thumb-rendering.jpg', width: 1200, height: 630 }],
   },
@@ -136,7 +136,7 @@ export default function RenderingServicesPage() {
         {
           question: 'How fast can you deliver final 3D renderings?',
           answer:
-            'Standard static 4K renders are delivered within 48 to 72 hours. Rush 24-hour turnaround is available for immediate investor and permit presentations.',
+            'Standard static 4K renders and animations are delivered within 7 to 14 days depending on project scale and architectural complexity.',
         },
         {
           question: 'Can you render both daytime and nighttime/twilight lighting scenarios?',

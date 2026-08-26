@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({
                   </div>
                   <div className="flex items-center gap-2">
                     <FileCheck className="w-4 h-4 text-bd-blue" />
-                    <span>24–48H TURNAROUND</span>
+                    <span>7–14 DAY TURNAROUND</span>
                   </div>
                 </div>
               </FadeInUp>
