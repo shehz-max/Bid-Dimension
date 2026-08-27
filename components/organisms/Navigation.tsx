@@ -62,42 +62,6 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/90 shadow-xs transition-all duration-300">
-      {/* Top Utility Micro-Bar */}
-      <div className="hidden lg:block bg-bd-navy text-white py-1.5 px-5 sm:px-8 lg:px-12 border-b border-[#1A3A5C]">
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between text-[11px] font-mono">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 text-bd-blue font-bold tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-              50-STATE PE REGISTERED
-            </span>
-            <span className="text-white/30">•</span>
-            <span className="text-bd-text-light font-medium">
-              ISO 9001 QUALITY CERTIFIED & BONDED
-            </span>
-            <span className="text-white/30">•</span>
-            <span className="text-bd-text-light">
-              7–14 DAY PERMIT PACKAGE GUARANTEE
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="mailto:info@biddimensions.us"
-              className="text-bd-text-light hover:text-bd-blue transition-colors"
-            >
-              info@biddimensions.us
-            </a>
-            <span className="text-white/30">•</span>
-            <a
-              href="tel:7472237815"
-              className="text-bd-blue font-bold hover:text-white transition-colors"
-            >
-              Direct: (747) 223-7815
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 h-18 sm:h-20 flex items-center justify-between">
         {/* Clean Header Logo: Logo Mark + BID DIMENSIONS Text ONLY (No Taglines) */}
         <Link href="/" className="flex items-center gap-3 group">
