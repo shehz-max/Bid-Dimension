@@ -82,34 +82,34 @@ export const ALL_SIX_SERVICES: ServiceCardItem[] = [
 
 export const ServicesGrid: React.FC = () => {
   return (
-    <section id="services" className="py-14 sm:py-16 bg-white border-b border-gray-200/80 text-bd-navy relative">
+    <section id="services" className="py-10 sm:py-12 bg-white border-b border-gray-200/80 text-bd-navy relative">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* Section Header (Extracted 100% from Web.docx) */}
-        <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
+        {/* Compact Section Header */}
+        <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
           <FadeInUp>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-0.5 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
               <span>01 // OUR SERVICES</span>
             </div>
           </FadeInUp>
 
           <FadeInUp delay={0.1}>
-            <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
+            <h2 className="font-display font-bold text-2xl sm:text-32px leading-tight text-bd-navy mb-1.5">
               Innovation in Every Dimension
             </h2>
           </FadeInUp>
 
           <FadeInUp delay={0.2}>
-            <p className="font-body text-xs sm:text-sm text-bd-gray max-w-xl leading-relaxed">
-              From concept to permit, we deliver drawings and documentation that hold up on the job site — not just on paper.
+            <p className="font-body text-xs sm:text-sm text-bd-gray max-w-lg leading-relaxed">
+              From concept to permit, we deliver drawings and documentation that hold up on the job site.
             </p>
           </FadeInUp>
         </div>
 
-        {/* Compact Single-Screen Viewport 3x2 Grid with Project Image Thumbnails */}
+        {/* Ultra-Compact 3x2 Single-Screen Viewport Grid (Zero-Scroll Card Architecture) */}
         <StaggerContainer
-          staggerDelay={0.08}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+          staggerDelay={0.06}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4"
         >
           {ALL_SIX_SERVICES.map((service) => {
             const Icon = service.icon;
@@ -117,53 +117,48 @@ export const ServicesGrid: React.FC = () => {
               <div key={service.id}>
                 <Link
                   href={service.href}
-                  className="group relative bg-[#F8FAFC] border border-gray-200 rounded-xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-xl hover:-translate-y-1"
+                  className="group relative bg-[#F8FAFC] border border-gray-200 rounded-xl p-3 sm:p-3.5 flex flex-row items-center gap-3.5 transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-lg hover:-translate-y-0.5"
                 >
-                  <div>
-                    {/* Top Image Thumbnail Container */}
-                    <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gray-100 border-b border-gray-200">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                  {/* Left Side: Crisp Image Thumbnail */}
+                  <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden shrink-0 bg-gray-100 border border-gray-200">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
 
-                      {/* Icon Badge Overlay */}
-                      <div className="absolute top-2.5 left-2.5 p-1.5 bg-bd-navy/90 border border-bd-blue/40 text-bd-blue backdrop-blur-xs shadow-md rounded">
-                        <Icon className="w-4 h-4" />
-                      </div>
-
-                      {/* Top Right Scope Tag */}
-                      <span className="absolute top-2.5 right-2.5 font-mono text-[9px] font-bold text-white bg-bd-navy/90 border border-bd-blue/40 px-2 py-0.5 uppercase tracking-wider backdrop-blur-xs rounded">
-                        {service.badge}
-                      </span>
+                    {/* Icon Overlay Badge */}
+                    <div className="absolute top-1.5 left-1.5 p-1.5 bg-bd-navy/90 border border-bd-blue/40 text-bd-blue backdrop-blur-xs shadow-xs rounded">
+                      <Icon className="w-3.5 h-3.5" />
                     </div>
+                  </div>
 
-                    {/* Card Body */}
-                    <div className="p-4 sm:p-5">
-                      <div className="flex items-center justify-between mb-1.5">
-                        <h3 className="font-display font-bold text-base sm:text-lg text-bd-navy group-hover:text-bd-blue transition-colors">
+                  {/* Right Side: Information & Scope Tags */}
+                  <div className="flex flex-col justify-between flex-1 min-w-0 py-0.5 h-full">
+                    <div>
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <h3 className="font-display font-bold text-sm sm:text-base text-bd-navy group-hover:text-bd-blue transition-colors truncate">
                           {service.title}
                         </h3>
-                        <ArrowUpRight className="w-4 h-4 text-bd-gray group-hover:text-bd-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" />
+                        <ArrowUpRight className="w-4 h-4 text-bd-gray group-hover:text-bd-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-1" />
                       </div>
 
-                      <p className="font-body text-xs text-bd-gray leading-relaxed mb-3 line-clamp-2">
+                      <p className="font-body text-[11px] sm:text-xs text-bd-gray leading-relaxed mb-2 line-clamp-2">
                         {service.shortDesc}
                       </p>
+                    </div>
 
-                      {/* Scope Tags */}
-                      <div className="pt-2.5 border-t border-gray-200/80 flex flex-wrap gap-1.5">
-                        {service.scopes.map((scope) => (
-                          <span
-                            key={scope}
-                            className="font-mono text-[9px] text-bd-navy bg-white border border-gray-200 px-2 py-0.5 rounded font-semibold"
-                          >
-                            {scope}
-                          </span>
-                        ))}
-                      </div>
+                    {/* Scope Micro-Pills */}
+                    <div className="flex flex-wrap gap-1 pt-1.5 border-t border-gray-200/80">
+                      {service.scopes.slice(0, 2).map((scope) => (
+                        <span
+                          key={scope}
+                          className="font-mono text-[9px] text-bd-navy bg-white border border-gray-200 px-1.5 py-0.5 rounded font-semibold truncate"
+                        >
+                          {scope}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </Link>
