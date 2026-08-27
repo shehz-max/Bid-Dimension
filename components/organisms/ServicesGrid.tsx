@@ -82,24 +82,25 @@ export const ALL_SIX_SERVICES: ServiceCardItem[] = [
 
 export const ServicesGrid: React.FC = () => {
   return (
-    <section id="services" className="py-16 sm:py-20 bg-white border-b border-gray-200 text-bd-navy relative">
+    <section id="services" className="py-14 sm:py-16 bg-white border-b border-gray-200/80 text-bd-navy relative">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* Section Header (Extracted 100% from Web.docx) */}
-        <div className="flex flex-col items-center text-center mb-10">
+        <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
           <FadeInUp>
-            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
-              OUR SERVICES
-            </span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
+              <span>01 // OUR SERVICES</span>
+            </div>
           </FadeInUp>
 
-          <FadeInUp delay={0.15}>
-            <h2 className="font-display font-bold text-3xl sm:text-44px leading-tight text-bd-navy mb-3">
+          <FadeInUp delay={0.1}>
+            <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
               Innovation in Every Dimension
             </h2>
           </FadeInUp>
 
-          <FadeInUp delay={0.25}>
-            <p className="font-body text-sm sm:text-base text-bd-gray max-w-2xl leading-relaxed">
+          <FadeInUp delay={0.2}>
+            <p className="font-body text-xs sm:text-sm text-bd-gray max-w-xl leading-relaxed">
               From concept to permit, we deliver drawings and documentation that hold up on the job site — not just on paper.
             </p>
           </FadeInUp>
@@ -108,7 +109,7 @@ export const ServicesGrid: React.FC = () => {
         {/* Compact Single-Screen Viewport 3x2 Grid with Project Image Thumbnails */}
         <StaggerContainer
           staggerDelay={0.08}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
         >
           {ALL_SIX_SERVICES.map((service) => {
             const Icon = service.icon;
@@ -116,11 +117,11 @@ export const ServicesGrid: React.FC = () => {
               <div key={service.id}>
                 <Link
                   href={service.href}
-                  className="group relative bg-[#F8FAFC] border border-gray-200 overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-xl hover:-translate-y-1"
+                  className="group relative bg-[#F8FAFC] border border-gray-200 rounded-xl overflow-hidden flex flex-col justify-between h-full transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-xl hover:-translate-y-1"
                 >
                   <div>
                     {/* Top Image Thumbnail Container */}
-                    <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-gray-100 border-b border-gray-200">
+                    <div className="relative h-32 sm:h-36 w-full overflow-hidden bg-gray-100 border-b border-gray-200">
                       <img
                         src={service.image}
                         alt={service.title}
@@ -129,35 +130,35 @@ export const ServicesGrid: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                       {/* Icon Badge Overlay */}
-                      <div className="absolute top-3 left-3 p-2 bg-bd-navy/90 border border-bd-blue/40 text-bd-blue backdrop-blur-xs shadow-md">
+                      <div className="absolute top-2.5 left-2.5 p-1.5 bg-bd-navy/90 border border-bd-blue/40 text-bd-blue backdrop-blur-xs shadow-md rounded">
                         <Icon className="w-4 h-4" />
                       </div>
 
                       {/* Top Right Scope Tag */}
-                      <span className="absolute top-3 right-3 font-mono text-[9px] font-bold text-white bg-bd-navy/90 border border-bd-blue/40 px-2 py-0.5 uppercase tracking-wider backdrop-blur-xs">
+                      <span className="absolute top-2.5 right-2.5 font-mono text-[9px] font-bold text-white bg-bd-navy/90 border border-bd-blue/40 px-2 py-0.5 uppercase tracking-wider backdrop-blur-xs rounded">
                         {service.badge}
                       </span>
                     </div>
 
                     {/* Card Body */}
-                    <div className="p-5 sm:p-6">
-                      <div className="flex items-center justify-between mb-2">
-                        <h3 className="font-display font-bold text-lg sm:text-xl text-bd-navy group-hover:text-bd-blue transition-colors">
+                    <div className="p-4 sm:p-5">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <h3 className="font-display font-bold text-base sm:text-lg text-bd-navy group-hover:text-bd-blue transition-colors">
                           {service.title}
                         </h3>
                         <ArrowUpRight className="w-4 h-4 text-bd-gray group-hover:text-bd-blue group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-2" />
                       </div>
 
-                      <p className="font-body text-xs text-bd-gray leading-relaxed mb-4">
+                      <p className="font-body text-xs text-bd-gray leading-relaxed mb-3 line-clamp-2">
                         {service.shortDesc}
                       </p>
 
                       {/* Scope Tags */}
-                      <div className="pt-3 border-t border-gray-200 flex flex-wrap gap-1.5">
+                      <div className="pt-2.5 border-t border-gray-200/80 flex flex-wrap gap-1.5">
                         {service.scopes.map((scope) => (
                           <span
                             key={scope}
-                            className="font-mono text-[9px] text-bd-navy bg-white border border-gray-200 px-2 py-0.5 font-semibold"
+                            className="font-mono text-[9px] text-bd-navy bg-white border border-gray-200 px-2 py-0.5 rounded font-semibold"
                           >
                             {scope}
                           </span>

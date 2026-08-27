@@ -76,7 +76,6 @@ export default function HomePage() {
       {/* 1. Light Theme Hero Section (PrimeCost Style Paper Canvas + Web.docx Copy) */}
       <Hero
         variant="homepage"
-        label="END-TO-END ENGINEERING, DESIGN & CONSTRUCTION SOLUTIONS"
         headline="End-to-End Engineering, Design & Construction Solutions"
         subheadline="Bid Dimensions is a full-service engineering and design firm delivering licensed structural engineering, multidisciplinary building design, permit-ready construction documentation, and technical support for residential, commercial, and industrial projects."
         cta={{ text: 'Get a Free Quote', href: '/contact' }}
@@ -84,19 +83,19 @@ export default function HomePage() {
       />
 
       {/* 2. Credentials Bar Directly Below Hero (Extracted 100% from Client Picture 1) */}
-      <section className="py-8 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
+      <section className="py-6 bg-[#F8FAFC] border-b border-gray-200/80 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
             {HERO_CREDENTIAL_BAR.map((cred) => (
               <div
                 key={cred.title}
-                className="bg-white border border-gray-200 p-5 rounded-lg flex items-center gap-4 shadow-xs hover:shadow-md transition-all"
+                className="bg-white border border-gray-200/90 p-4 rounded-xl flex items-center gap-3.5 shadow-xs hover:shadow-md transition-all"
               >
-                <div className="p-2.5 rounded-full bg-[#FAF3E0] border border-[#D4AF37]/30 text-[#B8860B] shrink-0">
-                  <Award className="w-5 h-5" />
+                <div className="p-2 rounded-lg bg-[#FAF3E0] border border-[#D4AF37]/30 text-[#B8860B] shrink-0">
+                  <Award className="w-4 h-4" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display font-bold text-base text-bd-navy">
+                  <span className="font-display font-bold text-sm text-bd-navy">
                     {cred.title}
                   </span>
                   <span className="font-body text-xs text-bd-gray">
@@ -113,37 +112,38 @@ export default function HomePage() {
       <ServicesGrid />
 
       {/* 3.5. Who We Are / Our Story Section (From the Field to the Drawing Board - Extracted from Client Screenshot 2) */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
+      <section className="py-14 sm:py-16 bg-[#F8FAFC] border-b border-gray-200/80 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Story Prose */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp>
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-                  OUR STORY
-                </span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3 shadow-xs">
+                  <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
+                  <span>02 // OUR STORY & BACKGROUND</span>
+                </div>
               </FadeInUp>
 
-              <FadeInUp delay={0.15}>
-                <h2 className="font-display font-bold text-3xl sm:text-48px leading-tight text-bd-navy mb-6">
+              <FadeInUp delay={0.1}>
+                <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-4">
                   From the Field to the Drawing Board
                 </h2>
               </FadeInUp>
 
-              <FadeInUp delay={0.25}>
-                <p className="font-body text-base sm:text-lg text-bd-gray leading-relaxed mb-5">
+              <FadeInUp delay={0.2}>
+                <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-4">
                   BidDimensions was founded in 2019 by a team of project managers, estimators, and drafters who spent years on construction sites watching preventable mistakes cost contractors millions.
                 </p>
               </FadeInUp>
 
-              <FadeInUp delay={0.35}>
-                <p className="font-body text-base sm:text-lg text-bd-gray leading-relaxed mb-5">
+              <FadeInUp delay={0.3}>
+                <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-4">
                   We saw permit sets rejected for missing details. We saw material orders come up short because takeoffs were done by eye. We saw bids lost because the drawings didn't match the scope.
                 </p>
               </FadeInUp>
 
-              <FadeInUp delay={0.45}>
-                <p className="font-body text-base sm:text-lg text-bd-navy font-semibold leading-relaxed border-l-3 border-bd-blue pl-4">
+              <FadeInUp delay={0.4}>
+                <p className="font-body text-sm sm:text-base text-bd-navy font-semibold leading-relaxed border-l-3 border-bd-blue pl-4 py-0.5">
                   So we built a company that treats every drawing like it's going to a job site — because it is. Every estimate like it's funding a payroll — because it is.
                 </p>
               </FadeInUp>
@@ -151,27 +151,27 @@ export default function HomePage() {
 
             {/* Right Column: Visual Card */}
             <div className="lg:col-span-5">
-              <FadeInUp delay={0.3}>
-                <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-md flex flex-col gap-4">
+              <FadeInUp delay={0.25}>
+                <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-sm flex flex-col gap-3.5">
                   <div className="rounded-xl overflow-hidden">
                     <img
                       src="/images/about-team-office.jpg"
                       alt="Bid Dimensions engineering team reviewing structural drawings"
-                      className="w-full h-56 sm:h-64 object-cover"
+                      className="w-full h-48 sm:h-56 object-cover"
                     />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 text-center pt-2">
-                    <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-navy block">2019</span>
+                  <div className="grid grid-cols-3 gap-2 text-center pt-1">
+                    <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-lg sm:text-xl text-bd-navy block">2019</span>
                       <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Founded</span>
                     </div>
-                    <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-blue block">50</span>
+                    <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-lg sm:text-xl text-bd-blue block">50</span>
                       <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">States Active</span>
                     </div>
-                    <div className="p-3 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-xl sm:text-2xl text-bd-navy block">7–14 Days</span>
+                    <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-lg sm:text-xl text-bd-navy block">7–14 Days</span>
                       <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Turnaround</span>
                     </div>
                   </div>
@@ -183,40 +183,41 @@ export default function HomePage() {
       </section>
 
       {/* 4. Target Partners Section ("Engineering Solutions for Every Project Partner") */}
-      <section className="py-20 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 text-bd-navy">
+      <section className="py-14 sm:py-16 bg-[#F1F5F9] border-b border-gray-200/80 text-bd-navy">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="flex flex-col items-center text-center mb-12">
+          <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
             <FadeInUp>
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
-                WHO WE WORK WITH
-              </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3 shadow-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
+                <span>03 // WHO WE WORK WITH</span>
+              </div>
             </FadeInUp>
 
-            <FadeInUp delay={0.15}>
-              <h2 className="font-display font-bold text-3xl sm:text-40px leading-tight text-bd-navy mb-3">
+            <FadeInUp delay={0.1}>
+              <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
                 Engineering Solutions for Every Project Partner
               </h2>
             </FadeInUp>
 
-            <FadeInUp delay={0.25}>
-              <p className="font-body text-sm sm:text-base text-bd-gray max-w-xl leading-relaxed">
+            <FadeInUp delay={0.2}>
+              <p className="font-body text-xs sm:text-sm text-bd-gray max-w-xl leading-relaxed">
                 Customized engineering, design, and documentation support tailored to your project role.
               </p>
             </FadeInUp>
           </div>
 
-          <StaggerContainer staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StaggerContainer staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {TARGET_PARTNERS.map((partner) => {
               const Icon = (partner.iconName && PARTNER_ICON_MAP[partner.iconName]) || Building2;
               return (
                 <div
                   key={partner.title}
-                  className="bg-white border border-gray-200 p-6 rounded-lg flex flex-col items-start hover:border-bd-blue hover:shadow-md transition-all"
+                  className="bg-white border border-gray-200 p-5 rounded-xl flex flex-col items-start hover:border-bd-blue hover:shadow-lg transition-all"
                 >
-                  <div className="p-3 bg-bd-blue/10 border border-bd-blue/30 text-bd-blue mb-4 rounded">
-                    <Icon className="w-6 h-6" />
+                  <div className="p-2.5 bg-bd-blue/10 border border-bd-blue/30 text-bd-blue mb-3.5 rounded-lg">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-display font-bold text-lg text-bd-navy mb-2">
+                  <h3 className="font-display font-bold text-base sm:text-lg text-bd-navy mb-1.5">
                     {partner.title}
                   </h3>
                   <p className="font-body text-xs text-bd-gray leading-relaxed">

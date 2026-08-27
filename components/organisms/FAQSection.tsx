@@ -65,36 +65,32 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative overflow-hidden">
+    <section className="py-14 sm:py-16 bg-white border-b border-gray-200/80 text-bd-navy relative overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-10 sm:mb-12">
           <FadeInUp>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="h-[1px] w-8 bg-bd-blue" />
-              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue">
-                FREQUENTLY ASKED QUESTIONS
-              </span>
-              <span className="h-[1px] w-8 bg-bd-blue" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3 shadow-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
+              <span>06 // FREQUENTLY ASKED QUESTIONS</span>
             </div>
           </FadeInUp>
 
-          <FadeInUp delay={0.15}>
-            <h2 className="font-display font-bold text-3xl sm:text-44px leading-tight text-bd-navy mb-3">
+          <FadeInUp delay={0.1}>
+            <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
               Clear Answers to Your Engineering Questions
             </h2>
           </FadeInUp>
 
-          <FadeInUp delay={0.25}>
-            <p className="font-body text-sm sm:text-base text-bd-gray max-w-xl leading-relaxed">
+          <FadeInUp delay={0.2}>
+            <p className="font-body text-xs sm:text-sm text-bd-gray max-w-xl leading-relaxed">
               Everything you need to know about our permit-ready drawings, PE stamping, turnarounds, and multidisciplinary coordination.
             </p>
           </FadeInUp>
-          <div className="w-12 h-1 bg-[#4A8AB8] mt-4" />
         </div>
 
         {/* Clean Accordion List */}
-        <div className="max-w-3xl mx-auto flex flex-col gap-4 mb-16">
+        <div className="max-w-3xl mx-auto flex flex-col gap-3.5 mb-10">
           {FAQ_LIST.map((faq) => {
             const isOpen = openId === faq.id;
             return (

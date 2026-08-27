@@ -20,7 +20,7 @@ export interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({
   variant,
-  label = 'END-TO-END ENGINEERING, DESIGN & CONSTRUCTION SOLUTIONS',
+  label,
   headline = 'End-to-End Engineering, Design & Construction Solutions',
   subheadline = 'Bid Dimensions is a full-service engineering and design firm delivering licensed structural engineering, multidisciplinary building design, permit-ready construction documentation, and technical support for residential, commercial, and industrial projects.',
   cta = { text: 'Get a Free Quote', href: '/contact' },
@@ -54,27 +54,29 @@ export const Hero: React.FC<HeroProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Zone 1: Left Content (Exact Text Copy 100% from Web.docx) */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <FadeInUp delay={0.1}>
-                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
-                  {label}
-                </span>
-              </FadeInUp>
+              {label && (
+                <FadeInUp delay={0.1}>
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-4 block">
+                    {label}
+                  </span>
+                </FadeInUp>
+              )}
 
-              <FadeInUp delay={0.25}>
+              <FadeInUp delay={0.2}>
                 <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-60px leading-[1.08] tracking-tight text-bd-navy mb-6">
                   {headline}
                 </h1>
               </FadeInUp>
 
               {subheadline && (
-                <FadeInUp delay={0.4}>
+                <FadeInUp delay={0.35}>
                   <p className="font-body text-base sm:text-lg text-bd-gray max-w-[540px] leading-relaxed mb-8">
                     {subheadline}
                   </p>
                 </FadeInUp>
               )}
 
-              <FadeInUp delay={0.55}>
+              <FadeInUp delay={0.5}>
                 <div className="flex flex-wrap items-center gap-4">
                   <Button variant="primary" size="lg" href={cta.href}>
                     {cta.text}
@@ -89,24 +91,6 @@ export const Hero: React.FC<HeroProps> = ({
                       <ChevronRight className="w-4 h-4 text-bd-blue" />
                     </Link>
                   )}
-                </div>
-              </FadeInUp>
-
-              {/* Trust Badge Row */}
-              <FadeInUp delay={0.7}>
-                <div className="flex flex-wrap items-center gap-6 mt-10 pt-6 border-t border-gray-200/80 text-xs font-mono font-semibold text-bd-navy">
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-bd-blue" />
-                    <span>PE STAMP LICENSED</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue" />
-                    <span>100% PERMIT APPROVED</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <FileCheck className="w-4 h-4 text-bd-blue" />
-                    <span>7–14 DAY TURNAROUND</span>
-                  </div>
                 </div>
               </FadeInUp>
             </div>
