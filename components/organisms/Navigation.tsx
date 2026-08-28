@@ -123,19 +123,13 @@ export const Navigation: React.FC<NavigationProps> = () => {
 
             {/* Solid, Beautifully Aligned Horizontal 2-Column Mega Box */}
             {dropdownOpen && (
-              <div className="absolute top-full -left-20 lg:-left-12 mt-1 w-[640px] bg-white p-4 shadow-2xl border border-gray-200/90 z-50 rounded-2xl animate-in fade-in slide-in-from-top-1 duration-150">
-                {/* Header Subtitle */}
-                <div className="flex items-center justify-between px-2 pb-2.5 mb-2.5 border-b border-gray-100 font-mono text-[10px] sm:text-[11px] text-bd-gray uppercase tracking-wider font-semibold">
-                  <span className="text-bd-blue font-bold">Comprehensive Engineering Services</span>
-                  <span>50-State PE Licensed</span>
-                </div>
-
-                {/* 2-Column Horizontal Grid */}
-                <div className="grid grid-cols-2 gap-2">
+              <div className="absolute top-full -left-16 lg:-left-8 mt-1 w-[520px] bg-white p-3.5 shadow-2xl border border-gray-200/90 z-50 rounded-2xl animate-in fade-in slide-in-from-top-1 duration-150">
+                {/* 2-Column Horizontal Grid - Clean Service Titles Only */}
+                <div className="grid grid-cols-2 gap-1.5">
                   <Link
                     href="/services/structural-engineering"
                     onClick={() => setDropdownOpen(false)}
-                    className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    className={`group flex items-center gap-3 p-2.5 rounded-xl transition-all ${
                       pathname === '/services/structural-engineering'
                         ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30 shadow-2xs'
                         : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
@@ -144,20 +138,15 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                       <HardHat className="w-4 h-4" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-display font-bold text-xs text-bd-navy group-hover:text-bd-blue transition-colors">
-                        Structural Engineering
-                      </span>
-                      <span className="font-body text-[11px] text-bd-gray leading-tight mt-0.5">
-                        PE calculations, framing & foundation design
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs sm:text-sm text-bd-navy group-hover:text-bd-blue transition-colors">
+                      Structural Engineering
+                    </span>
                   </Link>
 
                   <Link
                     href="/services/architectural-design"
                     onClick={() => setDropdownOpen(false)}
-                    className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    className={`group flex items-center gap-3 p-2.5 rounded-xl transition-all ${
                       pathname === '/services/architectural-design'
                         ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30 shadow-2xs'
                         : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
@@ -166,20 +155,15 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                       <Compass className="w-4 h-4" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-display font-bold text-xs text-bd-navy group-hover:text-bd-blue transition-colors">
-                        Architectural Design
-                      </span>
-                      <span className="font-body text-[11px] text-bd-gray leading-tight mt-0.5">
-                        Permit floor plans, elevations & Revit BIM
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs sm:text-sm text-bd-navy group-hover:text-bd-blue transition-colors">
+                      Architectural Design
+                    </span>
                   </Link>
 
                   <Link
                     href="/services/mep-engineering"
                     onClick={() => setDropdownOpen(false)}
-                    className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    className={`group flex items-center gap-3 p-2.5 rounded-xl transition-all ${
                       pathname === '/services/mep-engineering'
                         ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30 shadow-2xs'
                         : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
@@ -188,20 +172,15 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                       <Cpu className="w-4 h-4" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-display font-bold text-xs text-bd-navy group-hover:text-bd-blue transition-colors">
-                        MEP Engineering
-                      </span>
-                      <span className="font-body text-[11px] text-bd-gray leading-tight mt-0.5">
-                        HVAC, electrical SLD, plumbing & Title 24
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs sm:text-sm text-bd-navy group-hover:text-bd-blue transition-colors">
+                      MEP Engineering
+                    </span>
                   </Link>
 
                   <Link
                     href="/services/bim-cad-services"
                     onClick={() => setDropdownOpen(false)}
-                    className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    className={`group flex items-center gap-3 p-2.5 rounded-xl transition-all ${
                       pathname === '/services/bim-cad-services'
                         ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30 shadow-2xs'
                         : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
@@ -210,20 +189,15 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                       <Layers className="w-4 h-4" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-display font-bold text-xs text-bd-navy group-hover:text-bd-blue transition-colors">
-                        BIM & CAD Services
-                      </span>
-                      <span className="font-body text-[11px] text-bd-gray leading-tight mt-0.5">
-                        Revit LOD 400 modeling & clash detection
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs sm:text-sm text-bd-navy group-hover:text-bd-blue transition-colors">
+                      BIM & CAD Services
+                    </span>
                   </Link>
 
                   <Link
                     href="/services/rendering-services"
                     onClick={() => setDropdownOpen(false)}
-                    className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    className={`group flex items-center gap-3 p-2.5 rounded-xl transition-all ${
                       pathname === '/services/rendering-services'
                         ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30 shadow-2xs'
                         : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
@@ -232,20 +206,15 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                       <Sparkles className="w-4 h-4" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-display font-bold text-xs text-bd-navy group-hover:text-bd-blue transition-colors">
-                        3D Rendering Services
-                      </span>
-                      <span className="font-body text-[11px] text-bd-gray leading-tight mt-0.5">
-                        Photorealistic exterior & interior 3D visuals
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs sm:text-sm text-bd-navy group-hover:text-bd-blue transition-colors">
+                      3D Rendering Services
+                    </span>
                   </Link>
 
                   <Link
                     href="/services/estimation"
                     onClick={() => setDropdownOpen(false)}
-                    className={`group flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    className={`group flex items-center gap-3 p-2.5 rounded-xl transition-all ${
                       pathname === '/services/estimation'
                         ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30 shadow-2xs'
                         : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
@@ -254,24 +223,19 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                       <Calculator className="w-4 h-4" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="font-display font-bold text-xs text-bd-navy group-hover:text-bd-blue transition-colors">
-                        Estimation & Takeoffs
-                      </span>
-                      <span className="font-body text-[11px] text-bd-gray leading-tight mt-0.5">
-                        PlanSwift quantity takeoffs & CSI bid pricing
-                      </span>
-                    </div>
+                    <span className="font-display font-bold text-xs sm:text-sm text-bd-navy group-hover:text-bd-blue transition-colors">
+                      Estimation & Takeoffs
+                    </span>
                   </Link>
                 </div>
 
                 {/* Bottom Footer Callout */}
-                <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between px-2 text-xs">
-                  <span className="text-bd-gray font-body">Ready to start your project?</span>
+                <div className="mt-2.5 pt-2 border-t border-gray-100 flex items-center justify-between px-2 text-xs">
+                  <span className="text-bd-gray font-body text-[11px]">50-State Licensed Engineering</span>
                   <Link
                     href="/contact"
                     onClick={() => setDropdownOpen(false)}
-                    className="font-display font-bold text-bd-blue hover:underline flex items-center gap-1"
+                    className="font-display font-bold text-bd-blue hover:underline flex items-center gap-1 text-[11px]"
                   >
                     Get a Free Proposal &rarr;
                   </Link>

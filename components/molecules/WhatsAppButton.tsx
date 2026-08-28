@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
-import { MessageSquare } from 'lucide-react';
+import React from 'react';
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
@@ -9,37 +8,19 @@ interface WhatsAppButtonProps {
 }
 
 export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
-  phoneNumber = '17472237815',
+  phoneNumber = '12135826559',
   defaultMessage = 'Hello Bid Dimensions, I would like to inquire about an engineering & design quote.',
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   const encodedMessage = encodeURIComponent(defaultMessage);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-      {/* Tooltip / Popup pill on hover */}
-      <div
-        className={`hidden sm:flex items-center gap-2 bg-white text-bd-navy px-4 py-2 rounded-2xl shadow-xl border border-gray-200 text-xs font-body transition-all duration-300 pointer-events-none ${
-          isHovered
-            ? 'opacity-100 translate-x-0'
-            : 'opacity-0 translate-x-4'
-        }`}
-      >
-        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
-        <span className="font-semibold text-bd-navy">Chat with an Engineer</span>
-        <span className="text-gray-400">|</span>
-        <span className="text-bd-blue font-mono text-[11px] font-bold">(747) 223-7815</span>
-      </div>
-
-      {/* Floating Action Button */}
+    <div className="fixed bottom-6 right-6 z-50 flex items-center">
+      {/* Floating WhatsApp Action Button */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         aria-label="Chat on WhatsApp with Bid Dimensions engineering team"
         className="group relative flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#25D366]/40"
       >
