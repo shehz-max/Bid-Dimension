@@ -18,11 +18,6 @@ export default function TermsOfServicePage() {
         variant="page"
         headline="Terms of Service"
         subheadline="General terms and conditions governing the performance of engineering, design, and estimation services by Bid Dimensions."
-        hudBadge={{ label: 'LEGAL GOVERNANCE', spec: 'PE SERVICES CONTRACT // IBC COMPLIANT' }}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Terms of Service', href: '/terms' },
-        ]}
       />
 
       <section className="py-20 bg-white text-bd-charcoal">

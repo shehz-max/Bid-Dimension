@@ -25,11 +25,6 @@ export default function BlogDirectoryPage() {
         headline="Engineering & Building Code Journal"
         subheadline="Technical insights, PE stamping guidelines, Revit BIM best practices, and city permit approval strategies for contractors, architects, and developers."
         cta={{ text: 'Subscribe to Technical Journal', href: '#journal-list' }}
-        hudBadge={{ label: 'JOURNAL EDITION', spec: 'TECHNICAL ARTICLES // 2026' }}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Blog & Journal', href: '/blog' },
-        ]}
       />
 
       {/* Blog List Section */}

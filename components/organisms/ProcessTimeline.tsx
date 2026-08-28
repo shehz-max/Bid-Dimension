@@ -58,16 +58,9 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = () => {
   return (
     <section id="process" className="py-14 sm:py-16 bg-white border-y border-gray-200/80 text-bd-navy relative">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-        {/* Subtle Section Header with Index Tag */}
+        {/* Subtle Section Header */}
         <div className="flex flex-col items-center text-center mb-10">
           <FadeInUp>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-              <span>04 // OUR EXECUTION PROCESS</span>
-            </div>
-          </FadeInUp>
-
-          <FadeInUp delay={0.1}>
             <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
               From Concept to Permit — Our Proven Process
             </h2>

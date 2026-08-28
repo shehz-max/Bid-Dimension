@@ -81,23 +81,13 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
         />
       )}
 
-      {/* Subpage Hero with Balanced CAD Background */}
+      {/* Subpage Hero with Full Bleed Discipline Background */}
       <Hero
         variant="page"
         headline={title}
         subheadline={heroSubtitle}
         image={heroImage}
         cta={{ text: 'Get a Quote', href: '/contact' }}
-        hudBadge={
-          serviceSlug === 'estimation'
-            ? { label: 'COST ESTIMATION', spec: 'CSI 50 DIVISIONS // ASPE & AACE' }
-            : { label: 'SERVICE DETAIL PAGE', spec: 'IBC 2024 // 50-STATE PE' }
-        }
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Services', href: '/#services' },
-          { label: title, href: `/services/${serviceSlug}` },
-        ]}
       />
 
       {/* 2-Column Main Layout Matching Primecost Reference */}

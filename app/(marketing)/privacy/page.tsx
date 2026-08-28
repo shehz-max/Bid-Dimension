@@ -18,11 +18,6 @@ export default function PrivacyPolicyPage() {
         variant="page"
         headline="Privacy Policy"
         subheadline="Bid Dimensions is committed to safeguarding your personal data and confidential project documentation."
-        hudBadge={{ label: 'DATA PROTECTION', spec: '256-BIT ENCRYPTION // CONFIDENTIAL' }}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Privacy Policy', href: '/privacy' },
-        ]}
       />
 
       <section className="py-20 bg-white text-bd-charcoal">

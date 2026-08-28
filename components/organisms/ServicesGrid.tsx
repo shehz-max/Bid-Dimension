@@ -87,13 +87,6 @@ export const ServicesGrid: React.FC = () => {
         {/* Compact Section Header */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
           <FadeInUp>
-            <div className="inline-flex items-center gap-2 px-3 py-0.5 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase mb-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-              <span>01 // OUR SERVICES</span>
-            </div>
-          </FadeInUp>
-
-          <FadeInUp delay={0.1}>
             <h2 className="font-display font-bold text-2xl sm:text-32px leading-tight text-bd-navy mb-1.5">
               Innovation in Every Dimension
             </h2>

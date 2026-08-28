@@ -55,12 +55,7 @@ export default function AboutPage() {
         headline="Engineering That Carries the Weight"
         subheadline="Founded in 2008, Bid Dimensions has spent over 18 years delivering licensed engineering calculations, permit-ready architectural drawings, MEP coordination, and nationwide PE stamping."
         cta={{ text: 'Get a Quote', href: '#quote' }}
-        hudBadge={{ label: 'ESTABLISHED 2008', spec: '18+ YEARS OF EXCELLENCE' }}
         image="/images/about-hero-construction.jpg"
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'About Us', href: '/about' },
-        ]}
       />
 
       {/* 2. Story & Founding (18 Years Experience & 2008 Founded) */}
@@ -69,31 +64,24 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-6 flex flex-col items-start">
               <FadeInUp>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F1F5F9] border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-                  <span>OUR STORY & PHILOSOPHY</span>
-                </div>
-              </FadeInUp>
-
-              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-2xl sm:text-38px leading-tight text-bd-navy mb-4">
                   From the Field to the Drawing Board
                 </h2>
               </FadeInUp>
 
-              <FadeInUp delay={0.2}>
+              <FadeInUp delay={0.1}>
                 <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-4">
                   Bid Dimensions was founded in 2008 by a team of project managers, estimators, and structural drafters who spent years on construction sites watching preventable engineering mistakes cost contractors millions.
                 </p>
               </FadeInUp>
 
-              <FadeInUp delay={0.3}>
+              <FadeInUp delay={0.2}>
                 <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-5">
                   Over the past 18+ years, we have grown into a multidisciplinary engineering and design firm trusted across all 50 states. We resolve every connection detail, load path, and system conflict before groundbreaking so projects pass city plan check on the first submittal.
                 </p>
               </FadeInUp>
 
-              <FadeInUp delay={0.4}>
+              <FadeInUp delay={0.3}>
                 <p className="font-body text-sm sm:text-base text-bd-navy font-semibold leading-relaxed border-l-3 border-bd-blue pl-4 py-0.5">
                   We treat every drawing like it is going to a live job site — because it is. Every estimate like it is funding a payroll — because it is.
                 </p>
@@ -141,12 +129,6 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-10">
             <FadeInUp>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded text-bd-navy font-mono text-[11px] font-semibold tracking-widest uppercase mb-3 shadow-xs">
-                <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-                <span>OUR CORE VALUES</span>
-              </div>
-            </FadeInUp>
-            <FadeInUp delay={0.1}>
               <h2 className="font-display font-bold text-2xl sm:text-36px text-bd-navy">
                 Built on 18 Years of Engineering Excellence
               </h2>
@@ -186,13 +168,6 @@ export default function AboutPage() {
             {/* Left Column: Direct Contact Details & Photo */}
             <div className="lg:col-span-5 flex flex-col gap-5">
               <FadeInUp>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EBF3FA] border border-[#4A8AB8]/30 font-mono text-xs font-semibold text-bd-blue uppercase rounded-md">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>DIRECT LINE TO LEADERSHIP</span>
-                </div>
-              </FadeInUp>
-
-              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-2xl sm:text-36px text-bd-navy leading-tight">
                   Request an Engineering Proposal
                 </h2>

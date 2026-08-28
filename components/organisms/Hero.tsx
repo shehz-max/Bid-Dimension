@@ -131,19 +131,8 @@ export const Hero: React.FC<HeroProps> = ({
 
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column: Typography, HUD Badge, and CTA */}
+          {/* Left Column: Typography and CTA */}
           <div className="lg:col-span-7 flex flex-col items-start max-w-xl">
-            {hudBadge && (
-              <FadeInUp delay={0.05}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200/90 rounded-md font-mono text-[11px] font-semibold text-bd-navy uppercase mb-4 shadow-xs">
-                  <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-                  <span>{hudBadge.label}</span>
-                  <span className="text-gray-300">|</span>
-                  <span className="text-bd-blue font-bold">{hudBadge.spec}</span>
-                </div>
-              </FadeInUp>
-            )}
-
             <FadeInUp delay={0.1}>
               <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-[1.12] tracking-tight text-bd-navy mb-4">
                 {headline}
