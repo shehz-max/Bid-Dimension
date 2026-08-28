@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { BLOG_POSTS, BlogPost } from '@/lib/data';
+import { CtaBanner } from '@/components/organisms/CtaBanner';
 import { Button } from '@/components/atoms/Button';
 import {
   Clock,
@@ -437,22 +438,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
         </section>
       )}
 
-      {/* CTA Section */}
-      <section className="py-20 bg-[#F8FAFC] border-t border-gray-200 text-center">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <div className="bg-white p-8 sm:p-12 border border-gray-200 shadow-sm rounded-2xl">
-            <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
-              Ready to Start Your Engineering Project?
-            </h2>
-            <p className="font-body text-base text-bd-gray mb-8">
-              Upload your plans today for a fast 7-14 day PE-stamped engineering proposal.
-            </p>
-            <Button variant="primary" size="lg" href="/contact">
-              Get a Quote
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Universal Brand CTA Banner */}
+      <CtaBanner />
     </div>
   );
 }

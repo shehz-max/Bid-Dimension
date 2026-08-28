@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Hero } from '@/components/organisms/Hero';
+import { CtaBanner } from '@/components/organisms/CtaBanner';
 import { FEATURED_PROJECTS, ProjectCaseStudy } from '@/lib/data';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
@@ -149,32 +150,8 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white text-bd-charcoal text-center">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8">
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 block">
-            READY TO BUILD YOUR VISION?
-          </span>
-          <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-charcoal mb-4">
-            Have a Similar Building Project?
-          </h2>
-          <p className="font-body text-base text-bd-gray mb-8">
-            Upload your plans today for a fast 7-14 day PE-stamped engineering proposal.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button variant="primary" size="lg" href="/contact">
-              Get a Quote
-            </Button>
-            <a
-              href="tel:7472237815"
-              className="flex items-center gap-2 font-mono text-sm text-bd-navy hover:text-bd-blue transition-colors font-semibold"
-            >
-              <Phone className="w-4 h-4 text-bd-blue" />
-              <span>Call (747) 223-7815</span>
-            </a>
-          </div>
-        </div>
-      </section>
+      {/* Universal CTA Section */}
+      <CtaBanner />
     </div>
   );
 }
