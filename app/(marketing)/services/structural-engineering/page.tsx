@@ -47,7 +47,7 @@ export default function StructuralEngineeringPage() {
       serviceSlug="structural-engineering"
       title="Structural Engineering Services"
       heroSubtitle="We deliver structural calculations, load schedules, foundation designs, and PE-stamped structural drawings nationwide for all construction permits."
-      heroImage="/images/struct-hero-spec.jpg"
+      heroImage="/images/hero-structural-bg.jpg"
       overview={{
         paragraph1:
           'We deliver structural calculations, load schedules, foundation designs, and PE-stamped structural drawings nationwide for all construction permits.',

@@ -47,7 +47,7 @@ export default function ArchitecturalDesignPage() {
       serviceSlug="architectural-design"
       title="Architectural Design Services"
       heroSubtitle="Permit-ready architectural floor plans, exterior elevations, building sections, and Revit 3D BIM models for commercial and residential construction."
-      heroImage="/images/arch-hero-spec.jpg"
+      heroImage="/images/hero-architectural-bg.jpg"
       overview={{
         paragraph1:
           'We deliver permit-ready architectural plans, dimensioned floor layouts, exterior elevations, and building sections that satisfy municipal zoning and plan check codes nationwide.',

@@ -47,7 +47,7 @@ export default function EstimationPage() {
       serviceSlug="estimation"
       title="Estimation & Quantity Takeoffs"
       heroSubtitle="CSI MasterFormat itemized cost estimates, PlanSwift material quantity takeoffs, labor pricing, and bid-winning proposals for contractors and developers."
-      heroImage="/images/est-hero-spec.jpg"
+      heroImage="/images/hero-estimation-bg.jpg"
       overview={{
         paragraph1:
           'We deliver accurate, itemized material quantity takeoffs and construction cost estimates aligned with CSI MasterFormat 50 divisions to help contractors win profitable bids.',

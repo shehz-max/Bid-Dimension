@@ -47,7 +47,7 @@ export default function RenderingServicesPage() {
       serviceSlug="rendering-services"
       title="3D Rendering & Visualization"
       heroSubtitle="Photorealistic 3D exterior building renders, interior design visualizations, 360-degree virtual tours, and site animations for developers and investors."
-      heroImage="/images/service-thumb-rendering.jpg"
+      heroImage="/images/hero-rendering-bg.jpg"
       overview={{
         paragraph1:
           'We craft photorealistic 3D architectural renderings, interior visual experiences, and cinematic walkthroughs that help developers, architects, and builders secure investment, city approvals, and pre-sales.',

@@ -47,7 +47,7 @@ export default function MepEngineeringPage() {
       serviceSlug="mep-engineering"
       title="MEP Engineering Services"
       heroSubtitle="PE-stamped mechanical (HVAC), electrical, plumbing, and Title 24 energy calculations for commercial, industrial, and residential projects."
-      heroImage="/images/mep-hero-spec.jpg"
+      heroImage="/images/hero-mep-bg.jpg"
       overview={{
         paragraph1:
           'We deliver PE-stamped mechanical, electrical, and plumbing (MEP) design packages engineered for efficiency, building code compliance, and ease of construction installation.',

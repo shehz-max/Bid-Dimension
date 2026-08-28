@@ -108,20 +108,32 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Service & Subpage Hero variant (Clean, Crisp Discipline Showcase Layout)
+  // Service & Subpage Hero variant (Full-Bleed Background with Aesthetic Fade Matching Homepage)
   return (
-    <section className="relative pt-32 sm:pt-36 pb-16 sm:pb-20 bg-[#F8FAFC] border-b border-gray-200 overflow-hidden text-bd-navy">
-      {/* Subtle Ambient Blueprint Paper Background */}
-      <div className="absolute inset-0 pointer-events-none z-0 opacity-40">
+    <section className="relative min-h-[480px] sm:min-h-[520px] flex items-center pt-32 sm:pt-36 pb-16 sm:pb-20 bg-[#F8FAFC] border-b border-gray-200 overflow-hidden text-bd-navy">
+      {/* Full-Bleed Discipline Background with Smooth Left-to-Right Fade */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
-          src="/images/hero-blueprint-paper-canvas.jpg"
-          alt="Architectural paper background"
-          className="w-full h-full object-cover object-center"
+          src={image || '/images/hero-structural-bg.jpg'}
+          alt={headline || 'Engineering discipline background'}
+          className="w-full h-full object-cover object-right opacity-90 filter contrast-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC]/90 via-[#F8FAFC]/95 to-[#F8FAFC]" />
+
+        {/* Soft Aesthetic Fade: Left 30% sits on light background, right 70% reveals vivid discipline artwork */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 28%, rgba(248, 250, 252, 0.65) 50%, transparent 75%)',
+          }}
+        />
+
+        {/* Subtle Top & Bottom Gradient Smoothing */}
+        <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#F8FAFC]/50 to-transparent z-0" />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#F8FAFC] to-transparent z-0" />
       </div>
 
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Typography, Breadcrumbs, and CTA */}
           <div className="lg:col-span-7 flex flex-col items-start">
@@ -145,7 +157,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {hudBadge && (
               <FadeInUp delay={0.1}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200/90 rounded-md font-mono text-[11px] font-semibold text-bd-navy uppercase mb-3 shadow-xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/95 backdrop-blur-xs border border-gray-200/90 rounded-md font-mono text-[11px] font-semibold text-bd-navy uppercase mb-3 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
                   <span>{hudBadge.label}</span>
                   <span className="text-gray-300">|</span>
@@ -179,29 +191,8 @@ export const Hero: React.FC<HeroProps> = ({
             )}
           </div>
 
-          {/* Right Column: Clean, Framed High-Resolution Discipline Showcase Card */}
-          {image && (
-            <div className="lg:col-span-5">
-              <FadeInUp delay={0.25}>
-                <div className="bg-white border border-gray-200 p-2.5 sm:p-3 rounded-2xl shadow-lg relative group overflow-hidden">
-                  <div className="relative h-60 sm:h-72 w-full rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
-                    <img
-                      src={image}
-                      alt={headline || 'Engineering discipline drawing showcase'}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-bd-navy/60 via-transparent to-transparent" />
-                    
-                    {/* Bottom Tag Overlay */}
-                    <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2 bg-bd-navy/90 border border-bd-blue/30 backdrop-blur-xs rounded-lg text-white font-mono text-[10px] sm:text-[11px] font-semibold">
-                      <span>VERIFIED SPECIFICATION</span>
-                      <span className="text-bd-blue">100% ACCURATE</span>
-                    </div>
-                  </div>
-                </div>
-              </FadeInUp>
-            </div>
-          )}
+          {/* Right Column: Clean Open Space Revealing Background Artwork */}
+          <div className="lg:col-span-5 hidden lg:block" />
         </div>
       </div>
     </section>
