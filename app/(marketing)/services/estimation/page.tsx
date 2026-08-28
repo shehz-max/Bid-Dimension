@@ -46,101 +46,86 @@ export default function EstimationPage() {
     <ServiceDetailTemplate
       serviceSlug="estimation"
       title="Estimation & Quantity Takeoffs"
-      heroSubtitle="CSI MasterFormat itemized cost estimates, PlanSwift material quantity takeoffs, labor pricing, and bid-winning proposals for contractors and developers."
+      heroSubtitle="Detailed quantity takeoffs and construction estimates for residential, commercial, and industrial projects, providing organized material quantities and cost information to support accurate bidding and budgeting."
       heroImage="/images/hero-estimation-bg.jpg"
       overview={{
         paragraph1:
-          'We deliver accurate, itemized material quantity takeoffs and construction cost estimates aligned with CSI MasterFormat 50 divisions to help contractors win profitable bids.',
+          'We provide detailed construction estimates and quantity takeoffs for residential, commercial, and industrial projects. Our estimating services help contractors, subcontractors, and developers understand project quantities, material requirements, and anticipated costs before work begins.',
         paragraph2:
-          'Using digital takeoff tools like PlanSwift and RSMeans localized labor/material pricing databases, our estimators calculate precise material quantities, labor hours, and equipment costs so you never underbid or leave money on the table.',
+          'We organize project information into clear, trade-specific estimates that make it easier to prepare competitive bids, evaluate project costs, and make informed decisions throughout the bidding and planning process.',
       }}
       targetAudiences={[
         {
           iconName: 'hardhat',
           title: 'General Contractors',
-          text: 'Need comprehensive line-item bid estimates to submit competitive, profitable proposals without spending 40+ hours doing manual takeoffs.',
+          text: 'Need reliable quantity and cost information to prepare competitive bids and evaluate project profitability.',
         },
         {
           iconName: 'building',
-          title: 'Trade Subcontractors (Framing, Concrete, MEP)',
-          text: 'Require specialized trade material quantity takeoffs (sqft, linear ft, cubic yards, poundage) with zero waste factors.',
+          title: 'Subcontractors',
+          text: 'Require detailed takeoffs for specific trades such as concrete, framing, drywall, roofing, painting, electrical, plumbing, and HVAC.',
         },
         {
           iconName: 'briefcase',
-          title: 'Real Estate Developers & Investors',
-          text: 'Seeking preliminary conceptual budgets and feasibility estimates to evaluate project ROI before architectural completion.',
+          title: 'Developers',
+          text: 'Need project cost information and quantity data to evaluate budgets, feasibility, and construction requirements.',
         },
         {
           iconName: 'home',
-          title: 'Property Owners',
-          text: 'Looking for independent third-party construction cost verification to review contractor bids and prevent overcharging.',
+          title: 'Builders & Property Owners',
+          text: 'Need clear estimates to understand material quantities and projected construction costs before starting a project.',
         },
       ]}
       processSteps={[
         {
           number: 1,
-          title: 'Blueprint & Scope Review',
-          text: 'Audit architectural, structural, and MEP drawing sheets, addenda, and project specifications.',
+          title: 'Plan Review',
+          text: 'Review drawings, specifications, schedules, addenda, and project requirements to establish the estimating scope.',
         },
         {
           number: 2,
-          title: 'Digital Quantity Takeoff',
-          text: 'Measure all line items using PlanSwift (square footage, linear lengths, counts, volumes).',
+          title: 'Quantity Takeoff',
+          text: 'Measure and quantify the required materials, labor items, and construction components from the project documents.',
         },
         {
           number: 3,
-          title: 'CSI MasterFormat Classification',
-          text: 'Organize every line item into standard CSI 50 divisions for clear contractor transparency.',
+          title: 'Cost Estimation',
+          text: 'Organize quantities and apply applicable unit costs, labor rates, and pricing information to develop the estimate.',
         },
         {
           number: 4,
-          title: 'Localized Material & Labor Pricing',
-          text: 'Apply current RSMeans and local zip-code market pricing for materials, skilled labor, and equipment.',
-        },
-        {
-          number: 5,
-          title: 'Markups, Profit & Contingency',
-          text: 'Calculate subcontractor markups, general conditions, overhead, and risk contingencies.',
-        },
-        {
-          number: 6,
-          title: 'Final Bid Package Delivery',
-          text: 'Deliver formatted Excel takeoff workbooks, color-coded markup PDFs, and executive summary sheets.',
+          title: 'Review & Delivery',
+          text: 'Check quantities and calculations, organize the results, and deliver the completed estimate in a clear, easy-to-review format.',
         },
       ]}
       deliverables={[
-        'CSI MasterFormat Itemized Cost Estimate Book',
-        'PlanSwift Color-Coded Markup Drawing PDFs',
-        'Material Quantity Takeoff (MTO) Excel Sheets',
-        'Labor Hours & Wage Rate Breakdown',
-        'Equipment Rental & Logistics Budget',
-        'Subcontractor Bid Comparison Matrix',
-        'Value Engineering Cost Reduction Report',
-        'Conceptual Feasibility Cost Model',
+        'Detailed Material & Quantity Lists',
+        'Excel-Based Takeoff Spreadsheets',
+        'Color-Coded Drawing Markups',
+        'CSI Division-Based Quantity Breakdowns',
+        'Slab, Framing & Structural Quantity Reports',
       ]}
       softwareList={[
-        'PlanSwift',
         'Bluebeam Revu',
-        'RSMeans Online',
-        'ProEst',
-        'Microsoft Excel Advanced Workbooks',
-        'HeavyBid',
+        'PlanSwift',
+        'On-Screen Takeoff',
+        'Microsoft Excel',
       ]}
       faqs={[
         {
           question: 'What format do you deliver the cost estimates in?',
           answer:
-            'We deliver fully editable Microsoft Excel spreadsheets categorized by CSI MasterFormat divisions, along with color-coded PlanSwift PDF drawing markups.',
+            'We deliver fully editable Microsoft Excel spreadsheets categorized by trade and CSI divisions, along with color-coded drawing markups.',
         },
         {
           question: 'How do you price labor and material costs accurately for my area?',
           answer:
-            'We utilize zip-code specific RSMeans cost databases and regional supplier quotes to reflect local labor wage rates, material pricing, and regional union scales.',
+            'We utilize localized cost databases and current market pricing information to reflect regional labor wage rates and material costs.',
         },
         {
           question: 'What is your turnaround time for a complete quantity takeoff?',
           answer:
-            'Standard residential and commercial quantity takeoffs are delivered within 7 to 14 days with complete CSI MasterFormat line-item breakdowns.',
+            'Standard residential and commercial quantity takeoffs are delivered within 7 to 14 days with complete itemized material breakdowns.',
         },
       ]}
       jsonLdSchema={serviceSchema}

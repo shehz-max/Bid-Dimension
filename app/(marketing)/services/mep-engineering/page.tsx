@@ -46,34 +46,34 @@ export default function MepEngineeringPage() {
     <ServiceDetailTemplate
       serviceSlug="mep-engineering"
       title="MEP Engineering Services"
-      heroSubtitle="PE-stamped mechanical (HVAC), electrical, plumbing, and Title 24 energy calculations for commercial, industrial, and residential projects."
+      heroSubtitle="Professional MEP engineering solutions for residential, commercial, and industrial projects, covering mechanical, electrical, and plumbing systems with coordinated, permit-ready designs."
       heroImage="/images/hero-mep-bg.jpg"
       overview={{
         paragraph1:
-          'We deliver PE-stamped mechanical, electrical, and plumbing (MEP) design packages engineered for efficiency, building code compliance, and ease of construction installation.',
+          'At Bid Dimensions, we provide licensed MEP engineering services that deliver efficient, coordinated, and code-compliant mechanical, electrical, and plumbing designs for residential, commercial, and industrial projects.',
         paragraph2:
-          'From HVAC ductwork sizing and electrical single-line diagrams to plumbing isometric risers and Title 24/ASHRAE 90.1 energy compliance, our engineers resolve trade interferences before work begins on-site.',
+          'Our multidisciplinary approach ensures every MEP system is fully coordinated with the architectural and structural design before construction begins. By identifying potential conflicts early, optimizing system layouts, and preparing permit-ready documentation, we help minimize costly revisions, simplify the permitting process, and support efficient construction from start to finish.',
       }}
       targetAudiences={[
         {
           iconName: 'hardhat',
-          title: 'Mechanical & Electrical Contractors',
-          text: 'Require coordinated single-line diagrams, panel schedules, and duct sizing ready for field installation.',
+          title: 'General Contractors',
+          text: 'Need coordinated MEP plans and single-line diagrams that prevent field conflicts and simplify trade coordination.',
         },
         {
           iconName: 'building',
-          title: 'Commercial Facility Managers',
-          text: 'Need power distribution upgrades, EV charging infrastructure, and HVAC replacement calculations.',
+          title: 'Commercial Developers',
+          text: 'Require energy-efficient mechanical, electrical, and plumbing systems optimized for building performance and code compliance.',
         },
         {
           iconName: 'home',
           title: 'Architects',
-          text: 'Seeking fully integrated MEP plans that respect ceiling heights, structural clearances, and architectural aesthetics.',
+          text: 'Seeking integrated MEP engineering packages that align with architectural layouts, ceiling clearances, and aesthetics.',
         },
         {
           iconName: 'briefcase',
-          title: 'General Contractors',
-          text: 'Looking for 3D Revit MEP clash detection to eliminate expensive routing changes and field delays.',
+          title: 'Facility Managers',
+          text: 'Looking for reliable MEP documentation for system upgrades, tenant improvements, and equipment replacements.',
         },
       ]}
       processSteps={[
@@ -85,7 +85,7 @@ export default function MepEngineeringPage() {
         {
           number: 2,
           title: 'HVAC & Ventilation Sizing',
-          text: 'Calculate heating/cooling loads (Manual J/S/D or ASHRAE) and configure duct distribution.',
+          text: 'Calculate heating and cooling loads to design energy-efficient mechanical ductwork and equipment layouts.',
         },
         {
           number: 3,
@@ -95,12 +95,12 @@ export default function MepEngineeringPage() {
         {
           number: 4,
           title: 'Plumbing & Gas Piping',
-          text: 'Design water supply fixture units (WSFU), DWV drain risers, and gas piping schematics.',
+          text: 'Design water supply systems, DWV drain risers, and gas piping layouts.',
         },
         {
           number: 5,
           title: 'Energy Code Compliance',
-          text: 'Execute Title 24 (California), COMcheck, or REScheck energy calculations.',
+          text: 'Execute Title 24, COMcheck, or REScheck energy compliance documentation.',
         },
         {
           number: 6,
@@ -109,40 +109,35 @@ export default function MepEngineeringPage() {
         },
       ]}
       deliverables={[
-        'HVAC Ductwork & Equipment Plans (M-1.0)',
-        'Electrical Power & Single-Line Diagrams (E-1.0)',
-        'Lighting Plans & Photometric Calculations',
-        'Plumbing Water & DWV Riser Diagrams (P-1.0)',
-        'Gas Piping Sizing Schematics',
-        'Title 24 & COMcheck Energy Compliance Books',
-        'Mechanical Heating/Cooling Load Reports',
-        'Fire Protection / Sprinkler Schematic Layouts',
+        'HVAC Plans & Equipment Layouts',
+        'Air Distribution & Ductwork Plans',
+        'Electrical Power & Lighting Plans',
+        'Single-Line Diagrams',
+        'Panel Schedules & Load Calculations',
+        'Plumbing Plans & Piping Layouts',
+        'Water Supply & Drainage Systems',
+        'Fire Protection Coordination',
+        'Mechanical, Electrical & Plumbing Details',
+        'Equipment Schedules',
+        'MEP Coordination Drawings',
+        'Energy Compliance Documentation',
       ]}
-      softwareList={[
-        'AutoCAD MEP',
-        'Autodesk Revit MEP',
-        'Carrier HAP',
-        'Trane TRACE 3D',
-        'COMcheck',
-        'REScheck',
-        'EnergyPro',
-        'Navisworks',
-      ]}
+      softwareList={['Autodesk Revit MEP', 'AutoCAD MEP', 'Trane TRACE 700', 'Elite Software', 'DIALux evo']}
       faqs={[
+        {
+          question: 'Do you coordinate with utility providers?',
+          answer:
+            'Yes. We prepare the engineering documentation required for utility reviews, including single-line diagrams, electrical load summaries, and other supporting documents for new or upgraded utility connections.',
+        },
+        {
+          question: 'Is fire protection design included in your MEP services?',
+          answer:
+            'Yes. We provide fire protection system design and coordination, including sprinkler layouts, riser diagrams, and supporting documentation, where required by the project scope and applicable codes.',
+        },
         {
           question: 'Do you provide PE stamps for MEP drawings?',
           answer:
             'Yes. Our licensed Professional Engineers (PE) sign and seal mechanical, electrical, and plumbing drawings for city permit approval in all 50 states.',
-        },
-        {
-          question: 'Can you perform Title 24 and COMcheck energy compliance calculations?',
-          answer:
-            'Yes. We include complete building envelope, lighting, and mechanical Title 24 / COMcheck / REScheck compliance certificates with our MEP packages.',
-        },
-        {
-          question: 'How do you prevent MEP clashes with structural framing?',
-          answer:
-            'We build full 3D Revit models to coordinate ductwork, plumbing risers, and electrical conduits against structural beams and ceiling envelopes before drawings are issued.',
         },
       ]}
       jsonLdSchema={serviceSchema}

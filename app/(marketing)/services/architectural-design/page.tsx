@@ -46,94 +46,98 @@ export default function ArchitecturalDesignPage() {
     <ServiceDetailTemplate
       serviceSlug="architectural-design"
       title="Architectural Design Services"
-      heroSubtitle="Permit-ready architectural floor plans, exterior elevations, building sections, and Revit 3D BIM models for commercial and residential construction."
+      heroSubtitle="Professional architectural design solutions for residential, commercial, and industrial projects, from concept development and floor plans to detailed, permit-ready construction drawings."
       heroImage="/images/hero-architectural-bg.jpg"
       overview={{
         paragraph1:
-          'We deliver permit-ready architectural plans, dimensioned floor layouts, exterior elevations, and building sections that satisfy municipal zoning and plan check codes nationwide.',
+          "At Bid Dimensions, we craft architectural designs that balance functionality, aesthetics, and code compliance. Whether you're pursuing new construction, a renovation, a tenant improvement, or a building addition, our team develops practical, tailored solutions that align with your vision and project goals.",
         paragraph2:
-          'Our architectural team collaborates closely with structural and MEP engineers from day one, eliminating coordination clashes and expediting city approvals for custom homes, commercial build-outs, and renovations.',
+          'From initial concept through permit-ready construction documents, we collaborate closely with clients to deliver coordinated architectural plans that streamline construction and support a smooth approval process.',
       }}
       targetAudiences={[
         {
-          iconName: 'hardhat',
-          title: 'General Contractors',
-          text: 'Need clear, constructible architectural plan sets that minimize RFIs and eliminate on-site confusion.',
-        },
-        {
-          iconName: 'building',
-          title: 'Commercial Developers',
-          text: 'Require optimized tenant improvements, occupancy calculations, and ADA-compliant accessibility drawings.',
+          iconName: 'briefcase',
+          title: 'Developers',
+          text: 'Require architectural designs that streamline permitting, support efficient project planning, and keep developments on schedule.',
         },
         {
           iconName: 'home',
-          title: 'Custom Home Builders',
-          text: 'Seeking architectural floor plans, 3D renderings, and permit documentation for luxury residences and ADUs.',
+          title: 'Homeowners',
+          text: 'Planning new homes, renovations, additions, or custom residences that require thoughtful, permit-ready, and code-compliant design.',
         },
         {
-          iconName: 'briefcase',
+          iconName: 'hardhat',
+          title: 'General Contractors',
+          text: 'Need coordinated construction documents that minimize field conflicts and keep projects moving efficiently.',
+        },
+        {
+          iconName: 'building',
           title: 'Real Estate Investors',
-          text: 'Looking to evaluate property buildability, zoning envelopes, and maximize usable square footage.',
+          text: 'Need permit-ready designs for renovations, additions, adaptive reuse, and property improvements.',
         },
       ]}
       processSteps={[
         {
           number: 1,
-          title: 'Programming & Concept Intake',
-          text: 'Review client design intent, site boundaries, existing drawings, and municipal zoning envelopes.',
+          title: 'Project Consultation',
+          text: 'Review project goals, site information, client requirements, and applicable building codes.',
         },
         {
           number: 2,
-          title: 'Schematic Design',
-          text: 'Draft preliminary space planning layouts, circulation paths, and room dimensions.',
+          title: 'Concept Development',
+          text: "Develop preliminary layouts and design concepts based on the project's functional requirements.",
         },
         {
           number: 3,
           title: 'Design Development',
-          text: 'Develop exterior elevations, building wall sections, and architectural window/door schedules.',
+          text: 'Refine floor plans, elevations, sections, and architectural details for coordination and approval.',
         },
         {
           number: 4,
-          title: 'MEP & Structural Coordination',
-          text: 'Coordinate load-bearing walls, shear locations, and mechanical chases in 3D BIM.',
+          title: 'Design Coordination',
+          text: 'Coordinate architectural drawings with structural and MEP disciplines to improve constructability.',
         },
         {
           number: 5,
-          title: 'Permit Documentation',
-          text: 'Assemble complete architectural plan sheets with egress, Title 24/energy, and code notes.',
+          title: 'Construction Documentation',
+          text: 'Prepare detailed permit-ready drawings, schedules, notes, and technical documentation.',
         },
         {
           number: 6,
-          title: 'Plan Check Support',
-          text: 'Provide immediate revisions and responses to city plan check review comments.',
+          title: 'Final Review & Delivery',
+          text: 'Complete a comprehensive quality review before delivering the final drawing package.',
         },
       ]}
       deliverables={[
-        'Dimensioned Floor Plans (A-1.0)',
-        'Exterior Building Elevations (A-2.0)',
-        'Building Longitudinal Sections (A-3.0)',
-        'Door, Window & Finish Schedules',
-        'Reflected Ceiling Plans (RCP)',
-        'Life Safety & Egress Plans',
-        'Accessibility / ADA Compliance Details',
-        'Revit 3D BIM Model Files',
+        'Floor Plans',
+        'Site Plans',
+        'Roof Plans',
+        'Exterior Elevations',
+        'Building Sections',
+        'Wall Sections',
+        'Door & Window Schedules',
+        'Finish Schedules',
+        'Reflected Ceiling Plans',
+        'Architectural Details',
+        'Permit Sets',
+        'Construction Documents',
       ]}
-      softwareList={['Autodesk Revit', 'AutoCAD', 'SketchUp', 'Navisworks', 'Bluebeam Revu', 'Rhino 3D']}
+      softwareList={['AutoCAD', 'Autodesk Revit', 'SketchUp', 'Enscape']}
       faqs={[
         {
-          question: 'Are your architectural plans ready for city permit submittal?',
+          question: 'What is included in architectural design services?',
           answer:
-            'Yes. All drawings include complete code compliance data, title blocks, dimensioned layouts, and required general notes tailored to your municipal jurisdiction.',
+            'Architectural design services typically include concept development, floor plans, elevations, building sections, site plans, permit-ready drawings, code compliance reviews, and complete construction documentation.',
         },
         {
-          question: 'Can you work from hand sketches or existing PDF drawings?',
+          question: 'Can you prepare drawings for permit submission?',
           answer:
-            'Absolutely. We can convert paper blueprints, sketches, and redlined PDFs into precise CAD/Revit drawing sets.',
+            'Yes. Our architectural designs are developed as permit-ready drawing packages in accordance with local building codes and jurisdictional requirements.',
         },
         {
-          question: 'Do you provide 3D exterior and interior renderings with design sets?',
+          question: 'How do you coordinate with structural engineers?',
           answer:
-            'Yes. We offer photorealistic 3D visualization and rendering services alongside our architectural permit sets for client presentations and design approvals.',
+            'Our architectural team collaborates closely with structural engineers to deliver coordinated, code-compliant designs that improve constructability, reduce design conflicts, and support efficient project delivery.',
         },
       ]}
       jsonLdSchema={serviceSchema}

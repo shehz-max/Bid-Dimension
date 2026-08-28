@@ -46,77 +46,79 @@ export default function StructuralEngineeringPage() {
     <ServiceDetailTemplate
       serviceSlug="structural-engineering"
       title="Structural Engineering Services"
-      heroSubtitle="We deliver structural calculations, load schedules, foundation designs, and PE-stamped structural drawings nationwide for all construction permits."
+      heroSubtitle="Professional structural engineering services for residential, commercial, and industrial projects, providing structural analysis, foundation and framing design, and detailed permit-ready engineering documentation."
       heroImage="/images/hero-structural-bg.jpg"
       overview={{
         paragraph1:
-          'We deliver structural calculations, load schedules, foundation designs, and PE-stamped structural drawings nationwide for all construction permits.',
+          "At Bid Dimensions, we provide structural engineering solutions focused on safety, performance, efficiency, and code compliance. Whether you're planning new construction, a renovation, a building addition, or a structural modification, we develop practical and efficient structural systems tailored to your project's requirements.",
         paragraph2:
-          'Our focus on pre-construction coordination ensures that designs are not just aesthetically complete but completely aligned with structural requirements, local building codes, and construction budgets. We eliminate field issues before contractors break ground.',
+          'From structural analysis and foundation design to framing, connection design, and detailed construction documentation, our engineering team develops accurate, permit-ready structural drawings and calculations that support efficient construction and provide a reliable foundation for every project.',
       }}
       targetAudiences={[
         {
           iconName: 'building',
           title: 'Architects',
-          text: 'Require calculations, load schedules, and structural framing coordinates to complement architectural plans.',
-        },
-        {
-          iconName: 'briefcase',
-          title: 'Developers',
-          text: 'Seeking material optimization (value engineering) for concrete, structural steel, or timber framings.',
-        },
-        {
-          iconName: 'home',
-          title: 'Property Managers',
-          text: 'Demanding structural reports, load capacity calculations, and seismic or hurricane resilience checks.',
+          text: 'We provide structural systems that integrate seamlessly with architectural designs while maintaining functionality, efficiency, and code compliance.',
         },
         {
           iconName: 'hardhat',
           title: 'General Contractors',
-          text: 'Need foundation, shoring plans, and structural repair details for field construction challenges.',
+          text: 'Our engineering documentation supports efficient construction, reduces field conflicts, and simplifies project coordination throughout every stage of the build.',
+        },
+        {
+          iconName: 'briefcase',
+          title: 'Developers',
+          text: 'We help optimize structural systems to improve constructability, maximize material efficiency, and support project budgets without compromising safety or performance.',
+        },
+        {
+          iconName: 'home',
+          title: 'Property Owners',
+          text: "Whether constructing a new building, renovating an existing structure, or evaluating structural modifications, we provide engineering solutions tailored to your project's requirements.",
         },
       ]}
       processSteps={[
         {
           number: 1,
-          title: 'Initial Intake',
-          text: 'Review architectural plans, geotechnical soil reports, and local wind/seismic coefficients.',
+          title: 'Project Evaluation',
+          text: 'Analyze architectural drawings, applicable building codes, geotechnical data, and site-specific wind and seismic requirements.',
         },
         {
           number: 2,
-          title: 'Load Calculations',
-          text: 'Apply gravity, live, snow, seismic, and wind loads to formulate primary framing models.',
+          title: 'Structural Analysis',
+          text: 'Analyze structural loads to develop a safe, efficient, and code-compliant structural system.',
         },
         {
           number: 3,
-          title: 'Foundation Design',
-          text: 'Analyze soil bearing capacities to design shallow slabs-on-grade, crawlspaces, or deep pile caps.',
+          title: 'Foundation Planning',
+          text: 'Determine the most suitable foundation system based on soil conditions, structural loads, and project requirements.',
         },
         {
           number: 4,
-          title: 'Framing & Truss Design',
-          text: 'Configure columns, beams, girders, joists, and connections in steel, concrete, wood, or masonry.',
+          title: 'Structural Framing',
+          text: 'Design beams, columns, joists, girders, and structural connections using steel, concrete, timber, or masonry systems.',
         },
         {
           number: 5,
-          title: 'Detail Documentation',
-          text: 'Draft connection schedules, reinforcement steel parameters, and structural general notes.',
+          title: 'Construction Documentation',
+          text: 'Prepare detailed structural drawings, reinforcement details, connection schedules, and engineering notes for construction and permitting.',
         },
         {
           number: 6,
-          title: 'Engineer Stamp/Signoff',
-          text: 'Transmit calculations and a PE-stamped drawing sheets matching jurisdiction demands.',
+          title: 'Quality Assurance & Approval',
+          text: 'Verify design accuracy and prepare the final engineering package for permitting and construction.',
         },
       ]}
       deliverables={[
-        'Structural Calculation Booklet',
-        'Framing Plan Configurations',
+        'Structural Design Calculations',
+        'Foundation Plans & Details',
+        'Framing Plans',
+        'Reinforced Concrete Details',
         'Structural Steel Connection Details',
-        'Engineering Assessment Reports',
-        'Geotechnical Foundation Designs',
-        'Reinforced Concrete Detail Sheets',
-        'Timber Post & Beam Designs',
-        'City Plan Check Response Sets',
+        'Timber Framing Details',
+        'Beam & Column Schedules',
+        'Structural Sections & Details',
+        'General Structural Notes',
+        'Engineering Reports',
       ]}
       softwareList={['ETABS', 'SAP2000', 'AutoCAD', 'Revit', 'RISA-3D', 'Enercalc', 'Bluebeam']}
       faqs={[

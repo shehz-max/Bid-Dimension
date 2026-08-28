@@ -46,102 +46,108 @@ export default function RenderingServicesPage() {
     <ServiceDetailTemplate
       serviceSlug="rendering-services"
       title="3D Rendering & Visualization"
-      heroSubtitle="Photorealistic 3D exterior building renders, interior design visualizations, 360-degree virtual tours, and site animations for developers and investors."
+      heroSubtitle="High-quality architectural renderings that bring designs to life, helping clients, developers, and project teams visualize the finished space before construction begins."
       heroImage="/images/hero-rendering-bg.jpg"
       overview={{
         paragraph1:
-          'We craft photorealistic 3D architectural renderings, interior visual experiences, and cinematic walkthroughs that help developers, architects, and builders secure investment, city approvals, and pre-sales.',
+          'We create realistic 3D visuals that communicate the design, materials, finishes, lighting, and overall appearance of a project before it is built.',
         paragraph2:
-          'Using advanced ray-tracing lighting engines, physically accurate materials, and detailed environmental staging, we turn CAD/Revit drawing sets into marketing-grade visual assets.',
+          'Our renderings help clients review design concepts, make informed decisions, present projects to stakeholders, and market properties with confidence.',
       }}
       targetAudiences={[
         {
-          iconName: 'building',
-          title: 'Real Estate Developers',
-          text: 'Need striking marketing imagery and virtual tours to pre-lease commercial spaces and sell residential units.',
+          iconName: 'briefcase',
+          title: 'Developers',
+          text: 'Showcase proposed developments through realistic visuals for presentations, approvals, leasing, and marketing.',
         },
         {
           iconName: 'home',
-          title: 'Architects & Interior Designers',
-          text: 'Require accurate lighting studies, material finish evaluations, and design presentation visuals for clients.',
+          title: 'Architects & Designers',
+          text: 'Present design concepts, materials, finishes, lighting, and spatial layouts clearly to clients.',
         },
         {
           iconName: 'hardhat',
-          title: 'General Contractors & Builders',
-          text: 'Looking to present clear visual design intent to homeowners and commercial clients before construction starts.',
+          title: 'Contractors',
+          text: 'Use visualizations to communicate design intent and help clients understand the finished project.',
         },
         {
-          iconName: 'briefcase',
-          title: 'Marketing & Sales Agencies',
-          text: 'Seeking ultra-high-resolution 4K/8K imagery for billboards, brochures, and digital campaigns.',
+          iconName: 'building',
+          title: 'Property Owners',
+          text: 'Visualize renovations, additions, interiors, and exterior improvements before construction begins.',
         },
       ]}
       processSteps={[
         {
           number: 1,
-          title: '3D Model & Camera Setup',
-          text: 'Import CAD/Revit models and configure cinematic camera angles, focal lengths, and compositions.',
+          title: 'Project Review',
+          text: 'Review drawings, 3D models, specifications, materials, and project requirements.',
         },
         {
           number: 2,
-          title: 'Material & Texture Application',
-          text: 'Apply physically accurate architectural materials including glass, concrete, wood grains, and metals.',
+          title: '3D Development',
+          text: 'Build or refine the 3D model based on the approved design.',
         },
         {
           number: 3,
-          title: 'Lighting & Environmental Staging',
-          text: 'Configure realistic sunlight, interior fixture illumination, golden hour atmosphere, and surrounding landscape.',
+          title: 'Materials & Finishes',
+          text: 'Apply realistic materials, textures, colors, fixtures, and finishes.',
         },
         {
           number: 4,
-          title: 'Draft Preview Review',
-          text: 'Provide preliminary watermarked render proofs for client angle and material feedback.',
+          title: 'Lighting & Environment',
+          text: 'Develop interior or exterior lighting, landscaping, surroundings, and other visual elements.',
         },
         {
           number: 5,
-          title: 'High-Resolution Final Render',
-          text: 'Render high-fidelity passes in 4K/8K with ray-traced reflections and Global Illumination (GI).',
+          title: 'Preview & Review',
+          text: 'Provide draft views for camera angles, materials, and overall presentation.',
         },
         {
           number: 6,
-          title: 'Post-Processing & Delivery',
-          text: 'Perform color grading, lens flare adjustments, and deliver print-ready and web-ready image packages.',
+          title: 'Final Rendering',
+          text: 'Produce high-resolution final images and animations in the required format.',
         },
       ]}
       deliverables={[
-        'Photorealistic Exterior 3D Renderings (4K)',
-        'Interior Design & Lighting Visualizations',
-        '360-Degree Interactive Virtual Tours',
-        'Architectural Video Walkthrough Animations',
-        'Site Plan & Landscape Staging Renders',
-        'Cutaway 3D Floor Plan Views',
-        'Material Option Comparison Renders',
-        'Marketing Package High-Res Image Sets',
+        'Exterior 3D Renderings',
+        'Interior 3D Renderings',
+        'Architectural Visualization',
+        '3D Walkthroughs',
+        'Video Animations',
+        'Aerial / Site Renderings',
+        '360° Panoramic Views',
+        'Marketing Renderings',
+        'Conceptual 3D Visualization',
       ]}
       softwareList={[
+        'Lumion',
+        'Enscape',
+        'SketchUp',
         '3ds Max',
         'V-Ray',
-        'Corona Renderer',
-        'Lumion 3D',
-        'Unreal Engine 5',
-        'Autodesk Revit',
         'Adobe Photoshop',
+        'Adobe Premiere Pro',
       ]}
       faqs={[
         {
-          question: 'What files do I need to supply to get a 3D rendering?',
+          question: 'Can you create renderings from 2D drawings?',
           answer:
-            'You can send us Revit models, 2D AutoCAD DWG drawings, PDF blueprints, or hand sketches along with any preferred material finishes and reference photos.',
+            'Yes. We can develop 3D visualizations from floor plans, elevations, CAD drawings, PDFs, sketches, or existing 3D models.',
         },
         {
-          question: 'How fast can you deliver final 3D renderings?',
+          question: 'Do you provide both interior and exterior renderings?',
           answer:
-            'Standard static 4K renders and animations are delivered within 7 to 14 days depending on project scale and architectural complexity.',
+            'Yes. We create realistic visualizations for residential, commercial, and industrial interiors and exteriors.',
         },
         {
-          question: 'Can you render both daytime and nighttime/twilight lighting scenarios?',
+          question: 'Can you match specific materials and finishes?',
           answer:
-            'Yes. We offer daytime sun, golden hour dusk/twilight, and dramatic nighttime architectural illumination options.',
+            'Yes. We can incorporate selected materials, colors, finishes, fixtures, furniture, landscaping, and other design elements.',
+        },
+        {
+          question: 'Can you create walkthrough videos?',
+          answer:
+            'Yes. We can produce animated walkthroughs that allow viewers to experience the proposed space from different perspectives.',
         },
       ]}
       jsonLdSchema={serviceSchema}

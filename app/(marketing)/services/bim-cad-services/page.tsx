@@ -46,101 +46,115 @@ export default function BimCadServicesPage() {
     <ServiceDetailTemplate
       serviceSlug="bim-cad-services"
       title="BIM & CAD Services"
-      heroSubtitle="Revit 3D BIM modeling, Navisworks clash detection, LOD 200–400 documentation, and precise 2D AutoCAD drafting for seamless trade coordination."
+      heroSubtitle="Accurate BIM & CAD solutions for contractors and developers, including Revit modeling, CAD drafting, shop drawings, and clash detection to identify and resolve conflicts before construction."
       heroImage="/images/hero-bim-cad-bg.jpg"
       overview={{
         paragraph1:
-          'We provide comprehensive Building Information Modeling (BIM) and computer-aided drafting (CAD) services to coordinate architectural, structural, and MEP systems before construction.',
+          'Our BIM and CAD services turn design information into accurate, coordinated, and usable project documentation. We develop models and drawings that help identify design issues, improve communication between trades, and provide contractors with reliable information for construction.',
         paragraph2:
-          'By creating intelligent LOD 200–400 3D models and running automated Navisworks clash detection, we eliminate trade interferences, generate precise shop drawings, and streamline field fabrication.',
+          "Whether you need a new BIM model, CAD drafting, shop drawings, coordination support, or as-built documentation, our team delivers solutions based on your project's scope and requirements.",
       }}
       targetAudiences={[
         {
           iconName: 'hardhat',
-          title: 'Trade Contractors (Steel, MEP, Framing)',
-          text: 'Need fabrication-level shop drawings, spool drawings, and clash-resolved models.',
+          title: 'General Contractors',
+          text: 'We provide coordinated BIM models, construction drawings, and shop drawings to support planning, installation, and project coordination.',
         },
         {
           iconName: 'building',
-          title: 'General Contractors & BIM Managers',
-          text: 'Require federated Navisworks models and automated clash detection reports to manage job sites.',
+          title: 'Subcontractors',
+          text: 'We create detailed trade-specific drawings and models for mechanical, electrical, plumbing, structural, and architectural scopes.',
+        },
+        {
+          iconName: 'briefcase',
+          title: 'Developers',
+          text: 'We develop accurate digital models and project documentation that support design review, construction planning, and project management.',
         },
         {
           iconName: 'home',
           title: 'Architects & Engineers',
-          text: 'Seeking BIM conversion from 2D CAD/PDF drawings into parametric Revit families.',
-        },
-        {
-          iconName: 'briefcase',
-          title: 'Facility Owners',
-          text: 'Looking for As-Built BIM models (LOD 500) for ongoing digital facility operations and maintenance.',
+          text: 'We provide additional BIM and CAD production support, including modeling, drafting, detailing, and documentation.',
         },
       ]}
       processSteps={[
         {
           number: 1,
-          title: 'Model Setup & Standards',
-          text: 'Establish shared coordinates, project templates, BIM execution plan (BEP), and grid systems.',
+          title: 'Project Review',
+          text: 'Review the available drawings, models, specifications, and project requirements to establish the scope.',
         },
         {
           number: 2,
-          title: 'Parametric 3D Modeling',
-          text: 'Build intelligent architectural, structural, and MEP Revit models (LOD 200 to 400).',
+          title: 'Model & CAD Setup',
+          text: 'Set up project standards, levels, grids, coordinates, layers, and drawing templates.',
         },
         {
           number: 3,
-          title: 'Federated Model Assembly',
-          text: 'Combine multidisciplinary models into Navisworks for comprehensive clash analysis.',
+          title: 'Modeling & Drafting',
+          text: "Develop 2D CAD drawings or 3D BIM models based on the project's requirements and available information.",
         },
         {
           number: 4,
-          title: 'Clash Resolution Coordination',
-          text: 'Conduct clash review meetings with trades and adjust routing to achieve 0 soft/hard clashes.',
+          title: 'Coordination',
+          text: 'Review the model and drawings for accuracy, consistency, and conflicts between building elements and disciplines.',
         },
         {
           number: 5,
-          title: 'Shop & Spool Drawing Extraction',
-          text: 'Generate dimensioned 2D fabrication sheets, sleeve locations, and hanger schedules directly from the model.',
+          title: 'Documentation',
+          text: 'Generate plans, sections, elevations, details, schedules, shop drawings, and other required documentation.',
         },
         {
           number: 6,
-          title: 'Final Model Handover',
-          text: 'Deliver coordinated Revit RVT, Navisworks NWD, IFC, and PDF drawing packages.',
+          title: 'Final Review & Delivery',
+          text: 'Complete a quality review and deliver the final models and drawings in the required formats.',
         },
       ]}
       deliverables={[
-        'Parametric Revit 3D Models (LOD 200-400)',
-        'Navisworks Federated Clash Detection Reports',
-        'Pre-Fabrication Shop Drawings',
-        'MEP Penetration & Sleeve Layouts',
-        '2D AutoCAD Drafting & Conversion Sets',
-        'As-Built Model Verification Sets (LOD 500)',
-        'IFC & OpenBIM Coordination Files',
-        'Material Quantity Schedules from BIM',
+        '2D AutoCAD Drawings',
+        '3D Revit Models',
+        'Architectural BIM Models',
+        'Structural BIM Models',
+        'MEP BIM Models',
+        'Construction Documentation',
+        'Shop Drawings',
+        'Coordination Drawings',
+        'Clash Detection Reports',
+        'Revit Families',
+        'As-Built Drawings & Models',
+        'Quantity & Model Data',
+        'Drawing Sheets & Schedules',
       ]}
       softwareList={[
         'Autodesk Revit',
-        'Autodesk Navisworks',
-        'AutoCAD 2D/3D',
-        'Tekla Structures',
-        'Bluebeam Revu',
-        'Autodesk Construction Cloud (ACC)',
+        'AutoCAD',
+        'Navisworks Manage',
+        'BIM 360 / Autodesk Construction Cloud',
+        'BIMcollab',
       ]}
       faqs={[
         {
-          question: 'What Level of Development (LOD) can you model to?',
+          question: 'What BIM services do you provide?',
           answer:
-            'We provide BIM models from LOD 200 (schematic massing) up to LOD 400 (fabrication & installation detailing) and LOD 500 (as-built facility management).',
+            'We provide BIM modeling, multidisciplinary coordination, clash detection, shop drawings, CAD drafting, Revit documentation, and as-built modeling.',
         },
         {
-          question: 'Can you convert our existing 2D CAD files and PDF blueprints into Revit models?',
+          question: 'Can you create a BIM model from 2D drawings?',
           answer:
-            'Yes. We regularly convert legacy 2D DWG drawings, hand sketches, and PDF plan sets into fully parameterized 3D Revit models.',
+            'Yes. We can develop 3D BIM models from architectural, structural, MEP, CAD, PDF, and other available project documentation.',
         },
         {
-          question: 'How do you share and report clash detection results?',
+          question: 'Do you provide clash detection?',
           answer:
-            'We provide detailed Navisworks clash matrix reports with pinpoint coordinates, screenshot callouts, trade responsibility assignments, and resolution recommendations.',
+            'Yes. We review coordinated models to identify potential conflicts between architectural, structural, mechanical, electrical, and plumbing elements.',
+        },
+        {
+          question: 'Can you update BIM models for as-built conditions?',
+          answer:
+            'Yes. We can update existing models based on field information, revisions, and construction changes to create accurate as-built documentation.',
+        },
+        {
+          question: 'Can you provide shop drawings from BIM models?',
+          answer:
+            'Yes. We can extract and develop detailed shop and coordination drawings from BIM models based on the project’s requirements.',
         },
       ]}
       jsonLdSchema={serviceSchema}
