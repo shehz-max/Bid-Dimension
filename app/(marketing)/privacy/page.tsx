@@ -5,7 +5,7 @@ import { Hero } from '@/components/organisms/Hero';
 export const metadata: Metadata = {
   title: 'Privacy Policy | Bid Dimensions',
   description:
-    'Privacy Policy for Bid Dimensions engineering & design services. Learn how we protect your confidential CAD drawings, project plans, and personal data.',
+    'Privacy Policy for Bid Dimensions LLC. Learn how we collect, use, protect, and handle your personal information and project data.',
   alternates: {
     canonical: 'https://biddimensions.us/privacy',
   },
@@ -17,59 +17,92 @@ export default function PrivacyPolicyPage() {
       <Hero
         variant="page"
         headline="Privacy Policy"
-        subheadline="Bid Dimensions is committed to safeguarding your personal data and confidential project documentation."
+        subheadline="Bid Dimensions LLC is committed to safeguarding your personal data and project specifications."
       />
 
-      <section className="py-20 bg-white text-bd-charcoal">
+      <section className="py-16 sm:py-20 bg-white text-bd-charcoal">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
           <div className="prose prose-lg max-w-none text-bd-charcoal font-body leading-relaxed">
-            <span className="font-mono text-xs text-bd-blue uppercase font-bold block mb-2">
-              LAST UPDATED: AUGUST 2026
+            <span className="font-mono text-xs text-bd-blue uppercase font-bold block mb-4">
+              LAST UPDATED: MARCH 11, 2026
             </span>
 
-            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-4">
+            <h2 className="font-display font-bold text-2xl text-bd-navy mt-6 mb-3">
               1. Information We Collect
             </h2>
-            <p className="text-base text-bd-gray mb-6">
-              When you submit a quote request, contact us, or upload project files to Bid Dimensions, we collect information including your name, email address, phone number, company name, project location, and any uploaded CAD/PDF architectural drawings.
+            <p className="text-base text-bd-gray mb-3">
+              We collect information you provide directly to us, including:
             </p>
-
-            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-4">
-              2. Confidentiality of Project Drawings
-            </h2>
-            <p className="text-base text-bd-gray mb-6">
-              All architectural, structural, and MEP plans uploaded to Bid Dimensions are treated as strictly confidential proprietary intellectual property. We do not sell, share, or disclose client drawing files to third parties, except as required to perform engineering services or as mandated by law.
-            </p>
-
-            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-4">
-              3. How We Use Your Information
-            </h2>
-            <p className="text-base text-bd-gray mb-6">
-              We use the collected information to:
-            </p>
-            <ul className="list-disc pl-6 text-bd-gray space-y-2 mb-6">
-              <li>Evaluate project scope and prepare PE engineering fee proposals.</li>
-              <li>Communicate regarding plan check reviews, structural calculations, and permit deliverables.</li>
-              <li>Deliver completed CAD and Revit BIM drawing packages.</li>
+            <ul className="list-disc pl-6 text-bd-gray space-y-1.5 mb-6">
+              <li>Name, email address, and phone number</li>
+              <li>Company information</li>
+              <li>Project plans and specifications</li>
+              <li>Communications with our team</li>
             </ul>
 
-            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-4">
+            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-3">
+              2. How We Use Your Information
+            </h2>
+            <p className="text-base text-bd-gray mb-3">
+              We use the information we collect to:
+            </p>
+            <ul className="list-disc pl-6 text-bd-gray space-y-1.5 mb-6">
+              <li>Provide construction estimation services</li>
+              <li>Communicate with you about your projects</li>
+              <li>Send you updates and marketing communications</li>
+              <li>Improve our services</li>
+            </ul>
+
+            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-3">
+              3. Information Sharing
+            </h2>
+            <p className="text-base text-bd-gray mb-6">
+              We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as required by law.
+            </p>
+
+            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-3">
               4. Data Security
             </h2>
             <p className="text-base text-bd-gray mb-6">
-              We implement industry-standard 256-bit SSL encryption and secure cloud infrastructure to protect your personal information and uploaded files against unauthorized access or disclosure.
+              We implement appropriate security measures to protect your personal information and project files. All data is stored on secure servers with encrypted connections.
             </p>
 
-            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-4">
-              5. Contact Us Regarding Privacy
+            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-3">
+              5. Your Rights
             </h2>
             <p className="text-base text-bd-gray mb-6">
-              If you have any questions regarding this Privacy Policy, please contact us at:
+              You have the right to access, update, or delete your personal information. Contact us at{' '}
+              <a href="mailto:info@biddimensions.us" className="text-bd-blue font-semibold hover:underline">
+                info@biddimensions.us
+              </a>{' '}
+              for any requests.
             </p>
-            <div className="p-4 bg-bd-surface-light border border-gray-200 font-mono text-xs text-bd-navy">
-              Bid Dimensions Engineering Services<br />
-              Email: info@biddimensions.us<br />
-              Phone: (747) 223-7815
+
+            <h2 className="font-display font-bold text-2xl text-bd-navy mt-8 mb-3">
+              6. Contact Us
+            </h2>
+            <p className="text-base text-bd-gray mb-4">
+              If you have questions about this Privacy Policy, please contact us at:
+            </p>
+            <div className="p-5 bg-[#F8FAFC] border border-gray-200 rounded-xl font-body text-sm text-bd-navy space-y-2">
+              <p>
+                <strong className="font-display font-bold">Email:</strong>{' '}
+                <a href="mailto:info@biddimensions.us" className="text-bd-blue hover:underline font-semibold">
+                  info@biddimensions.us
+                </a>
+              </p>
+              <p>
+                <strong className="font-display font-bold">Phone:</strong>{' '}
+                <a href="tel:7472237815" className="text-bd-navy hover:text-bd-blue">
+                  +1 (747) 223-7815
+                </a>
+              </p>
+              <p>
+                <strong className="font-display font-bold">Website:</strong>{' '}
+                <a href="https://www.biddimensions.us" target="_blank" rel="noopener noreferrer" className="text-bd-blue hover:underline">
+                  www.biddimensions.us
+                </a>
+              </p>
             </div>
           </div>
         </div>

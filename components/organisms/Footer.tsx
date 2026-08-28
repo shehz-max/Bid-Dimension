@@ -54,8 +54,18 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/services/bim-cad-services" className="hover:text-bd-blue transition-colors">
+                  BIM & CAD Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/rendering-services" className="hover:text-bd-blue transition-colors">
+                  3D Rendering Services
+                </Link>
+              </li>
+              <li>
                 <Link href="/services/estimation" className="hover:text-bd-blue transition-colors">
-                  Estimation Services
+                  Estimation & Takeoffs
                 </Link>
               </li>
             </ul>
@@ -124,13 +134,13 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright & Legal Links */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-bd-text-muted">
           <div className="flex flex-wrap items-center gap-4">
-            <span>© {new Date().getFullYear()} Bid Dimensions. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} BID DIMENSIONS LLC. All rights reserved.</span>
             <Link href="/privacy" className="hover:text-bd-blue transition-colors">
               Privacy Policy
             </Link>
             <span>•</span>
             <Link href="/terms" className="hover:text-bd-blue transition-colors">
-              Terms of Service
+              Terms and Conditions
             </Link>
           </div>
           <button
