@@ -108,56 +108,34 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Service & Subpage Hero variant (Full-Bleed Background with Aesthetic Fade Matching Homepage)
+  // Service & Subpage Hero variant (Full-Bleed Background with Flawless Aesthetic Fade)
   return (
-    <section className="relative min-h-[480px] sm:min-h-[520px] flex items-center pt-32 sm:pt-36 pb-16 sm:pb-20 bg-[#F8FAFC] border-b border-gray-200 overflow-hidden text-bd-navy">
-      {/* Full-Bleed Discipline Background with Smooth Left-to-Right Fade */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+    <section className="relative min-h-[460px] sm:min-h-[500px] flex items-center pt-28 sm:pt-32 pb-14 sm:pb-16 bg-[#F8FAFC] border-b border-gray-200 overflow-hidden text-bd-navy">
+      {/* Right-Positioned Full-Bleed Discipline Artwork with Organic Fade */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[65%] pointer-events-none z-0 overflow-hidden">
         <img
           src={image || '/images/hero-structural-bg.jpg'}
           alt={headline || 'Engineering discipline background'}
-          className="w-full h-full object-cover object-right opacity-90 filter contrast-105"
+          className="w-full h-full object-cover object-center filter contrast-105"
         />
 
-        {/* Soft Aesthetic Fade: Left 30% sits on light background, right 70% reveals vivid discipline artwork */}
+        {/* Flawless Gradient Fade: 100% Solid Light Canvas under text, Smooth Soft Transition */}
         <div
           className="absolute inset-0 z-0"
           style={{
             background:
-              'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 28%, rgba(248, 250, 252, 0.65) 50%, transparent 75%)',
+              'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 12%, rgba(248, 250, 252, 0.85) 30%, rgba(248, 250, 252, 0.35) 55%, transparent 85%)',
           }}
         />
-
-        {/* Subtle Top & Bottom Gradient Smoothing */}
-        <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-[#F8FAFC]/50 to-transparent z-0" />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#F8FAFC] to-transparent z-0" />
       </div>
 
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Typography, Breadcrumbs, and CTA */}
-          <div className="lg:col-span-7 flex flex-col items-start">
-            {breadcrumb && (
-              <FadeInUp delay={0.05}>
-                <nav className="flex items-center gap-2 font-mono text-xs text-bd-gray mb-4">
-                  {breadcrumb.map((item, idx) => (
-                    <React.Fragment key={item.href}>
-                      {idx > 0 && <span className="text-gray-300">/</span>}
-                      <Link
-                        href={item.href}
-                        className="hover:text-bd-blue transition-colors font-medium"
-                      >
-                        {item.label}
-                      </Link>
-                    </React.Fragment>
-                  ))}
-                </nav>
-              </FadeInUp>
-            )}
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left Column: Typography, HUD Badge, and CTA */}
+          <div className="lg:col-span-7 flex flex-col items-start max-w-xl">
             {hudBadge && (
-              <FadeInUp delay={0.1}>
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/95 backdrop-blur-xs border border-gray-200/90 rounded-md font-mono text-[11px] font-semibold text-bd-navy uppercase mb-3 shadow-xs">
+              <FadeInUp delay={0.05}>
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200/90 rounded-md font-mono text-[11px] font-semibold text-bd-navy uppercase mb-4 shadow-xs">
                   <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
                   <span>{hudBadge.label}</span>
                   <span className="text-gray-300">|</span>
@@ -166,27 +144,25 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             )}
 
-            <FadeInUp delay={0.15}>
-              <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-tight tracking-tight text-bd-navy mb-4">
+            <FadeInUp delay={0.1}>
+              <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-[1.12] tracking-tight text-bd-navy mb-4">
                 {headline}
               </h1>
             </FadeInUp>
 
             {subheadline && (
-              <FadeInUp delay={0.25}>
-                <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-6 max-w-2xl">
+              <FadeInUp delay={0.2}>
+                <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-6">
                   {subheadline}
                 </p>
               </FadeInUp>
             )}
 
             {cta && (
-              <FadeInUp delay={0.35}>
-                <div className="flex items-center gap-4">
-                  <Button variant="primary" size="md" href={cta.href}>
-                    {cta.text}
-                  </Button>
-                </div>
+              <FadeInUp delay={0.3}>
+                <Button variant="primary" size="md" href={cta.href}>
+                  {cta.text}
+                </Button>
               </FadeInUp>
             )}
           </div>
