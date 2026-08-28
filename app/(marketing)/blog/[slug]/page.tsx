@@ -377,7 +377,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   href="/contact"
                   className="w-full py-3 bg-bd-navy hover:bg-bd-blue text-white text-center font-display font-semibold text-xs rounded-lg transition-all shadow-xs flex items-center justify-center gap-2"
                 >
-                  <span>Upload Plans for Proposal</span>
+                  <span>Get a Quote</span>
                   <ArrowRight className="w-4 h-4 text-bd-blue" />
                 </Link>
               </div>
@@ -448,7 +448,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
               Upload your plans today for a fast 7-14 day PE-stamped engineering proposal.
             </p>
             <Button variant="primary" size="lg" href="/contact">
-              Request Your Free Quote
+              Get a Quote
             </Button>
           </div>
         </div>

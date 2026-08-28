@@ -5,6 +5,7 @@ import { ServicesGrid } from '@/components/organisms/ServicesGrid';
 import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
 import { SoftwareSuite } from '@/components/organisms/SoftwareSuite';
 import { FAQSection } from '@/components/organisms/FAQSection';
+import { CtaBanner } from '@/components/organisms/CtaBanner';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
@@ -241,39 +242,8 @@ export default function HomePage() {
       {/* 7. Clean Interactive FAQ Section */}
       <FAQSection />
 
-      {/* 8. Bottom CTA Banner ("Have a project? Let's build it right.") */}
-      <section className="py-16 bg-[#F8FAFC] border-t border-gray-200 text-bd-navy">
-        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="bg-white border border-gray-300 p-8 sm:p-10 rounded-lg shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex flex-col items-start max-w-xl">
-              <h2 className="font-display font-bold text-2xl sm:text-36px text-bd-navy mb-2">
-                Have a project? Let's build it right.
-              </h2>
-              <p className="font-body text-sm text-bd-gray leading-relaxed">
-                Upload your plans or reach out to our team to discuss your scope and get a fast, accurate proposal.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0 w-full md:w-auto">
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-bd-navy text-white font-display font-semibold text-sm hover:bg-bd-blue transition-colors shadow-sm rounded"
-              >
-                <Upload className="w-4 h-4 text-bd-blue" />
-                <span>Upload Plans</span>
-              </Link>
-
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-bd-blue text-bd-navy-deep font-display font-bold text-sm hover:opacity-90 transition-opacity shadow-sm rounded"
-              >
-                <span>Get a Quote</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 8. Consistent Brand CTA Banner */}
+      <CtaBanner />
     </div>
   );
 }

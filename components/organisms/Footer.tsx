@@ -97,7 +97,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-bd-blue transition-colors">
-                  Get a Free Quote
+                  Get a Quote
                 </Link>
               </li>
             </ul>
@@ -125,7 +125,7 @@ export const Footer: React.FC = () => {
               href="/contact"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase text-bd-blue hover:text-white transition-colors mt-2"
             >
-              <span>Launch Quote Wizard</span>
+              <span>Get a Quote</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

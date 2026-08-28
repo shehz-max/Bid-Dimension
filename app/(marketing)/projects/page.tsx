@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         variant="page"
         headline="Featured Engineering & Design Case Studies"
         subheadline="Explore our technical case studies, 3D Revit models, and PE-stamped permit drawing sets across commercial, residential, and industrial projects."
-        cta={{ text: 'Request a Project Estimate', href: '/contact' }}
+        cta={{ text: 'Get a Quote', href: '/contact' }}
         hudBadge={{ label: 'CASE STUDY STATUS', spec: '100% CITY PERMIT APPROVED' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
@@ -163,7 +163,7 @@ export default function ProjectsPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button variant="primary" size="lg" href="/contact">
-              Upload Plans for Quote
+              Get a Quote
             </Button>
             <a
               href="tel:7472237815"

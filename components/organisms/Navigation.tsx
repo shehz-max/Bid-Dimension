@@ -237,7 +237,7 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     onClick={() => setDropdownOpen(false)}
                     className="font-display font-bold text-bd-blue hover:underline flex items-center gap-1 text-[11px]"
                   >
-                    Get a Free Proposal &rarr;
+                    Get a Quote &rarr;
                   </Link>
                 </div>
               </div>
