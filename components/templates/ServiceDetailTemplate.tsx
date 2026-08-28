@@ -101,6 +101,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               {/* Card 1: Service Overview & Business Outcomes */}
               <FadeInUp>
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1.5 block">
+                    SERVICE OVERVIEW
+                  </span>
                   <h2 className="font-display font-bold text-2xl sm:text-28px text-bd-navy mb-4">
                     Service Overview & Business Outcomes
                   </h2>
@@ -116,6 +119,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               {/* Card 2: Who Needs {Service Name}? */}
               <FadeInUp delay={0.1}>
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1.5 block">
+                    TARGET PARTNERS
+                  </span>
                   <h2 className="font-display font-bold text-2xl sm:text-28px text-bd-navy mb-6">
                     Who Needs {title}?
                   </h2>
@@ -148,6 +154,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               {/* Card 3: Our Execution Process */}
               <FadeInUp delay={0.15}>
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1.5 block">
+                    6-STEP WORKFLOW
+                  </span>
                   <h2 className="font-display font-bold text-2xl sm:text-28px text-bd-navy mb-1.5">
                     Our Execution Process
                   </h2>
@@ -181,6 +190,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               {/* Card 4: Complete Listing of Deliverables */}
               <FadeInUp delay={0.2}>
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1.5 block">
+                    PROJECT DELIVERABLES
+                  </span>
                   <h2 className="font-display font-bold text-2xl sm:text-28px text-bd-navy mb-1.5">
                     Complete Listing of Deliverables
                   </h2>
@@ -205,6 +217,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               {/* Card 5: Industrial Software Applied */}
               <FadeInUp delay={0.25}>
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1.5 block">
+                    DESIGN TECHNOLOGY
+                  </span>
                   <h2 className="font-display font-bold text-2xl sm:text-28px text-bd-navy mb-1.5">
                     Industrial Software Applied
                   </h2>
@@ -228,6 +243,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               {/* Card 6: Service Specific Q&A */}
               <FadeInUp delay={0.3}>
                 <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-xs">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1.5 block">
+                    FAQ & SUPPORT
+                  </span>
                   <h2 className="font-display font-bold text-2xl sm:text-28px text-bd-navy mb-6">
                     Service Specific Q&A
                   </h2>

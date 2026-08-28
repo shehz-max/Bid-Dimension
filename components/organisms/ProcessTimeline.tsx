@@ -61,6 +61,12 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = () => {
         {/* Subtle Section Header */}
         <div className="flex flex-col items-center text-center mb-10">
           <FadeInUp>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+              OUR EXECUTION PROCESS
+            </span>
+          </FadeInUp>
+
+          <FadeInUp delay={0.1}>
             <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
               From Concept to Permit — Our Proven Process
             </h2>

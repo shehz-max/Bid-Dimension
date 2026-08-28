@@ -64,6 +64,12 @@ export const SoftwareSuite: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-10 sm:mb-12">
           <FadeInUp>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+              INDUSTRIAL SOFTWARE SUITE
+            </span>
+          </FadeInUp>
+
+          <FadeInUp delay={0.1}>
             <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
               Powered by Industry-Standard Software
             </h2>

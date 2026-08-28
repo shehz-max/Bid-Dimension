@@ -72,6 +72,12 @@ export const FAQSection: React.FC = () => {
           <div className="lg:col-span-5 flex flex-col justify-between h-full">
             <div>
               <FadeInUp>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                  FREQUENTLY ASKED QUESTIONS
+                </span>
+              </FadeInUp>
+
+              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-2xl sm:text-32px leading-tight text-bd-navy mb-2">
                   Clear Answers to Your Questions
                 </h2>

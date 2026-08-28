@@ -118,6 +118,12 @@ export default function HomePage() {
             {/* Left Column: Story Prose */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <FadeInUp>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                  OUR STORY & BACKGROUND
+                </span>
+              </FadeInUp>
+
+              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-4">
                   From the Field to the Drawing Board
                 </h2>
@@ -184,6 +190,12 @@ export default function HomePage() {
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
             <FadeInUp>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                WHO WE WORK WITH
+              </span>
+            </FadeInUp>
+
+            <FadeInUp delay={0.1}>
               <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
                 Engineering Solutions for Every Project Partner
               </h2>

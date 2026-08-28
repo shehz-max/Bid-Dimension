@@ -58,13 +58,12 @@ export default function ContactPage() {
             {/* Left Column: Contact Info & Photo */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <FadeInUp>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF3FA] border border-[#4A8AB8]/30 font-mono text-xs font-semibold text-bd-blue uppercase rounded-md">
-                  <ShieldCheck className="w-4 h-4" />
-                  <span>7–14 DAY TURNAROUND GUARANTEE</span>
-                </div>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                  DIRECT CONSULTATION
+                </span>
               </FadeInUp>
 
-              <FadeInUp delay={0.15}>
+              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-3xl sm:text-48px text-bd-navy leading-tight">
                   Direct Line to Engineering Leadership
                 </h2>
@@ -200,13 +199,16 @@ export default function ContactPage() {
       {/* 4. Interactive Nationwide License Coverage Console */}
       <section className="py-20 bg-[#EBF3FA] border-t border-[#4A8AB8]/20 text-bd-navy text-center">
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-[#4A8AB8]/30 rounded-md font-mono text-xs font-semibold text-bd-blue uppercase mb-4 shadow-xs">
-            <MapPin className="w-4 h-4" />
-            <span>50-STATE PE LICENSE NETWORK</span>
-          </div>
-          <h3 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
-            Licensed Professional Engineers Across All 50 States
-          </h3>
+          <FadeInUp>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+              50-STATE PE LICENSE NETWORK
+            </span>
+          </FadeInUp>
+          <FadeInUp delay={0.1}>
+            <h3 className="font-display font-bold text-3xl sm:text-48px text-bd-navy mb-4">
+              Licensed Professional Engineers Across All 50 States
+            </h3>
+          </FadeInUp>
           <p className="font-body text-base text-bd-gray leading-relaxed mb-8 max-w-2xl mx-auto">
             Our multi-state PE engineering network prepares permit drawings fully compliant with IBC, CBC, IRC, ASCE 7, Title 24, and local city amendments nationwide.
           </p>

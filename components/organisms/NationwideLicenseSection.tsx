@@ -9,6 +9,12 @@ export const NationwideLicenseSection: React.FC = () => {
     <section className="py-14 sm:py-16 bg-[#EBF3FA] border-t border-[#4A8AB8]/20 text-bd-navy text-center relative">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <FadeInUp>
+          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+            50-STATE PE LICENSE NETWORK
+          </span>
+        </FadeInUp>
+
+        <FadeInUp delay={0.1}>
           <h3 className="font-display font-bold text-2xl sm:text-36px text-bd-navy mb-3">
             Licensed Professional Engineers Across All 50 States
           </h3>

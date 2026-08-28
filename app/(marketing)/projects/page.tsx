@@ -34,6 +34,20 @@ export default function ProjectsPage() {
       {/* Projects Grid Section */}
       <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
+          {/* Section Header */}
+          <div className="flex flex-col items-center text-center mb-10">
+            <FadeInUp>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                FEATURED PROJECT PORTFOLIO
+              </span>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
+              <h2 className="font-display font-bold text-2xl sm:text-36px leading-tight text-bd-navy mb-2">
+                Proven Engineering & Design Case Studies
+              </h2>
+            </FadeInUp>
+          </div>
+
           {/* Category Filter Bar */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
             {['All', 'Structural', 'Architectural', 'MEP', 'Estimation'].map((cat) => {

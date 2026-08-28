@@ -64,24 +64,30 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             <div className="lg:col-span-6 flex flex-col items-start">
               <FadeInUp>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                  OUR STORY & PHILOSOPHY
+                </span>
+              </FadeInUp>
+
+              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-2xl sm:text-38px leading-tight text-bd-navy mb-4">
                   From the Field to the Drawing Board
                 </h2>
               </FadeInUp>
 
-              <FadeInUp delay={0.1}>
+              <FadeInUp delay={0.2}>
                 <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-4">
                   Bid Dimensions was founded in 2008 by a team of project managers, estimators, and structural drafters who spent years on construction sites watching preventable engineering mistakes cost contractors millions.
                 </p>
               </FadeInUp>
 
-              <FadeInUp delay={0.2}>
+              <FadeInUp delay={0.3}>
                 <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-5">
                   Over the past 18+ years, we have grown into a multidisciplinary engineering and design firm trusted across all 50 states. We resolve every connection detail, load path, and system conflict before groundbreaking so projects pass city plan check on the first submittal.
                 </p>
               </FadeInUp>
 
-              <FadeInUp delay={0.3}>
+              <FadeInUp delay={0.4}>
                 <p className="font-body text-sm sm:text-base text-bd-navy font-semibold leading-relaxed border-l-3 border-bd-blue pl-4 py-0.5">
                   We treat every drawing like it is going to a live job site — because it is. Every estimate like it is funding a payroll — because it is.
                 </p>
@@ -129,6 +135,11 @@ export default function AboutPage() {
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-10">
             <FadeInUp>
+              <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+                OUR CORE VALUES
+              </span>
+            </FadeInUp>
+            <FadeInUp delay={0.1}>
               <h2 className="font-display font-bold text-2xl sm:text-36px text-bd-navy">
                 Built on 18 Years of Engineering Excellence
               </h2>
@@ -168,6 +179,12 @@ export default function AboutPage() {
             {/* Left Column: Direct Contact Details & Photo */}
             <div className="lg:col-span-5 flex flex-col gap-5">
               <FadeInUp>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-1 block">
+                  DIRECT LINE TO LEADERSHIP
+                </span>
+              </FadeInUp>
+
+              <FadeInUp delay={0.1}>
                 <h2 className="font-display font-bold text-2xl sm:text-36px text-bd-navy leading-tight">
                   Request an Engineering Proposal
                 </h2>

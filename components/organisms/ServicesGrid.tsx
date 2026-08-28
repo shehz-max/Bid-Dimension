@@ -87,6 +87,12 @@ export const ServicesGrid: React.FC = () => {
         {/* Compact Section Header */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
           <FadeInUp>
+            <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
+              OUR SERVICES
+            </span>
+          </FadeInUp>
+
+          <FadeInUp delay={0.1}>
             <h2 className="font-display font-bold text-2xl sm:text-32px leading-tight text-bd-navy mb-1.5">
               Innovation in Every Dimension
             </h2>
