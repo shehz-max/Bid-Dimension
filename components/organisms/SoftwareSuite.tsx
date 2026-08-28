@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { ShieldCheck, Award, CheckCircle2 } from 'lucide-react';
 
 const ROW_1_TOOLS = [
   {
@@ -142,22 +141,6 @@ export const SoftwareSuite: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Certifications Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-8 border-t border-gray-200 pt-10">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-            <ShieldCheck className="w-5 h-5 text-bd-blue" />
-            <span>PE LICENSED IN ALL 50 STATES</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-            <Award className="w-5 h-5 text-bd-blue" />
-            <span>AACE INTERNATIONAL MEMBER</span>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold text-bd-navy">
-            <CheckCircle2 className="w-5 h-5 text-bd-blue" />
-            <span>ASPE CERTIFIED ESTIMATORS</span>
           </div>
         </div>
       </div>

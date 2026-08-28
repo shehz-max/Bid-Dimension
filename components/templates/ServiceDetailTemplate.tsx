@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Hero } from '@/components/organisms/Hero';
 import { FAQItem } from '@/components/molecules/FAQItem';
+import { NationwideLicenseSection } from '@/components/organisms/NationwideLicenseSection';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { CheckCircle2, ChevronRight, ArrowRight, ShieldCheck, Building2, HardHat, Home, Briefcase, Sparkles, Layers } from 'lucide-react';
@@ -86,8 +87,12 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
         headline={title}
         subheadline={heroSubtitle}
         image={heroImage}
-        cta={{ text: 'Request a Proposal', href: '/contact' }}
-        hudBadge={{ label: 'SERVICE DETAIL PAGE', spec: 'IBC 2024 // 50-STATE PE' }}
+        cta={{ text: 'Get a Quote', href: '/contact' }}
+        hudBadge={
+          serviceSlug === 'estimation'
+            ? { label: 'COST ESTIMATION', spec: 'CSI 50 DIVISIONS // ASPE & AACE' }
+            : { label: 'SERVICE DETAIL PAGE', spec: 'IBC 2024 // 50-STATE PE' }
+        }
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Services', href: '/#services' },
@@ -157,7 +162,7 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
                     Our Execution Process
                   </h2>
                   <p className="font-body text-xs sm:text-sm text-bd-gray mb-6">
-                    We maintain a strict 6-stage development pipeline to check building codes, structure alignment, and model accuracy:
+                    We maintain a strict 6-stage development pipeline to check codes, structural alignment, and model accuracy:
                   </p>
 
                   <div className="flex flex-col gap-4">
@@ -283,7 +288,7 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
                 </nav>
               </div>
 
-              {/* Card 2: Need a PE Stamp? Dark Navy Card */}
+              {/* Card 2: Need a PE Stamp? Dark Navy Card (Preserved Exact Scenario as Required) */}
               <div className="bg-bd-navy text-white rounded-2xl p-6 sm:p-7 shadow-md flex flex-col gap-4 border border-[#1A3A5C]">
                 <div className="flex items-center gap-2 font-mono text-[11px] text-bd-blue font-bold tracking-wider">
                   <ShieldCheck className="w-4 h-4 text-bd-blue" />
@@ -308,6 +313,9 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
           </div>
         </div>
       </section>
+
+      {/* 50-State Nationwide License Coverage Section on Every Service Page */}
+      <NationwideLicenseSection />
     </div>
   );
 };

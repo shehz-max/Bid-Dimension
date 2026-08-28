@@ -78,7 +78,7 @@ export default function HomePage() {
         variant="homepage"
         headline="End-to-End Engineering, Design & Construction Solutions"
         subheadline="Bid Dimensions is a full-service engineering and design firm delivering licensed structural engineering, multidisciplinary building design, permit-ready construction documentation, and technical support for residential, commercial, and industrial projects."
-        cta={{ text: 'Get a Free Quote', href: '/contact' }}
+        cta={{ text: 'Get a Quote', href: '/contact' }}
         secondaryCta={{ text: 'Our Process', href: '#process' }}
       />
 
@@ -132,13 +132,13 @@ export default function HomePage() {
 
               <FadeInUp delay={0.2}>
                 <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-4">
-                  BidDimensions was founded in 2019 by a team of project managers, estimators, and drafters who spent years on construction sites watching preventable mistakes cost contractors millions.
+                  Bid Dimensions was founded in 2008 by a team of project managers, estimators, and drafters who spent years on construction sites watching preventable mistakes cost contractors millions.
                 </p>
               </FadeInUp>
 
               <FadeInUp delay={0.3}>
                 <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-4">
-                  We saw permit sets rejected for missing details. We saw material orders come up short because takeoffs were done by eye. We saw bids lost because the drawings didn't match the scope.
+                  Over the past 18+ years, we saw permit sets rejected for missing details. We saw material orders come up short because takeoffs were done by eye. We saw bids lost because the drawings didn't match the scope.
                 </p>
               </FadeInUp>
 
@@ -161,18 +161,22 @@ export default function HomePage() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-3 gap-2 text-center pt-1">
+                  <div className="grid grid-cols-4 gap-2 text-center pt-1">
                     <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-lg sm:text-xl text-bd-navy block">2019</span>
-                      <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Founded</span>
+                      <span className="font-display font-bold text-base sm:text-lg text-bd-navy block">2008</span>
+                      <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">Founded</span>
                     </div>
                     <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-lg sm:text-xl text-bd-blue block">50</span>
-                      <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">States Active</span>
+                      <span className="font-display font-bold text-base sm:text-lg text-bd-blue block">18+</span>
+                      <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">Years Exp</span>
                     </div>
                     <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-lg sm:text-xl text-bd-navy block">7–14 Days</span>
-                      <span className="font-mono text-[10px] text-bd-gray uppercase font-semibold">Turnaround</span>
+                      <span className="font-display font-bold text-base sm:text-lg text-bd-navy block">50</span>
+                      <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">States</span>
+                    </div>
+                    <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
+                      <span className="font-display font-bold text-base sm:text-lg text-bd-blue block">7–14d</span>
+                      <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">Turnaround</span>
                     </div>
                   </div>
                 </div>
@@ -265,7 +269,7 @@ export default function HomePage() {
                 href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-bd-blue text-bd-navy-deep font-display font-bold text-sm hover:opacity-90 transition-opacity shadow-sm rounded"
               >
-                <span>Request a Quote</span>
+                <span>Get a Quote</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

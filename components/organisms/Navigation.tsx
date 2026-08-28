@@ -2,30 +2,30 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown, Phone, HardHat, Compass, Cpu, Layers, Sparkles, Calculator, FolderGit2, BookOpen, Info } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, ChevronDown, HardHat, Compass, Cpu, Layers, Sparkles, Calculator, FolderGit2, BookOpen, Info, Home as HomeIcon } from 'lucide-react';
 
 interface NavigationProps {
   transparent?: boolean;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) => {
-  const [scrolled, setScrolled] = useState(false);
+export const Navigation: React.FC<NavigationProps> = () => {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setDropdownOpen(true);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 150);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
@@ -49,6 +49,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
@@ -60,8 +61,15 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
     }
   }, [mobileMenuOpen]);
 
+  // Route active state helpers
+  const isHomeActive = pathname === '/';
+  const isServicesActive = pathname.startsWith('/services');
+  const isProjectsActive = pathname.startsWith('/projects');
+  const isAboutActive = pathname.startsWith('/about');
+  const isJournalActive = pathname.startsWith('/blog');
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/90 shadow-xs transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200/90 shadow-xs transition-all duration-300">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 h-18 sm:h-20 flex items-center justify-between">
         {/* Clean Header Logo: Logo Mark + BID DIMENSIONS Text ONLY (No Taglines) */}
         <Link href="/" className="flex items-center gap-3 group">
@@ -77,33 +85,55 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
           </span>
         </Link>
 
-        {/* Desktop Nav with High Contrast Deep Navy Links */}
-        <nav className="hidden md:flex items-center gap-2 lg:gap-3 text-sm font-semibold">
-          {/* Services Dropdown */}
+        {/* Desktop Nav with Active Page Highlighting */}
+        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2 text-sm font-semibold">
+          {/* 1. Home Link */}
+          <Link
+            href="/"
+            className={`px-3 py-1.5 rounded-lg transition-all ${
+              isHomeActive
+                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
+                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
+            }`}
+          >
+            Home
+          </Link>
+
+          {/* 2. Services Dropdown */}
           <div
             ref={dropdownRef}
             className="relative"
-            onMouseEnter={() => setDropdownOpen(true)}
-            onMouseLeave={() => setDropdownOpen(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <button
               onClick={() => setDropdownOpen((prev) => !prev)}
               aria-expanded={dropdownOpen}
               aria-haspopup="true"
               aria-label="Toggle engineering services menu"
-              className="flex items-center gap-1 text-bd-navy hover:text-bd-blue px-3 py-1.5 rounded-lg hover:bg-[#EBF3FA] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue"
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue ${
+                isServicesActive || dropdownOpen
+                  ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
+                  : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
+              }`}
             >
-              Services <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-bd-blue' : ''}`} />
+              <span>Services</span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-bd-blue' : ''}`} />
             </button>
 
+            {/* Solid, Beautifully Aligned Dropdown Menu */}
             {dropdownOpen && (
-              <div className="absolute top-full left-0 w-84 bg-white/98 backdrop-blur-xl p-3 shadow-2xl border border-gray-200 flex flex-col gap-1 z-50 rounded-xl animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute top-full left-0 mt-1 w-92 bg-white p-3 shadow-2xl border border-gray-200 flex flex-col gap-1 z-50 rounded-2xl animate-in fade-in slide-in-from-top-1 duration-150">
                 <Link
                   href="/services/structural-engineering"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2 hover:bg-[#EBF3FA] rounded-lg transition-colors border border-transparent hover:border-[#4A8AB8]/30"
+                  className={`group flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                    pathname === '/services/structural-engineering'
+                      ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30'
+                      : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
+                  }`}
                 >
-                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-md transition-all shrink-0">
+                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                     <HardHat className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -119,9 +149,13 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/architectural-design"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2 hover:bg-[#EBF3FA] rounded-lg transition-colors border border-transparent hover:border-[#4A8AB8]/30"
+                  className={`group flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                    pathname === '/services/architectural-design'
+                      ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30'
+                      : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
+                  }`}
                 >
-                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-md transition-all shrink-0">
+                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                     <Compass className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -137,9 +171,13 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/mep-engineering"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2 hover:bg-[#EBF3FA] rounded-lg transition-colors border border-transparent hover:border-[#4A8AB8]/30"
+                  className={`group flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                    pathname === '/services/mep-engineering'
+                      ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30'
+                      : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
+                  }`}
                 >
-                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-md transition-all shrink-0">
+                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                     <Cpu className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -155,9 +193,13 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/bim-cad-services"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2 hover:bg-[#EBF3FA] rounded-lg transition-colors border border-transparent hover:border-[#4A8AB8]/30"
+                  className={`group flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                    pathname === '/services/bim-cad-services'
+                      ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30'
+                      : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
+                  }`}
                 >
-                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-md transition-all shrink-0">
+                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                     <Layers className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -173,9 +215,13 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/rendering-services"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2 hover:bg-[#EBF3FA] rounded-lg transition-colors border border-transparent hover:border-[#4A8AB8]/30"
+                  className={`group flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                    pathname === '/services/rendering-services'
+                      ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30'
+                      : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
+                  }`}
                 >
-                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-md transition-all shrink-0">
+                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -191,9 +237,13 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                 <Link
                   href="/services/estimation"
                   onClick={() => setDropdownOpen(false)}
-                  className="group flex items-start gap-3 p-2 hover:bg-[#EBF3FA] rounded-lg transition-colors border border-transparent hover:border-[#4A8AB8]/30"
+                  className={`group flex items-start gap-3 p-2.5 rounded-xl transition-colors ${
+                    pathname === '/services/estimation'
+                      ? 'bg-[#EBF3FA] border border-[#4A8AB8]/30'
+                      : 'hover:bg-[#F8FAFC] border border-transparent hover:border-gray-200'
+                  }`}
                 >
-                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-md transition-all shrink-0">
+                  <div className="p-2 bg-[#EBF3FA] border border-[#4A8AB8]/20 text-bd-blue group-hover:bg-bd-navy group-hover:text-white rounded-lg transition-all shrink-0">
                     <Calculator className="w-4 h-4" />
                   </div>
                   <div className="flex flex-col">
@@ -201,7 +251,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
                       Estimation & Takeoffs
                     </span>
                     <span className="font-body text-[11px] text-bd-gray">
-                      PlanSwift quantity takeoffs & bid calcs
+                      PlanSwift quantity takeoffs & bid pricing
                     </span>
                   </div>
                 </Link>
@@ -209,36 +259,45 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
             )}
           </div>
 
-          <Link href="/projects" className="text-bd-navy hover:text-bd-blue px-3 py-1.5 rounded-lg hover:bg-[#EBF3FA] transition-all">
+          {/* 3. Projects Link */}
+          <Link
+            href="/projects"
+            className={`px-3 py-1.5 rounded-lg transition-all ${
+              isProjectsActive
+                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
+                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
+            }`}
+          >
             Projects
           </Link>
-          <Link href="/about" className="text-bd-navy hover:text-bd-blue px-3 py-1.5 rounded-lg hover:bg-[#EBF3FA] transition-all">
-            About Us
-          </Link>
-          <Link href="/blog" className="text-bd-navy hover:text-bd-blue px-3 py-1.5 rounded-lg hover:bg-[#EBF3FA] transition-all">
+
+          {/* 4. Journal Link */}
+          <Link
+            href="/blog"
+            className={`px-3 py-1.5 rounded-lg transition-all ${
+              isJournalActive
+                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
+                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
+            }`}
+          >
             Journal
           </Link>
-          <Link href="/#process" className="text-bd-navy hover:text-bd-blue px-3 py-1.5 rounded-lg hover:bg-[#EBF3FA] transition-all">
-            Process
-          </Link>
-          <Link href="/contact" className="text-bd-navy hover:text-bd-blue px-3 py-1.5 rounded-lg hover:bg-[#EBF3FA] transition-all">
-            Contact
+
+          {/* 5. About Us Link (Combined with Contact) */}
+          <Link
+            href="/about"
+            className={`px-3 py-1.5 rounded-lg transition-all ${
+              isAboutActive
+                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
+                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
+            }`}
+          >
+            About Us
           </Link>
         </nav>
 
-        {/* Desktop CTA & Phone */}
-        <div className="hidden md:flex items-center gap-5">
-          <a
-            href="tel:7472237815"
-            className="flex items-center gap-2 text-sm font-mono font-semibold text-bd-navy hover:text-bd-blue transition-colors group"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-bd-blue opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-bd-blue"></span>
-            </span>
-            <Phone className="w-4 h-4 text-bd-blue group-hover:scale-110 transition-transform" />
-            <span>(747) 223-7815</span>
-          </a>
+        {/* Desktop Primary CTA Button */}
+        <div className="hidden md:flex items-center gap-4">
           <Link
             href="/contact"
             className="px-5 py-2.5 bg-bd-navy hover:bg-bd-blue text-white font-display font-semibold text-sm transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 rounded-lg border border-bd-navy hover:border-bd-blue"
@@ -260,24 +319,28 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
 
       {/* Mobile Fullscreen Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-20 bg-white/98 backdrop-blur-xl z-40 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto text-bd-navy border-t border-gray-200">
-          <div className="flex flex-col gap-4">
+        <div className="md:hidden fixed inset-0 top-18 sm:top-20 bg-white z-40 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto text-bd-navy border-t border-gray-200">
+          <div className="flex flex-col gap-3.5">
             <div className="text-bd-blue font-mono text-xs uppercase tracking-widest border-b border-gray-200 pb-2">
               Navigation
             </div>
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-display font-bold text-bd-navy hover:text-bd-blue"
+              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
+                isHomeActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              }`}
             >
-              Home
+              <HomeIcon className="w-5 h-5" />
+              <span>Home</span>
             </Link>
-            <div className="flex flex-col gap-2 pl-4 border-l-2 border-[#EBF3FA]">
+
+            <div className="flex flex-col gap-2 pl-3 border-l-2 border-[#EBF3FA] my-1">
               <span className="text-[11px] font-mono text-bd-gray uppercase font-semibold">Services</span>
               <Link
                 href="/services/structural-engineering"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
               >
                 <HardHat className="w-4 h-4 text-bd-blue" />
                 <span>Structural Engineering</span>
@@ -285,7 +348,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/architectural-design"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
               >
                 <Compass className="w-4 h-4 text-bd-blue" />
                 <span>Architectural Design</span>
@@ -293,7 +356,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/mep-engineering"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
               >
                 <Cpu className="w-4 h-4 text-bd-blue" />
                 <span>MEP Engineering</span>
@@ -301,7 +364,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/bim-cad-services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
               >
                 <Layers className="w-4 h-4 text-bd-blue" />
                 <span>BIM & CAD Services</span>
@@ -309,7 +372,7 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/rendering-services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
               >
                 <Sparkles className="w-4 h-4 text-bd-blue" />
                 <span>3D Rendering Services</span>
@@ -317,59 +380,54 @@ export const Navigation: React.FC<NavigationProps> = ({ transparent = false }) =
               <Link
                 href="/services/estimation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2"
+                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
               >
                 <Calculator className="w-4 h-4 text-bd-blue" />
                 <span>Estimation & Takeoffs</span>
               </Link>
             </div>
+
             <Link
               href="/projects"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-display font-bold text-bd-navy hover:text-bd-blue flex items-center gap-2"
+              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
+                isProjectsActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              }`}
             >
-              <FolderGit2 className="w-5 h-5 text-bd-blue" />
-              <span>Projects Portfolio</span>
+              <FolderGit2 className="w-5 h-5" />
+              <span>Projects</span>
             </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-display font-bold text-bd-navy hover:text-bd-blue flex items-center gap-2"
-            >
-              <Info className="w-5 h-5 text-bd-blue" />
-              <span>About Us</span>
-            </Link>
+
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-display font-bold text-bd-navy hover:text-bd-blue flex items-center gap-2"
+              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
+                isJournalActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              }`}
             >
-              <BookOpen className="w-5 h-5 text-bd-blue" />
-              <span>Journal & Articles</span>
+              <BookOpen className="w-5 h-5" />
+              <span>Journal</span>
             </Link>
+
             <Link
-              href="/contact"
+              href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-lg font-display font-bold text-bd-navy hover:text-bd-blue"
+              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
+                isAboutActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              }`}
             >
-              Contact
+              <Info className="w-5 h-5" />
+              <span>About Us</span>
             </Link>
           </div>
 
-          <div className="pt-6 border-t border-gray-200 flex flex-col gap-3">
-            <a
-              href="tel:7472237815"
-              className="flex items-center gap-3 text-base font-mono text-bd-navy font-semibold"
-            >
-              <Phone className="w-5 h-5 text-bd-blue" />
-              (747) 223-7815
-            </a>
+          <div className="pt-6 border-t border-gray-200">
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 bg-bd-navy text-center text-white font-bold text-sm rounded shadow-sm uppercase tracking-wider hover:bg-bd-blue transition-colors"
+              className="w-full py-3.5 bg-bd-navy text-center text-white font-bold text-sm rounded-lg shadow-sm uppercase tracking-wider hover:bg-bd-blue transition-colors block"
             >
-              Get a Free Quote
+              Get a Quote
             </Link>
           </div>
         </div>

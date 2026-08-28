@@ -47,7 +47,7 @@ export default function BimCadServicesPage() {
       serviceSlug="bim-cad-services"
       title="BIM & CAD Services"
       heroSubtitle="Revit 3D BIM modeling, Navisworks clash detection, LOD 200–400 documentation, and precise 2D AutoCAD drafting for seamless trade coordination."
-      heroImage="/images/primecost-cad-bg.jpg"
+      heroImage="/images/service-thumb-bim.jpg"
       overview={{
         paragraph1:
           'We provide comprehensive Building Information Modeling (BIM) and computer-aided drafting (CAD) services to coordinate architectural, structural, and MEP systems before construction.',
