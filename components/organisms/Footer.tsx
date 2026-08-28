@@ -15,13 +15,13 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-bd-blue/15">
           {/* Col 1: Clean Brand & PE Badge (4 Cols) */}
           <div className="lg:col-span-4 flex flex-col items-start gap-4">
-            <Link href="/" className="flex items-center gap-3.5 group">
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group">
               <img
                 src="/images/logo-dark-bg.png"
                 alt="Bid Dimensions Engineering Logo"
-                className="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
-              <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-white group-hover:text-bd-blue transition-colors">
+              <span className="font-display font-black text-xl sm:text-2xl tracking-tight text-white group-hover:text-bd-blue transition-colors whitespace-nowrap">
                 BID DIMENSIONS
               </span>
             </Link>

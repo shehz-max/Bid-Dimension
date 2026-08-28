@@ -71,16 +71,14 @@ export const Navigation: React.FC<NavigationProps> = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200/90 shadow-xs transition-all duration-300">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 h-18 sm:h-20 flex items-center justify-between">
-        {/* Clean Header Logo: Logo Mark + BID DIMENSIONS Text ONLY (No Taglines) */}
-        <Link href="/" className="flex items-center gap-3 sm:gap-3.5 group">
-          <div className="h-12 w-12 sm:h-14 sm:w-14 relative overflow-hidden shrink-0 flex items-center justify-center">
-            <img
-              src="/images/logo-light-bg.png"
-              alt="Bid Dimensions Logo Mark"
-              className="h-12 sm:h-14 w-auto max-w-none object-cover object-left transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-          <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-bd-navy group-hover:text-bd-blue transition-colors">
+        {/* Clean Header Logo Lockup: Balanced Icon & Bold Typography */}
+        <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <img
+            src="/images/logo-light-bg.png"
+            alt="Bid Dimensions Logo Mark"
+            className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="font-display font-black text-xl sm:text-2xl tracking-tight text-bd-navy group-hover:text-bd-blue transition-colors whitespace-nowrap">
             BID DIMENSIONS
           </span>
         </Link>
