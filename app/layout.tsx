@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import { WhatsAppButton } from '@/components/molecules/WhatsAppButton';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -133,6 +134,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
