@@ -110,7 +110,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   // Subpage Hero Variant: Clean Vibrant Blue Cinematic Header (Clean, Zero Clutter, No Buttons)
   return (
-    <section className="relative min-h-[480px] sm:min-h-[520px] lg:min-h-[550px] flex items-center pt-36 sm:pt-40 pb-16 sm:pb-20 bg-[#0C2340] border-b border-[#1E3A8A]/40 overflow-hidden text-white">
+    <section className="relative min-h-[360px] sm:min-h-[400px] lg:min-h-[420px] flex items-center pt-28 sm:pt-32 pb-12 sm:pb-14 bg-[#0C2340] border-b border-[#1E3A8A]/40 overflow-hidden text-white">
       {/* Background Architectural Artwork with High Clarity & Visibility */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
