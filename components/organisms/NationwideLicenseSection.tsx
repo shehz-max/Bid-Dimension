@@ -6,7 +6,7 @@ import { FadeInUp } from '@/components/animation/FadeInUp';
 
 export const NationwideLicenseSection: React.FC = () => {
   return (
-    <section className="py-14 sm:py-16 bg-[#EBF3FA] border-t border-[#4A8AB8]/20 text-bd-navy text-center relative">
+    <section className="py-14 sm:py-16 bg-white border-b border-gray-200/80 text-bd-navy text-center relative">
       <div className="max-w-4xl mx-auto px-5 sm:px-8">
         <FadeInUp>
           <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2 block">
@@ -29,8 +29,12 @@ export const NationwideLicenseSection: React.FC = () => {
         <FadeInUp delay={0.3}>
           <div className="flex flex-wrap items-center justify-center gap-2.5 font-mono text-xs text-bd-navy">
             {['CALIFORNIA', 'TEXAS', 'FLORIDA', 'NEW YORK', 'ILLINOIS', 'GEORGIA', 'WASHINGTON', '+ 43 MORE STATES'].map((state) => (
-              <span key={state} className="px-3.5 py-1.5 bg-white border border-gray-200 rounded-md shadow-xs font-semibold">
-                ✓ {state}
+              <span
+                key={state}
+                className="px-3.5 py-1.5 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-md shadow-2xs font-semibold text-bd-navy hover:bg-bd-navy hover:text-white transition-colors cursor-default"
+              >
+                <span className="text-bd-blue font-bold mr-1">✓</span>
+                {state}
               </span>
             ))}
           </div>

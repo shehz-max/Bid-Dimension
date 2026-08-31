@@ -25,7 +25,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
   phoneHref = 'tel:7472237815',
 }) => {
   return (
-    <section className="py-16 sm:py-20 bg-[#F8FAFC] border-t border-gray-200/80 text-bd-navy relative">
+    <section className="py-16 sm:py-20 bg-[#EBF3FA] border-t border-[#4A8AB8]/20 text-bd-navy relative">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 text-center">
         {/* Eyebrow Tagline */}
         <FadeInUp>
