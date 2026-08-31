@@ -108,104 +108,111 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Subpage Hero Variant: PrimeCost Pure Technical Engineering Header (Zero Photos, Zero Fades, 100% Clean)
+  // Subpage Hero Variant: Clean Vibrant Blue Cinematic Header (No Right Box, Visible Image)
   return (
-    <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-12 bg-[#F8FAFC] border-b border-gray-200/90 text-bd-navy overflow-hidden">
-      {/* Subtle Technical Blueprint Grid Underlay */}
-      <div className="absolute inset-0 blueprint-grid opacity-[0.07] pointer-events-none" />
+    <section className="relative pt-30 sm:pt-36 pb-14 sm:pb-18 bg-[#0B1F38] border-b border-[#1E3A8A]/40 overflow-hidden text-white">
+      {/* Background Architectural Artwork with Vibrant Visibility */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src={image || '/images/hero-structural-bg.jpg'}
+          alt={headline || 'Engineering discipline background'}
+          className="w-full h-full object-cover object-center opacity-50 sm:opacity-55 filter contrast-110 saturate-90"
+        />
 
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full relative z-10">
-        <div className="flex flex-col items-start max-w-4xl">
-          {/* 1. Breadcrumb Navigation */}
-          {breadcrumb && breadcrumb.length > 0 && (
-            <FadeInUp delay={0.05}>
-              <nav className="flex items-center gap-1.5 text-xs text-bd-gray font-mono mb-3">
-                {breadcrumb.map((crumb, idx) => (
-                  <React.Fragment key={crumb.href}>
-                    {idx > 0 && <span className="text-gray-300">/</span>}
-                    {idx === breadcrumb.length - 1 ? (
-                      <span className="text-bd-blue font-semibold">{crumb.label}</span>
-                    ) : (
-                      <Link href={crumb.href} className="hover:text-bd-navy transition-colors">
-                        {crumb.label}
-                      </Link>
-                    )}
-                  </React.Fragment>
-                ))}
-              </nav>
+        {/* Smooth Left-to-Right Balanced Blue Gradient (Text readable on left, vivid image on right) */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(11, 31, 56, 0.96) 0%, rgba(11, 31, 56, 0.85) 35%, rgba(11, 31, 56, 0.45) 65%, rgba(11, 31, 56, 0.15) 100%)',
+          }}
+        />
+
+        {/* Subtle Bottom Transition to keep bottom border sharp */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(11, 31, 56, 0.85) 0%, transparent 22%)',
+          }}
+        />
+
+        {/* Subtle Architectural Blueprint Grid Lines */}
+        <div className="absolute inset-0 blueprint-grid opacity-10 pointer-events-none" />
+      </div>
+
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left Column: Breadcrumb, Discipline Badge, Headline, Subheadline, Actions (7 Columns) */}
+          <div className="lg:col-span-7 flex flex-col items-start">
+            {breadcrumb && breadcrumb.length > 0 && (
+              <FadeInUp delay={0.05}>
+                <nav className="flex items-center gap-1.5 text-xs text-slate-300 font-mono mb-3.5">
+                  {breadcrumb.map((crumb, idx) => (
+                    <React.Fragment key={crumb.href}>
+                      {idx > 0 && <span className="text-slate-500">/</span>}
+                      {idx === breadcrumb.length - 1 ? (
+                        <span className="text-bd-blue font-semibold">{crumb.label}</span>
+                      ) : (
+                        <Link href={crumb.href} className="hover:text-white transition-colors">
+                          {crumb.label}
+                        </Link>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </nav>
+              </FadeInUp>
+            )}
+
+            <FadeInUp delay={0.08}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-bd-blue/20 border border-bd-blue/40 rounded-md mb-3.5 text-bd-blue font-mono text-[11px] font-bold uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-bd-blue" />
+                <span>{label || '50-STATE PE LICENSED • IBC 2024 COMPLIANT'}</span>
+              </div>
             </FadeInUp>
-          )}
 
-          {/* 2. Discipline Category Tag */}
-          <FadeInUp delay={0.08}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-md mb-3 text-bd-blue font-mono text-[11px] font-bold uppercase tracking-wider">
-              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue" />
-              <span>{label || '50-STATE PE LICENSED • IBC 2024 COMPLIANT'}</span>
-            </div>
-          </FadeInUp>
-
-          {/* 3. Bold Authoritative Headline */}
-          <FadeInUp delay={0.1}>
-            <h1 className="font-display font-bold text-3xl sm:text-42px lg:text-46px leading-[1.12] tracking-tight text-bd-navy mb-3.5">
-              {headline}
-            </h1>
-          </FadeInUp>
-
-          {/* 4. Subheadline */}
-          {subheadline && (
-            <FadeInUp delay={0.15}>
-              <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-6 max-w-3xl">
-                {subheadline}
-              </p>
+            <FadeInUp delay={0.1}>
+              <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-[1.12] tracking-tight text-white mb-4">
+                {headline}
+              </h1>
             </FadeInUp>
-          )}
 
-          {/* 5. Action Buttons */}
-          <FadeInUp delay={0.2}>
-            <div className="flex flex-wrap items-center gap-3.5 mb-8">
-              {cta && (
-                <Button variant="primary" size="md" href={cta.href}>
-                  {cta.text}
-                </Button>
-              )}
+            {subheadline && (
+              <FadeInUp delay={0.2}>
+                <p className="font-body text-sm sm:text-base text-slate-200 leading-relaxed mb-7 max-w-2xl">
+                  {subheadline}
+                </p>
+              </FadeInUp>
+            )}
 
-              {secondaryCta ? (
-                <Button variant="secondary" size="md" href={secondaryCta.href}>
-                  {secondaryCta.text}
-                </Button>
-              ) : (
+            <FadeInUp delay={0.3}>
+              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
+                {cta && (
+                  <Link
+                    href={cta.href}
+                    className="relative overflow-hidden group px-6 py-3.5 bg-bd-blue hover:bg-white text-bd-navy font-display font-bold text-sm rounded-lg shadow-md hover:shadow-lg transition-all"
+                  >
+                    <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+                    <span className="relative z-10 flex items-center gap-2">
+                      {cta.text}
+                      <ChevronRight className="w-4 h-4 text-bd-navy" />
+                    </span>
+                  </Link>
+                )}
+
                 <a
                   href="tel:7472237815"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-300 font-display font-semibold text-sm text-bd-navy hover:border-bd-blue hover:text-bd-blue transition-all shadow-2xs rounded-lg group"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display font-semibold text-sm rounded-lg transition-all backdrop-blur-xs group"
                 >
                   <Phone className="w-4 h-4 text-bd-blue group-hover:scale-110 transition-transform" />
                   <span>(747) 223-7815</span>
                 </a>
-              )}
-            </div>
-          </FadeInUp>
+              </div>
+            </FadeInUp>
+          </div>
 
-          {/* 6. PrimeCost-Style 4-Pill Technical Credential Matrix */}
-          <FadeInUp delay={0.25}>
-            <div className="w-full pt-5 border-t border-gray-200/80 flex flex-wrap items-center gap-x-6 gap-y-2.5 font-mono text-[11px] text-bd-navy font-semibold">
-              <div className="flex items-center gap-1.5">
-                <span className="text-bd-blue font-bold">✓</span>
-                <span>50-State PE Licensed</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-bd-blue font-bold">✓</span>
-                <span>10–12 Day Turnaround</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-bd-blue font-bold">✓</span>
-                <span>100% City Permit Approval</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-bd-blue font-bold">✓</span>
-                <span>Revit 3D & CAD Stamped Sets</span>
-              </div>
-            </div>
-          </FadeInUp>
+          {/* Right Column: Clean Open Space Revealing Background Engineering Artwork */}
+          <div className="lg:col-span-5 hidden lg:block" />
         </div>
       </div>
     </section>
