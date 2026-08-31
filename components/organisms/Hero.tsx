@@ -108,32 +108,32 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Subpage Hero Variant: Clean Vibrant Blue Cinematic Header (No Right Box, Visible Image)
+  // Subpage Hero Variant: Clean Vibrant Blue Cinematic Header (Clean, Zero Clutter, No Buttons)
   return (
-    <section className="relative pt-30 sm:pt-36 pb-14 sm:pb-18 bg-[#0B1F38] border-b border-[#1E3A8A]/40 overflow-hidden text-white">
-      {/* Background Architectural Artwork with Vibrant Visibility */}
+    <section className="relative pt-32 sm:pt-36 pb-14 sm:pb-18 bg-[#0C2340] border-b border-[#1E3A8A]/40 overflow-hidden text-white">
+      {/* Background Architectural Artwork with High Clarity & Visibility */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src={image || '/images/hero-structural-bg.jpg'}
           alt={headline || 'Engineering discipline background'}
-          className="w-full h-full object-cover object-center opacity-50 sm:opacity-55 filter contrast-110 saturate-90"
+          className="w-full h-full object-cover object-center opacity-70 sm:opacity-75 filter contrast-110 saturate-95"
         />
 
-        {/* Smooth Left-to-Right Balanced Blue Gradient (Text readable on left, vivid image on right) */}
+        {/* Perfectly Balanced Left-to-Right Blue Gradient (Text 100% crisp on left, vivid full image on right) */}
         <div
           className="absolute inset-0 z-0"
           style={{
             background:
-              'linear-gradient(to right, rgba(11, 31, 56, 0.96) 0%, rgba(11, 31, 56, 0.85) 35%, rgba(11, 31, 56, 0.45) 65%, rgba(11, 31, 56, 0.15) 100%)',
+              'linear-gradient(to right, rgba(12, 35, 64, 0.94) 0%, rgba(12, 35, 64, 0.80) 35%, rgba(12, 35, 64, 0.35) 62%, rgba(12, 35, 64, 0.05) 100%)',
           }}
         />
 
-        {/* Subtle Bottom Transition to keep bottom border sharp */}
+        {/* Subtle Bottom Transition to keep bottom section border sharp */}
         <div
           className="absolute inset-0 z-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(11, 31, 56, 0.85) 0%, transparent 22%)',
+              'linear-gradient(to top, rgba(12, 35, 64, 0.85) 0%, transparent 16%)',
           }}
         />
 
@@ -143,7 +143,7 @@ export const Hero: React.FC<HeroProps> = ({
 
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column: Breadcrumb, Discipline Badge, Headline, Subheadline, Actions (7 Columns) */}
+          {/* Left Column: Breadcrumb, Headline, Subheadline (7 Columns) */}
           <div className="lg:col-span-7 flex flex-col items-start">
             {breadcrumb && breadcrumb.length > 0 && (
               <FadeInUp delay={0.05}>
@@ -164,13 +164,6 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             )}
 
-            <FadeInUp delay={0.08}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-bd-blue/20 border border-bd-blue/40 rounded-md mb-3.5 text-bd-blue font-mono text-[11px] font-bold uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-bd-blue" />
-                <span>{label || '50-STATE PE LICENSED • IBC 2024 COMPLIANT'}</span>
-              </div>
-            </FadeInUp>
-
             <FadeInUp delay={0.1}>
               <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-[1.12] tracking-tight text-white mb-4">
                 {headline}
@@ -178,37 +171,12 @@ export const Hero: React.FC<HeroProps> = ({
             </FadeInUp>
 
             {subheadline && (
-              <FadeInUp delay={0.2}>
-                <p className="font-body text-sm sm:text-base text-slate-200 leading-relaxed mb-7 max-w-2xl">
+              <FadeInUp delay={0.15}>
+                <p className="font-body text-sm sm:text-base text-slate-100 leading-relaxed max-w-2xl">
                   {subheadline}
                 </p>
               </FadeInUp>
             )}
-
-            <FadeInUp delay={0.3}>
-              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-                {cta && (
-                  <Link
-                    href={cta.href}
-                    className="relative overflow-hidden group px-6 py-3.5 bg-bd-blue hover:bg-white text-bd-navy font-display font-bold text-sm rounded-lg shadow-md hover:shadow-lg transition-all"
-                  >
-                    <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
-                    <span className="relative z-10 flex items-center gap-2">
-                      {cta.text}
-                      <ChevronRight className="w-4 h-4 text-bd-navy" />
-                    </span>
-                  </Link>
-                )}
-
-                <a
-                  href="tel:7472237815"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display font-semibold text-sm rounded-lg transition-all backdrop-blur-xs group"
-                >
-                  <Phone className="w-4 h-4 text-bd-blue group-hover:scale-110 transition-transform" />
-                  <span>(747) 223-7815</span>
-                </a>
-              </div>
-            </FadeInUp>
           </div>
 
           {/* Right Column: Clean Open Space Revealing Background Engineering Artwork */}
