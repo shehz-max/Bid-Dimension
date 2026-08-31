@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { ChevronRight, ArrowDown, ShieldCheck, CheckCircle2, FileCheck } from 'lucide-react';
+import { ChevronRight, ArrowDown, ShieldCheck, CheckCircle2, FileCheck, Phone } from 'lucide-react';
 
 export interface HeroProps {
   variant: 'homepage' | 'page';
@@ -108,139 +108,104 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Subpage Hero Variant: Dark Executive Cinematic Blueprint Header (Concept 1)
+  // Subpage Hero Variant: PrimeCost Pure Technical Engineering Header (Zero Photos, Zero Fades, 100% Clean)
   return (
-    <section className="relative pt-32 sm:pt-36 pb-16 sm:pb-20 bg-[#0A1628] border-b border-[#1E3A8A]/30 overflow-hidden text-white">
-      {/* Background Architectural Artwork with High-Tech Dark Ambient Overlay */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <img
-          src={image || '/images/hero-structural-bg.jpg'}
-          alt={headline || 'Engineering discipline background'}
-          className="w-full h-full object-cover object-center opacity-20 filter contrast-125 saturate-50"
-        />
+    <section className="relative pt-28 sm:pt-32 pb-10 sm:pb-12 bg-[#F8FAFC] border-b border-gray-200/90 text-bd-navy overflow-hidden">
+      {/* Subtle Technical Blueprint Grid Underlay */}
+      <div className="absolute inset-0 blueprint-grid opacity-[0.07] pointer-events-none" />
 
-        {/* Ambient Engineering Blueprint Glow Overlay */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              'radial-gradient(circle at 75% 35%, rgba(74, 138, 184, 0.22) 0%, rgba(10, 22, 40, 0.75) 45%, #0A1628 90%)',
-          }}
-        />
-
-        {/* Subtle Architectural Blueprint Grid Lines */}
-        <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none" />
-      </div>
-
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Breadcrumb, Discipline Badge, Headline, Subheadline, Actions (8 Columns) */}
-          <div className="lg:col-span-8 flex flex-col items-start">
-            {breadcrumb && breadcrumb.length > 0 && (
-              <FadeInUp delay={0.05}>
-                <nav className="flex items-center gap-1.5 text-xs text-slate-400 font-mono mb-3.5">
-                  {breadcrumb.map((crumb, idx) => (
-                    <React.Fragment key={crumb.href}>
-                      {idx > 0 && <span className="text-slate-600">/</span>}
-                      {idx === breadcrumb.length - 1 ? (
-                        <span className="text-bd-blue font-semibold">{crumb.label}</span>
-                      ) : (
-                        <Link href={crumb.href} className="hover:text-white transition-colors">
-                          {crumb.label}
-                        </Link>
-                      )}
-                    </React.Fragment>
-                  ))}
-                </nav>
-              </FadeInUp>
-            )}
-
-            <FadeInUp delay={0.08}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-bd-blue/15 border border-bd-blue/30 rounded-md mb-3.5 text-bd-blue font-mono text-[11px] font-bold uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-bd-blue animate-pulse" />
-                <span>{label || '50-STATE PE LICENSED • IBC 2024 COMPLIANT'}</span>
-              </div>
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full relative z-10">
+        <div className="flex flex-col items-start max-w-4xl">
+          {/* 1. Breadcrumb Navigation */}
+          {breadcrumb && breadcrumb.length > 0 && (
+            <FadeInUp delay={0.05}>
+              <nav className="flex items-center gap-1.5 text-xs text-bd-gray font-mono mb-3">
+                {breadcrumb.map((crumb, idx) => (
+                  <React.Fragment key={crumb.href}>
+                    {idx > 0 && <span className="text-gray-300">/</span>}
+                    {idx === breadcrumb.length - 1 ? (
+                      <span className="text-bd-blue font-semibold">{crumb.label}</span>
+                    ) : (
+                      <Link href={crumb.href} className="hover:text-bd-navy transition-colors">
+                        {crumb.label}
+                      </Link>
+                    )}
+                  </React.Fragment>
+                ))}
+              </nav>
             </FadeInUp>
+          )}
 
-            <FadeInUp delay={0.1}>
-              <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-50px leading-[1.1] tracking-tight text-white mb-4">
-                {headline}
-              </h1>
+          {/* 2. Discipline Category Tag */}
+          <FadeInUp delay={0.08}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-md mb-3 text-bd-blue font-mono text-[11px] font-bold uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-bd-blue" />
+              <span>{label || '50-STATE PE LICENSED • IBC 2024 COMPLIANT'}</span>
+            </div>
+          </FadeInUp>
+
+          {/* 3. Bold Authoritative Headline */}
+          <FadeInUp delay={0.1}>
+            <h1 className="font-display font-bold text-3xl sm:text-42px lg:text-46px leading-[1.12] tracking-tight text-bd-navy mb-3.5">
+              {headline}
+            </h1>
+          </FadeInUp>
+
+          {/* 4. Subheadline */}
+          {subheadline && (
+            <FadeInUp delay={0.15}>
+              <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-6 max-w-3xl">
+                {subheadline}
+              </p>
             </FadeInUp>
+          )}
 
-            {subheadline && (
-              <FadeInUp delay={0.2}>
-                <p className="font-body text-sm sm:text-base text-slate-300 leading-relaxed mb-7 max-w-2xl">
-                  {subheadline}
-                </p>
-              </FadeInUp>
-            )}
+          {/* 5. Action Buttons */}
+          <FadeInUp delay={0.2}>
+            <div className="flex flex-wrap items-center gap-3.5 mb-8">
+              {cta && (
+                <Button variant="primary" size="md" href={cta.href}>
+                  {cta.text}
+                </Button>
+              )}
 
-            <FadeInUp delay={0.3}>
-              <div className="flex flex-wrap items-center gap-3.5 sm:gap-4">
-                {cta && (
-                  <Link
-                    href={cta.href}
-                    className="relative overflow-hidden group px-6 py-3.5 bg-bd-blue hover:bg-white text-bd-navy font-display font-bold text-sm rounded-lg shadow-md hover:shadow-lg transition-all"
-                  >
-                    <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
-                    <span className="relative z-10 flex items-center gap-2">
-                      {cta.text}
-                      <ChevronRight className="w-4 h-4 text-bd-navy" />
-                    </span>
-                  </Link>
-                )}
-
+              {secondaryCta ? (
+                <Button variant="secondary" size="md" href={secondaryCta.href}>
+                  {secondaryCta.text}
+                </Button>
+              ) : (
                 <a
                   href="tel:7472237815"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-display font-semibold text-sm rounded-lg transition-all backdrop-blur-xs"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-300 font-display font-semibold text-sm text-bd-navy hover:border-bd-blue hover:text-bd-blue transition-all shadow-2xs rounded-lg group"
                 >
+                  <Phone className="w-4 h-4 text-bd-blue group-hover:scale-110 transition-transform" />
                   <span>(747) 223-7815</span>
                 </a>
+              )}
+            </div>
+          </FadeInUp>
+
+          {/* 6. PrimeCost-Style 4-Pill Technical Credential Matrix */}
+          <FadeInUp delay={0.25}>
+            <div className="w-full pt-5 border-t border-gray-200/80 flex flex-wrap items-center gap-x-6 gap-y-2.5 font-mono text-[11px] text-bd-navy font-semibold">
+              <div className="flex items-center gap-1.5">
+                <span className="text-bd-blue font-bold">✓</span>
+                <span>50-State PE Licensed</span>
               </div>
-            </FadeInUp>
-          </div>
-
-          {/* Right Column: Engineering Credential HUD Card (4 Columns) */}
-          <div className="lg:col-span-4 w-full">
-            <FadeInUp delay={0.25}>
-              <div className="bg-white/5 border border-white/15 rounded-2xl p-6 sm:p-7 backdrop-blur-md shadow-xl flex flex-col gap-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <span className="font-mono text-[10px] uppercase font-bold text-bd-blue tracking-wider flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-bd-blue" />
-                    PE SPECIFICATIONS
-                  </span>
-                  <span className="font-mono text-[10px] text-slate-400 font-semibold">
-                    100% PERMIT READY
-                  </span>
-                </div>
-
-                <div className="flex flex-col gap-3 font-body text-xs text-slate-200">
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue shrink-0" />
-                    <span>Active PE Licenses Across All 50 States</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue shrink-0" />
-                    <span>Standard 10–12 Day Drawing Turnaround</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue shrink-0" />
-                    <span>IBC 2024, CBC, IRC, & ASCE 7-22 Calibrated</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-bd-blue shrink-0" />
-                    <span>Multidisciplinary BIM LOD 400 Coordination</span>
-                  </div>
-                </div>
-
-                <div className="mt-1 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate-400">Plan Check Guarantee:</span>
-                  <span className="text-bd-blue font-bold">100% City Approval</span>
-                </div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-bd-blue font-bold">✓</span>
+                <span>10–12 Day Turnaround</span>
               </div>
-            </FadeInUp>
-          </div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-bd-blue font-bold">✓</span>
+                <span>100% City Permit Approval</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <span className="text-bd-blue font-bold">✓</span>
+                <span>Revit 3D & CAD Stamped Sets</span>
+              </div>
+            </div>
+          </FadeInUp>
         </div>
       </div>
     </section>
