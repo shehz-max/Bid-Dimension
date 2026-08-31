@@ -24,12 +24,6 @@ export default function ProjectsPage() {
         variant="page"
         headline="Featured Engineering & Design Case Studies"
         subheadline="Explore our technical case studies, 3D Revit models, and PE-stamped permit drawing sets across commercial, residential, and industrial projects."
-        cta={{ text: 'Get a Quote', href: '/contact' }}
-        hudBadge={{ label: 'CASE STUDY STATUS', spec: '100% CITY PERMIT APPROVED' }}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Projects & Portfolio', href: '/projects' },
-        ]}
       />
 
       {/* Projects Grid Section */}
