@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown, HardHat, Compass, Cpu, Layers, Sparkles, Calculator, FolderGit2, BookOpen, Info, Home as HomeIcon } from 'lucide-react';
 
 interface NavigationProps {
@@ -13,6 +14,7 @@ export const Navigation: React.FC<NavigationProps> = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [hoveredNav, setHoveredNav] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -83,41 +85,67 @@ export const Navigation: React.FC<NavigationProps> = () => {
           </span>
         </Link>
 
-        {/* Desktop Nav with Active Page Highlighting */}
-        <nav className="hidden md:flex items-center gap-1.5 lg:gap-2 text-sm font-semibold">
+        {/* Desktop Nav with Animated Sliding Blueprint Line Indicator */}
+        <nav
+          onMouseLeave={() => setHoveredNav(null)}
+          className="hidden md:flex items-center gap-1 lg:gap-1.5 text-sm font-semibold relative"
+        >
           {/* 1. Home Link */}
-          <Link
-            href="/"
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              isHomeActive
-                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
-                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
-            }`}
+          <div
+            onMouseEnter={() => setHoveredNav('home')}
+            className="relative py-1.5 px-1"
           >
-            Home
-          </Link>
+            <Link
+              href="/"
+              className={`px-3 py-1.5 rounded-lg transition-colors relative z-10 block ${
+                isHomeActive
+                  ? 'text-bd-blue font-bold'
+                  : 'text-bd-navy hover:text-bd-blue'
+              }`}
+            >
+              Home
+            </Link>
+            {(hoveredNav === 'home' || (hoveredNav === null && isHomeActive)) && (
+              <motion.div
+                layoutId="navbar-indicator"
+                className="absolute bottom-0 left-3 right-3 h-[2.5px] bg-bd-blue rounded-full z-0 shadow-xs"
+                transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+              />
+            )}
+          </div>
 
           {/* 2. Services Dropdown */}
           <div
             ref={dropdownRef}
-            className="relative"
-            onMouseEnter={handleMouseEnter}
+            onMouseEnter={() => {
+              handleMouseEnter();
+              setHoveredNav('services');
+            }}
             onMouseLeave={handleMouseLeave}
+            className="relative py-1.5 px-1"
           >
             <button
               onClick={() => setDropdownOpen((prev) => !prev)}
               aria-expanded={dropdownOpen}
               aria-haspopup="true"
               aria-label="Toggle engineering services menu"
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue ${
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg transition-colors relative z-10 focus:outline-none ${
                 isServicesActive || dropdownOpen
-                  ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
-                  : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
+                  ? 'text-bd-blue font-bold'
+                  : 'text-bd-navy hover:text-bd-blue'
               }`}
             >
               <span>Services</span>
               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-bd-blue' : ''}`} />
             </button>
+
+            {(hoveredNav === 'services' || (hoveredNav === null && isServicesActive)) && (
+              <motion.div
+                layoutId="navbar-indicator"
+                className="absolute bottom-0 left-3 right-3 h-[2.5px] bg-bd-blue rounded-full z-0 shadow-xs"
+                transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+              />
+            )}
 
             {/* Solid, Beautifully Aligned Horizontal 2-Column Mega Box */}
             {dropdownOpen && (
@@ -243,51 +271,93 @@ export const Navigation: React.FC<NavigationProps> = () => {
           </div>
 
           {/* 3. Projects Link */}
-          <Link
-            href="/projects"
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              isProjectsActive
-                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
-                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
-            }`}
+          <div
+            onMouseEnter={() => setHoveredNav('projects')}
+            className="relative py-1.5 px-1"
           >
-            Projects
-          </Link>
+            <Link
+              href="/projects"
+              className={`px-3 py-1.5 rounded-lg transition-colors relative z-10 block ${
+                isProjectsActive
+                  ? 'text-bd-blue font-bold'
+                  : 'text-bd-navy hover:text-bd-blue'
+              }`}
+            >
+              Projects
+            </Link>
+            {(hoveredNav === 'projects' || (hoveredNav === null && isProjectsActive)) && (
+              <motion.div
+                layoutId="navbar-indicator"
+                className="absolute bottom-0 left-3 right-3 h-[2.5px] bg-bd-blue rounded-full z-0 shadow-xs"
+                transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+              />
+            )}
+          </div>
 
           {/* 4. Journal Link */}
-          <Link
-            href="/blog"
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              isJournalActive
-                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
-                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
-            }`}
+          <div
+            onMouseEnter={() => setHoveredNav('blog')}
+            className="relative py-1.5 px-1"
           >
-            Journal
-          </Link>
+            <Link
+              href="/blog"
+              className={`px-3 py-1.5 rounded-lg transition-colors relative z-10 block ${
+                isJournalActive
+                  ? 'text-bd-blue font-bold'
+                  : 'text-bd-navy hover:text-bd-blue'
+              }`}
+            >
+              Journal
+            </Link>
+            {(hoveredNav === 'blog' || (hoveredNav === null && isJournalActive)) && (
+              <motion.div
+                layoutId="navbar-indicator"
+                className="absolute bottom-0 left-3 right-3 h-[2.5px] bg-bd-blue rounded-full z-0 shadow-xs"
+                transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+              />
+            )}
+          </div>
 
-          {/* 5. About Us Link (Combined with Contact) */}
-          <Link
-            href="/about"
-            className={`px-3 py-1.5 rounded-lg transition-all ${
-              isAboutActive
-                ? 'text-bd-blue font-bold bg-[#EBF3FA] shadow-2xs'
-                : 'text-bd-navy hover:text-bd-blue hover:bg-[#F8FAFC]'
-            }`}
+          {/* 5. About Us Link */}
+          <div
+            onMouseEnter={() => setHoveredNav('about')}
+            className="relative py-1.5 px-1"
           >
-            About Us
-          </Link>
+            <Link
+              href="/about"
+              className={`px-3 py-1.5 rounded-lg transition-colors relative z-10 block ${
+                isAboutActive
+                  ? 'text-bd-blue font-bold'
+                  : 'text-bd-navy hover:text-bd-blue'
+              }`}
+            >
+              About Us
+            </Link>
+            {(hoveredNav === 'about' || (hoveredNav === null && isAboutActive)) && (
+              <motion.div
+                layoutId="navbar-indicator"
+                className="absolute bottom-0 left-3 right-3 h-[2.5px] bg-bd-blue rounded-full z-0 shadow-xs"
+                transition={{ type: 'spring', stiffness: 450, damping: 35 }}
+              />
+            )}
+          </div>
         </nav>
 
-        {/* Desktop Primary CTA Button */}
-        <div className="hidden md:flex items-center gap-4">
+        {/* Desktop Primary CTA Button with Shimmer Light Sweep */}
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+          className="hidden md:flex items-center gap-4"
+        >
           <Link
             href="/contact"
-            className="px-5 py-2.5 bg-bd-navy hover:bg-bd-blue text-white font-display font-semibold text-sm transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 rounded-lg border border-bd-navy hover:border-bd-blue"
+            className="relative overflow-hidden group px-5 py-2.5 bg-bd-navy text-white font-display font-semibold text-sm rounded-lg shadow-sm hover:shadow-md border border-bd-navy hover:border-bd-blue transition-all"
           >
-            Get a Quote
+            {/* Specular Shimmer Light Sweep */}
+            <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+            <span className="relative z-10 group-hover:text-bd-blue transition-colors">Get a Quote</span>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Mobile Hamburger */}
         <button

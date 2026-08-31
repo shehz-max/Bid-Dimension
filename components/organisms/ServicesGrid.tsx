@@ -82,7 +82,7 @@ export const ALL_SIX_SERVICES: ServiceCardItem[] = [
 
 export const ServicesGrid: React.FC = () => {
   return (
-    <section id="services" className="py-10 sm:py-12 bg-white border-b border-gray-200/80 text-bd-navy relative">
+    <section id="services" className="py-12 sm:py-14 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 text-bd-navy relative">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* Compact Section Header */}
         <div className="flex flex-col items-center text-center mb-6 sm:mb-8">
@@ -116,7 +116,7 @@ export const ServicesGrid: React.FC = () => {
               <div key={service.id}>
                 <Link
                   href={service.href}
-                  className="group relative bg-[#F8FAFC] border border-gray-200 rounded-xl p-3 sm:p-3.5 flex flex-row items-center gap-3.5 transition-all duration-300 hover:border-bd-blue hover:bg-white hover:shadow-lg hover:-translate-y-0.5"
+                  className="group relative bg-white border border-gray-200/90 rounded-xl p-3 sm:p-3.5 flex flex-row items-center gap-3.5 transition-all duration-300 hover:border-bd-blue hover:shadow-lg hover:-translate-y-0.5"
                 >
                   {/* Left Side: Crisp Image Thumbnail */}
                   <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden shrink-0 bg-gray-100 border border-gray-200">

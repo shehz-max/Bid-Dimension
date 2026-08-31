@@ -4,7 +4,7 @@ import { Hero } from '@/components/organisms/Hero';
 import { ServicesGrid } from '@/components/organisms/ServicesGrid';
 import { ProcessTimeline } from '@/components/organisms/ProcessTimeline';
 import { SoftwareSuite } from '@/components/organisms/SoftwareSuite';
-import { FAQSection } from '@/components/organisms/FAQSection';
+import { NationwideLicenseSection } from '@/components/organisms/NationwideLicenseSection';
 import { CtaBanner } from '@/components/organisms/CtaBanner';
 import { Button } from '@/components/atoms/Button';
 import { FadeInUp } from '@/components/animation/FadeInUp';
@@ -112,8 +112,8 @@ export default function HomePage() {
       {/* 3. Services Section (Single-Screen Viewport 3x2 Grid with Ultra-Sharp Photography Thumbnails) */}
       <ServicesGrid />
 
-      {/* 3.5. Who We Are / Our Story Section (From the Field to the Drawing Board - Extracted from Client Screenshot 2) */}
-      <section className="py-14 sm:py-16 bg-[#F8FAFC] border-b border-gray-200/80 text-bd-navy relative">
+      {/* 3.5. Who We Are / Our Story Section (From the Field to the Drawing Board) */}
+      <section className="py-14 sm:py-16 bg-white border-b border-gray-200/80 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Column: Story Prose */}
@@ -239,8 +239,8 @@ export default function HomePage() {
       {/* 6. Software & Engineering Technology Section */}
       <SoftwareSuite />
 
-      {/* 7. Clean Interactive FAQ Section */}
-      <FAQSection />
+      {/* 7. 50-State Nationwide License Coverage Section */}
+      <NationwideLicenseSection />
 
       {/* 8. Consistent Brand CTA Banner */}
       <CtaBanner />

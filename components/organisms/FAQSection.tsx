@@ -106,13 +106,13 @@ export const FAQSection: React.FC = () => {
                   <a href="tel:7472237815" className="font-mono text-xs font-semibold text-bd-navy hover:text-bd-blue transition-colors">
                     (747) 223-7815
                   </a>
-                  <Link
-                    href="/contact"
+                  <a
+                    href="mailto:info@biddimensions.us?subject=Custom%20Engineering%20Question%20-%20Bid%20Dimensions"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-bd-navy hover:bg-bd-blue text-white font-display font-semibold text-xs rounded transition-colors shadow-xs"
                   >
                     <span>Ask an Engineer</span>
                     <ArrowRight className="w-3.5 h-3.5 text-bd-blue" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </FadeInUp>

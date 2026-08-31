@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Hero } from '@/components/organisms/Hero';
 import { QuoteForm } from '@/components/organisms/QuoteForm';
+import { FAQSection } from '@/components/organisms/FAQSection';
 import { NationwideLicenseSection } from '@/components/organisms/NationwideLicenseSection';
 import { FadeInUp } from '@/components/animation/FadeInUp';
 import { StaggerContainer } from '@/components/animation/StaggerContainer';
@@ -131,7 +132,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3. Core Pillars */}
-      <section className="py-14 sm:py-16 bg-[#F8FAFC] border-b border-gray-200/80 text-bd-navy">
+      <section className="py-14 sm:py-16 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 text-bd-navy">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center text-center mb-10">
             <FadeInUp>
@@ -255,7 +256,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. 50-State Nationwide License Coverage Section */}
+      {/* 5. Frequently Asked Questions Section */}
+      <FAQSection />
+
+      {/* 6. 50-State Nationwide License Coverage Section */}
       <NationwideLicenseSection />
     </div>
   );
