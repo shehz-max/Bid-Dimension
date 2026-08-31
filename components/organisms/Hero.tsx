@@ -108,55 +108,19 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Service & Subpage Hero variant (Full-Bleed Background with Flawless Aesthetic Multi-Directional Fade)
+  // Service & Subpage Hero variant (Clean Architectural 2-Column Hero - No Blurry Fades)
   return (
-    <section className="relative min-h-[440px] sm:min-h-[480px] flex items-center pt-28 sm:pt-32 pb-14 sm:pb-16 bg-[#F8FAFC] border-b border-gray-200/90 overflow-hidden text-bd-navy">
-      {/* Right-Positioned Discipline Artwork with Multi-Directional Organic Fade */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[62%] pointer-events-none z-0 overflow-hidden">
-        <img
-          src={image || '/images/hero-structural-bg.jpg'}
-          alt={headline || 'Engineering discipline background'}
-          className="w-full h-full object-cover object-center filter contrast-105"
-        />
-
-        {/* 1. Horizontal Left-to-Right Fade (Solid Canvas under text) */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 18%, rgba(248, 250, 252, 0.85) 38%, rgba(248, 250, 252, 0.25) 65%, transparent 92%)',
-          }}
-        />
-
-        {/* 2. Bottom-to-Top Fade (Dissolves image into #F8FAFC before reaching the bottom border so the border is 100% crisp) */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              'linear-gradient(to top, #F8FAFC 0%, #F8FAFC 10%, rgba(248, 250, 252, 0.7) 25%, transparent 50%)',
-          }}
-        />
-
-        {/* 3. Top-to-Bottom Subtle Fade (Transitions cleanly beneath the fixed navbar) */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              'linear-gradient(to bottom, #F8FAFC 0%, rgba(248, 250, 252, 0.5) 12%, transparent 30%)',
-          }}
-        />
-      </div>
-
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full z-10 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Left Column: Typography and CTA */}
-          <div className="lg:col-span-7 flex flex-col items-start max-w-xl">
+    <section className="relative pt-28 sm:pt-32 pb-12 sm:pb-16 bg-[#F8FAFC] border-b border-gray-200/90 text-bd-navy">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Column: Breadcrumb, Typography, Badges, and CTA (7 Columns) */}
+          <div className="lg:col-span-7 flex flex-col items-start">
             {breadcrumb && breadcrumb.length > 0 && (
               <FadeInUp delay={0.05}>
                 <nav className="flex items-center gap-1.5 text-xs text-bd-gray font-mono mb-3">
                   {breadcrumb.map((crumb, idx) => (
                     <React.Fragment key={crumb.href}>
-                      {idx > 0 && <span className="text-gray-400">/</span>}
+                      {idx > 0 && <span className="text-gray-300">/</span>}
                       {idx === breadcrumb.length - 1 ? (
                         <span className="text-bd-blue font-semibold">{crumb.label}</span>
                       ) : (
@@ -170,31 +134,70 @@ export const Hero: React.FC<HeroProps> = ({
               </FadeInUp>
             )}
 
+            {label && (
+              <FadeInUp delay={0.08}>
+                <span className="font-mono text-xs font-semibold uppercase tracking-widest text-bd-blue mb-2.5 block">
+                  {label}
+                </span>
+              </FadeInUp>
+            )}
+
             <FadeInUp delay={0.1}>
-              <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-[1.12] tracking-tight text-bd-navy mb-4">
+              <h1 className="font-display font-bold text-3xl sm:text-42px lg:text-46px leading-[1.12] tracking-tight text-bd-navy mb-4">
                 {headline}
               </h1>
             </FadeInUp>
 
             {subheadline && (
               <FadeInUp delay={0.2}>
-                <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-6">
+                <p className="font-body text-sm sm:text-base text-bd-gray leading-relaxed mb-6 max-w-xl">
                   {subheadline}
                 </p>
               </FadeInUp>
             )}
 
-            {cta && (
-              <FadeInUp delay={0.3}>
-                <Button variant="primary" size="md" href={cta.href}>
-                  {cta.text}
-                </Button>
-              </FadeInUp>
-            )}
+            <FadeInUp delay={0.3}>
+              <div className="flex flex-wrap items-center gap-3.5">
+                {cta && (
+                  <Button variant="primary" size="md" href={cta.href}>
+                    {cta.text}
+                  </Button>
+                )}
+
+                {secondaryCta && (
+                  <Button variant="secondary" size="md" href={secondaryCta.href}>
+                    {secondaryCta.text}
+                  </Button>
+                )}
+              </div>
+            </FadeInUp>
           </div>
 
-          {/* Right Column: Clean Open Space Revealing Background Artwork */}
-          <div className="lg:col-span-5 hidden lg:block" />
+          {/* Right Column: Crisp Architectural Image Viewport Card (5 Columns) */}
+          <div className="lg:col-span-5 w-full">
+            <FadeInUp delay={0.25}>
+              <div className="relative rounded-2xl overflow-hidden border border-gray-200/90 shadow-lg bg-white p-2.5 group">
+                <div className="relative h-64 sm:h-72 lg:h-80 w-full rounded-xl overflow-hidden bg-gray-100">
+                  <img
+                    src={image || '/images/hero-structural-bg.jpg'}
+                    alt={headline || 'Engineering discipline showcase'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+
+                  {/* Corner Floating Spec Badges */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] text-white">
+                    <span className="px-2.5 py-1 bg-bd-navy/90 backdrop-blur-md border border-white/20 rounded-md font-semibold">
+                      50-STATE PE LICENSED
+                    </span>
+                    <span className="px-2.5 py-1 bg-bd-blue/90 backdrop-blur-md rounded-md font-bold">
+                      10–12D TURNAROUND
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
         </div>
       </div>
     </section>
