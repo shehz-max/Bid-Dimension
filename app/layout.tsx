@@ -91,6 +91,10 @@ const localBusinessSchema = {
   priceRange: '$$',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: '15442 Ventura Blvd., Ste 201-2215',
+    addressLocality: 'Sherman Oaks',
+    addressRegion: 'CA',
+    postalCode: '91403',
     addressCountry: 'US',
   },
   openingHoursSpecification: [

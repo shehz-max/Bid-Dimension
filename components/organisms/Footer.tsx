@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUp, Phone, Mail, Clock, ShieldCheck, ArrowRight } from 'lucide-react';
+import { ArrowUp, Phone, Mail, Clock, ShieldCheck, ArrowRight, MapPin } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -106,7 +106,23 @@ export const Footer: React.FC = () => {
           {/* Col 4: Contact & Instant Action (3 Cols) */}
           <div className="lg:col-span-3 flex flex-col gap-3">
             <h4 className="font-mono text-xs uppercase tracking-widest text-bd-blue font-semibold">Contact</h4>
-            <div className="flex flex-col gap-2 text-sm text-bd-text-muted">
+            <div className="flex flex-col gap-2.5 text-sm text-bd-text-muted">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=15442+Ventura+Blvd+Ste+201-2215+Sherman+Oaks+CA+91403"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-2 hover:text-bd-blue transition-colors group text-xs sm:text-sm"
+              >
+                <MapPin className="w-4 h-4 text-bd-blue shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                <div className="flex flex-col leading-snug">
+                  <span>15442 Ventura Blvd., Ste 201-2215</span>
+                  <span>Sherman Oaks, CA 91403</span>
+                  <span className="text-[10px] font-mono text-bd-blue/80 group-hover:text-bd-blue transition-colors mt-0.5">
+                    Open in Google Maps ↗
+                  </span>
+                </div>
+              </a>
+
               <a href="tel:7472237815" className="flex items-center gap-2 hover:text-bd-blue transition-colors">
                 <Phone className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>(747) 223-7815</span>
@@ -123,7 +139,7 @@ export const Footer: React.FC = () => {
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase text-bd-blue hover:text-white transition-colors mt-2"
+              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase text-bd-blue hover:text-white transition-colors mt-1"
             >
               <span>Get a Quote</span>
               <ArrowRight className="w-3.5 h-3.5" />

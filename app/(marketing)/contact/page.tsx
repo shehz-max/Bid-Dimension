@@ -78,6 +78,30 @@ export default function ContactPage() {
               {/* Direct Info Blocks */}
               <FadeInUp delay={0.45}>
                 <div className="flex flex-col gap-4 pt-2">
+                  {/* Address / Google Maps */}
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=15442+Ventura+Blvd+Ste+201-2215+Sherman+Oaks+CA+91403"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 p-4 bg-white border border-gray-200 rounded-xl hover:border-bd-blue shadow-xs transition-all group"
+                  >
+                    <div className="w-11 h-11 bg-[#EBF3FA] border border-[#4A8AB8]/30 rounded-lg flex items-center justify-center text-bd-blue shrink-0 group-hover:bg-bd-navy group-hover:text-white transition-all">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="font-mono text-[11px] text-bd-gray block uppercase font-semibold">Office Location</span>
+                      <span className="font-display font-semibold text-sm text-bd-navy group-hover:text-bd-blue transition-colors block">
+                        15442 Ventura Blvd., Ste 201-2215
+                      </span>
+                      <span className="font-body text-xs text-bd-gray block">
+                        Sherman Oaks, CA 91403
+                      </span>
+                      <span className="text-[10px] font-mono text-bd-blue group-hover:underline block mt-0.5">
+                        Open in Google Maps ↗
+                      </span>
+                    </div>
+                  </a>
+
                   {/* Phone */}
                   <a
                     href="tel:7472237815"
