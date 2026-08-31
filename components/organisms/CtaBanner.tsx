@@ -17,7 +17,7 @@ export interface CtaBannerProps {
 
 export const CtaBanner: React.FC<CtaBannerProps> = ({
   tagline = 'READY TO START YOUR PROJECT?',
-  headline = 'Get Your Permit-Ready Plans & Takeoffs in 7–14 Days',
+  headline = 'Get Your Permit-Ready Plans in 10–12 Days',
   subheadline = 'Upload your CAD or PDF drawings today for a detailed, fixed-fee engineering proposal and swift city permit turnaround.',
   primaryCtaText = 'Get a Quote',
   primaryCtaHref = '/contact',
@@ -74,7 +74,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 pt-8 border-t border-gray-200/80 max-w-2xl mx-auto font-mono text-[10px] sm:text-[11px] text-bd-navy font-semibold">
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-bd-blue shrink-0" />
-              <span>7–14 DAY TURNAROUND</span>
+              <span>10–12 DAY TURNAROUND</span>
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-bd-blue shrink-0" />

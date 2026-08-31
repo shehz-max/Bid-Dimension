@@ -175,7 +175,7 @@ export default function HomePage() {
                       <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">States</span>
                     </div>
                     <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-base sm:text-lg text-bd-blue block">7–14d</span>
+                      <span className="font-display font-bold text-base sm:text-lg text-bd-blue block">10–12d</span>
                       <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">Turnaround</span>
                     </div>
                   </div>

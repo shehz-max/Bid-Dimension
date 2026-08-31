@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '3D Architectural Rendering Services | Photorealistic Visuals',
     description:
-      'Photorealistic 3D architectural rendering services. 7-14 day turnaround, 50-state coverage.',
+      'Photorealistic 3D architectural rendering services. 10-12 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/rendering-services',
     images: [{ url: '/images/service-thumb-rendering.jpg', width: 1200, height: 630 }],
   },

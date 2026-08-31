@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Architectural Design Services | Permit-Ready Floor Plans',
     description:
-      'Permit-ready architectural design services for residential and commercial projects. 7-14 day turnaround, 50-state coverage.',
+      'Permit-ready architectural design services for residential and commercial projects. 10-12 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/architectural-design',
     images: [{ url: '/images/arch-hero-spec.jpg', width: 1200, height: 630 }],
   },

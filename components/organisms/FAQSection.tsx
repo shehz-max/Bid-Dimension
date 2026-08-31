@@ -53,7 +53,7 @@ const FAQ_LIST: FAQItem[] = [
     category: 'TURNAROUND',
     question: 'What is your standard turnaround time for PE plans?',
     answer:
-      'Our standard engineering turnaround is 7 to 14 days for complete residential and commercial calculation packages and PE-stamped permit drawing sets.',
+      'Our standard engineering turnaround is 10 to 12 days for complete residential and commercial calculation packages and PE-stamped permit drawing sets.',
   },
 ];
 
@@ -85,7 +85,7 @@ export const FAQSection: React.FC = () => {
 
               <FadeInUp delay={0.2}>
                 <p className="font-body text-xs sm:text-sm text-bd-gray leading-relaxed mb-6">
-                  Everything you need to know about our permit-ready drawings, PE stamping, 7–14 day turnarounds, and multidisciplinary coordination.
+                  Everything you need to know about our permit-ready drawings, PE stamping, 10–12 day turnarounds, and multidisciplinary coordination.
                 </p>
               </FadeInUp>
             </div>

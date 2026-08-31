@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Construction Estimation & Quantity Takeoffs | Bid Dimensions',
     description:
-      'Accurate construction cost estimation and material quantity takeoff services. 7-14 day turnaround, 50-state coverage.',
+      'Accurate construction cost estimation and material quantity takeoff services. 10-12 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/estimation',
     images: [{ url: '/images/est-hero-spec.jpg', width: 1200, height: 630 }],
   },
@@ -125,7 +125,7 @@ export default function EstimationPage() {
         {
           question: 'What is your turnaround time for a complete quantity takeoff?',
           answer:
-            'Standard residential and commercial quantity takeoffs are delivered within 7 to 14 days with complete itemized material breakdowns.',
+            'Standard residential and commercial quantity takeoffs are delivered within 10 to 12 days with complete itemized material breakdowns.',
         },
       ]}
       jsonLdSchema={serviceSchema}

@@ -372,7 +372,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                   Need Drawings Prepared for Permit Approval?
                 </h4>
                 <p className="font-body text-xs text-bd-gray leading-relaxed">
-                  Upload your project sketch or requirements today for a fast 7-14 day PE-stamped engineering proposal.
+                  Upload your project sketch or requirements today for a fast 10-12 day PE-stamped engineering proposal.
                 </p>
                 <Link
                   href="/contact"

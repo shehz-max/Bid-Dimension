@@ -150,7 +150,7 @@ export async function POST(request: Request) {
                 <strong>What happens next?</strong>
                 <ul style="margin: 8px 0 0 0; padding-left: 20px; color: #475569;">
                   <li>Our licensed engineers will review your project scope and plan check requirements.</li>
-                  <li>We will prepare an itemized, fixed-fee proposal within our standard 7–14 day turnaround.</li>
+                  <li>We will prepare an itemized, fixed-fee proposal within our standard 10–12 day turnaround.</li>
                   <li>If we need additional CAD/BIM files or site info, our team will reach out via ${preferredContact}.</li>
                 </ul>
               </div>
@@ -179,7 +179,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Quote request submitted successfully. Our engineering team will review your plans within 7-14 days.',
+        message: 'Quote request submitted successfully. Our engineering team will review your plans within 10-12 days.',
       },
       { status: 200 }
     );

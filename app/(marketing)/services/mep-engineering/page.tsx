@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'MEP Engineering Services | Mechanical, Electrical, Plumbing',
     description:
-      'Licensed PE mechanical, electrical, and plumbing engineering services. 7-14 day turnaround, 50-state coverage.',
+      'Licensed PE mechanical, electrical, and plumbing engineering services. 10-12 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/mep-engineering',
     images: [{ url: '/images/mep-hero-spec.jpg', width: 1200, height: 630 }],
   },

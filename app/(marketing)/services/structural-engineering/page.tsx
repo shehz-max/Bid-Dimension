@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Licensed Structural Engineering Services | PE Stamped Plans',
     description:
-      'Licensed PE structural engineering services for commercial & residential construction. 7-14 day turnaround, 50-state coverage.',
+      'Licensed PE structural engineering services for commercial & residential construction. 10-12 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/structural-engineering',
     images: [{ url: '/images/struct-hero-spec.jpg', width: 1200, height: 630 }],
   },
