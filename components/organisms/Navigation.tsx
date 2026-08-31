@@ -370,72 +370,72 @@ export const Navigation: React.FC<NavigationProps> = () => {
         </button>
       </div>
 
-      {/* Mobile Fullscreen Overlay */}
+      {/* Mobile Fullscreen Overlay with Smooth Scrolling */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-18 sm:top-20 bg-white z-40 p-6 sm:p-8 flex flex-col justify-between overflow-y-auto text-bd-navy border-t border-gray-200">
-          <div className="flex flex-col gap-3.5">
-            <div className="text-bd-blue font-mono text-xs uppercase tracking-widest border-b border-gray-200 pb-2">
+        <div className="md:hidden fixed inset-x-0 top-18 sm:top-20 bottom-0 bg-white z-40 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto text-bd-navy border-t border-gray-200 shadow-2xl">
+          <div className="flex flex-col gap-2.5">
+            <div className="text-bd-blue font-mono text-[11px] uppercase tracking-widest border-b border-gray-200 pb-2 font-semibold">
               Navigation
             </div>
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
-                isHomeActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              className={`text-base font-display font-bold flex items-center gap-2.5 p-2.5 rounded-xl min-h-[44px] transition-colors ${
+                isHomeActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue hover:bg-gray-50'
               }`}
             >
-              <HomeIcon className="w-5 h-5" />
+              <HomeIcon className="w-5 h-5 text-bd-blue" />
               <span>Home</span>
             </Link>
 
-            <div className="flex flex-col gap-2 pl-3 border-l-2 border-[#EBF3FA] my-1">
-              <span className="text-[11px] font-mono text-bd-gray uppercase font-semibold">Services</span>
+            <div className="flex flex-col gap-1 pl-2 sm:pl-3 border-l-2 border-[#4A8AB8]/30 my-1">
+              <span className="text-[10px] font-mono text-bd-gray uppercase font-semibold px-2.5 py-1">Services</span>
               <Link
                 href="/services/structural-engineering"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
+                className="text-xs sm:text-sm text-bd-navy hover:text-bd-blue hover:bg-[#EBF3FA] flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-colors min-h-[40px]"
               >
-                <HardHat className="w-4 h-4 text-bd-blue" />
+                <HardHat className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>Structural Engineering</span>
               </Link>
               <Link
                 href="/services/architectural-design"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
+                className="text-xs sm:text-sm text-bd-navy hover:text-bd-blue hover:bg-[#EBF3FA] flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-colors min-h-[40px]"
               >
-                <Compass className="w-4 h-4 text-bd-blue" />
+                <Compass className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>Architectural Design</span>
               </Link>
               <Link
                 href="/services/mep-engineering"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
+                className="text-xs sm:text-sm text-bd-navy hover:text-bd-blue hover:bg-[#EBF3FA] flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-colors min-h-[40px]"
               >
-                <Cpu className="w-4 h-4 text-bd-blue" />
+                <Cpu className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>MEP Engineering</span>
               </Link>
               <Link
                 href="/services/bim-cad-services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
+                className="text-xs sm:text-sm text-bd-navy hover:text-bd-blue hover:bg-[#EBF3FA] flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-colors min-h-[40px]"
               >
-                <Layers className="w-4 h-4 text-bd-blue" />
+                <Layers className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>BIM & CAD Services</span>
               </Link>
               <Link
                 href="/services/rendering-services"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
+                className="text-xs sm:text-sm text-bd-navy hover:text-bd-blue hover:bg-[#EBF3FA] flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-colors min-h-[40px]"
               >
-                <Sparkles className="w-4 h-4 text-bd-blue" />
+                <Sparkles className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>3D Rendering Services</span>
               </Link>
               <Link
                 href="/services/estimation"
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm text-bd-navy hover:text-bd-blue flex items-center gap-2 py-1"
+                className="text-xs sm:text-sm text-bd-navy hover:text-bd-blue hover:bg-[#EBF3FA] flex items-center gap-2.5 px-2.5 py-2 rounded-lg transition-colors min-h-[40px]"
               >
-                <Calculator className="w-4 h-4 text-bd-blue" />
+                <Calculator className="w-4 h-4 text-bd-blue shrink-0" />
                 <span>Estimation & Takeoffs</span>
               </Link>
             </div>
@@ -443,42 +443,42 @@ export const Navigation: React.FC<NavigationProps> = () => {
             <Link
               href="/projects"
               onClick={() => setMobileMenuOpen(false)}
-              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
-                isProjectsActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              className={`text-base font-display font-bold flex items-center gap-2.5 p-2.5 rounded-xl min-h-[44px] transition-colors ${
+                isProjectsActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue hover:bg-gray-50'
               }`}
             >
-              <FolderGit2 className="w-5 h-5" />
+              <FolderGit2 className="w-5 h-5 text-bd-blue" />
               <span>Projects</span>
             </Link>
 
             <Link
               href="/blog"
               onClick={() => setMobileMenuOpen(false)}
-              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
-                isJournalActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              className={`text-base font-display font-bold flex items-center gap-2.5 p-2.5 rounded-xl min-h-[44px] transition-colors ${
+                isJournalActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue hover:bg-gray-50'
               }`}
             >
-              <BookOpen className="w-5 h-5" />
+              <BookOpen className="w-5 h-5 text-bd-blue" />
               <span>Journal</span>
             </Link>
 
             <Link
               href="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className={`text-lg font-display font-bold flex items-center gap-2 p-2 rounded-lg ${
-                isAboutActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue'
+              className={`text-base font-display font-bold flex items-center gap-2.5 p-2.5 rounded-xl min-h-[44px] transition-colors ${
+                isAboutActive ? 'text-bd-blue bg-[#EBF3FA]' : 'text-bd-navy hover:text-bd-blue hover:bg-gray-50'
               }`}
             >
-              <Info className="w-5 h-5" />
+              <Info className="w-5 h-5 text-bd-blue" />
               <span>About Us</span>
             </Link>
           </div>
 
-          <div className="pt-6 border-t border-gray-200">
+          <div className="pt-4 pb-2 border-t border-gray-200 mt-4">
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3.5 bg-bd-navy text-center text-white font-bold text-sm rounded-lg shadow-sm uppercase tracking-wider hover:bg-bd-blue transition-colors block"
+              className="w-full py-3.5 bg-bd-navy text-center text-white font-display font-bold text-sm rounded-xl shadow-md uppercase tracking-wider hover:bg-bd-blue transition-colors block"
             >
               Get a Quote
             </Link>

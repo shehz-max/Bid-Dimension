@@ -263,8 +263,8 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
               </FadeInUp>
             </div>
 
-            {/* RIGHT COLUMN: Sticky Sidebar (4 Columns) */}
-            <aside className="lg:col-span-4 flex flex-col gap-6 sticky top-24 lg:top-28">
+            {/* RIGHT COLUMN: Sidebar (Static on mobile, Sticky on desktop) */}
+            <aside className="lg:col-span-4 flex flex-col gap-6 relative lg:sticky lg:top-28">
               
               {/* Card 1: Our Solutions Navigation */}
               <div className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-sm">
