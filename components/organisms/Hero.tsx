@@ -108,23 +108,41 @@ export const Hero: React.FC<HeroProps> = ({
     );
   }
 
-  // Service & Subpage Hero variant (Full-Bleed Background with Flawless Aesthetic Fade)
+  // Service & Subpage Hero variant (Full-Bleed Background with Flawless Aesthetic Multi-Directional Fade)
   return (
-    <section className="relative min-h-[460px] sm:min-h-[500px] flex items-center pt-28 sm:pt-32 pb-14 sm:pb-16 bg-[#F8FAFC] border-b border-gray-200 overflow-hidden text-bd-navy">
-      {/* Right-Positioned Full-Bleed Discipline Artwork with Organic Fade */}
-      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[65%] pointer-events-none z-0 overflow-hidden">
+    <section className="relative min-h-[440px] sm:min-h-[480px] flex items-center pt-28 sm:pt-32 pb-14 sm:pb-16 bg-[#F8FAFC] border-b border-gray-200/90 overflow-hidden text-bd-navy">
+      {/* Right-Positioned Discipline Artwork with Multi-Directional Organic Fade */}
+      <div className="absolute top-0 right-0 bottom-0 w-full lg:w-[62%] pointer-events-none z-0 overflow-hidden">
         <img
           src={image || '/images/hero-structural-bg.jpg'}
           alt={headline || 'Engineering discipline background'}
           className="w-full h-full object-cover object-center filter contrast-105"
         />
 
-        {/* Flawless Gradient Fade: 100% Solid Light Canvas under text, Smooth Soft Transition */}
+        {/* 1. Horizontal Left-to-Right Fade (Solid Canvas under text) */}
         <div
           className="absolute inset-0 z-0"
           style={{
             background:
-              'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 12%, rgba(248, 250, 252, 0.85) 30%, rgba(248, 250, 252, 0.35) 55%, transparent 85%)',
+              'linear-gradient(to right, #F8FAFC 0%, #F8FAFC 18%, rgba(248, 250, 252, 0.85) 38%, rgba(248, 250, 252, 0.25) 65%, transparent 92%)',
+          }}
+        />
+
+        {/* 2. Bottom-to-Top Fade (Dissolves image into #F8FAFC before reaching the bottom border so the border is 100% crisp) */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              'linear-gradient(to top, #F8FAFC 0%, #F8FAFC 10%, rgba(248, 250, 252, 0.7) 25%, transparent 50%)',
+          }}
+        />
+
+        {/* 3. Top-to-Bottom Subtle Fade (Transitions cleanly beneath the fixed navbar) */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              'linear-gradient(to bottom, #F8FAFC 0%, rgba(248, 250, 252, 0.5) 12%, transparent 30%)',
           }}
         />
       </div>
@@ -133,6 +151,25 @@ export const Hero: React.FC<HeroProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Typography and CTA */}
           <div className="lg:col-span-7 flex flex-col items-start max-w-xl">
+            {breadcrumb && breadcrumb.length > 0 && (
+              <FadeInUp delay={0.05}>
+                <nav className="flex items-center gap-1.5 text-xs text-bd-gray font-mono mb-3">
+                  {breadcrumb.map((crumb, idx) => (
+                    <React.Fragment key={crumb.href}>
+                      {idx > 0 && <span className="text-gray-400">/</span>}
+                      {idx === breadcrumb.length - 1 ? (
+                        <span className="text-bd-blue font-semibold">{crumb.label}</span>
+                      ) : (
+                        <Link href={crumb.href} className="hover:text-bd-navy transition-colors">
+                          {crumb.label}
+                        </Link>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </nav>
+              </FadeInUp>
+            )}
+
             <FadeInUp delay={0.1}>
               <h1 className="font-display font-bold text-3xl sm:text-44px lg:text-48px leading-[1.12] tracking-tight text-bd-navy mb-4">
                 {headline}

@@ -31,7 +31,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const baseClasses =
-    'relative inline-flex items-center justify-center font-display font-semibold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none group';
+    'relative inline-flex items-center justify-center font-display font-semibold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-bd-blue focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none group overflow-hidden';
 
   let variantClasses = '';
 
@@ -58,6 +58,9 @@ export const Button: React.FC<ButtonProps> = ({
 
   const content = (
     <>
+      {variant === 'primary' && (
+        <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+      )}
       {variant === 'secondary' && (
         <span className="absolute inset-0 w-0 bg-bd-navy transition-all duration-300 ease-out group-hover:w-full -z-10" />
       )}

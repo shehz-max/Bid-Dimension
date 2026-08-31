@@ -91,7 +91,7 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
       />
 
       {/* 2-Column Main Layout Matching Primecost Reference */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy">
+      <section className="py-16 sm:py-20 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 text-bd-navy">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             

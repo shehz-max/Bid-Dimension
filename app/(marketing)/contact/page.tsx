@@ -52,7 +52,7 @@ export default function ContactPage() {
       />
 
       {/* 2. Contact Info + Multi-Step Form (Two-column) */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 relative text-bd-navy">
+      <section className="py-20 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 relative text-bd-navy">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Column: Contact Info & Photo */}

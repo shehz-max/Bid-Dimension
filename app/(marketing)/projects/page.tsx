@@ -33,7 +33,7 @@ export default function ProjectsPage() {
       />
 
       {/* Projects Grid Section */}
-      <section className="py-20 bg-[#F8FAFC] border-b border-gray-200 text-bd-navy relative">
+      <section className="py-20 bg-[#EBF3FA] border-b border-[#4A8AB8]/20 text-bd-navy relative">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           {/* Section Header */}
           <div className="flex flex-col items-center text-center mb-10">
