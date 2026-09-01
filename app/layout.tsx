@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: '%s | Bid Dimensions',
   },
   description:
-    'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 10-12 day turnaround. Get your free quote today.',
+    'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 5-10 day turnaround. Get your free quote today.',
   keywords: [
     'structural engineering',
     'architectural design',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: 'Bid Dimensions',
     title: 'Bid Dimensions | Engineering & Design Services',
     description:
-      'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 10-12 day turnaround.',
+      'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 5-10 day turnaround.',
     images: [
       {
         url: '/og-image.png',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Bid Dimensions | Engineering & Design Services',
     description:
-      'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 10-12 day turnaround.',
+      'Full-service structural engineering, architectural design, and MEP services. PE-stamped drawings, 5-10 day turnaround.',
     images: ['/og-image.png'],
   },
   robots: {

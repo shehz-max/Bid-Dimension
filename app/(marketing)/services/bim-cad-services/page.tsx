@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'BIM & CAD Drafting Services | Revit 3D Clash Detection',
     description:
-      'Professional BIM & CAD services. Revit 3D modeling, clash detection, shop drawings. 10-12 day turnaround, 50-state coverage.',
+      'Professional BIM & CAD services. Revit 3D modeling, clash detection, shop drawings. 5-10 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/bim-cad-services',
     images: [{ url: '/images/primecost-cad-bg.jpg', width: 1200, height: 630 }],
   },

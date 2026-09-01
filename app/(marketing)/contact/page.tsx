@@ -27,7 +27,7 @@ export default function ContactPage() {
       num: '02',
       icon: FileCheck,
       title: '2. We Quote',
-      desc: 'We issue a comprehensive, fixed-price proposal detailing engineering deliverables, PE stamping, and turnaround timeline in 10–12 days.',
+      desc: 'We issue a comprehensive, fixed-price proposal detailing engineering deliverables, PE stamping, and turnaround timeline in 5–10 days.',
     },
     {
       num: '03',
@@ -43,8 +43,8 @@ export default function ContactPage() {
       <Hero
         variant="page"
         headline="Request a Free PE Engineering Proposal"
-        subheadline="Upload your project plans and receive a detailed, fixed-fee engineering proposal within 10 to 12 days."
-        hudBadge={{ label: 'PROPOSAL RESPONSE', spec: 'DELIVERED IN 10-12 DAYS' }}
+        subheadline="Upload your project plans and receive a detailed, fixed-fee engineering proposal within 5 to 10 days."
+        hudBadge={{ label: 'PROPOSAL RESPONSE', spec: 'DELIVERED IN 5-10 DAYS' }}
         breadcrumb={[
           { label: 'Home', href: '/' },
           { label: 'Contact', href: '/contact' },

@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({
               )}
 
               <FadeInUp delay={0.2}>
-                <h1 className="font-display font-bold text-28px sm:text-5xl lg:text-60px leading-[1.1] tracking-tight text-bd-navy mb-4 sm:mb-6">
+                <h1 className="font-display font-bold text-3xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-bd-navy mb-4 sm:mb-6">
                   {headline}
                 </h1>
               </FadeInUp>
@@ -183,7 +183,7 @@ export const Hero: React.FC<HeroProps> = ({
             )}
 
             <FadeInUp delay={0.1}>
-              <h1 className="font-display font-bold text-24px sm:text-38px lg:text-48px leading-[1.14] tracking-tight text-white mb-3 sm:mb-4">
+              <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl leading-[1.12] tracking-tight text-white mb-3 sm:mb-4">
                 {headline}
               </h1>
             </FadeInUp>

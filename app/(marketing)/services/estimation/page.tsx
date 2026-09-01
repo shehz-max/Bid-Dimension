@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Construction Estimation & Quantity Takeoffs | Bid Dimensions',
     description:
-      'Accurate construction cost estimation and material quantity takeoff services. 10-12 day turnaround, 50-state coverage.',
+      'Accurate construction cost estimation and material quantity takeoff services. 5-10 day turnaround, 50-state coverage.',
     url: 'https://biddimensions.us/services/estimation',
     images: [{ url: '/images/est-hero-spec.jpg', width: 1200, height: 630 }],
   },

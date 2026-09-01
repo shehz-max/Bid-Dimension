@@ -85,7 +85,7 @@ export const FAQSection: React.FC = () => {
 
               <FadeInUp delay={0.2}>
                 <p className="font-body text-xs sm:text-sm text-bd-gray leading-relaxed mb-6">
-                  Everything you need to know about our permit-ready drawings, PE stamping, 10–12 day turnarounds, and multidisciplinary coordination.
+                  Everything you need to know about our permit-ready drawings, PE stamping, 5–10 day turnarounds, and multidisciplinary coordination.
                 </p>
               </FadeInUp>
             </div>

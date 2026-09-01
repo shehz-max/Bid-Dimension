@@ -7,7 +7,7 @@ import { CheckCircle2, Phone, Mail, FileCheck, ArrowRight, ShieldCheck } from 'l
 export const metadata: Metadata = {
   title: 'Thank You for Requesting a Quote | Bid Dimensions',
   description:
-    'Thank you for submitting your engineering proposal request. Our PE structural engineering team is reviewing your plans and will respond within 10-12 days.',
+    'Thank you for submitting your engineering proposal request. Our PE structural engineering team is reviewing your plans and will respond within 5-10 days.',
   robots: {
     index: false,
     follow: false,

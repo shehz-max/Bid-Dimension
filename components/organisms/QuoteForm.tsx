@@ -126,7 +126,7 @@ export const QuoteForm: React.FC = () => {
           Quote Request Received!
         </h3>
         <p className="font-body text-sm sm:text-base text-bd-gray max-w-md mb-6 sm:mb-8 leading-relaxed">
-          Thank you for choosing Bid Dimensions. Our licensed engineering team is reviewing your plans and will respond with a detailed proposal within 10–12 days.
+          Thank you for choosing Bid Dimensions. Our licensed engineering team is reviewing your plans and will respond with a detailed proposal within 5–10 days.
         </p>
         <div className="font-mono text-xs sm:text-sm text-bd-navy border border-[#4A8AB8]/30 bg-[#EBF3FA] px-5 py-3 rounded-xl mb-6 font-semibold">
           Urgent project? Call us directly: <a href="tel:7472237815" className="text-bd-blue underline hover:text-bd-navy">(747) 223-7815</a>

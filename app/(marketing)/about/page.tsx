@@ -37,8 +37,8 @@ const pillars = [
   },
   {
     iconName: 'cpu',
-    title: '10-12 Day Turnaround',
-    desc: 'Our streamlined CAD and Revit BIM workflows deliver permit-ready engineering packages in standard 10–12 day turnarounds.',
+    title: '5-10 Day Turnaround',
+    desc: 'Our streamlined CAD and Revit BIM workflows deliver permit-ready engineering packages in standard 5–10 day turnarounds.',
   },
   {
     iconName: 'shield',
@@ -120,7 +120,7 @@ export default function AboutPage() {
                       <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">States</span>
                     </div>
                     <div className="p-2.5 bg-[#F8FAFC] rounded-lg border border-gray-100">
-                      <span className="font-display font-bold text-lg sm:text-xl text-bd-blue block">10–12d</span>
+                      <span className="font-display font-bold text-lg sm:text-xl text-bd-blue block">5–10d</span>
                       <span className="font-mono text-[9px] text-bd-gray uppercase font-semibold">Turnaround</span>
                     </div>
                   </div>
