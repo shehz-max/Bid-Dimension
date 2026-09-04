@@ -98,7 +98,7 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = () => {
                   key={step.number}
                   onMouseEnter={() => setActiveStep(step.number)}
                   onMouseLeave={() => setActiveStep(null)}
-                  className={`group relative bg-[#F8FAFC] border rounded-xl p-4.5 sm:p-5 flex flex-col justify-between transition-all duration-300 ${
+                  className={`group relative bg-[#F8FAFC] border rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 ${
                     isHovered
                       ? 'border-bd-blue bg-white shadow-xl -translate-y-1'
                       : 'border-gray-200 hover:border-bd-blue/50 hover:bg-white hover:shadow-md'
@@ -106,10 +106,10 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = () => {
                 >
                   {/* Top Step Pill & Number */}
                   <div>
-                    <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
                       {/* Step Circle with Icon */}
                       <div
-                        className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 shadow-xs ${
+                        className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center transition-all duration-300 shadow-xs ${
                           isHovered
                             ? 'bg-bd-navy text-white scale-105'
                             : 'bg-white border border-[#4A8AB8]/30 text-bd-blue group-hover:bg-[#EBF3FA]'
@@ -123,25 +123,25 @@ export const ProcessTimeline: React.FC<ProcessTimelineProps> = () => {
                         <span className="font-mono text-[9px] font-bold text-bd-blue bg-bd-blue/10 border border-bd-blue/30 px-2 py-0.5 uppercase tracking-wider rounded">
                           {step.badge}
                         </span>
-                        <span className="font-mono font-bold text-lg text-bd-navy/70">
+                        <span className="font-mono font-bold text-base sm:text-lg text-bd-navy/70">
                           {step.number}
                         </span>
                       </div>
                     </div>
 
                     {/* Step Title */}
-                    <h3 className="font-display font-bold text-base text-bd-navy mb-2 group-hover:text-bd-blue transition-colors">
+                    <h3 className="font-display font-bold text-sm sm:text-base text-bd-navy mb-1.5 sm:mb-2 group-hover:text-bd-blue transition-colors">
                       {step.title}
                     </h3>
 
                     {/* Step Description */}
-                    <p className="font-body text-xs text-bd-gray leading-relaxed mb-4 line-clamp-4">
+                    <p className="font-body text-xs text-bd-gray leading-relaxed mb-3.5 sm:mb-4">
                       {step.description}
                     </p>
                   </div>
 
                   {/* Bottom Verification Bullet */}
-                  <div className="pt-3 border-t border-gray-200/80 flex items-center justify-between text-[11px] font-mono text-bd-navy font-semibold">
+                  <div className="pt-2.5 sm:pt-3 border-t border-gray-200/80 flex items-center justify-between text-[11px] font-mono text-bd-navy font-semibold">
                     <span className="flex items-center gap-1.5 truncate">
                       <CheckCircle2 className="w-3.5 h-3.5 text-bd-blue shrink-0" />
                       <span className="truncate">{step.detail}</span>

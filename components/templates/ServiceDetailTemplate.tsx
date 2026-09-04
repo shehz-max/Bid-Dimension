@@ -164,17 +164,17 @@ export const ServiceDetailTemplate: React.FC<ServiceDetailProps> = ({
                     We maintain a strict 6-stage development pipeline to check codes, structural alignment, and model accuracy:
                   </p>
 
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3 sm:gap-3.5">
                     {processSteps.map((step) => (
                       <div
                         key={step.number}
-                        className="flex items-start gap-4 p-3.5 sm:p-4 rounded-xl border border-gray-100 hover:bg-[#F8FAFC] transition-colors"
+                        className="flex items-start gap-3 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-[#F8FAFC] border border-gray-200/80 hover:border-bd-blue/40 hover:bg-white transition-all"
                       >
-                        <div className="w-8 h-8 rounded-full bg-bd-navy text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-xs">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-full bg-bd-navy text-white flex items-center justify-center font-mono font-bold text-xs shrink-0 shadow-xs mt-0.5">
                           {step.number}
                         </div>
-                        <div>
-                          <h3 className="font-display font-bold text-base text-bd-navy mb-1">
+                        <div className="min-w-0">
+                          <h3 className="font-display font-bold text-sm sm:text-base text-bd-navy mb-1">
                             {step.title}
                           </h3>
                           <p className="font-body text-xs sm:text-sm text-bd-gray leading-relaxed">
