@@ -127,6 +127,8 @@ export const SoftwareSuite: React.FC = () => {
                   <img
                     src={tool.logo}
                     alt={tool.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 </div>
@@ -172,6 +174,8 @@ export const SoftwareSuite: React.FC = () => {
                   <img
                     src={tool.logo}
                     alt={tool.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-contain"
                   />
                 </div>

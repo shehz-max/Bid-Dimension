@@ -102,6 +102,8 @@ export default function AboutPage() {
                     <img
                       src="/images/about-team-office.jpg"
                       alt="Bid Dimensions engineering team reviewing structural drawings"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-52 sm:h-64 object-cover"
                     />
                   </div>

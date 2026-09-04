@@ -155,6 +155,8 @@ export default function ContactPage() {
                   <img
                     src="/images/contact-engineers.jpg"
                     alt="Licensed structural engineers reviewing blueprints"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-3 bg-white border-t border-gray-100 flex items-center justify-between font-mono text-[11px] text-bd-navy">

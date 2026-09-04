@@ -84,6 +84,8 @@ export default function ProjectsPage() {
                       <img
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-64 object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute top-3 left-3 px-3 py-1 bg-white/95 backdrop-blur-md border border-gray-200 font-mono text-[10px] text-bd-navy font-semibold rounded-md shadow-xs">

@@ -37,6 +37,8 @@ export const Hero: React.FC<HeroProps> = ({
           <img
             src="/images/hero-blueprint-paper-canvas.jpg"
             alt="Warm architectural blueprint drawing book background"
+            loading="eager"
+            decoding="sync"
             className="w-full h-full object-cover object-center md:object-right opacity-90 sm:opacity-95 filter contrast-105 saturate-105"
           />
 
@@ -125,6 +127,8 @@ export const Hero: React.FC<HeroProps> = ({
         <img
           src={image || '/images/hero-structural-bg.jpg'}
           alt={headline || 'Engineering discipline background'}
+          loading="eager"
+          decoding="sync"
           className="w-full h-full object-cover object-center opacity-70 sm:opacity-75 filter contrast-110 saturate-95"
         />
 
