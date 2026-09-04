@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { FadeInUp } from '@/components/animation/FadeInUp';
-import { ArrowRight, ShieldCheck, Clock, FileCheck } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Clock, FileCheck, Phone } from 'lucide-react';
 
 export interface CtaBannerProps {
   tagline?: string;
@@ -44,9 +44,9 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
           </p>
         </FadeInUp>
 
-        {/* Primary Action Button (Clean, Centered, Quote-Focused) */}
+        {/* Action Buttons: Get a Quote + Call Us */}
         <FadeInUp delay={0.3}>
-          <div className="flex items-center justify-center mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 mb-10">
             <Link
               href={primaryCtaHref}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-bd-navy text-white hover:bg-bd-blue font-display font-bold text-sm sm:text-base transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 rounded-xl border border-bd-navy hover:border-bd-blue group"
@@ -54,6 +54,14 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({
               <span>{primaryCtaText}</span>
               <ArrowRight className="w-4 h-4 text-bd-blue group-hover:translate-x-1 transition-transform" />
             </Link>
+
+            <a
+              href="tel:7472237815"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 bg-white border border-gray-300 font-display font-bold text-sm sm:text-base text-bd-navy hover:border-bd-blue hover:text-bd-blue transition-all shadow-xs hover:-translate-y-0.5 active:translate-y-0 rounded-xl group"
+            >
+              <Phone className="w-4 h-4 text-bd-blue group-hover:scale-110 transition-transform" />
+              <span>Call Us</span>
+            </a>
           </div>
         </FadeInUp>
 

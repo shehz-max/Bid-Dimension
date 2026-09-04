@@ -37,15 +37,15 @@ export const Hero: React.FC<HeroProps> = ({
           <img
             src="/images/hero-blueprint-paper-canvas.jpg"
             alt="Warm architectural blueprint drawing book background"
-            className="w-full h-full object-cover object-right opacity-90 filter contrast-105"
+            className="w-full h-full object-cover object-center md:object-right opacity-90 sm:opacity-95 filter contrast-105 saturate-105"
           />
 
-          {/* Mobile Overlay: Solid light background wash to prevent any text collisions */}
+          {/* Mobile Overlay: Balanced atmospheric fade to reveal the drawing book concept vibrantly */}
           <div
             className="absolute inset-0 z-0 block md:hidden"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(248, 250, 252, 0.95) 0%, rgba(248, 250, 252, 0.88) 60%, rgba(248, 250, 252, 0.70) 100%)',
+                'linear-gradient(to bottom, rgba(248, 250, 252, 0.75) 0%, rgba(248, 250, 252, 0.45) 45%, rgba(248, 250, 252, 0.25) 75%, rgba(248, 250, 252, 0.85) 100%)',
             }}
           />
 
