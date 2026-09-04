@@ -40,12 +40,12 @@ export const Hero: React.FC<HeroProps> = ({
             className="w-full h-full object-cover object-center md:object-right opacity-90 sm:opacity-95 filter contrast-105 saturate-105"
           />
 
-          {/* Mobile Overlay: Balanced atmospheric fade to reveal the drawing book concept vibrantly */}
+          {/* Mobile Overlay: Soft atmospheric fade allowing the drawing book to be fully visible behind the frosted card */}
           <div
             className="absolute inset-0 z-0 block md:hidden"
             style={{
               background:
-                'linear-gradient(to bottom, rgba(248, 250, 252, 0.75) 0%, rgba(248, 250, 252, 0.45) 45%, rgba(248, 250, 252, 0.25) 75%, rgba(248, 250, 252, 0.85) 100%)',
+                'linear-gradient(to bottom, rgba(248, 250, 252, 0.45) 0%, rgba(248, 250, 252, 0.20) 45%, rgba(248, 250, 252, 0.65) 100%)',
             }}
           />
 
@@ -61,8 +61,8 @@ export const Hero: React.FC<HeroProps> = ({
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8 lg:px-12 w-full z-10 relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
-            {/* Zone 1: Left Content (Exact Text Copy 100% from Web.docx) */}
-            <div className="lg:col-span-7 flex flex-col items-start">
+            {/* Zone 1: Left Content with Mobile Frosted Backplate for 100% Crisp Contrast */}
+            <div className="lg:col-span-7 flex flex-col items-start bg-white/85 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-5 sm:p-0 rounded-2xl sm:rounded-none border border-white/90 sm:border-none shadow-sm sm:shadow-none">
               {label && (
                 <FadeInUp delay={0.1}>
                   <span className="font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-widest text-bd-blue mb-3 sm:mb-4 block">
